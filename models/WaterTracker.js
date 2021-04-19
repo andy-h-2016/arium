@@ -2,7 +2,38 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const WaterTrackerSchema = new Schema ({
+  userId: {
+    type: Schema.Types.ObjectId,
+    ref: "users"
+  },
+  terrariumId: {
+    type: Schema.Types.ObjectId,
+    ref: "terrariums"
+  },
+  // tracks total cups of water drank since using our app
+  total: {
+    type: Number,
+    required: true 
+  },
+  // tracks cups of water drank in a day.
+  today: {
+    type: Number,
+    required: true
+  },
+  // we will validate goals in validations
+  // not sure how we would ask users for their goals
+  goal: {
+    type: Number,
+    required: true 
+  },
+  // total days in a row you met your goal
+  streak: {
+    type: Number,
+    required: true
+  },
+}, {
+  timestamps: true 
+});
 
-  
-
-})
+const WaterTracker = mongoose.model('WaterTracker', WaterTrackerSchema);
+module.exports = WaterTracker;
