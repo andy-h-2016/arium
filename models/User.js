@@ -17,11 +17,9 @@ const UserSchema = new Schema({
   password: {
     type: String,
     required: true 
-  },
-  data: {
-    type: Date,
-    default: Date.now
   }
+}, {
+  timestamps: true
 });
 
 const User = mongoose.model('User', UserSchema);
