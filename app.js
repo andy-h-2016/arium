@@ -3,19 +3,24 @@ const mongoose = require('mongoose');
 const express = require('express');
 const db = require('./config/keys').mongoURI;
 const users = require('./routes/api/users');
+const passport = require('passport');
 
 
 // setup connection with the MongoDB
 mongoose
-.connect(db, {useNewUrlParser: true})
-.then(() => console.log("Connected to MongoDB successfully"))
-.catch(err => console.log(err));
+  .connect(db, {useNewUrlParser: true})
+  .then(() => console.log("Connected to MongoDB successfully"))
+  .catch(err => console.log(err));
 
 //sets up Express web framework 
 const app = express();
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
-app.get('/', (req, res) => res.send("Hello World"));
+
+//passport setup 
+app.use(passport.initialize()); //middleware for passport
+require('./config/passport')(passport);
+
 app.use("/api/users", users); // give access to methods and APIs from user.js
 
 // tell app which port to run on, production port or localhost:5000
