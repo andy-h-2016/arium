@@ -15,7 +15,7 @@ In addition to health promotion and fighting global thirst we also endevour to p
 
 * Users can track how much water they consume.
 * The amount of water users consume will affect the amount of donations towards a clean water charity. 
-* Users will have daily goals, weekly goals, and streak goals that they can adjust.
+* Users will have daily goals that they can adjust. Streaks of met daily goals will be tracked.
 * Each user has a terrarium, which will have 4 major stages of health, which are affected by a user's water consumption and whether or not they meet their daily goals.
 
 ## Bonus Features
