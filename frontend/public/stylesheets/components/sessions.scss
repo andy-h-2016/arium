@@ -1,0 +1,294 @@
+// Place all the styles related to the api/sessions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.demoLogin:hover{ 
+  color:white;
+  
+  background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+  background-size: 1800% 1800%;
+  
+  animation: rainbow 8s ease infinite;}
+  
+  @keyframes rainbow { 
+      0%{background-position:0% 82%}
+      50%{background-position:100% 19%}
+      100%{background-position:0% 82%}
+  }
+  
+  .login-form-container {
+    display: flex;
+    justify-content: center;
+   
+  }
+  
+  .login-form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  
+  }
+  
+  .login-input, .signup-input {
+    border: .5px solid aliceblue;
+    border-radius: 5px; 
+    color: -internal-light-dark(black, white);
+    transition: border 200ms ease-out,background 200ms ease-out;
+    box-shadow: 0 1px 4px 0 rgba(37, 37, 37, 0.274) inset; 
+    border-color: rgba(34, 34, 34, 0.15);
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 6px;
+    font-size: 16px;
+    line-height: 28px;
+    height: 28px;
+    outline: none;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    padding-left: 12px;
+    padding-right: 12px; 
+   background-color: rgb(232, 240, 254);
+   width: 84%; 
+   &:hover{
+    box-shadow: 0 1px 4px 0 rgba(37, 37, 37, 0.431) inset; 
+    border-color: rgba(0, 0, 0, 0.883);
+    border-style: solid;
+    border-width: 1px;
+   } 
+  }
+
+
+  
+  
+  .login-form-box {
+    box-shadow: 0 6px 36px rgba(0, 0, 0, 0.034); 
+    background: white;
+    padding: 18px;
+    border-radius: 25px;
+    border: 2px ;
+    font-size: larger;
+    font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
+    line-height: 18px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.1px;  
+    position: relative;
+    margin: auto;
+    max-width: 580px;
+    width: 300px;
+    z-index: 10;
+    
+  }
+  
+  .header-link {
+    text-decoration: none;
+    color: black;
+  }
+  
+  .welcome-name{
+    font-family: "Guardian-EgypTT",serif;
+      font-weight: 300;
+      letter-spacing: 0.5px;
+      font-size: 32px;
+      line-height: 36px;
+      color: #222;
+  }
+  
+  hr {
+    border-bottom: 1px solid grey;
+  }
+  
+  .session-submit {
+    background: none;
+    outline: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    text-align: left;
+    -webkit-tap-highlight-color: transparent;
+    font-family: -apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
+    border-radius: 24px;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.5;
+    min-height: 48px;
+    min-width: 48px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 18px;
+    padding-right: 18px;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+    z-index: 10;
+    background: #222222;
+   
+  }
+  .topOfForm{
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .otherForm {
+    cursor: pointer;
+    top: 0;    
+    font-size: 13px;
+    line-height: .1;
+    max-height: 36px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
+    border-radius: 25px;
+    background-color: white;
+    border: solid black 2px;
+    position: relative;
+  }
+  
+  .otherForm:hover{
+    background:none;
+    border: solid black 2.5px;
+    box-shadow: 0 2px 5px rgba(25, 25, 26, 0.4);
+  }
+  
+  .session-submit{
+    cursor:pointer;
+    font: 16px;
+  }
+  
+  .session-submit:hover{
+    background-color: #272727;
+    /*  Making button bigger on hover  */
+    transition: .1s ease-in-out;
+    transform: scale(1.03) perspective(1px);
+  }
+  
+  .login-signup {
+    display: flex;
+    float: right;
+    cursor:pointer;
+  }
+
+  .modal-background {
+    margin: auto;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(109, 109, 109, 0.7);
+    z-index: 11;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  
+  .modal-child {
+    border-top: 30px solid transparent;
+    position: absolute;
+     z-index: 11;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: 0 auto;
+  }
+
+  .modal-close-container{
+    font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
+    color: white;
+    z-index: 11;
+    margin: auto;
+    width: 300px;
+    position: relative;
+    margin: auto;
+    max-width: 880px;
+    height: 50PX;   
+    @media (max-width: 900px){
+    }
+  }
+
+.modal-close{  
+  position: absolute;
+  right: -5%;
+  text-align: center;
+  text-align-last: center;
+  height: 50px;
+  width: 50px;
+  font-size: 31px;
+  cursor: pointer;
+
+  &::before, &::after{
+    content: 'x';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    transition: all 0.25s ease;
+    border-radius: 50px*0.5;    
+  }
+}
+  .modal-close{
+    &::after{    
+      box-shadow: inset 0 0 0 0px rgb(167, 167, 167) ;
+
+    }
+    &::before{     
+      background:rgb(167, 167, 167) ;
+      box-shadow: inset 0 0 0 30px #989898 ;
+
+    }
+    &:hover::before{  
+      box-shadow: inset 0 0 0 0px#989898 ;
+    }
+  }
+
+  
+  #currentForm{
+    font-size: 20px;
+  }
+
+  footer{
+    z-index: 100;
+    left:0;
+    bottom:0;
+  }
+  
+  .divideBar{
+    display: flex;
+    height: 20px;
+    width: 100%;
+    display:block;
+    border-bottom: solid rgb(197, 197, 197) 2px;
+  }
+
+  .bottomBarTop{
+    display: flex;
+    // margin-top:100px;
+    height: 100px;
+    width: 100%;
+    background-color: #2F466C;
+  
+  }
+
+  .bottomBarBottom{
+    display: flex;
+    height: 75px;
+    width: 100%;
+    background-color: #232347;
+    bottom: 0;
+  }
+
+  .botDivLine{ 
+    padding-top: 30px;
+    background-image: asset-url('bottomBarTop.JPG');
+    background-position: center;
+    bottom: -5%;
+    height:50px;
+    width: 100%;
+  }
