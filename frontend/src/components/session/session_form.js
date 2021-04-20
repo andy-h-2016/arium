@@ -102,7 +102,7 @@ class SessionForm extends React.Component {
               />
             </label>
             <br />
-            <input className="modal-text"
+            <input 
               className="session-submit"
               type="submit"
               value={this.props.formType}

@@ -1,12 +1,16 @@
 html{
   background: #fffdf7;
+  
 }
 h1{
   color: #ffffff;
+  
 }
 button{
   outline: none;
+ 
 }
+
 .demoLogin{
   background: none;
     outline: none;
@@ -50,7 +54,6 @@ button{
   }
   .login-signup, .login-modal-button{
     z-index: 2;
-
   }
   .login-form-container {
     display: flex;
@@ -201,6 +204,8 @@ button{
     display: flex;
     float: right;
     cursor:pointer;
+    font-size: 30px;
+     font-family: 'Fredericka the Great', cursive;
   }
 
   .modal-background {
