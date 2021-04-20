@@ -60,10 +60,45 @@ class SessionForm extends React.Component {
           placeholder="Email"
           required
         />
-      </label>
+      </label>      
     );
+
+      let password2 =(       
+            <label className="modal-text">
+           Retype Password
+              <br />
+              <input
+                type="password"
+                value={this.state.password2}
+                onChange={this.update("password2")}
+                className="login-input"
+                placeholder="Retype your password"
+                required
+              />
+            </label>
+      )
+
+      let goal = (
+        <label className="modal-text">
+        How many cups of water do you drink in a day?
+           <br />
+           <input
+              type="number"
+              min="0"
+              max="9"
+             value={this.state.goal}
+             onChange={this.update("goal")}
+             className="login-input"
+             placeholder="enter a number from 0-9"
+             required
+           />
+         </label>
+      )
+
     if (this.props.formType === "Sign in") {
       emailField = null;
+      password2= null;
+      goal = null;
     }
     return (
       <div className="login-form-container">
@@ -104,18 +139,9 @@ class SessionForm extends React.Component {
               />
             </label>
             <br />
-            <label className="modal-text">
-           Retype Password
-              <br />
-              <input
-                type="password"
-                value={this.state.password2}
-                onChange={this.update("password2")}
-                className="login-input"
-                placeholder="Retype your password"
-                required
-              />
-            </label>
+            {password2}
+            <br />
+            {goal}
             <br />
             <input 
               className="session-submit"
