@@ -55,8 +55,7 @@ class SideBar extends React.Component {
 
   render() {
       return (
-        <div className="nav-container">
-            
+        <div className="nav-container">            
             { this.getLinks() }
         </div>
       );
