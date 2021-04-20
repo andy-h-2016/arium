@@ -1,8 +1,10 @@
 // Imports
 const mongoose = require('mongoose');
 const express = require('express');
+const path = require('path');
 const db = require('./config/keys').mongoURI;
 const users = require('./routes/api/users');
+const terrariums = require('./routes/api/terrariums');
 const passport = require('passport');
 
 
@@ -12,16 +14,28 @@ mongoose
   .then(() => console.log("Connected to MongoDB successfully"))
   .catch(err => console.log(err));
 
-//sets up Express web framework 
-const app = express();
-app.use(express.urlencoded({extended: false}));
-app.use(express.json());
+  
+  
+  //sets up Express web framework 
+  const app = express();
+  app.use(express.urlencoded({extended: false}));
+  app.use(express.json());
+
+  //production
+  if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('frontend/build'));
+    app.get('/', (req, res) => {
+      res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
+    })
+  }
 
 //passport setup 
 app.use(passport.initialize()); //middleware for passport
 require('./config/passport')(passport);
 
+//routers
 app.use("/api/users", users); // give access to methods and APIs from user.js
+app.use("/api/terrariums", terrariums)
 
 // tell app which port to run on, production port or localhost:5000
 const port = process.env.PORT || 5000;
