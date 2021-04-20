@@ -123,8 +123,9 @@ router.patch('/updateUser/:id', passport.authenticate('jwt', {session: false}), 
 
     User.findOne(query)
       .then(user => {
-        if (user._id !== req.user.id) 
-          {res.status(400)
+        //user._id is an object, not a string. need to convert to string.
+        if (user._id.toString() !== req.user.id) {
+          res.status(400)
             .json({ edituser: 'This is not your information to edit!' })
         } else {
           User.findOneAndUpdate(query, update, options, (err, user) => {
@@ -142,27 +143,28 @@ router.patch('/updateUser/:id', passport.authenticate('jwt', {session: false}), 
 
 // Update User method without the update_user.js portion
 
-router.patch('/updateUser/:id', passport.authenticate('jwt', {session: false}), (req, res) => {
-  let filtered = {_id: req.user.id};
-  let { goal, bio } = req.body;
+// @JASON: delete this code whenever you want
+// router.patch('/patchUser/:id', passport.authenticate('jwt', {session: false}), (req, res) => {
+//   let filtered = {_id: req.user.id};
+//   let { goal, bio } = req.body;
 
-  let updatedInfo = {};
-  if (goal) updatedInfo.goal = goal;
-  if (bio) updatedInfo.bio = bio;
+//   let updatedInfo = {};
+//   if (goal) updatedInfo.goal = goal;
+//   if (bio) updatedInfo.bio = bio;
 
-  User.findOneAndUpdate(filtered, {$set: updatedInfo}, {new: true})
-    .then(user => {
-      let updatedUser = {
-        id: user._id,
-        username: req.body.username,
-        email: req.body.email,
-        goal: user.goal,
-        bio: user.bio,
-      }
-      res.json(updatedUser);
-    })
-    .catch(err => res.status(400).json(err));
-});
+//   User.findOneAndUpdate(filtered, {$set: updatedInfo}, {new: true})
+//     .then(user => {
+//       let updatedUser = {
+//         id: user._id,
+//         username: req.body.username,
+//         email: req.body.email,
+//         goal: user.goal,
+//         bio: user.bio,
+//       }
+//       res.json(updatedUser);
+//     })
+//     .catch(err => res.status(400).json(err));
+// });
 
 
 module.exports = router;
