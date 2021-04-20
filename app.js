@@ -1,6 +1,7 @@
 // Imports
 const mongoose = require('mongoose');
 const express = require('express');
+const path = require('path');
 const db = require('./config/keys').mongoURI;
 const users = require('./routes/api/users');
 const passport = require('passport');
@@ -11,6 +12,14 @@ mongoose
   .connect(db, {useNewUrlParser: true})
   .then(() => console.log("Connected to MongoDB successfully"))
   .catch(err => console.log(err));
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('frontend/build'));
+  app.get('/', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
+  })
+}
+
 
 //sets up Express web framework 
 const app = express();
