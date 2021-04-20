@@ -3,11 +3,9 @@ const router = express.Router();
 const jwt = require('jsonwebtoken');
 const keys = require('../../config/keys');
 const passport = require('passport');
-const validateTerrariumInput = require('../../validation/terrarium');
-
-
 const Terrarium = require('../../models/Terrarium');
 //import validation
+const validateTerrariumInput = require('../../validation/terrarium');
 
 router.get('/test', (req, res) => res.json({msg: 'The terrarium router is working'}));
 
@@ -54,7 +52,13 @@ router.patch('/:id',
       health: req.body.health
     }
 
-    Terrarium.findByIdAndUpdate(req.params.id, update, {new: true})
+    Terrarium.findByIdAndUpdate(req.params.id, update, {new: true}, (err, terrarium) => {
+      if (err) {
+        res.status(400).json(err)
+      } else {
+        res.json(terrarium)
+      }
+    })
 
   }
 );
