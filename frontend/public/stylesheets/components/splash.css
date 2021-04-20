@@ -1,0 +1,106 @@
+h1.arium-title{
+  color: aquamarine;
+}
+
+.terrarium-holder {
+  position: relative;
+  height: 0px;
+  padding: 0 .5em;
+  margin-top: -175px;
+}
+
+
+.chain {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 20px;
+  height: 32px;
+  width: 24px;
+  background: url(../../images/chain.gif);
+  background-size: cover;
+  transform-origin: top center;
+  animation: fall-n-swing 20s 1;
+  animation-timing-function: ease-in-out;
+
+}
+
+.very-first-chain {
+  left: 50%;
+}
+
+.terrarium {
+  z-index: 2;
+  top: 9px;
+  left: -175px;
+  width: 400px;
+  height: 400px;
+  background: url("../../images/terrarium.gif") center no-repeat;
+  background-size: contain;
+}
+
+
+.terrarium:hover {
+  
+}
+@keyframes emptyanim {}
+/* ANIMATIONS ----------------------------------------- */
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fall-n-swing {
+  0% {
+    transform: rotateZ(1.2deg) translate(0px, 0px);
+  }
+  14% {
+    transform: rotateZ(-1deg);
+  }
+  28% {
+    transform: rotateZ(.5deg);
+  }
+  42% {
+    transform: rotateZ(-.2deg);
+  }
+  56% {
+    transform: rotateZ(.1deg);
+  }
+  70% {
+    transform: rotateZ(-.08deg);
+  }
+  84% {
+    transform: rotateZ(.04deg);
+  }
+  100% {
+    transform: rotateZ(0deg);
+  }
+}
+
+
+/* MEDIA QUERIES ----------------------------------------- */
+
+@media (max-width: 640px), (max-height: 640px) {
+  
+
+  .wrapper {
+    margin-bottom: -200px;
+  }
+  .terrarium-holder {
+    margin-top: -185px;
+  }
+  .terrarium-new-height {
+    height: 320px;
+  }
+  .first-chains {
+    height: 0;
+  }
+  
+}
+
+
