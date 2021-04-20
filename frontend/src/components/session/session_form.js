@@ -89,7 +89,7 @@ class SessionForm extends React.Component {
              value={this.state.goal}
              onChange={this.update("goal")}
              className="login-input"
-             placeholder="enter a number from 0-9"
+             placeholder="Enter a number from 0-9"
              required
            />
          </label>
