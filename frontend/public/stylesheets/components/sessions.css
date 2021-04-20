@@ -1,14 +1,10 @@
 html{
-  background: #fffdf7;
-  
+  background: #fffdf7;  
 }
-h1{
-  color: #ffffff;
-  
-}
+
+
 button{
   outline: none;
- 
 }
 
 .demoLogin{
@@ -376,7 +372,7 @@ button{
   left: 0;
   right: 0;
   bottom: 0;
-  top: 0;
+  top: 150px;
     text-transform: uppercase;
     font-size: 18em;
     color: rgba(255, 255, 255, 0);
