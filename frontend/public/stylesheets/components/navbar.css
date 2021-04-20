@@ -1,7 +1,7 @@
   .main-container{
     display:flex;
     flex-direction: row-reverse;
-    justify-content: space-around;
+    /* justify-content: space-around; */
     margin-left: 400px;
     margin-right: 400px;
     height: auto;

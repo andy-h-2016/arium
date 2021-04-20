@@ -1,8 +1,8 @@
 html{
-  background: #fcf8ec;
+  background: #fffdf7;
 }
 h1{
-  color: #fcf8ec;
+  color: #fffdf7;
 }
 button{
   outline: none;
@@ -11,7 +11,7 @@ button{
   background: none;
     outline: none;
     border: none;
-    color: #fcf8ec;
+    color: #fffdf7;
     cursor: pointer;
     text-align: left;
     -webkit-tap-highlight-color: transparent;
@@ -35,7 +35,7 @@ button{
     margin-right: 20px;
 }
 .demoLogin:hover, .session-submit:hover{ 
-  color:#fcf8ec;
+  color:#fffdf7;
   transition: .1s ease-in-out;
     transform: scale(1.03) perspective(1px);
   background: linear-gradient(124deg, #456268, #456268, #79a3b1, #d0e8f2, #79a3b1);
@@ -66,7 +66,7 @@ button{
   }
   
   .login-input, .signup-input {
-    border: .5px solid #fcf8ec;    
+    border: .5px solid #fffdf7;    
     color: #456268;
     transition: border 200ms ease-out,background 200ms ease-out;
     box-shadow: 0 1px 4px 0 rgba(37, 37, 37, 0.287) inset; 
@@ -98,8 +98,8 @@ button{
   
   .login-form-box {
     box-shadow: 0 6px 36px rgba(0, 0, 0, 0.034); 
-    /* background: #fcf8ec; */
-    background: #fcf8ec;
+    /* background: #fffdf7; */
+    background: #fffdf7;
     padding: 28px;
     padding-bottom: 38px;
     padding-left: 38px;
@@ -141,7 +141,7 @@ button{
     background: none;
     outline: none;
     border: black solid 1px;
-    color: #fcf8ec;
+    color: #fffdf7;
     cursor: pointer;
     text-align: left;
     -webkit-tap-highlight-color: transparent;
@@ -181,7 +181,7 @@ button{
     padding-right: 15px;
     font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
     border-radius: 25px;
-    background-color: #fcf8ec;
+    background-color: #fffdf7;
     border: solid #456268 2px;
     position: relative;
   }
@@ -231,7 +231,7 @@ button{
 
   .modal-close-container{
     font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
-    color: #fcf8ec;
+    color: #fffdf7;
     z-index: 11;
     margin: auto;
     width: 300px;
@@ -293,7 +293,7 @@ button{
   border: 1px solid #000;
   line-height: 40px;
   display: inline-block;
-  padding: 0 40px;
+  padding: 20px 200px;
   position: relative;
   overflow: hidden;
   z-index: 9;
@@ -373,32 +373,32 @@ button{
   bottom: 0;
   top: 0;
     text-transform: uppercase;
-    font-size: 10em;
+    font-size: 18em;
     color: rgba(255, 255, 255, 0);
     margin: 0;
     padding: 0;
     background-image: url("https://www.tutorialscan.com/wp-content/uploads/2019/10/water-flowbg.png");
     background-repeat: repeat-x;
     -webkit-background-clip: text;
-    animation: animate 15s linear infinite
+    animation: animate 20s linear infinite
 }
 @keyframes animate
 {
     0%
     {
-        background-position: left 0px top 78px;
+        background-position: left 0px top 188px;
     }
     40%
     {
-        background-position: left 799px top -49px;
+        background-position: left 799px top -20px;
     }
     80%
     {
-        background-position: left 1799px top -49px;
+        background-position: left 1799px top -20px;
     }
     100%
     {
-        background-position: left 2399px top 79px;
+        background-position: left 2399px top 189px;
     }
  
 }

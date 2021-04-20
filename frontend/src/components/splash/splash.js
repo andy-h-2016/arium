@@ -81,14 +81,6 @@ class Splash extends React.Component {
   </div>
 </div>
 </div>
-
-
-
-
-
-        <footer>
-          Copyright &copy; 2021 Arium
-        </footer>
       </div>
     );
   }

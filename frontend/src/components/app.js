@@ -22,6 +22,12 @@ const App = () => (
       <ProtectedRoute exact path="/profile" component={ProfileContainer} />
       <ProtectedRoute exact path="/new_tweet" component={TweetComposeContainer} />
     </Switch>
+      <div className="wrapper">
+        <div className="push"></div>
+    <footer>
+          {/* Copyright &copy; 2021 Arium */}
+    </footer>
+      </div>
   </div>
 );
 
