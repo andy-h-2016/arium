@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { composeTweet } from '../../actions/tweet_actions';
-import TweetCompose from './tweet_compose';
+import Terrarium from './terrarium';
 
 const mapStateToProps = (state) => {
   return {
@@ -15,4 +15,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(TweetCompose);
+export default connect(mapStateToProps, mapDispatchToProps)(Terrarium);
