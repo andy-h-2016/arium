@@ -119,7 +119,15 @@ router.patch('/updateUser/:id', passport.authenticate('jwt', {session: false}), 
       return res.json.status(400).json(errors);
     }
 
-    var query = { _id: req.params.id}, update = { $set: req.body }, options = { new: true }
+    // added lines 123 - 127 from 2nd method and changed
+    // $set: from req.body to updatedInfo
+    let { goal, bio } = req.body;
+
+    let updateInfo = {};
+    if (goal) updateInfo.goal = goal;
+    if (bio) updateInfo.bio = bio;
+
+    var query = { _id: req.params.id}, update = { $set: updateInfo }, options = { new: true }
 
     User.findOne(query)
       .then(user => {
