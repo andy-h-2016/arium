@@ -2,7 +2,7 @@ html{
   background: #fffdf7;
 }
 h1{
-  color: #fffdf7;
+  color: #ffffff;
 }
 button{
   outline: none;
@@ -11,7 +11,7 @@ button{
   background: none;
     outline: none;
     border: none;
-    color: #fffdf7;
+    color: #ffffff;
     cursor: pointer;
     text-align: left;
     -webkit-tap-highlight-color: transparent;
@@ -35,7 +35,7 @@ button{
     margin-right: 20px;
 }
 .demoLogin:hover, .session-submit:hover{ 
-  color:#fffdf7;
+  color:#ffffff;
   transition: .1s ease-in-out;
     transform: scale(1.03) perspective(1px);
   background: linear-gradient(124deg, #456268, #456268, #79a3b1, #d0e8f2, #79a3b1);
@@ -99,7 +99,7 @@ button{
   .login-form-box {
     box-shadow: 0 6px 36px rgba(0, 0, 0, 0.034); 
     /* background: #fffdf7; */
-    background: #fffdf7;
+    background: #ffffff;
     padding: 28px;
     padding-bottom: 38px;
     padding-left: 38px;
@@ -141,7 +141,7 @@ button{
     background: none;
     outline: none;
     border: black solid 1px;
-    color: #fffdf7;
+    color: #ffffff;
     cursor: pointer;
     text-align: left;
     -webkit-tap-highlight-color: transparent;
@@ -181,7 +181,7 @@ button{
     padding-right: 15px;
     font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
     border-radius: 25px;
-    background-color: #fffdf7;
+    background-color: #ffffff;
     border: solid #456268 2px;
     position: relative;
   }
@@ -231,7 +231,7 @@ button{
 
   .modal-close-container{
     font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
-    color: #fffdf7;
+    color: #ffffff;
     z-index: 11;
     margin: auto;
     width: 300px;
