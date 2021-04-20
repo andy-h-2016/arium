@@ -10,7 +10,7 @@ class Splash extends React.Component {
         
         <div className="wrapper">
 
-<div className="chandelier-holder">
+<div className="terrarium-holder">
 
   <div className="logo-text">
   <h1 className="arium-title">Arium</h1>  
@@ -47,7 +47,7 @@ class Splash extends React.Component {
                                                           <div className="chain">
                                                             <div className="chain">
                                                               <div className="chain">
-                                                                <div className="chain chandelier"></div>
+                                                                <div className="chain terrarium"></div>
                                                               </div>
                                                             </div>
                                                           </div>

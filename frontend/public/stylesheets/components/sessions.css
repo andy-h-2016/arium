@@ -15,8 +15,8 @@ button{
     cursor: pointer;
     text-align: left;
     -webkit-tap-highlight-color: transparent;
-    
-    border-radius: 24px;
+    border: 1px solid black;
+    /* border-radius: 24px; */
     display: inline-block;
     font-size: 16px;
     font-weight: bold;
@@ -32,6 +32,7 @@ button{
     vertical-align: middle;
     z-index: 10;
     background: #79a3b1;
+    margin-right: 20px;
 }
 .demoLogin:hover, .session-submit:hover{ 
   color:#fcf8ec;
@@ -68,11 +69,12 @@ button{
     border: .5px solid #fcf8ec;    
     color: #456268;
     transition: border 200ms ease-out,background 200ms ease-out;
-    box-shadow: 0 1px 4px 0 rgba(37, 37, 37, 0.274) inset; 
-    border-color: #4562681a;
+    box-shadow: 0 1px 4px 0 rgba(37, 37, 37, 0.287) inset; 
+    border-color: #0000001a;
     border-style: solid;
+    
     border-width: 1px;
-    border-radius: 6px;
+    /* border-radius: 6px; */
     font-size: 16px;
     line-height: 28px;
     height: 28px;
@@ -86,7 +88,7 @@ button{
   }
   .login-input:hover, .signup-input:hover{
    box-shadow: 0 1px 4px 0 rgba(37, 37, 37, 0.404) inset; 
-   border-color: #213033(0, 0, 0, 0.883);
+   border-color: #000000(0, 0, 0, 0.883);
    border-style: solid;
    border-width: 1px;
   } 
@@ -98,11 +100,13 @@ button{
     box-shadow: 0 6px 36px rgba(0, 0, 0, 0.034); 
     /* background: #fcf8ec; */
     background: #fcf8ec;
-    padding: 18px;
-    border-radius: 25px;
+    padding: 28px;
+    padding-bottom: 38px;
+    padding-left: 38px;
+    border-radius: 5px;
     border: 2px ;
     font-size: larger;
-   
+    border: black solid 1px;
     line-height: 18px;
     font-size: 13px;
     font-weight: 500;
@@ -136,13 +140,13 @@ button{
   .session-submit {
     background: none;
     outline: none;
-    border: none;
+    border: black solid 1px;
     color: #fcf8ec;
     cursor: pointer;
     text-align: left;
     -webkit-tap-highlight-color: transparent;
     
-    border-radius: 24px;
+    /* border-radius: 24px; */
     display: inline-block;
     font-size: 16px;
     font-weight: bold;
@@ -158,7 +162,7 @@ button{
     vertical-align: middle;
     z-index: 10;
     background: #79a3b1;
-   
+   margin-right: 20px;
   }
   .topOfForm{
     display: flex;
@@ -192,15 +196,7 @@ button{
     cursor:pointer;
     font: 16px;
   }
-  
-  /* .session-submit:hover{
-    background-color: #456268;
-   
-    transition: .1s ease-in-out;
-    transform: scale(1.03) perspective(1px);
     
-  } */
-  
   .login-signup {
     display: flex;
     float: right;
@@ -284,6 +280,7 @@ button{
 
 .modal-text{
   color: #456268;
+  text-align: left;
 }
   
   #currentForm{
@@ -370,9 +367,14 @@ button{
 }
 
 .loaderwave2 {
+  position: relative;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
     text-transform: uppercase;
     font-size: 10em;
-    color: rgba(255, 225, 255, 0.013);
+    color: rgba(255, 255, 255, 0);
     margin: 0;
     padding: 0;
     background-image: url("https://www.tutorialscan.com/wp-content/uploads/2019/10/water-flowbg.png");

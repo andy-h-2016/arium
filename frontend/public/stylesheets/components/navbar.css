@@ -1,7 +1,10 @@
   .main-container{
     display:flex;
     flex-direction: row-reverse;
-    justify-content: space-evenly;
+    justify-content: space-around;
+    margin-left: 400px;
+    margin-right: 400px;
+    height: auto;
   }
   .get-links-container{
     display: flex;

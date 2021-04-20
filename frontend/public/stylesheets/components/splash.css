@@ -2,57 +2,51 @@ h1.arium-title{
   color: aquamarine;
 }
 
-
-
-
-.chandelier-holder {
+.terrarium-holder {
   position: relative;
   height: 0px;
   padding: 0 .5em;
   margin-top: -175px;
 }
 
-.logo-text {
-  color: black;
-  position: relative;
-  z-index: 0;
-  top: 420px;
-  margin: 0 auto;
-  width: 100%;
-  max-width: 393px;
-  height: 35px !important;
-  font-size: 0;
-  line-height: 0;
-  opacity: 0;
-  animation: fadeIn 10s 1s 1 forwards;
-}
 
 .chain {
   position: absolute;
   z-index: 1;
   left: 0;
-  top: 12px;
-  height: 13px;
-  width: 6px;
-  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/7599/HiddenDinner-Logo-SVGForWeb_Chain.svg);
+  top: 20px;
+  height: 32px;
+  width: 24px;
+  background: url(../../images/chain.gif);
+  background-size: cover;
   transform-origin: top center;
-  animation: fall-n-swing 10s 1;
+  animation: fall-n-swing 20s 1;
   animation-timing-function: ease-in-out;
+
 }
 
 .very-first-chain {
   left: 50%;
 }
 
-.chandelier {
+.terrarium {
+  z-index: 2;
   top: 9px;
-  left: -180px;
+  left: -175px;
   width: 400px;
   height: 400px;
   background: url("../../images/terrarium.gif") center no-repeat;
   background-size: contain;
 }
 
+
+.terrarium:hover {
+/* filter: invert(); */
+
+filter: hue-rotate();
+  
+}
+@keyframes emptyanim {}
 /* ANIMATIONS ----------------------------------------- */
 
 @keyframes fadeIn {
@@ -100,10 +94,10 @@ h1.arium-title{
   .wrapper {
     margin-bottom: -200px;
   }
-  .chandelier-holder {
+  .terrarium-holder {
     margin-top: -185px;
   }
-  .chandelier-new-height {
+  .terrarium-new-height {
     height: 320px;
   }
   .first-chains {
@@ -111,3 +105,5 @@ h1.arium-title{
   }
   
 }
+
+
