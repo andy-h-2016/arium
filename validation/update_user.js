@@ -13,8 +13,8 @@ module.exports = function validateUpdateUserInput(data) {
     errors.bio = "Bio must be between 1 & 150 characters.";
   }
 
-  if (data.goal && !Validator.isInt(data.goal, {min: 1, max: 8})) {
-    errors.goal = "Goal must be between 1 & 8";
+  if (data.goal && !Validator.isInt(data.goal, {min: 1, max: 10})) {
+    errors.goal = "Goal must be between 1 & 10";
   }
 
   return {
