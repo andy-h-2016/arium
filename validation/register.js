@@ -41,6 +41,14 @@ module.exports = function validateRegisterInput(data) {
     errors.password2 = 'Passwords must match';
   }
 
+  if (Validator.isEmpty(data.goal)) {
+    errors.goal = "Goal field is required";
+  }
+
+  if (!Validator.isInt(data.goal, {min: 1, max: 8})) {
+    errors.goal = "Goal must be between 1 & 8";
+  }
+
   return {
     errors,
     isValid: Object.keys(errors).length === 0

@@ -20,12 +20,6 @@ const WaterTrackerSchema = new Schema ({
     type: Number,
     required: true
   },
-  // we will validate goals in validations
-  // not sure how we would ask users for their goals
-  goal: {
-    type: Number,
-    required: true 
-  },
   // total days in a row you met your goal
   streak: {
     type: Number,
