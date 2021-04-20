@@ -4,7 +4,7 @@ class SessionForm extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { username: "", password: "", email: "" };
+    this.state = { username: "", password: "", password2: "", email: "", goal: "" };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDemo = this.handleDemo.bind(this);
   }
@@ -30,8 +30,7 @@ class SessionForm extends React.Component {
     this.props.processDemo({
       username: "Demo",
       email: "demo@demo.com",
-      password: "123456",
-      password2: "123456"
+      password: "123456"    
     });
     this.props.closeModal();
   }
