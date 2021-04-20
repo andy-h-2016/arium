@@ -15,6 +15,21 @@ router.get('/user/:user_id', (req, res) => {
     .catch(err => res.status(404).json({noTerrariumFound: 'No terrarium found for this user'}))
 });
 
+router.get('/all',
+  passport.authenticate('jwt', {session: false}), 
+  (req, res) => {
+    const filter = {}; //no filter, return all terrarium documents
+
+    Terrarium.find(filter, (err, terrariums) => {
+      if (err) {
+        res.status(400).json(errors);
+      } else {
+        res.json(terrariums)
+      }
+    });
+  }
+);
+
 router.post('/',
   passport.authenticate('jwt', {session: false}), 
   (req, res) => {
@@ -34,8 +49,6 @@ router.post('/',
     newTerrarium.save().then(terrarium => res.json(terrarium));
   }
 )
-
-
 
 router.patch('/:id',
   passport.authenticate('jwt', {session: false}),
@@ -59,7 +72,6 @@ router.patch('/:id',
         res.json(terrarium)
       }
     })
-
   }
 );
 
