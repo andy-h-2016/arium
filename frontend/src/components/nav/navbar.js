@@ -36,7 +36,7 @@ class NavBar extends React.Component {
   render() {
       return (
         <div className="nav-container">
-            <h1>Arium</h1>
+            <h1 className='loaderwave2'>Arium</h1>
             { this.getLinks() }
         </div>
       );

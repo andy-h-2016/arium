@@ -1,6 +1,9 @@
 html{
   background: #fcf8ec;
 }
+h1{
+  color: #fcf8ec;
+}
 button{
   outline: none;
 }
@@ -12,7 +15,7 @@ button{
     cursor: pointer;
     text-align: left;
     -webkit-tap-highlight-color: transparent;
-    font-family: -apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
+    
     border-radius: 24px;
     display: inline-block;
     font-size: 16px;
@@ -46,6 +49,7 @@ button{
   }
   .login-signup, .login-modal-button{
     z-index: 2;
+
   }
   .login-form-container {
     display: flex;
@@ -76,8 +80,7 @@ button{
     padding-top: 9px;
     padding-bottom: 9px;
     padding-left: 12px;
-    padding-right: 12px; 
-   /* background-color: rgb(232, 240, 254); */
+    padding-right: 12px;   
    background-color: #d0e8f2;
    width: 84%; 
   }
@@ -99,7 +102,7 @@ button{
     border-radius: 25px;
     border: 2px ;
     font-size: larger;
-    font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
+   
     line-height: 18px;
     font-size: 13px;
     font-weight: 500;
@@ -118,7 +121,7 @@ button{
   }
   
   .welcome-name{
-    font-family: "Guardian-EgypTT",serif;
+   
       font-weight: 300;
       letter-spacing: 0.5px;
       font-size: 32px;
@@ -138,7 +141,7 @@ button{
     cursor: pointer;
     text-align: left;
     -webkit-tap-highlight-color: transparent;
-    font-family: -apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
+    
     border-radius: 24px;
     display: inline-block;
     font-size: 16px;
@@ -289,4 +292,111 @@ button{
   }
 
 
+ .login-signup {
+  border: 1px solid #000;
+  line-height: 40px;
+  display: inline-block;
+  padding: 0 40px;
+  position: relative;
+  overflow: hidden;
+  z-index: 9;
+  background: #fff;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+.login-signup::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -15px;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background: #d0e8f2;
+  z-index: -1;
+}
+@keyframes drop {
+  0% {
+    top: -15px;
+  }
+  60% {
+    height: 15px;
+    border-radius: 50%;
+    left: 50%;
+    width: 15px;
+    top: calc(100% - 10px);
+  }
+  80% {
+    top: calc(100% - 5px);
+    width: 100%;
+    left: 0;
+    border-radius: 0;
+    opacity: 1;
+  }
+  100% {
+    width: 100%;
+    left: 0;
+    border-radius: 0;
+    bottom: 0;
+    top: initial;
+    height: 30px;
+    animation-delay: 120s;
+    opacity: 0;
+  }
+}
+.login-signup:hover::before {
+  animation: drop 0.5s linear;
+}
+.login-signup::after {
+  content: "";
+  position: absolute;
+  left: 0%;
+  bottom: 0px;
+  height: 0%;
+  width: 100%;
+  border-radius: 0%;
+  background: #d0e8f2;
+  z-index: -1;
+}
+.login-signup:hover::after {
+  height: 100%;
+  transition: all 0.4s linear;
+  transition-delay: 0.5s;
+}
+.login-signup:hover {
+  color: #fff;
+  transition: all 0.4s linear;
+  transition-delay: 0.5s;
+}
+
+.loaderwave2 {
+    text-transform: uppercase;
+    font-size: 10em;
+    color: rgba(255, 225, 255, 0.013);
+    margin: 0;
+    padding: 0;
+    background-image: url("https://www.tutorialscan.com/wp-content/uploads/2019/10/water-flowbg.png");
+    background-repeat: repeat-x;
+    -webkit-background-clip: text;
+    animation: animate 15s linear infinite
+}
+@keyframes animate
+{
+    0%
+    {
+        background-position: left 0px top 78px;
+    }
+    40%
+    {
+        background-position: left 799px top -49px;
+    }
+    80%
+    {
+        background-position: left 1799px top -49px;
+    }
+    100%
+    {
+        background-position: left 2399px top 79px;
+    }
  
+}
