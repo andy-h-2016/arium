@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const express = require('express');
 const db = require('./config/keys').mongoURI;
 const users = require('./routes/api/users');
+const terrariums = require('./routes/api/terrariums');
 const passport = require('passport');
 
 
@@ -21,7 +22,9 @@ app.use(express.json());
 app.use(passport.initialize()); //middleware for passport
 require('./config/passport')(passport);
 
+//routers
 app.use("/api/users", users); // give access to methods and APIs from user.js
+app.use("/api/terrariums", terrariums)
 
 // tell app which port to run on, production port or localhost:5000
 const port = process.env.PORT || 5000;
