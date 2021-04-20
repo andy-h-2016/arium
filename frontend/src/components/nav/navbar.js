@@ -18,9 +18,11 @@ class NavBar extends React.Component {
       if (this.props.loggedIn) {
         return (
             <div className="get-links-container" >
-                <Link to={'/terrarium'}>All Tweets</Link>
-                <Link to={'/profile'}>Profile</Link>
-                <Link to={'/new_tweet'}>Write a Tweet</Link>
+                <Link to={'/terrarium'}>My Terrarium</Link>
+                <Link to={'/profile'}>My Profile</Link>
+                <Link to={'/waterStats'}>Water Stats</Link>
+                <Link to={'/terrariums'}>All Terrariums</Link>
+                <Link to={'/info'}>Global Thirst</Link>
                 <nav className="login-modal-button">
                 <button className="logout" onClick={this.logoutUser}>Logout</button>
                 </nav>
@@ -38,7 +40,7 @@ class NavBar extends React.Component {
   render() {
       return (
         <div className="nav-container">
-            <h1 className='loaderwave2'>Arium</h1>
+            
             { this.getLinks() }
         </div>
       );

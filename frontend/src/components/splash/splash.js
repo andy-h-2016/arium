@@ -81,6 +81,8 @@ class Splash extends React.Component {
   </div>
 </div>
 </div>
+<div></div>
+<h1 className='loaderwave2'>Arium</h1>
       </div>
     );
   }
