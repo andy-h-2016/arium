@@ -2,15 +2,17 @@ import React from 'react';
 // import { Route} from 'react-router-dom'; 
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import { Switch } from 'react-router-dom';
-import NavBarContainer from './nav/navbar_container';
+// import NavBarContainer from './nav/navbar_container';
 import Splash from './splash/splash';
 import ProfileContainer from './profile/profile_container';
 import TerrariumContainer from './terrarium/terrarium_container';
 import Modal from './modal/modal'
+import SideBar from './sidebar/sidebar_container'
 
 const App = () => (
   <div className="main-container">
-    <NavBarContainer />
+    <SideBar/>
+    {/* <NavBarContainer /> */}
     <Modal/>
     <Switch>
       <AuthRoute exact path="/" component={Splash} />
