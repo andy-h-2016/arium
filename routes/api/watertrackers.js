@@ -26,3 +26,14 @@ router.get('/terrarium/:terrariumId', (req, res) => {
       )
     );
 });
+
+// Water Tracker show 
+
+router.get('/watertracker/:id', (req, res) => {
+  WaterTracker.findOne({ _Id: req.params.id })
+    .then(watertracker => res.json(watertracker))
+    .catch(() =>
+      res.status(404).json({ nowatertrackerfound: "No water tracker found with this ID" }
+      )
+    );
+});
