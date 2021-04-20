@@ -6,7 +6,7 @@ import SessionForm from "./session_form";
 const mapStateToProps = (state) => {
   return {
     signedIn: state.session.isSignedIn,
-    errors: state.errors.session,
+    errors: Object.values(state.errors.session),
     formType: "Register",
   };
 };
