@@ -29,7 +29,9 @@ class SessionForm extends React.Component {
     e.preventDefault();
     this.props.processDemo({
       username: "Demo",
+      email: "demo@demo.com",
       password: "123456",
+      password2: "123456"
     });
     this.props.closeModal();
   }
@@ -98,6 +100,19 @@ class SessionForm extends React.Component {
                 onChange={this.update("password")}
                 className="login-input"
                 placeholder="Password"
+                required
+              />
+            </label>
+            <br />
+            <label className="modal-text">
+           Retype Password
+              <br />
+              <input
+                type="password"
+                value={this.state.password2}
+                onChange={this.update("password2")}
+                className="login-input"
+                placeholder="Retype your password"
                 required
               />
             </label>
