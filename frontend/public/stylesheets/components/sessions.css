@@ -1,109 +1,14 @@
-// Place all the styles related to the api/sessions controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
-
-.demoLogin:hover{ 
-  color:white;
-  
-  background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
-  background-size: 1800% 1800%;
-  
-  animation: rainbow 8s ease infinite;}
-  
-  @keyframes rainbow { 
-      0%{background-position:0% 82%}
-      50%{background-position:100% 19%}
-      100%{background-position:0% 82%}
-  }
-  
-  .login-form-container {
-    display: flex;
-    justify-content: center;
-   
-  }
-  
-  .login-form {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-  
-  }
-  
-  .login-input, .signup-input {
-    border: .5px solid aliceblue;
-    border-radius: 5px; 
-    color: -internal-light-dark(black, white);
-    transition: border 200ms ease-out,background 200ms ease-out;
-    box-shadow: 0 1px 4px 0 rgba(37, 37, 37, 0.274) inset; 
-    border-color: rgba(34, 34, 34, 0.15);
-    border-style: solid;
-    border-width: 1px;
-    border-radius: 6px;
-    font-size: 16px;
-    line-height: 28px;
-    height: 28px;
-    outline: none;
-    padding-top: 9px;
-    padding-bottom: 9px;
-    padding-left: 12px;
-    padding-right: 12px; 
-   background-color: rgb(232, 240, 254);
-   width: 84%; 
-   &:hover{
-    box-shadow: 0 1px 4px 0 rgba(37, 37, 37, 0.431) inset; 
-    border-color: rgba(0, 0, 0, 0.883);
-    border-style: solid;
-    border-width: 1px;
-   } 
-  }
-
-
-  
-  
-  .login-form-box {
-    box-shadow: 0 6px 36px rgba(0, 0, 0, 0.034); 
-    background: white;
-    padding: 18px;
-    border-radius: 25px;
-    border: 2px ;
-    font-size: larger;
-    font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
-    line-height: 18px;
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.1px;  
-    position: relative;
-    margin: auto;
-    max-width: 580px;
-    width: 300px;
-    z-index: 10;
-    
-  }
-  
-  .header-link {
-    text-decoration: none;
-    color: black;
-  }
-  
-  .welcome-name{
-    font-family: "Guardian-EgypTT",serif;
-      font-weight: 300;
-      letter-spacing: 0.5px;
-      font-size: 32px;
-      line-height: 36px;
-      color: #222;
-  }
-  
-  hr {
-    border-bottom: 1px solid grey;
-  }
-  
-  .session-submit {
-    background: none;
+html{
+  background: #fcf8ec;
+}
+button{
+  outline: none;
+}
+.demoLogin{
+  background: none;
     outline: none;
     border: none;
-    color: white;
+    color: #fcf8ec;
     cursor: pointer;
     text-align: left;
     -webkit-tap-highlight-color: transparent;
@@ -123,7 +28,133 @@
     text-align: center;
     vertical-align: middle;
     z-index: 10;
-    background: #222222;
+    background: #79a3b1;
+}
+.demoLogin:hover, .session-submit:hover{ 
+  color:#fcf8ec;
+  transition: .1s ease-in-out;
+    transform: scale(1.03) perspective(1px);
+  background: linear-gradient(124deg, #456268, #456268, #79a3b1, #d0e8f2, #79a3b1);
+  background-size: 1800% 1800%;
+  
+  animation: rainbow 8s ease infinite;}
+  
+  @keyframes rainbow { 
+      0%{background-position:0% 82%}
+      50%{background-position:100% 19%}
+      100%{background-position:0% 82%}
+  }
+  .login-signup, .login-modal-button{
+    z-index: 2;
+  }
+  .login-form-container {
+    display: flex;
+    justify-content: center;
+   
+  }
+  
+  .login-form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  
+  }
+  
+  .login-input, .signup-input {
+    border: .5px solid #fcf8ec;    
+    color: #456268;
+    transition: border 200ms ease-out,background 200ms ease-out;
+    box-shadow: 0 1px 4px 0 rgba(37, 37, 37, 0.274) inset; 
+    border-color: #4562681a;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 6px;
+    font-size: 16px;
+    line-height: 28px;
+    height: 28px;
+    outline: none;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    padding-left: 12px;
+    padding-right: 12px; 
+   /* background-color: rgb(232, 240, 254); */
+   background-color: #d0e8f2;
+   width: 84%; 
+  }
+  .login-input:hover, .signup-input:hover{
+   box-shadow: 0 1px 4px 0 rgba(37, 37, 37, 0.404) inset; 
+   border-color: #213033(0, 0, 0, 0.883);
+   border-style: solid;
+   border-width: 1px;
+  } 
+
+
+  
+  
+  .login-form-box {
+    box-shadow: 0 6px 36px rgba(0, 0, 0, 0.034); 
+    /* background: #fcf8ec; */
+    background: #fcf8ec;
+    padding: 18px;
+    border-radius: 25px;
+    border: 2px ;
+    font-size: larger;
+    font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
+    line-height: 18px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.1px;  
+    position: relative;
+    margin: auto;
+    max-width: 580px;
+    width: 300px;
+    z-index: 10;
+    
+  }
+  
+  .header-link {
+    text-decoration: none;
+    color: #456268;
+  }
+  
+  .welcome-name{
+    font-family: "Guardian-EgypTT",serif;
+      font-weight: 300;
+      letter-spacing: 0.5px;
+      font-size: 32px;
+      line-height: 36px;
+      color: #456268;
+  }
+  
+  hr {
+    border-bottom: 1px solid grey;
+  }
+  
+  .session-submit {
+    background: none;
+    outline: none;
+    border: none;
+    color: #fcf8ec;
+    cursor: pointer;
+    text-align: left;
+    -webkit-tap-highlight-color: transparent;
+    font-family: -apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
+    border-radius: 24px;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.5;
+    min-height: 48px;
+    min-width: 48px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 18px;
+    padding-right: 18px;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+    z-index: 10;
+    background: #79a3b1;
    
   }
   .topOfForm{
@@ -143,14 +174,14 @@
     padding-right: 15px;
     font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
     border-radius: 25px;
-    background-color: white;
-    border: solid black 2px;
+    background-color: #fcf8ec;
+    border: solid #456268 2px;
     position: relative;
   }
   
   .otherForm:hover{
     background:none;
-    border: solid black 2.5px;
+    border: solid #456268 2.5px;
     box-shadow: 0 2px 5px rgba(25, 25, 26, 0.4);
   }
   
@@ -159,12 +190,13 @@
     font: 16px;
   }
   
-  .session-submit:hover{
-    background-color: #272727;
-    /*  Making button bigger on hover  */
+  /* .session-submit:hover{
+    background-color: #456268;
+   
     transition: .1s ease-in-out;
     transform: scale(1.03) perspective(1px);
-  }
+    
+  } */
   
   .login-signup {
     display: flex;
@@ -181,7 +213,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(109, 109, 109, 0.7);
+    background: #4562685d;
     z-index: 11;
     overflow-y: auto;
     overflow-x: hidden;
@@ -200,7 +232,7 @@
 
   .modal-close-container{
     font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
-    color: white;
+    color: #fcf8ec;
     z-index: 11;
     margin: auto;
     width: 300px;
@@ -222,73 +254,39 @@
   font-size: 31px;
   cursor: pointer;
 
-  &::before, &::after{
-    content: 'x';
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    transition: all 0.25s ease;
-    border-radius: 50px*0.5;    
-  }
 }
-  .modal-close{
-    &::after{    
-      box-shadow: inset 0 0 0 0px rgb(167, 167, 167) ;
+
+.modal-close::before, .modal-close::after{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  transition: all 0.25s ease;
+  border-radius: 30px;    
+}
+  .modal-close::after{    
+      box-shadow: inset 0 0 0 0px #82a9b1;
+      background:#77a7b107 ;
+    }
+    .modal-close::before{     
+      background:#45626800 ;
+      box-shadow: inset 0 0 0 30px #95b2b800;
 
     }
-    &::before{     
-      background:rgb(167, 167, 167) ;
-      box-shadow: inset 0 0 0 30px #989898 ;
-
+    .modal-close:hover::before{  
+      box-shadow: inset 0 0 0 0px#456268;
     }
-    &:hover::before{  
-      box-shadow: inset 0 0 0 0px#989898 ;
-    }
-  }
 
+.modal-text{
+  color: #456268;
+}
   
   #currentForm{
     font-size: 20px;
+    color: #456268;
   }
 
-  footer{
-    z-index: 100;
-    left:0;
-    bottom:0;
-  }
-  
-  .divideBar{
-    display: flex;
-    height: 20px;
-    width: 100%;
-    display:block;
-    border-bottom: solid rgb(197, 197, 197) 2px;
-  }
 
-  .bottomBarTop{
-    display: flex;
-    // margin-top:100px;
-    height: 100px;
-    width: 100%;
-    background-color: #2F466C;
-  
-  }
-
-  .bottomBarBottom{
-    display: flex;
-    height: 75px;
-    width: 100%;
-    background-color: #232347;
-    bottom: 0;
-  }
-
-  .botDivLine{ 
-    padding-top: 30px;
-    background-image: asset-url('bottomBarTop.JPG');
-    background-position: center;
-    bottom: -5%;
-    height:50px;
-    width: 100%;
-  }
+ 

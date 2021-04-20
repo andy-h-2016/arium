@@ -75,7 +75,7 @@ class SessionForm extends React.Component {
           {this.renderErrors()}
           <div className="login-form">
             <br />
-            <label>
+            <label className="modal-text">
               Username
               <br />
               <input
@@ -89,7 +89,7 @@ class SessionForm extends React.Component {
             </label>
             {emailField}
             <br />
-            <label>
+            <label className="modal-text">
               Password
               <br />
               <input
@@ -102,7 +102,7 @@ class SessionForm extends React.Component {
               />
             </label>
             <br />
-            <input
+            <input className="modal-text"
               className="session-submit"
               type="submit"
               value={this.props.formType}
