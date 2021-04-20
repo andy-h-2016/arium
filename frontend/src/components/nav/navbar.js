@@ -21,7 +21,9 @@ class NavBar extends React.Component {
                 <Link to={'/terrarium'}>All Tweets</Link>
                 <Link to={'/profile'}>Profile</Link>
                 <Link to={'/new_tweet'}>Write a Tweet</Link>
-                <button onClick={this.logoutUser}>Logout</button>
+                <nav className="login-modal-button">
+                <button className="logout" onClick={this.logoutUser}>Logout</button>
+                </nav>
             </div>
         );
       } else {
