@@ -2,24 +2,24 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 
 class WaterTracker extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+
 
   componentDidMount() {
-    this.props.fetchUserWaterTracker(this.props.currentUser.id)
+    this.props.fetchUserTerrarium(this.props.currentUser._id);
+    this.props.fetchUserWaterTracker(this.props.currentUser._id);
   }
 
   render() {
-    const { WaterTrackers, currentUser } = this.props;
-
+    let { waterTrackers, currentUser, terrarium } = this.props;
+    if (!terrarium) return <div></div>
+    console.log(terrarium);
     return (
       <div className="water-tracker-show-container">
         <div className="water-tracker-show-header">
           {currentUser.username}'s Water Tracker
         </div>
         <div className="wt-terrarium-title">
-          Put Terrariums.userId 
+          Your {terrarium.title}
         </div>
       </div>
     );

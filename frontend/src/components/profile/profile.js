@@ -14,7 +14,7 @@ class Profile extends React.Component {
     handleSubmit(e) {
       e.preventDefault();
       const user = Object.assign({}, this.state);      
-      this.props.updateUser(user.id, user)
+      this.props.updateUser(user._id, user)
       .then(this.props.receiveCurrentUser(user))
     }
     
