@@ -1,4 +1,4 @@
-import { RECEIVE_WATER_TRACKER } from '../actions/watertracker_actions';
+import { RECEIVE_WATER_TRACKER } from '../actions/water_tracker_actions';
 
 
 const WaterTrackersReducer = (state = {}, action) => {

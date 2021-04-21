@@ -1,4 +1,4 @@
-import * as WaterTrackerAPIUtil from '../util/watertracker_api_util';
+import * as WaterTrackerAPIUtil from '../util/water_tracker_api_util';
 
 export const RECEIVE_WATER_TRACKER = "RECEIVE_WATER_TRACKER";
 
