@@ -1,5 +1,5 @@
 .terra-page {
-  background: lightgray;
+  background: rgb(195, 210, 215);
   width: 100%;
   min-width: 1400px;
   display: flex;
@@ -9,23 +9,26 @@
 }
 
 .welcome-mes {
-  background: lightblue;
+  font-family: Palatino, "Palatino LT STD", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  font-size: 50px;
+  /* color: rgb(237, 242, 244); */
+  color: #fff;
+
 }
 
 .im-the-terra {
-  width: 1200px;
-  height: 740px;
-  background: url("../../images/terrarium-b02.png") center no-repeat;;
-  background-size: contain;
-  /* border: solid 15px rgb(190, 124, 91); */
-
+  width: 730px;
+  height: 850px;
+  background: url("../../images/terrarium-b02-t.png") center no-repeat;;
+  background-size:cover;
 }
 
 .im-shelf {
-  background: url("../../images/woodenborder02.png") center no-repeat;;
+  background: url("../../images/shelf03.png") center no-repeat;;
   /* background-size: contain; */
   width: 1400px;
   height: 100px;
   margin-top: 0px;
   padding-top: 0px;
+  margin-bottom: 70px;
 }
