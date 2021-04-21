@@ -105,14 +105,23 @@ router.post("/login", (req, res) => {
   });
 });
 
+router.get('/:id', (req, res) => {
+  User.findOne({ id: req.params._id })
+    .then(user => res.json(user))
+    .catch(err =>
+      res.status(404).json({ nouserfound: "No user found with this ID" }
+      )
+    );
+});
+
 // adding route for user to update goals and bio 
 
 // Update User method with the update_user.js portion
 
 router.patch('/updateUser/:id', passport.authenticate('jwt', {session: false}), (req, res) => {
   const { errors, isValid } = validateUpdateUserInput(req.body);
-
-    if (!isValid) {
+  
+  if (!isValid) {
       return res.json.status(400).json(errors);
     }
 
@@ -136,7 +145,7 @@ router.patch('/updateUser/:id', passport.authenticate('jwt', {session: false}), 
           User.findOneAndUpdate(query, update, options, (err, user) => {
             if (err) {
               res.status(400).json(err);
-            } else {
+            } else {  
               res.json(user);
             }
           })
