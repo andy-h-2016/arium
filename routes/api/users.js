@@ -33,19 +33,16 @@ router.post("/register", (req, res) => {
     return res.status(400).json(errors);
   }
 
-  // changed to email - feel like username could really be anyone's name
   User.findOne({ email: req.body.email })
     .then(user => {
       if (user) {
         errors.email = "Email address already exists!";
         return res.status(400).json(errors);
       } else {
-        //need to add validation to see if email is already used. Or do we even need it if Mongoose already has a unique option set?
         const newUser = new User({
           username: req.body.username,
           email: req.body.email,
           password: req.body.password,
-          // add this line @4/19/21 - TS 11:52 PM
           goal: req.body.goal
         });
 

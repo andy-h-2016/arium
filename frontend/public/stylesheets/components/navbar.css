@@ -1,0 +1,39 @@
+  .main-container{
+    display:flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    margin-left: 400px;
+    margin-right: 400px;
+    height: auto;
+  }
+  .get-links-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  .nav-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+.NavBar {
+  display: flex;
+ 
+  justify-content: space-between;
+}
+
+.NavBar button {
+  height: 20px;
+}
+
+.Links1 {
+  width: 100px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Links2 {
+  width: 400px;
+  display: flex;
+  justify-content: space-between;
+}
