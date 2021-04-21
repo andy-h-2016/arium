@@ -10,8 +10,8 @@ class Profile extends React.Component {
     handleSubmit(e) {
       e.preventDefault();
       const user = Object.assign({}, this.state);
-      this.props.updateUser(user.id);
-     
+      this.props.updateUser(user.id, user);
+     this.setState(this.props.currentUser)
     }
     
     update(field) {
@@ -25,6 +25,8 @@ class Profile extends React.Component {
               <div className="user-edit-greeting">
                 Welcome {this.props.currentUser.username}!             
               </div> 
+              <form onSubmit={this.handleSubmit}> 
+
               <div className="edit-goals">
                 <input    
                 type="text"
@@ -47,6 +49,7 @@ class Profile extends React.Component {
                 <button type='submit'>
                 </button>
               </div>           
+              </form>
 
             </div>
           );
