@@ -5,6 +5,7 @@ import { Switch } from 'react-router-dom';
 import Splash from './splash/splash';
 import ProfileContainer from './profile/profile_container';
 import TerrariumContainer from './terrarium/terrarium_container';
+import WaterTrackerContainer from './water_tracker/water_tracker_container';
 import Modal from './modal/modal'
 import SideBar from './sidebar/sidebar_container'
 
@@ -16,6 +17,7 @@ const App = () => (
     <Switch>
       <AuthRoute exact path="/" component={Splash} />
       <ProtectedRoute exact path="/terrarium" component={TerrariumContainer} />
+      <ProtectedRoute exact path="/watertracker" component={WaterTrackerContainer} />
       <ProtectedRoute exact path="/profile" component={ProfileContainer} />
     </Switch>
       <div className="foot">
