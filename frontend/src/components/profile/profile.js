@@ -49,7 +49,7 @@ class Profile extends React.Component {
                 >          
                 </input>              
               </div> 
-              
+              <br />
               <div className="edit-submit-button-container">
                 <button className="edit-submit-button" type='submit'>Submit Changes
                 </button>
