@@ -3,12 +3,13 @@ import Terrarium from './terrarium';
 
 const mapStateToProps = (state) => {
   return {
-    currentUser: state.session.user,
+    currentUser: state.session.user,   
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
+   
   };
 };
 
