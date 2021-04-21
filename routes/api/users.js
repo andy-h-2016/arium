@@ -77,19 +77,19 @@ router.post("/login", (req, res) => {
     return res.status(400).json(errors);
   }
 
-  const email = req.body.email;
+  const username = req.body.username;
   const password = req.body.password;
 
-  User.findOne({ email }).then(user => {
+  User.findOne({ username }).then(user => {
     if (!user) {
-      errors.email = "This user does not exist";
+      errors.username = "This user does not exist";
       return res.status(400).json(errors);
     }
 
     bcrypt.compare(password, user.password)
       .then(isMatch => {
         if (isMatch) {
-          const payload = { id: user.id, username: user.username };
+          const payload = { id: user.id, username: user.username, email: user.email, goal: user.goal, bio: user.bio };
 
           jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
             res.json({
@@ -110,7 +110,7 @@ router.post("/login", (req, res) => {
 // Update User method with the update_user.js portion
 
 router.patch('/updateUser/:id', passport.authenticate('jwt', {session: false}), (req, res) => {
-    const { errors, isValid } = validateUpdateUserInput(req.body);
+  const { errors, isValid } = validateUpdateUserInput(req.body);
 
     if (!isValid) {
       return res.json.status(400).json(errors);

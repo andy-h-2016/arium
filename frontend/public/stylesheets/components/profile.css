@@ -1,0 +1,32 @@
+.user-edit-container{
+ position: absolute;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 100px;
+}
+
+.user-edit-greeting{
+
+}
+
+.user-edit-form{
+
+}
+
+.edit-goals{
+ 
+}
+
+.edit-bio{
+  
+}
+
+.edit-submit-button-container{
+ 
+}
+
+.edit-submit-button{
+ 
+}

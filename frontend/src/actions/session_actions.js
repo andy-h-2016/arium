@@ -1,11 +1,18 @@
 import * as APIUtil from '../util/session_api_util';
 import jwt_decode from 'jwt-decode';
+import { createWaterTracker } from './water_tracker_actions';
+import { createTerrarium } from './terrarium_actions';
 
 export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
 export const CLEAR_SESSION_ERRORS = "CLEAR_SESSION_ERRORS";
 export const RECEIVE_USER_LOGOUT = "RECEIVE_USER_LOGOUT";
-export const RECEIVE_USER_SIGN_IN = "RECEIVE_USER_SIGN_IN";
+export const RECEIVE_USER = "RECEIVE_USER"
+
+export const receiveUser = user => ({
+    type: RECEIVE_USER,
+    user
+});
 
 // We'll dispatch this when our user signs in
 export const receiveCurrentUser = currentUser => ({
@@ -34,6 +41,14 @@ export const signup = user => dispatch => (
         const decoded = jwt_decode(token);
         dispatch(receiveCurrentUser(decoded))
       })
+      .then( () => dispatch(createWaterTracker()) )
+      .then(waterTrackerAction => {
+        const terrarium = {
+          title: 'placeholder',
+          waterTrackerId: waterTrackerAction.waterTracker._id
+        };
+        dispatch(createTerrarium(terrarium))
+      })
       .catch(err => {
         dispatch(receiveErrors(err.response.data));
       })
@@ -49,8 +64,7 @@ export const login = user => dispatch => (
         dispatch(receiveCurrentUser(decoded))
     })
     .catch(err => {
-      console.log(err)
-        // dispatch(receiveErrors(err.response.data));
+      dispatch(receiveErrors(err.response.data));
     })
 )
 
@@ -64,3 +78,9 @@ export const logout = () => dispatch => {
 export const clearSessionErrors = () => ({
     type: CLEAR_SESSION_ERRORS
   });
+
+export const updateUser = (userId, user) => (dispatch)=> (
+  APIUtil.updateUser(userId, user)
+  .then((user) => dispatch(receiveUser(user)))
+  .catch(err => console.log(err))
+);
