@@ -2,8 +2,8 @@
     display:flex;
     flex-direction: row-reverse;
     justify-content: center;
-    margin-left: 400px;
-    margin-right: 400px;
+    margin-left: 100px;
+    margin-right: 100px;
     height: auto;
   }
   .get-links-container{
@@ -16,6 +16,7 @@
     flex-direction: column;
     justify-content: space-evenly;
     height: 1000px;
+    width: auto;
   }
 .NavBar {
   display: flex;

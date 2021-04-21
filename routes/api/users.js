@@ -110,7 +110,7 @@ router.post("/login", (req, res) => {
 // Update User method with the update_user.js portion
 
 router.patch('/updateUser/:id', passport.authenticate('jwt', {session: false}), (req, res) => {
-    const { errors, isValid } = validateUpdateUserInput(req.body);
+  const { errors, isValid } = validateUpdateUserInput(req.body);
 
     if (!isValid) {
       return res.json.status(400).json(errors);

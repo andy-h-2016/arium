@@ -70,8 +70,8 @@ export const clearSessionErrors = () => ({
     type: CLEAR_SESSION_ERRORS
   });
 
-  export const updateUser = (userId) => (dispatch)=> (
-    APIUtil.updateUser(userId)
+  export const updateUser = (userId, user) => (dispatch)=> (
+    APIUtil.updateUser(userId, user)
     .then((user) => dispatch(receiveUser(user)))
     .catch(err => console.log(err))
   );
