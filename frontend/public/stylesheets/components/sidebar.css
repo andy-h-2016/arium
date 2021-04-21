@@ -70,3 +70,10 @@
   .sidebar {padding-top: 15px;}
   .sidebar a {font-size: 18px;}
 }
+
+.closebtn{
+  border: none;
+  background-color: #111;
+  color: white;
+  cursor: pointer;
+}
