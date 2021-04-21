@@ -6,16 +6,26 @@ const passport = require('passport');
 const WaterTracker = require('../../models/WaterTracker');
 const validateWaterTrackerInput = require('../../validation/watertracker');
 
-// Water Tracker show 
+// Water Tracker show for a specific user
 
 router.get('/test', (req, res) => res.json({ msg: 'The water tracker router is working' }));
 
 router.get('/user/:user_id', (req, res) => {
-  console.log(req.params)
   WaterTracker.findOne({ userId: req.params.user_id })
     .then(watertracker => res.json(watertracker))
     .catch(err =>
       res.status(404).json({ nowatertrackerfound: "No water tracker found for this user" }
+      )
+    );
+});
+
+// add a show route just for a single water tracker @ 4/21/21
+
+router.get('/:id', (req, res) => {
+  WaterTracker.findOne({ id: req.params._id })
+    .then(watertracker => res.json(watertracker))
+    .catch(err =>
+      res.status(404).json({ nowatertrackerfound: "No water tracker found with this ID" }
       )
     );
 });

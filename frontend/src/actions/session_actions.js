@@ -64,8 +64,7 @@ export const login = user => dispatch => (
         dispatch(receiveCurrentUser(decoded))
     })
     .catch(err => {
-      console.log(err)
-        // dispatch(receiveErrors(err.response.data));
+      dispatch(receiveErrors(err.response.data));
     })
 )
 
@@ -80,8 +79,8 @@ export const clearSessionErrors = () => ({
     type: CLEAR_SESSION_ERRORS
   });
 
-export const updateUser = (userId) => (dispatch)=> (
-  APIUtil.updateUser(userId)
-  .then((user) => dispatch(receiveUser(user)))
-  .catch(err => console.log(err))
-);
+  export const updateUser = (userId, user) => (dispatch)=> (
+    APIUtil.updateUser(userId, user)
+    .then((user) => dispatch(receiveUser(user)))
+    .catch(err => console.log(err))
+  );
