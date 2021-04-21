@@ -19,7 +19,6 @@ switch (action.type) {
       isAuthenticated: false,
       user: undefined
     };
-
   default:
     return state;
 }

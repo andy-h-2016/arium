@@ -5,24 +5,27 @@ import { RECEIVE_TERRARIUM, RECEIVE_ALL_TERRARIUMS } from '../actions/terrarium_
 // };
 
 const TerrariumsReducer = (state = {}, action) => {
-switch (action.type) {
-  case RECEIVE_ALL_TERRARIUMS:
-    const terrariums = Object.values(action.type.terrariums);
-    const terrariumState = {};
-    terrariums.forEach(terrarium => {
-      terrariumState[terrarium._id] = terrarium;
-    });
+  Object.freeze(state);
+  let newState;
 
-    return terrariumState;
+  switch (action.type) {
+    case RECEIVE_ALL_TERRARIUMS:
+      const terrariums = Object.values(action.type.terrariums);
+      newState = {};
 
-  case RECEIVE_TERRARIUM:
-    return {
-      isAuthenticated: false,
-      user: undefined
-    };
-  default:
-    return state;
+      terrariums.forEach(terrarium => {
+        newState[terrarium._id] = terrarium;
+      });
+
+      return newState;
+
+    case RECEIVE_TERRARIUM:
+      newState = Object.assign({}, state);
+      newState[action.terrarium._id] = action.terrarium;
+      return newState
+    default:
+      return state;
   }
 }
 
-export default TerrariumsReducer
+export default TerrariumsReducer;
