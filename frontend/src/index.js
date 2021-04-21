@@ -6,6 +6,9 @@ import jwt_decode from 'jwt-decode';
 import { setAuthToken } from './util/session_api_util';
 import { logout } from './actions/session_actions';
 
+//imports for testing actions and reducers
+import {fetchAllTerrariums} from './actions/terrarium_actions';
+
 document.addEventListener('DOMContentLoaded', () => {
   let store;
   if (localStorage.jwtToken) {
@@ -24,6 +27,11 @@ document.addEventListener('DOMContentLoaded', () => {
     store = configureStore({});
   }
   // Render our root component and pass in the store as a prop
+
+  window.getState = store.getState;
+  window.dispatch = store.dispatch;
+  window.fetchAllTerrariums = fetchAllTerrariums;
+
   const root = document.getElementById('root');
 
   ReactDOM.render(<Root store={store} />, root);
