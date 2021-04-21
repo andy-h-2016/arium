@@ -1,4 +1,5 @@
 import React from 'react';
+import { receiveCurrentUser } from '../../actions/session_actions';
 
 class Profile extends React.Component {
     constructor(props) {
@@ -11,7 +12,7 @@ class Profile extends React.Component {
       e.preventDefault();
       const user = Object.assign({}, this.state);
       this.props.updateUser(user.id, user);
-     this.setState(this.props.currentUser)
+      this.props.receiveCurrentUser(user)
     }
     
     update(field) {
@@ -23,7 +24,7 @@ class Profile extends React.Component {
           return (
             <div className="user-edit-container">
               <div className="user-edit-greeting">
-                Welcome {this.props.currentUser.username}!             
+                Welcome {this.state.username}!             
               </div> 
               <form onSubmit={this.handleSubmit}> 
 
@@ -37,12 +38,13 @@ class Profile extends React.Component {
               
               </div>
               <div className="edit-bio">
-                <input    
+                <br/>      
+                <textarea    
                 type="text"
                 onChange={this.update("bio")}
                 value={this.state.bio}
-                >                
-                </input>              
+                >          
+                </textarea>              
               </div> 
               
               <div className="edit-submit-button">
