@@ -3,10 +3,10 @@ import terrariums from './terrariums_reducer';
 // import waterTrackers from './water_trackers_reducer';
 
 
-const StateReducer = combineReducers({
+const EntitiesReducer = combineReducers({
   // users,
   terrariums,
   // waterTrackers
 });
 
-export default StateReducer;
+export default EntitiesReducer;
