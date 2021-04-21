@@ -28,10 +28,10 @@ class SideBar extends React.Component {
       if (this.props.loggedIn) {
         return (
           <div id="main">
-            <button class="openbtn" onClick={() => this.openNav()}>☰ Open Sidebar</button>  
-            <div id="mySidebar" class="sidebar" >
+            <button className="openbtn" onClick={() => this.openNav()}>☰ Open Sidebar</button>  
+            <div id="mySidebar" className="sidebar" >
 
-              <a href="javascript:void(0)" class="closebtn" onClick={() => this.closeNav()}>×</a>
+                <a className="closebtn" onClick={() => this.closeNav()}>×</a>
                 <Link to={'/terrarium'}>My Terrarium</Link>
                 <Link to={'/profile'}>My Profile</Link>
                 <Link to={`/watertracker/`}>Water Tracker</Link> 
