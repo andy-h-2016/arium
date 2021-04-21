@@ -4,10 +4,6 @@ import { withRouter } from 'react-router-dom';
 class WaterTracker extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-
-    }
   }
 
   componentDidMount() {
@@ -15,10 +11,13 @@ class WaterTracker extends React.Component {
   }
 
   render() {
+    const { WaterTrackers, currentUser } = this.props;
 
     return (
-      <div>
-
+      <div className="water-tracker-show-container">
+        <div className="water-tracker-show-header">
+          <h1>{currentUser.username}</h1>
+        </div>
       </div>
     );
   }
