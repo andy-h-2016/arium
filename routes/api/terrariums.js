@@ -40,13 +40,16 @@ router.post('/',
     }
 
     const newTerrarium = new Terrarium({
-      title: req.body.title,
+      title: `${req.user.username}'s Terrarium`,
       level: 1,
       health: 0,
-      userId: req.user.id
+      userId: req.user.id,
+      waterTrackerId: req.body.waterTrackerId
     });
 
-    newTerrarium.save().then(terrarium => res.json(terrarium));
+    newTerrarium.save()
+      .then(terrarium => res.json(terrarium))
+      .catch(err => res.status(400).json(err));
   }
 )
 

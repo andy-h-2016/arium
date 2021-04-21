@@ -1,11 +1,12 @@
 import * as APIUtil from '../util/session_api_util';
 import jwt_decode from 'jwt-decode';
+import { createWaterTracker } from './water_tracker_actions';
+import { createTerrarium } from './terrarium_actions';
 
 export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
 export const CLEAR_SESSION_ERRORS = "CLEAR_SESSION_ERRORS";
 export const RECEIVE_USER_LOGOUT = "RECEIVE_USER_LOGOUT";
-export const RECEIVE_USER_SIGN_IN = "RECEIVE_USER_SIGN_IN";
 export const RECEIVE_USER = "RECEIVE_USER"
 
 export const receiveUser = user => ({
@@ -38,7 +39,19 @@ export const signup = user => dispatch => (
         localStorage.setItem('jwtToken', token);
         APIUtil.setAuthToken(token);
         const decoded = jwt_decode(token);
+        console.log('DECODED SAD;OHIASDFIHASFD;JNASFD')
         dispatch(receiveCurrentUser(decoded))
+      })
+      .then(
+        () => dispatch(createWaterTracker()),
+        err => console.log(err)
+      )
+      .then(waterTrackerAction => {
+        const terrarium = {
+          title: 'placeholder',
+          waterTrackerId: waterTrackerAction.waterTracker._id
+        };
+        dispatch(createTerrarium(terrarium))
       })
       .catch(err => {
         dispatch(receiveErrors(err.response.data));
@@ -71,8 +84,8 @@ export const clearSessionErrors = () => ({
     type: CLEAR_SESSION_ERRORS
   });
 
-  export const updateUser = (userId) => (dispatch)=> (
-    APIUtil.updateUser(userId)
-    .then((user) => dispatch(receiveUser(user)))
-    .catch(err => console.log(err))
-  );
+export const updateUser = (userId) => (dispatch)=> (
+  APIUtil.updateUser(userId)
+  .then((user) => dispatch(receiveUser(user)))
+  .catch(err => console.log(err))
+);
