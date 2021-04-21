@@ -1,7 +1,7 @@
-import { getTweets, getUserTweets, writeTweet } from '../util/tweet_api_util';
+import { getAllTerrariums, getUserTerrariums, createTerrarium, updateTerrarium } from '../util/terrarium_api_util';
 
-export const RECEIVE_TWEETS = "RECEIVE_TWEETS";
-export const RECEIVE_USER_TWEETS = "RECEIVE_USER_TWEETS";
+export const RECEIVE_ALL_TERRARIUMS = "RECEIVE_ALL_TERRARIUMS";
+export const RECEIVE_TERRARIUM = "RECEIVE_TERRARIUM";
 export const RECEIVE_NEW_TWEET = "RECEIVE_NEW_TWEET";
 
 export const receiveTweets = tweets => ({
