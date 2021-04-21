@@ -6,32 +6,11 @@ const passport = require('passport');
 const WaterTracker = require('../../models/WaterTracker');
 const validateWaterTrackerInput = require('../../validation/watertracker');
 
-// Show - get an user's specific water tracker
-
-// router.get('/user/:userId', (req, res) => {
-//   WaterTracker.find({ userId: req.params.userId })
-//     .then(watertracker => res.json(watertracker))
-//     .catch(() => 
-//       res.status(404).json({ nowatertrackerfound: "No water tracker for this user" }
-//       )
-//     );
-// });
-
-// // Show - Water Tracker on a terrarium
-
-// router.get('/terrarium/:terrariumId', (req, res) => {
-//   WaterTracker.find({ terrariumId: req.params.terrariumId })
-//     .then(watertracker => res.json(watertracker))
-//     .catch(() =>
-//       res.status(404).json({ nowatertrackerfound: "No water tracker for this terrarium" }
-//       )
-//     );
-// });
-
 // Water Tracker show 
 
 router.get('/:userId', (req, res) => {
-  WaterTracker.findOne({ _id: req.params.id })
+  console.log(req.params)
+  WaterTracker.findOne({ userId: req.params.userId })
     .then(watertracker => res.json(watertracker))
     .catch(() =>
       res.status(404).json({ nowatertrackerfound: "No water tracker found with this user" }
@@ -45,13 +24,14 @@ router.post('/',
     const { errors, isValid } = validateWaterTrackerInput(req.body);
 
     if (!isValid) {
-      return res.json.status(400).json(errors);
+      return res.status(400).json(errors);
     }
 
     const newWaterTracker = new WaterTracker({
-      total: req.body.total,
-      today: req.body.today,
-      streak: req.body.streak 
+      total: 0,
+      today: 0,
+      streak: 0,
+      userId: req.user.id
     });
 
     newWaterTracker.save().then(watertracker => res.json(watertracker));

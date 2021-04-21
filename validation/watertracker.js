@@ -4,9 +4,10 @@ const validText = require('./valid-text');
 module.exports = function validateWaterTrackerInput(data) {
   let errors = {};
 
-  // data.userId = validText(data.userId) ? data.userId : "";
-  // data.terrariumId = validText(data.terrariumId) ? data.terrariumId : "";
-
+  data.userId = validText(data.userId) ? data.userId : "";
+  data.total = data.total ? data.total.toString() : "0";
+  data.today = data.today ? data.today.toString() : "0";
+  data.streak = data.streak ? data.streak.toString() : "0";
 
   if (Validator.isEmpty(data.total)) {
     errors.total = "Total amount of cups field is required"

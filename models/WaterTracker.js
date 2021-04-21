@@ -6,10 +6,11 @@ const WaterTrackerSchema = new Schema ({
     type: Schema.Types.ObjectId,
     ref: "users"
   },
-  terrariumId: {
-    type: Schema.Types.ObjectId,
-    ref: "terrariums"
-  },
+  // comment to switch onto Terrarium Model
+  // terrariumId: {
+  //   type: Schema.Types.ObjectId,
+  //   ref: "terrariums"
+  // },
   // tracks total cups of water drank since using our app
   total: {
     type: Number,
