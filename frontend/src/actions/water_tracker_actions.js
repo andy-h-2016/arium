@@ -31,9 +31,9 @@ export const fetchWaterTracker = id => dispatch => {
 //     .catch(err => console.log(err))
 // );
 
-export const createWaterTracker = data => dispatch => (
-  WaterTrackerAPIUtil.createWaterTracker(data)
-    .then(newWaterTracker => dispatch(receiveWaterTracker(newWaterTracker)))
+export const createWaterTracker = waterTracker => dispatch => (
+  WaterTrackerAPIUtil.createWaterTracker(waterTracker)
+    .then(response => dispatch(receiveWaterTracker(response.data)))
     .catch(err => console.log(err))
 );
 
