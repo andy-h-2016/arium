@@ -6,6 +6,12 @@ export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
 export const CLEAR_SESSION_ERRORS = "CLEAR_SESSION_ERRORS";
 export const RECEIVE_USER_LOGOUT = "RECEIVE_USER_LOGOUT";
 export const RECEIVE_USER_SIGN_IN = "RECEIVE_USER_SIGN_IN";
+export const RECEIVE_USER = "RECEIVE_USER"
+
+export const receiveUser = user => ({
+    type: RECEIVE_USER,
+    user
+});
 
 // We'll dispatch this when our user signs in
 export const receiveCurrentUser = currentUser => ({
@@ -64,3 +70,9 @@ export const logout = () => dispatch => {
 export const clearSessionErrors = () => ({
     type: CLEAR_SESSION_ERRORS
   });
+
+  export const updateUser = (userId) => (dispatch)=> (
+    APIUtil.updateUser(userId)
+    .then((user) => dispatch(receiveUser(user)))
+    .catch(err => console.log(err))
+  );
