@@ -14,9 +14,12 @@ class Terrarium extends React.Component {
 
 
   render() {
- 
+ console.log(this.props.currentUser.username)
       return (
-        <div>
+        <div className='terra-page'>
+          <h1 className='welcome-mes'>this is {this.props.currentUser.username}'s terrerium</h1>
+          <div className='im-the-terra'></div>
+          <div className='im-shelf'></div>
     
         </div>
       );
