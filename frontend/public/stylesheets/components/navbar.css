@@ -2,8 +2,8 @@
     display:flex;
     flex-direction: row-reverse;
     justify-content: center;
-    margin-left: 100px;
-    margin-right: 100px;
+    /* margin-left: 100px;
+    margin-right: 100px; */
     height: auto;
   }
   .get-links-container{
