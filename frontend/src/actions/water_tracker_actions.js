@@ -7,8 +7,8 @@ export const receiveWaterTracker = waterTracker => ({
   waterTracker
 });
 
-export const fetchUserWaterTracker = userId => dispatch => (
-  WaterTrackerAPIUtil.fetchUserWaterTracker(userId)
+export const fetchUserWaterTracker = data => dispatch => (
+  WaterTrackerAPIUtil.fetchUserWaterTracker(data)
     .then(waterTracker => dispatch(receiveWaterTracker(waterTracker)))
     .catch(err => console.log(err))
 );

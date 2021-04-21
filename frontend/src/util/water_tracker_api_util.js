@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-export const fetchUserWaterTracker = userId => {
-  return axios.get(`/api/watertrackers/${userId}`);
+export const fetchUserWaterTracker = waterTracker => {
+  return axios.get(`/api/watertrackers/user/${waterTracker.userId}`);
 };
 
 export const createWaterTracker = newWaterTracker => {
@@ -9,5 +9,5 @@ export const createWaterTracker = newWaterTracker => {
 }
 
 export const updateWaterTracker = waterTracker => {
-  return axios.patch(`/api/watertrackers/${waterTracker.id}`, waterTracker);
+  return axios.patch(`/api/watertrackers/${waterTracker._id}`, waterTracker);
 };
