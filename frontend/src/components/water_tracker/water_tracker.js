@@ -19,7 +19,7 @@ class WaterTracker extends React.Component {
           {currentUser.username}'s Water Tracker
         </div>
         <div className="wt-terrarium-title">
-          Your {terrarium.title}
+          {terrarium.title}
         </div>
       </div>
     );
