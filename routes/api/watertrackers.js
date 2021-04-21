@@ -38,4 +38,29 @@ router.post('/',
   }
 );
 
+router.patch('/:id',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    const { errors, isValid } = validateWaterTrackerInput(req.body);
+
+    if (!isValid) {
+      return res.status(400), json(errors);
+    }
+
+    const update = {
+      total: req.body.total,
+      today: req.body.today,
+      streak: req.body.streak
+    }
+
+    WaterTracker.findByIdAndUpdate(req.params.id, update, { new: true }, (err, watertracker) => {
+      if (err) {
+        res.status(400).json(err)
+      } else {
+        res.json(watertracker)
+      }
+    })
+  }
+);
+
 module.exports = router;
