@@ -10,7 +10,9 @@ class WaterTracker extends React.Component {
     }
   }
 
-
+  componentDidMount() {
+    this.props.fetchUserWaterTracker(this.props.currentUser.id)
+  }
 
   render() {
 
