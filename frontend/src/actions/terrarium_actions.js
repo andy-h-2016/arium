@@ -1,38 +1,38 @@
-import { getAllTerrariums, getUserTerrariums, createTerrarium, updateTerrarium } from '../util/terrarium_api_util';
+import * as TerrariumAPIUtil from '../util/terrarium_api_util';
 
 export const RECEIVE_ALL_TERRARIUMS = "RECEIVE_ALL_TERRARIUMS";
 export const RECEIVE_TERRARIUM = "RECEIVE_TERRARIUM";
-export const RECEIVE_NEW_TWEET = "RECEIVE_NEW_TWEET";
 
-export const receiveTweets = tweets => ({
-  type: RECEIVE_TWEETS,
-  tweets
+export const receiveAllTerrariums = terrariums => ({
+  type: RECEIVE_ALL_TERRARIUMS,
+  terrariums
 });
 
-export const receiveUserTweets = tweets => ({
-  type: RECEIVE_USER_TWEETS,
-  tweets
+export const receiveTerrarium = terrarium => ({
+  type: RECEIVE_TERRARIUM,
+  terrarium
 });
 
-export const receiveNewTweet = tweet => ({
-  type: RECEIVE_NEW_TWEET,
-  tweet
-})
-
-export const fetchTweets = () => dispatch => (
-  getTweets()
-    .then(tweets => dispatch(receiveTweets(tweets)))
+export const fetchAllTerrariums = () => dispatch => (
+  TerrariumAPIUtil.fetchAllTerrariums()
+    .then(terrariums => dispatch(receiveAllTerrariums(terrariums)))
     .catch(err => console.log(err))
 );
 
-export const fetchUserTweets = id => dispatch => (
-  getUserTweets(id)
-    .then(tweets => dispatch(receiveUserTweets(tweets)))
+export const fetchUserTerrarium = userId => dispatch => (
+  TerrariumAPIUtil.fetchUserTerrarium(userId)
+    .then(terrarium => dispatch(receiveTerrarium(terrarium)))
     .catch(err => console.log(err))
 );
 
-export const composeTweet = data => dispatch => (
-  writeTweet(data)
-    .then(tweet => dispatch(receiveNewTweet(tweet)))
+export const createTerrarium = data => dispatch => (
+  TerrariumAPIUtil.createTerrarium(data)
+    .then(newTerrarium => dispatch(receiveTerrarium(newTerrarium)))
+    .catch(err => console.log(err))
+);
+
+export const updateTerrarium = data => dispatch => (
+  TerrariumAPIUtil.updateTerrarium(data)
+    .then(newTerrarium => dispatch(receiveTerrarium(newTerrarium)))
     .catch(err => console.log(err))
 );

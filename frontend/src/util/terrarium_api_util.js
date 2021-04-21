@@ -1,11 +1,11 @@
 import axios from 'axios';
 
-export const getAllTerrariums = () => {
+export const fetchAllTerrariums = () => {
   return axios.get('/api/terrariums/all')
 };
 
-export const getUserTerrariums = id => {
-  return axios.get(`/api/terrariums/user/${id}`)
+export const fetchUserTerrarium = userId => {
+  return axios.get(`/api/terrariums/user/${userId}`)
 };
 
 export const createTerrarium = newTerrarium => {
