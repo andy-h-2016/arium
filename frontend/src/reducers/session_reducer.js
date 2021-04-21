@@ -1,4 +1,4 @@
-import { RECEIVE_CURRENT_USER, 
+import { RECEIVE_CURRENT_USER, RECEIVE_USER,
   RECEIVE_USER_LOGOUT,} from '../actions/session_actions';
 
 const initialState = {
