@@ -7,9 +7,14 @@ import { RECEIVE_TERRARIUM, RECEIVE_ALL_TERRARIUMS } from '../actions/terrarium_
 const TerrariumsReducer = (state = {}, action) => {
 switch (action.type) {
   case RECEIVE_ALL_TERRARIUMS:
-    return {
-      action.terrariums.
-    };
+    terrariums = Object.values(action.type.terrariums);
+    const terrariumState = {};
+    terrariums.forEach(terrarium => {
+      terrariumState[terrarium._id] = terrarium;
+    });
+
+    return terrariumState;
+
   case RECEIVE_TERRARIUM:
     return {
       isAuthenticated: false,
