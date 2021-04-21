@@ -2,10 +2,15 @@ import * as WaterTrackerAPIUtil from '../util/water_tracker_api_util';
 
 export const RECEIVE_WATER_TRACKER = "RECEIVE_WATER_TRACKER";
 
-export const receiveWaterTracker = waterTracker => ({
+export const receiveWaterTracker = payload => ({
   type: RECEIVE_WATER_TRACKER,
-  waterTracker
+  userId: payload.userId
 });
+
+// export const receiveWaterTracker = waterTracker => ({
+//   type: RECEIVE_WATER_TRACKER,
+//   waterTracker
+// });
 
 export const fetchUserWaterTracker = userId => dispatch => (
   WaterTrackerAPIUtil.fetchUserWaterTracker(userId)
