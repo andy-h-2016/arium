@@ -146,30 +146,6 @@ router.patch('/updateUser/:id', passport.authenticate('jwt', {session: false}), 
   }
 );
 
-// Update User method without the update_user.js portion
-
-// @JASON: delete this code whenever you want
-// router.patch('/patchUser/:id', passport.authenticate('jwt', {session: false}), (req, res) => {
-//   let filtered = {_id: req.user.id};
-//   let { goal, bio } = req.body;
-
-//   let updatedInfo = {};
-//   if (goal) updatedInfo.goal = goal;
-//   if (bio) updatedInfo.bio = bio;
-
-//   User.findOneAndUpdate(filtered, {$set: updatedInfo}, {new: true})
-//     .then(user => {
-//       let updatedUser = {
-//         id: user._id,
-//         username: req.body.username,
-//         email: req.body.email,
-//         goal: user.goal,
-//         bio: user.bio,
-//       }
-//       res.json(updatedUser);
-//     })
-//     .catch(err => res.status(400).json(err));
-// });
 
 
 module.exports = router;
