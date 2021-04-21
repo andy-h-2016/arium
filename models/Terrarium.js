@@ -6,8 +6,6 @@ const TerrariumSchema = new Schema({
     type: String,
     required: true 
   },
-  // instead of setting min and max, 
-  // we will validate it in validations for levels&health
   level: {
     type: Number,
     required: true 
@@ -16,11 +14,14 @@ const TerrariumSchema = new Schema({
     type: Number,
     required: true 
   },
-
   userId: {
     type: Schema.Types.ObjectId,
     ref: "users"
-  }
+  },
+  waterTrackerId: {
+    type: Schema.Types.ObjectId,
+    ref: "watertrackers"
+  },
 }, {
   timestamps: true 
 });

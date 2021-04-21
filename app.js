@@ -4,6 +4,7 @@ const express = require('express');
 const path = require('path');
 const db = require('./config/keys').mongoURI;
 const users = require('./routes/api/users');
+const waterTrackers = require('./routes/api/watertrackers');
 const terrariums = require('./routes/api/terrariums');
 const passport = require('passport');
 
@@ -35,6 +36,7 @@ require('./config/passport')(passport);
 
 //routers
 app.use("/api/users", users); // give access to methods and APIs from user.js
+app.use("/api/watertrackers", waterTrackers); // give access to methods and APIs from watertrackers.js
 app.use("/api/terrariums", terrariums)
 
 // tell app which port to run on, production port or localhost:5000
