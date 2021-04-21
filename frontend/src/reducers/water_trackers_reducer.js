@@ -7,7 +7,7 @@ const WaterTrackersReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_WATER_TRACKER:
       newState = Object.assign({}, state);
-      newState[action.waterTracker._id] = action.waterTracker;
+      newState[action.waterTracker.data._id] = action.waterTracker.data;
       return newState;
     default:
       return state;
