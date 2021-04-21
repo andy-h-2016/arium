@@ -1,11 +1,14 @@
 import React from 'react';
-import { receiveCurrentUser } from '../../actions/session_actions';
+// import { receiveCurrentUser } from '../../actions/session_actions';
 
 class Profile extends React.Component {
     constructor(props) {
         super(props);
         this.state = this.props.currentUser
         this.handleSubmit = this.handleSubmit.bind(this)
+    }
+    componentDidMount(){
+      this.props.receiveCurrentUser(this.state)
     }
 
     handleSubmit(e) {
@@ -20,17 +23,17 @@ class Profile extends React.Component {
     }
     
     render() {
-      console.log(this.state.bio)
+      console.log(this.state.goal)
           return (
             <div className="user-edit-container">
               <div className="user-edit-greeting">
                 Welcome {this.state.username}!             
               </div> 
-              <form onSubmit={this.handleSubmit}> 
+              <form className="user-edit-form" onSubmit={this.handleSubmit}> 
 
               <div className="edit-goals">
                 <input    
-                type="text"
+                type="number"
                 onChange={this.update("goal")}
                 value={this.state.goal}
                 >                
@@ -47,8 +50,8 @@ class Profile extends React.Component {
                 </input>              
               </div> 
               
-              <div className="edit-submit-button">
-                <button type='submit'>
+              <div className="edit-submit-button-container">
+                <button className="edit-submit-button" type='submit'>Submit Changes
                 </button>
               </div>           
               </form>
