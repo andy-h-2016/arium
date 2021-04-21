@@ -19,9 +19,9 @@ class Profile extends React.Component {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props
-      .updateUser(user._id, user)
+      .updateUser(user.id, user)
       .then(this.props.receiveCurrentUser(user));
-    this.state.update = true;
+    this.setState({update: true});
   }
 
   update(field) {
