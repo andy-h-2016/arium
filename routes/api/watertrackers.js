@@ -55,9 +55,9 @@ router.patch('/:id',
 
     WaterTracker.findByIdAndUpdate(req.params.id, update, { new: true }, (err, watertracker) => {
       if (err) {
-        res.status(400).json(err)
+        res.status(400).json(err);
       } else {
-        res.json(watertracker)
+        res.json(watertracker);
       }
     })
   }
