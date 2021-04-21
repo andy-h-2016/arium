@@ -39,13 +39,9 @@ export const signup = user => dispatch => (
         localStorage.setItem('jwtToken', token);
         APIUtil.setAuthToken(token);
         const decoded = jwt_decode(token);
-        console.log('DECODED SAD;OHIASDFIHASFD;JNASFD')
         dispatch(receiveCurrentUser(decoded))
       })
-      .then(
-        () => dispatch(createWaterTracker()),
-        err => console.log(err)
-      )
+      .then( () => dispatch(createWaterTracker()) )
       .then(waterTrackerAction => {
         const terrarium = {
           title: 'placeholder',

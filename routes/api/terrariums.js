@@ -48,8 +48,7 @@ router.post('/',
     });
 
     newTerrarium.save()
-      .then(terrarium => res.json(terrarium))
-      .catch(err => res.status(400).json(err));
+      .then(terrarium => res.json(terrarium));
   }
 )
 
