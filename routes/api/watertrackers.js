@@ -8,12 +8,14 @@ const validateWaterTrackerInput = require('../../validation/watertracker');
 
 // Water Tracker show 
 
-router.get('/:userId', (req, res) => {
+router.get('/test', (req, res) => res.json({ msg: 'The water tracker router is working' }));
+
+router.get('/user/:user_id', (req, res) => {
   console.log(req.params)
-  WaterTracker.findOne({ userId: req.params.userId })
+  WaterTracker.findOne({ userId: req.params.user_id })
     .then(watertracker => res.json(watertracker))
-    .catch(() =>
-      res.status(404).json({ nowatertrackerfound: "No water tracker found with this user" }
+    .catch(err =>
+      res.status(404).json({ nowatertrackerfound: "No water tracker found for this user" }
       )
     );
 });
