@@ -16,11 +16,10 @@ const TerrariumSchema = new Schema({
     type: Number,
     required: true 
   },
-
   userId: {
     type: Schema.Types.ObjectId,
     ref: "users"
-  }
+  },
 }, {
   timestamps: true 
 });
