@@ -10,9 +10,9 @@ class Profile extends React.Component {
 
     handleSubmit(e) {
       e.preventDefault();
-      const user = Object.assign({}, this.state);
-      this.props.updateUser(user.id, user);
-      this.props.receiveCurrentUser(user)
+      const user = Object.assign({}, this.state);      
+      this.props.updateUser(user.id, user)
+      .then(this.props.receiveCurrentUser(user))
     }
     
     update(field) {
@@ -20,7 +20,7 @@ class Profile extends React.Component {
     }
     
     render() {
-
+      console.log(this.state.bio)
           return (
             <div className="user-edit-container">
               <div className="user-edit-greeting">
@@ -39,12 +39,12 @@ class Profile extends React.Component {
               </div>
               <div className="edit-bio">
                 <br/>      
-                <textarea    
+                <input    
                 type="text"
                 onChange={this.update("bio")}
                 value={this.state.bio}
                 >          
-                </textarea>              
+                </input>              
               </div> 
               
               <div className="edit-submit-button">

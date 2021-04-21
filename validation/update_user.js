@@ -9,7 +9,7 @@ module.exports = function validateUpdateUserInput(data) {
 
   data.bio = validText(data.bio) ? data.bio : '';
 
-  if (data.bio && !Validator.isLength(data.bio, {min: 1, max: 150 })) {
+  if (data.bio && !Validator.isLength(data.bio, { max: 150 })) {
     errors.bio = "Bio must be between 1 & 150 characters.";
   }
 
