@@ -1,0 +1,80 @@
+
+.user-edit-container{
+  background: rgba(250, 249, 249, 0.74);  
+  background-image: url('../../images/rain.gif');
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-content: space-between;
+  text-align: center;
+  padding: 100px;
+  margin: 50px;
+  border: solid black 1px;
+}
+
+.edit-message{
+  width: 500px;
+  font-size: 30px;
+  font-weight: 700;
+  background-image: url(../../images/waterlight.gif);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.user-edit-greeting{
+  width: 500px;
+  font-size: 50px;
+  color: #79a3b1;
+}
+
+
+
+.user-edit-form > *{
+  width: 500px;
+  font-size: 30px; 
+ margin-top: 30px;
+ color: #000000;
+ font-family: 'Fredericka the Great', cursive;
+
+}
+
+.edit-goals{
+  width: 500px;
+  
+}
+
+.edit-goal-input{
+height: 50px;
+font-size: 30px;
+width: 500px;
+color: #79a3b1;
+background: white;
+opacity: 1;
+
+
+}
+
+.edit-bio{
+  width: 500px;
+}
+.edit-bio-textarea{
+  height: 50px;
+  font-size: 30px;
+  color: #79a3b1;
+  min-width: 500px;
+  min-height: 160px;
+  max-height: 625px;
+  max-width: 650px;
+}
+.edit-bio-textarea, .edit-goal-input{
+  padding: 10px;
+  margin: 15px;
+}
+.edit-submit-button-container{
+  width: 500px;
+}
+
+.edit-submit-button{
+  width: 500px;
+}

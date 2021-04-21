@@ -15,19 +15,19 @@ export const receiveTerrarium = terrarium => ({
 
 export const fetchAllTerrariums = () => dispatch => (
   TerrariumAPIUtil.fetchAllTerrariums()
-    .then(terrariums => dispatch(receiveAllTerrariums(terrariums)))
+    .then(res => dispatch(receiveAllTerrariums(res.data)))
     .catch(err => console.log(err))
 );
 
 export const fetchUserTerrarium = userId => dispatch => (
   TerrariumAPIUtil.fetchUserTerrarium(userId)
-    .then(terrarium => dispatch(receiveTerrarium(terrarium)))
+    .then(res => dispatch(receiveTerrarium(res.data)))
     .catch(err => console.log(err))
 );
 
-export const createTerrarium = data => dispatch => (
-  TerrariumAPIUtil.createTerrarium(data)
-    .then(newTerrarium => dispatch(receiveTerrarium(newTerrarium)))
+export const createTerrarium = terrarium => dispatch => (
+  TerrariumAPIUtil.createTerrarium(terrarium)
+    .then(res => dispatch(receiveTerrarium(res.data)))
     .catch(err => console.log(err))
 );
 

@@ -19,10 +19,10 @@ switch (action.type) {
       isAuthenticated: false,
       user: undefined
     };
-    case RECEIVE_USER:
+    case RECEIVE_USER:      
     return {     
       ...state,
-      user: action.user
+      user: action.user.data
     };
 
   default:

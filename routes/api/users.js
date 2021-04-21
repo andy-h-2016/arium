@@ -77,12 +77,12 @@ router.post("/login", (req, res) => {
     return res.status(400).json(errors);
   }
 
-  const email = req.body.email;
+  const username = req.body.username;
   const password = req.body.password;
 
-  User.findOne({ email }).then(user => {
+  User.findOne({ username }).then(user => {
     if (!user) {
-      errors.email = "This user does not exist";
+      errors.username = "This user does not exist";
       return res.status(400).json(errors);
     }
 
@@ -110,7 +110,7 @@ router.post("/login", (req, res) => {
 // Update User method with the update_user.js portion
 
 router.patch('/updateUser/:id', passport.authenticate('jwt', {session: false}), (req, res) => {
-    const { errors, isValid } = validateUpdateUserInput(req.body);
+  const { errors, isValid } = validateUpdateUserInput(req.body);
 
     if (!isValid) {
       return res.json.status(400).json(errors);
@@ -146,30 +146,6 @@ router.patch('/updateUser/:id', passport.authenticate('jwt', {session: false}), 
   }
 );
 
-// Update User method without the update_user.js portion
-
-// @JASON: delete this code whenever you want
-// router.patch('/patchUser/:id', passport.authenticate('jwt', {session: false}), (req, res) => {
-//   let filtered = {_id: req.user.id};
-//   let { goal, bio } = req.body;
-
-//   let updatedInfo = {};
-//   if (goal) updatedInfo.goal = goal;
-//   if (bio) updatedInfo.bio = bio;
-
-//   User.findOneAndUpdate(filtered, {$set: updatedInfo}, {new: true})
-//     .then(user => {
-//       let updatedUser = {
-//         id: user._id,
-//         username: req.body.username,
-//         email: req.body.email,
-//         goal: user.goal,
-//         bio: user.bio,
-//       }
-//       res.json(updatedUser);
-//     })
-//     .catch(err => res.status(400).json(err));
-// });
 
 
 module.exports = router;

@@ -10,10 +10,8 @@ const TerrariumsReducer = (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_ALL_TERRARIUMS:
-      const terrariums = Object.values(action.type.terrariums);
       newState = {};
-
-      terrariums.forEach(terrarium => {
+      action.terrariums.forEach(terrarium => {
         newState[terrarium._id] = terrarium;
       });
 

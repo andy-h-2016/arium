@@ -4,18 +4,36 @@ export const RECEIVE_WATER_TRACKER = "RECEIVE_WATER_TRACKER";
 
 export const receiveWaterTracker = waterTracker => ({
   type: RECEIVE_WATER_TRACKER,
-  waterTracker
+  waterTracker: waterTracker,
+  userId: waterTracker.userId
 });
+
+// export const receiveWaterTracker = waterTracker => ({
+//   type: RECEIVE_WATER_TRACKER,
+//   waterTracker
+// });
 
 export const fetchUserWaterTracker = userId => dispatch => (
   WaterTrackerAPIUtil.fetchUserWaterTracker(userId)
-    .then(waterTracker => dispatch(receiveWaterTracker(waterTracker)))
+    .then(response => dispatch(receiveWaterTracker(response.data)))
     .catch(err => console.log(err))
 );
 
-export const createWaterTracker = data => dispatch => (
-  WaterTrackerAPIUtil.createWaterTracker(data)
-    .then(newWaterTracker => dispatch(receiveWaterTracker(newWaterTracker)))
+export const fetchWaterTracker = id => dispatch => {
+  WaterTrackerAPIUtil.fetchWaterTracker(id)
+    .then(response => dispatch(receiveWaterTracker(response.data)))
+    .catch(err => console.log(err))
+}
+
+// export const fetchUserWaterTracker = data => dispatch => (
+//   WaterTrackerAPIUtil.fetchUserWaterTracker(data)
+//     .then(waterTracker => dispatch(receiveWaterTracker(waterTracker)))
+//     .catch(err => console.log(err))
+// );
+
+export const createWaterTracker = waterTracker => dispatch => (
+  WaterTrackerAPIUtil.createWaterTracker(waterTracker)
+    .then(response => dispatch(receiveWaterTracker(response.data)))
     .catch(err => console.log(err))
 );
 
