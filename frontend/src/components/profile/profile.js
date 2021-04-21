@@ -3,23 +3,21 @@ import React from 'react';
 class Profile extends React.Component {
     constructor(props) {
         super(props);
-
-        this.state = {
-           
-        }
+        this.state = this.props.currentUser
     }
     
-    componentWillMount() {
-        console.log(this.props.currentUser.id)
- }
-
   
     
     render() {
 
           return (
-            <div>
-        
+            <div className="user-show-container">
+              <div className="user-show-greeting">
+                Welcome {this.props.currentUser.username}!             
+              </div> 
+              <div className="edit-goals">
+
+              </div>
             </div>
           );
         }
