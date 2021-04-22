@@ -1,26 +1,28 @@
 import { connect } from 'react-redux';
 import Terrarium from './terrarium';
-import { fetchUserTerrarium, receiveTerrarium } from '../../actions/terrarium_actions';
-import { fetchUserWaterTracker, receiveWaterTracker } from '../../actions/water_tracker_actions'
+import { fetchUserTerrarium } from '../../actions/terrarium_actions';
+import { fetchUserWaterTracker } from '../../actions/water_tracker_actions'
 
 
 const mapStateToProps = (state, ownProps) => {
-  // console.log(ownProps)
-  console.log(state)
+  // console.log(state)
   // const pageId = ownProps.match.params.userId
-  // can we add wildcard(userId) to show route to know whos show page it is
   return {
     currentUser: state.session.user, 
-    terrariums:  state.entities.terrariums,
-    trackers:  state.entities.waterTrackers,
+    tracker:  Object.values(state.entities.waterTrackers).filter(
+      (waterTracker) => waterTracker.userId === state.session.user.id
+    )[0],
+    terrarium: Object.values(state.entities.terrariums).filter(
+      (terrarium) => terrarium.userId === state.session.user.id
+    )[0],
     // pageId: ownProps.match.params.userId,
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchUserTerrarium: (userId) => dispatch(receiveTerrarium(userId)),
-    fetchUserWaterTracker: (userId) => dispatch(receiveWaterTracker(userId)),
+    fetchUserTerrarium: (userId) => dispatch(fetchUserTerrarium(userId)),
+    fetchUserWaterTracker: (id) => dispatch(fetchUserWaterTracker(id)),
    
   };
 };

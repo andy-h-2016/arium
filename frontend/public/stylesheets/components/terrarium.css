@@ -16,11 +16,18 @@
 
 }
 
-.im-the-terra {
-  width: 730px;
-  height: 850px;
-  background: url("../../images/terra-stages/dessert.gif") center no-repeat;;
+/* .terra-container {
+  max-width: 730px;
+  max-height: 850px;
+  align-items: center;
+} */
+
+.im-the-terra img {
+  /* max-width: 730px; */
+  /* max-height: 850px; */
+  /* background: url("../../images/terra-stages/dessert.gif") center no-repeat;; */
   background-size:cover;
+  padding-bottom: 0px;
 }
 
 .im-shelf {
