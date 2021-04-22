@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 class WaterTracker extends React.Component {
   constructor(props) {
     super(props);
+    this.calculateTerrariumLevels = this.calculateTerrariumLevels.bind(this);
   }
 
   componentDidMount() {
@@ -13,6 +14,16 @@ class WaterTracker extends React.Component {
     this.props.fetchUser(id);
     this.props.fetchUserTerrarium(id);
     this.props.fetchUserWaterTracker(id);
+
+    const timerId = Math.random();
+    this.intervalID = setInterval( () => {
+      console.log(`tick! timerId: ${timerId}`);
+      this.calculateTerrariumLevels();
+    }, 5000); 
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.intervalID);
   }
 
   componentDidUpdate(prevProps) {
@@ -20,6 +31,54 @@ class WaterTracker extends React.Component {
       this.setState(this.props.currentUser)
     }
   }
+
+  calculateTerrariumLevels() {
+    let {waterTracker, terrarium, currentUser} = this.props;
+    let daysElapsed = this.daysCounter();
+    console.log('daysElapsed', daysElapsed)
+
+    while (daysElapsed > 0) {
+      // switch (true) {
+      //   case waterTracker.today >= Math.floor(.75 * currentUser.goal):
+      //     terrarium.level += 1;
+      //     this.props.updateTerrarium(terrarium);
+      //     break
+      //   case waterTracker.today >= Math.floor(.5 * currentUser.goal):
+      //     break
+      //   case waterTracker.today < Math.floor(.7 * currentUser.goal):
+      //     terrarium.level -= 1;
+      //     this.props.updateTerrarium(terrarium);
+      //     break
+      // }
+      terrarium.level += 1;
+      daysElapsed -= 1;
+    }
+    this.props.updateTerrarium(terrarium)
+  }
+
+  daysCounter() {
+    const currentDate = new Date();
+    const lastActiveDate = new Date(localStorage.getItem('lastActiveDate'));
+    let daysElapsed;
+
+    if (lastActiveDate) {
+      // const lastActiveDateSansTime = new Date(lastActiveDate.getFullYear(), lastActiveDate.getMonth(), lastActiveDate.getDate());
+      // const currentDateSansTime = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
+      // daysElapsed = (currentDateSansTime - lastActiveDateSansTime) / (1000 * 60 * 60 * 24);
+
+      const msElapsed = currentDate.getTime() - lastActiveDate.getTime();
+      // daysElapsed = msElapsed / (1000 * 60 * 60 * 24) //convert ms to days
+      daysElapsed = msElapsed / (1000) //convert ms to seconds
+    } else {
+     daysElapsed = 0; 
+    }
+
+    localStorage.setItem('lastActiveDate', currentDate);
+
+    return daysElapsed;
+  }
+
+  daysElapsed
 
   render() {
     console.log('render', this.props)
@@ -112,6 +171,11 @@ const drinks = currentUser.goal - waterTracker.today
           Current Rank: 
           </div>
           {rank}
+        </div>
+
+        <div>
+          <div>Terrarium level</div>
+          <div>{terrarium.level}</div>
         </div>
       </div>
     );

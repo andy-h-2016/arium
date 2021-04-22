@@ -59,7 +59,8 @@ router.patch('/:id',
     const {errors, isValid} = validateTerrariumInput(req.body);
 
     if (!isValid) {
-      return res.status(400),json(errors);
+      console.log('validation errors: ', errors)
+      return res.status(400).json(errors);
     }
 
     const update = {
@@ -68,8 +69,12 @@ router.patch('/:id',
       health: req.body.health
     }
 
+    console.log('UPDATES: ', update )
+    console.log('params: ', req.params.id )
+
     Terrarium.findByIdAndUpdate(req.params.id, update, {new: true}, (err, terrarium) => {
       if (err) {
+        console.log('mongoDB: ', err)
         res.status(400).json(err)
       } else {
         res.json(terrarium)
