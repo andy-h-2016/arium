@@ -41,6 +41,8 @@ h1.arium-title{
 
 
 .terrarium:hover {
+  color: white;
+  
   
 }
 @keyframes emptyanim {}

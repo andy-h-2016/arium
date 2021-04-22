@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .desert {
   z-index: 2;
   top: 9px;
@@ -27,6 +28,8 @@
   background: url("../../images/oasis.gif") center no-repeat;
   background-size: contain;
 }
+=======
+>>>>>>> main
 .terra-page {
   background: rgb(195, 210, 215);
   width: 100%;
@@ -34,6 +37,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 100px;
 
 }
 
@@ -68,3 +72,57 @@
   padding-top: 0px;
   margin-bottom: 70px;
 }
+<<<<<<< HEAD
+=======
+
+.terra-btn-con {
+  display: flex;
+  flex-direction: row;
+}
+.water-btn {
+  font-family: 'Fredericka the Great', cursive;
+  font-size: 30px;
+  padding: 5px, 10px, 5px, 10px;
+  margin-right:5px ;
+  margin-left: 5px;
+}
+
+.water-btn:hover {
+  color: rgb(79, 170, 167);
+  background-color: #fff;
+  border-color: rgb(79, 170, 167);
+}
+button {
+  cursor:pointer;
+}
+
+.desert {
+  z-index: 2;
+  top: 9px;
+  left: -175px;
+  width: 400px;
+  height: 400px;
+  background: url("../../images/dessert.gif") center no-repeat;
+  background-size: contain;
+}
+
+.forest {
+  z-index: 2;
+  top: 9px;
+  left: -175px;
+  width: 400px;
+  height: 400px;
+  background: url("../../images/forest.gif") center no-repeat;
+  background-size: contain;
+}
+
+.oasis {
+  z-index: 2;
+  top: 9px;
+  left: -175px;
+  width: 400px;
+  height: 400px;
+  background: url("../../images/oasis.gif") center no-repeat;
+  background-size: contain;
+}
+>>>>>>> main
