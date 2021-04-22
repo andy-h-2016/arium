@@ -3,10 +3,8 @@ import { withRouter } from 'react-router-dom';
 class Terrarium extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-
-    }
+    // this.state.terrarium = this.props.terrarium;
+    // this.state.waterTracker = this.props.waterTracker;
   }
 
   componentDidMount() {
@@ -31,8 +29,6 @@ class Terrarium extends React.Component {
   //     break;
   // }
   renderTerra() {
-    // console.log('terr',this.props.terrarium)
-    // console.log('user',this.props.currentUser)
     if (this.props.terrarium && this.props.currentUser) {
       if (this.props.terrarium.level <= 9) {
         //desert
@@ -40,7 +36,7 @@ class Terrarium extends React.Component {
           case this.props.terrarium.health < Math.floor((0.5 * this.props.currentUser.goal)) && (this.props.terrarium.health !== 0):
             return (<img className='im-the-terra' src='images/terra-stages/dry-d.gif' alt='dry-d' width="700" height="850"></img>)
           case this.props.terrarium.health >= Math.floor((0.5 * this.props.currentUser.goal)) && (this.props.terrarium.health !== this.props.currentUser.goal) && !(this.props.terrarium.health > this.props.currentUser.goal):
-            return (<img className='im-the-terra' src='images/terra-stages/normal-d.gif'  alt='normal-d' width="700" height="850"></img>)
+            return (<img className='im-the-terra' src='images/terra-stages/normal-d.gif' alt='normal-d' width="700" height="850"></img>)
           case this.props.terrarium.health >= this.props.currentUser.goal:
             return (<img className='im-the-terra' src='images/terra-stages/wet-d.gif' alt='wet-d' width="700" height="850"></img>)
           default:
@@ -72,36 +68,33 @@ class Terrarium extends React.Component {
         };
       }
     }
+    console.log('t', this.props)
+
   };
 
   addWater() {
-    return (
-      <div>
-        waterTracker.today
-      </div>
-    );
+    this.props.updateWaterTracker(this.state.waterTracker.today)
+    this.props.updateTerrarium(this.state.terrarium.health)
+
+    // console.log('t', this.props)
+
+
   }
 
-  removeWater() {
-    return (
-      <div>
-        waterTracker.today
-      </div>
-    );
-  }
-  
+
   render() {
     return (
       <div className='terra-page'>
         <h1 className='welcome-mes'>this is {this.props.currentUser.username}'s terrerium</h1>
         {/* <div className='terra-container'>
           </div> */}
-          {this.renderTerra()}
+        {this.renderTerra()}
         <div className='im-shelf'></div>
-        
 
-        <button type='submit'>{this.addWater()}</button>
-        <button type='submit'>{this.removeWater()}</button>
+        <div className='terra-btn-con'>
+          <button type='submit' className='water-btn' onClick={this.addWater}>Add</button>
+          <button type='submit' className='water-btn' onClick={this.removeWater}>Decrement</button>
+        </div>
       </div>
 
 

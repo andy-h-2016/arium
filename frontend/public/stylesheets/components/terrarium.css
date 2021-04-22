@@ -5,6 +5,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 100px;
 
 }
 
@@ -38,4 +39,25 @@
   margin-top: 0px;
   padding-top: 0px;
   margin-bottom: 70px;
+}
+
+.terra-btn-con {
+  display: flex;
+  flex-direction: row;
+}
+.water-btn {
+  font-family: 'Fredericka the Great', cursive;
+  font-size: 30px;
+  padding: 5px, 10px, 5px, 10px;
+  margin-right:5px ;
+  margin-left: 5px;
+}
+
+.water-btn:hover {
+  color: rgb(79, 170, 167);
+  background-color: #fff;
+  border-color: rgb(79, 170, 167);
+}
+button {
+  cursor:pointer;
 }
