@@ -53,7 +53,7 @@ const InfoPage = (props) => {
               href="https://github.com/sdean14"
               target="_blank">
               <i className="fab fa-github fa-2x"></i>
-              Satomi Dean Frontend/Backend Flex
+              Satomi Dean Terrarium Lead
             </a>
           </p>
         </div>
