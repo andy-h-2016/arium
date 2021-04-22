@@ -9,10 +9,12 @@ class Profile extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   componentDidMount() {     
-    this.props.fetchUser(this.state.id);    
+    this.props.fetchUser(this.state.id);
+       
   }
+
   componentDidUpdate(prevProps){
-    if(prevProps.currentUser.goal != this.props.currentUser.goal || prevProps.currentUser.bio != this.props.currentUser.bio){
+    if(prevProps.currentUser.goal !== this.props.currentUser.goal || prevProps.currentUser.bio !== this.props.currentUser.bio){
       this.setState(this.props.currentUser)
     }
   }

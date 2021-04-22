@@ -11,7 +11,7 @@ const mapDispatchToProps = dispatch => {
   return {
     updateUser: (userId, user) =>dispatch(updateUser(userId, user)),
     receiveCurrentUser: (currentUser) => dispatch(receiveCurrentUser(currentUser)),
-    fetchUser: (user) => dispatch(fetchUser(user))
+    fetchUser: (userId) => dispatch(fetchUser(userId))
   };
 };
 
