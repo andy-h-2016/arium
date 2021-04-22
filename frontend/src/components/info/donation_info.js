@@ -3,10 +3,10 @@ const DonationInfoPage = (props) => {
   return (
     <div className="info-page">
       <a
-        className="external-link"
+        className="external-link about-header"
         rel="noreferrer"
         href="https://waterwellsforafrica.org/"
-        target="_blank"><h1 className="about-header">Global Thirst</h1>
+        target="_blank">Global Thirst
       </a>
       <div className="about-info">
         <div className="about-body">When we talk about extreme poverty or world hunger, we’re also talking about global thirst. 
@@ -15,16 +15,13 @@ const DonationInfoPage = (props) => {
         And of that 1%, we have to share it between 7.7 billion people around the globe.</div>
         <div className="about-body">This leaves 844 million people without access to clean water and 2.3 billion people without access to basic sanitation services. 
         This sets people up for a cycle of global thirst that feeds into the cycle of poverty.</div>
-        <div className="about-body">This is why we made it our mission at Arium to donate clean water to countries in need. For every
-        i dont know 10-15 cups? What was it again? Please notice me Mike, you're gonna have to edit this text.
-        I suck at writing. :)
+        <div className="about-body">This is why we made it our mission at Arium to donate clean water to countries in need. For every cup of water a user on this site
+         records into their water tracker an equivalent amount of water is donated to a person living in poverty.  
         </div>
-        <div className="about-body">Whoever finds this easter egg first tomorrow morning, will win........ wait for it........
-        keep on waiting..... ok... you're almost there.... are you ready for the big reveal?!?! 
+        <div className="about-body">Currently our primary receipient of all water donations is <a href="https://waterwellsforafrica.org/"> "https://waterwellsforafrica.org/"  
+          </a> Please visit their website and contribute to them directly if you would like to donate money in addition to using our site.
         </div>
-        <div className="nothing">
-          NOTHING!!!! 
-        </div>
+      
       </div>
     </div>
   )

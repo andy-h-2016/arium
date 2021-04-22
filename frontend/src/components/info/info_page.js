@@ -1,16 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+
 
 const InfoPage = (props) => {
   
   return (
     <div className="info-page">
-      <a 
-        className="external-link"
+      <a
+        className="external-link about-header"
         rel="noreferrer" 
         href="https://github.com/andy-h-2016/arium" 
-        target="_blank"><h1 className="about-header">Arium</h1>
+        target="_blank"> Arium
       </a>
+          
       <div className="about-info">
         <div className="about-body">Arium is a health promoting app that keeps track of your daily water consumption, furthers universal access to clean water, and provides an engaging user experience.</div>
         <div className="about-body">The benefits of drinking a healthy amount of water on a daily basis are numerous and often underappreciated. Water is vital to the functioning of almost every system in the human body and without water we would simply perish.</div>
@@ -20,42 +21,42 @@ const InfoPage = (props) => {
       <div className="about-devs">
         <h3 className="all-devs">Meet Our Developers</h3>
         <div className="dev-info">
-          <p>
+          <div className="dev-names">
             <a 
               rel="noreferrer"
               href="https://github.com/andy-h-2016" 
               target="_blank">
-              <i className="fab fa-github fa-2x"></i>
+              <i className="fab fa-github fa-2x andy"></i>
             Andy Huang Team Lead
             </a>
-          </p>
-          <p>
+          </div>
+          <div className="dev-names">
             <a
               rel="noreferrer"
               href="https://github.com/mdean7"
               target="_blank">
-              <i className="fab fa-github fa-2x"></i>
+              <i className="fab fa-github fa-2x mike"></i>
             Michael Dean Frontend Lead
             </a>
-          </p>
-          <p>
+          </div>
+          <div className="dev-names">
             <a
               rel="noreferrer"
               href="https://github.com/lijasontse/"
               target="_blank">
-              <i className="fab fa-github fa-2x"></i>
+              <i className="fab fa-github fa-2x jason"></i>
               Jason Li Backend Lead
             </a>
-          </p>
-          <p>
+          </div>
+          <div className="dev-names">
             <a
               rel="noreferrer"
               href="https://github.com/sdean14"
               target="_blank">
-              <i className="fab fa-github fa-2x"></i>
+              <i className="fab fa-github fa-2x sato"></i>
               Satomi Dean Terrarium Lead
             </a>
-          </p>
+          </div>
         </div>
       </div>
     </div>
