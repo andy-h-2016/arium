@@ -39,10 +39,10 @@ class SideBar extends React.Component {
                 <Link to={'/terrariums'}>All Terrariums</Link>
                 <Link to={'/info'}>Global Thirst</Link>
 
-              </div>
                 <nav className="login-modal-button">
                 <button className="logout" onClick={this.logoutUser}>Logout</button>
                 </nav>
+              </div>
             </div>
         );
       } else {

@@ -73,7 +73,11 @@ const drinks = currentUser.goal - waterTracker.today
     return (
       <div className="water-tracker-container">
         <div className="water-tracker-header">
-          {currentUser.username}'s Water Tracker
+           <div>
+          Water Tracker
+          </div>
+          
+         
         </div>
         <div className="wt-terrarium-title">
           <div className="terr-title-text">

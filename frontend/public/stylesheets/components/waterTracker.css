@@ -30,7 +30,14 @@
 }
 
 .water-tracker-header{
+  display: flex;
+  flex-direction: column;
+  font-size: 40px;
+}
+
+.water-tracker-header :first-child{
   font-size: 55px;
+  font-weight: 500;
 }
 
 

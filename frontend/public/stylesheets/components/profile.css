@@ -40,9 +40,9 @@
 .user-edit-form > *{
   width: 500px;
   font-size: 30px; 
- margin-top: 30px;
- color: #000000;
- font-family: 'Fredericka the Great', cursive;
+  margin-top: 30px;
+  color: #000000;
+ /* font-family: 'Fredericka the Great', cursive; */
 
 }
 
