@@ -12,8 +12,9 @@ class Profile extends React.Component {
     const id = this.state.id || this.state._id;      
     this.props.fetchUser(this.state.id);    
   }
+
   componentDidUpdate(prevProps){
-    if(prevProps.currentUser.goal != this.props.currentUser.goal || prevProps.currentUser.bio != this.props.currentUser.bio){
+    if(prevProps.currentUser.goal !== this.props.currentUser.goal || prevProps.currentUser.bio !== this.props.currentUser.bio){
       this.setState(this.props.currentUser)
     }
   }

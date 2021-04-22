@@ -106,7 +106,7 @@ router.post("/login", (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-  User.findOne({ id: req.params._id })
+  User.findOne({ _id: req.params.id })
     .then(user => res.json(user))
     .catch(err =>
       res.status(404).json({ nouserfound: "No user found with this ID" }
