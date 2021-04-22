@@ -8,11 +8,13 @@ class Profile extends React.Component {
     this.state.update = false;
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-  componentDidMount() {     
-    this.props.fetchUser(this.state.id);    
+  componentDidMount() {
+    const id = this.state.id || this.state._id;      
+    this.props.fetchUser(id);    
   }
+
   componentDidUpdate(prevProps){
-    if(prevProps.currentUser.goal != this.props.currentUser.goal || prevProps.currentUser.bio != this.props.currentUser.bio){
+    if(prevProps.currentUser.goal !== this.props.currentUser.goal || prevProps.currentUser.bio !== this.props.currentUser.bio){
       this.setState(this.props.currentUser)
     }
   }
@@ -20,12 +22,13 @@ class Profile extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props
-      .updateUser(user.id, user)
-      this.setState({update: true});
+    const id = user.id || user._id;
+    this.props.updateUser(id, user)
+    this.setState({update: true});
   }
 
   update(field) {
+    console.log(this.state.goal);
     return (e) => this.setState({ [field]: e.currentTarget.value });
   }
 

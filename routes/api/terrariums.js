@@ -9,6 +9,7 @@ const validateTerrariumInput = require('../../validation/terrarium');
 
 router.get('/test', (req, res) => res.json({msg: 'The terrarium router is working'}));
 
+//api/terrariums/user/:user_id
 router.get('/user/:user_id', (req, res) => {
   Terrarium.findOne({userId: req.params.user_id})
     .then(terrarium => res.json(terrarium))
