@@ -33,6 +33,6 @@ export const createTerrarium = terrarium => dispatch => (
 
 export const updateTerrarium = data => dispatch => (
   TerrariumAPIUtil.updateTerrarium(data)
-    .then(newTerrarium => dispatch(receiveTerrarium(newTerrarium)))
+    .then(res => dispatch(receiveTerrarium(res.data)))
     .catch(err => console.log(err))
 );
