@@ -125,8 +125,11 @@ class SessionForm extends React.Component {
                 required
               />
             </label>
+
             {emailField}
+            
             <br />
+
             <label className="modal-text">
               Password
               <br />
@@ -139,17 +142,25 @@ class SessionForm extends React.Component {
                 required
               />
             </label>
+
             <br />
+
             {password2}
+            
             <br />
+
             {goal}
+
             <br />
+
             <input 
               className="session-submit"
               type="submit"
               value={this.props.formType}
             />
+
             <br />
+
             <button className="demoLogin" onClick={this.handleDemo}>
               Demo
             </button>
