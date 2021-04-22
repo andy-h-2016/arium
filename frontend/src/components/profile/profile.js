@@ -7,11 +7,15 @@ class Profile extends React.Component {
     this.state = this.props.currentUser;
     this.state.update = false;
     this.handleSubmit = this.handleSubmit.bind(this);
-   
   }
-  componentDidMount() {
-    if (this.props.currentUser) {
-      this.props.receiveCurrentUser(this.state);
+  componentDidMount() {     
+    this.props.fetchUser(this.state.id);
+       
+  }
+
+  componentDidUpdate(prevProps){
+    if(prevProps.currentUser.goal !== this.props.currentUser.goal || prevProps.currentUser.bio !== this.props.currentUser.bio){
+      this.setState(this.props.currentUser)
     }
   }
 
@@ -20,8 +24,7 @@ class Profile extends React.Component {
     const user = Object.assign({}, this.state);
     this.props
       .updateUser(user.id, user)
-      .then(this.props.receiveCurrentUser(user));
-    this.setState({update: true});
+      this.setState({update: true});
   }
 
   update(field) {
@@ -30,6 +33,7 @@ class Profile extends React.Component {
 
   
   render() {
+    // console.log(this.state)
     const updated = 
       this.state.update ? (
         <div className="edit-message">Profile updated</div>
