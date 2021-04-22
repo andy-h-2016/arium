@@ -5,6 +5,9 @@ class WaterTracker extends React.Component {
   constructor(props) {
     super(props);
     this.calculateTerrariumLevels = this.calculateTerrariumLevels.bind(this);
+    this.forceUpdate = this.forceUpdate.bind(this);
+    this.addCup = this.addCup.bind(this);
+    this.subtractCup = this.subtractCup.bind(this);
   }
 
   componentDidMount() {
@@ -27,7 +30,12 @@ class WaterTracker extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
+    console.log('previosuly', prevProps)
     if (prevProps.currentUser.goal !== this.props.currentUser.goal) {
+      this.setState(this.props.currentUser)
+    }
+
+    if (prevProps.terrarium && (prevProps.terrarium.level !== this.props.terrarium.level)) {
       this.setState(this.props.currentUser)
     }
   }
@@ -37,23 +45,28 @@ class WaterTracker extends React.Component {
     let daysElapsed = this.daysCounter();
     console.log('daysElapsed', daysElapsed)
 
-    while (daysElapsed > 0) {
-      // switch (true) {
-      //   case waterTracker.today >= Math.floor(.75 * currentUser.goal):
-      //     terrarium.level += 1;
-      //     this.props.updateTerrarium(terrarium);
-      //     break
-      //   case waterTracker.today >= Math.floor(.5 * currentUser.goal):
-      //     break
-      //   case waterTracker.today < Math.floor(.7 * currentUser.goal):
-      //     terrarium.level -= 1;
-      //     this.props.updateTerrarium(terrarium);
-      //     break
-      // }
-      terrarium.level += 1;
-      daysElapsed -= 1;
-    }
-    this.props.updateTerrarium(terrarium)
+    // while (daysElapsed > 0) {
+      switch (true) {
+        case waterTracker.today >= Math.floor(.75 * currentUser.goal):
+          terrarium.level += 1;
+          this.props.updateTerrarium(terrarium)
+            .then(() => this.props.updateWaterTracker({...this.props.waterTracker, today: 0}))
+            .then(() => this.forceUpdate());
+          break
+        case waterTracker.today >= Math.floor(.5 * currentUser.goal):
+          break
+        case waterTracker.today < Math.floor(.7 * currentUser.goal):
+          terrarium.level -= 1;
+          this.props.updateTerrarium(terrarium)
+            .then(() => this.props.updateWaterTracker({...this.props.waterTracker, today: 0}))
+            .then(() => this.forceUpdate())
+          break
+      }
+      // daysElapsed -= 1;
+    // }
+    // terrarium.level += 1;
+    // this.props.updateTerrarium(terrarium)
+    //   .then(() => this.forceUpdate())
   }
 
   daysCounter() {
@@ -78,7 +91,32 @@ class WaterTracker extends React.Component {
     return daysElapsed;
   }
 
-  daysElapsed
+  addCup(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    let waterTracker = {
+      ...this.props.waterTracker,
+      total: this.props.waterTracker.total + 1,
+      today: this.props.waterTracker.today + 1,
+    }
+
+    this.props.updateWaterTracker(waterTracker)
+      .then(() => this.forceUpdate())
+  }
+
+  subtractCup(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    let waterTracker = {
+      ...this.props.waterTracker,
+      total: this.props.waterTracker.total - 1,
+      today: this.props.waterTracker.today - 1,
+    }
+
+    this.props.updateWaterTracker(waterTracker)
+      .then(() => this.forceUpdate())
+  }
+
 
   render() {
     console.log('render', this.props)
@@ -139,22 +177,18 @@ const drinks = currentUser.goal - waterTracker.today
          
         </div>
         <div className="wt-terrarium-title">
-          <div className="terr-title-text">
-          {terrarium.title} 
-          </div>
+          <div className="terr-title-text">{terrarium.title}</div>
           <div>Friendly reminder from your Terrarium:{healthMsg}</div>
         </div>
+
         <div className="water-tracker-goal">      
-          <div className="please">
-          Please drink 
-          </div>
-          <div className="drinks">
-          {drinks}
-          </div>
-          <div>
-          more cups of water today to grow your wonderful Terrarium.
-          </div>      
+          <div className="please">Today's Stats</div>
+          <div className="drinks">{`${waterTracker.today} / ${currentUser.goal} cups`}</div>
+          <div>{`${drinks} more cups of water today to grow your wonderful Terrarium!`}</div>
+          <button onClick={e => this.addCup(e)} type="click">Drink cup</button>      
+          <button onClick={e => this.subtractCup(e)} type="click">Oops (subtract cup)</button>      
         </div>
+
         <div className="water-tracker-total">
           <div>
           WOW! You've drank 
