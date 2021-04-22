@@ -29,7 +29,7 @@ class WaterTracker extends React.Component {
         healthMsg = <p id="healthmsg">Amazing</p>;
         break;
       default:
-        healthMsg = <p id="healthmsg">Just keep drinking, just keep drinking..</p>;
+        healthMsg = <p id="healthmsg">Just keep drinking, just keep drinking...</p>;
         break;
     }
 
