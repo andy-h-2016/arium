@@ -1,0 +1,83 @@
+.water-tracker-container{
+  background: rgba(226 246 255);
+ background-repeat: no-repeat;
+ background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+  padding: 10px;
+  border: black solid 1px;
+  justify-content: space-evenly;
+  width: 800px;
+
+}
+
+.water-tracker-container > *{
+  background: rgba(255, 255, 255, 0.952);
+  height: 200px;
+  margin: 10px;
+  padding: 10px;
+  font-size: 28px;
+  width: 90%;
+  border: black solid 1px;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: space-evenly;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+ font-weight: 520;
+}
+
+.water-tracker-header{
+  font-size: 55px;
+}
+
+
+
+.wt-terrarium-title > :first-child{
+  font-weight: 700;
+  font-size: 35px;
+}
+.wt-terrarium-title{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.water-tracker-goal{
+ display: flex;
+ flex-direction: column;
+
+}
+
+.water-tracker-goal :first-child{
+  font-weight: 700;
+  font-size: 35px;
+}
+
+.wtfcss{
+  font-size: 30px;
+  font-weight: 500;
+}
+
+
+
+.water-tracker-total{
+  display: flex;
+flex-direction: column;
+}
+.water-tracker-total :first-child{
+  font-weight: 700;
+font-size: 35px;
+}
+
+.water-tracker-streak :first-child{
+    font-weight: 700;
+  font-size: 35px;
+}
+.water-tracker-streak{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

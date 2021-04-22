@@ -2,7 +2,6 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 
 class WaterTracker extends React.Component {
-
   constructor(props) {
     super(props);
   }
@@ -70,24 +69,45 @@ class WaterTracker extends React.Component {
         rank = <div className="ranks">Maintain your streaks to rank up!</div>;
         break;
     }
-
+const drinks = currentUser.goal - waterTracker.today
     return (
       <div className="water-tracker-container">
         <div className="water-tracker-header">
           {currentUser.username}'s Water Tracker
         </div>
         <div className="wt-terrarium-title">
+          <div className="terr-title-text">
           {terrarium.title} 
+          </div>
           <div>Friendly reminder from your Terrarium:{healthMsg}</div>
         </div>
-        <div className="water-tracker-goal"> 
-          Please drink {currentUser.goal - waterTracker.today}&nbsp;or more cups of water today to grow your wonderful Terrarium.
+        <div className="water-tracker-goal">      
+          <div className="please">
+          Please drink 
+          </div>
+          <div className="drinks">
+          {drinks}
+          </div>
+          <div>
+          more cups of water today to grow your wonderful Terrarium.
+          </div>      
         </div>
         <div className="water-tracker-total">
-          WOW! You've drank {waterTracker.total} of cups water since you've signed up for Arium.
+          <div>
+          WOW! You've drank 
+          </div>
+          <div>
+          {waterTracker.total}
+            </div>
+            <div>
+          of cups water since you've signed up for Arium.            
+            </div>
         </div>
         <div className="water-tracker-streak">
-          Current Rank: {rank}
+          <div className="currentrank">
+          Current Rank: 
+          </div>
+          {rank}
         </div>
       </div>
     );
