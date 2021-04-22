@@ -1,6 +1,21 @@
 .info-page {
-  font-family: 'Fredericka the Great', cursive;
-  color: rgb(16, 82, 124);
+color: rgb(16, 82, 124);
+font-size: 20px;
+margin-top: auto;
+text-align: center;
+padding: 20px;
+}
+
+.info-page > *{
+  border: 1px black solid;
+  margin: 20px;
+  width: 1100px;
+  background: white;
+  padding: 20px;
+  margin: auto;
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 5px 5px 5px rgb(63, 65, 75);
 }
 
 /* make sure to delete this */
@@ -15,8 +30,11 @@
 }
 
 .about-header {
+  display: block;
   text-align: center;
   font-size: 50px;
+  text-align: center;
+  margin-top: 50px;
 }
 
 .external-link {
@@ -27,8 +45,9 @@
 .about-info {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   margin-right: 170px;
-  font-size: 22px;
+  font-size: 25px;
   margin-left: 170px;
   margin-top: 10px;
 }
@@ -39,7 +58,7 @@
 }
 
 .about-devs {
-  font-family: 'Fredericka the Great', cursive;
+  font-weight: 600;
   text-align: center;
 }
 
@@ -48,17 +67,38 @@
   font-size: 2em;
 }
 
+.andy{
+  color: #f9ecd6
+}
 
-.about-devs a {
+.mike{
+  color: #b5c4c1;
+}
+
+.jason{
+  color: #979fa9;
+  
+}
+
+.sato{
+  color:  #4c4c61;
+}
+
+.about-devs  a {
   text-decoration: none;
   color: rgb(16, 82, 124);
 }
 
-.about-devs a:hover {
-  color: #79a3b1;
+ a:hover {
+  color: #b9e1ee;
 }
 
 .fab {
   margin-right: 10px;
 }
+.dev-info{
+display: flex;
+height: 100px;
+align-items: center;
 
+}
