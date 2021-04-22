@@ -1,3 +1,67 @@
+.terra-page {
+  background: rgb(195, 210, 215);
+  width: 100%;
+  min-width: 1400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 100px;
+
+}
+
+.welcome-mes {
+  font-family: Palatino, "Palatino LT STD", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  font-size: 50px;
+  /* color: rgb(237, 242, 244); */
+  color: #fff;
+
+}
+
+/* .terra-container {
+  max-width: 730px;
+  max-height: 850px;
+  align-items: center;
+} */
+
+.im-the-terra img {
+  /* max-width: 730px; */
+  /* max-height: 850px; */
+  /* background: url("../../images/terra-stages/dessert.gif") center no-repeat;; */
+  background-size:cover;
+  padding-bottom: 0px;
+}
+
+.im-shelf {
+  background: url("../../images/shelf03.png") center no-repeat;;
+  /* background-size: contain; */
+  width: 1400px;
+  height: 100px;
+  margin-top: 0px;
+  padding-top: 0px;
+  margin-bottom: 70px;
+}
+
+.terra-btn-con {
+  display: flex;
+  flex-direction: row;
+}
+.water-btn {
+  font-family: 'Fredericka the Great', cursive;
+  font-size: 30px;
+  padding: 5px, 10px, 5px, 10px;
+  margin-right:5px ;
+  margin-left: 5px;
+}
+
+.water-btn:hover {
+  color: rgb(79, 170, 167);
+  background-color: #fff;
+  border-color: rgb(79, 170, 167);
+}
+button {
+  cursor:pointer;
+}
+
 .desert {
   z-index: 2;
   top: 9px;
