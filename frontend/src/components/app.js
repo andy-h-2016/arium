@@ -21,7 +21,7 @@ const App = () => (
       <ProtectedRoute exact path="/terrariums" component={TerrariumIndexContainer} />
       <ProtectedRoute exact path="/watertracker" component={WaterTrackerContainer} />
       <ProtectedRoute exact path="/profile" component={ProfileContainer} />
-      <ProtectedRoute exact path="/info" component={InfoPage} />
+      {/* <ProtectedRoute exact path="/info" component={InfoPage} /> */}
     </Switch>
       <div className="foot">
         <div className="push"></div>
