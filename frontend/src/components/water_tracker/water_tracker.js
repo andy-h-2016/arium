@@ -6,18 +6,18 @@ class WaterTracker extends React.Component {
 
   componentDidMount() {
     console.log("Mount", this.props);
-    this.props.fetchUserTerrarium(this.props.currentUser.id);
-
-    this.props.fetchUserWaterTracker(this.props.currentUser.id);
+    const id = this.props.currentUser.id || this.props.currentUser._id;
+    console.log('id: ', id)
+    this.props.fetchUserTerrarium(id);
+    this.props.fetchUserWaterTracker(id);
   }
 
   
 
   render() {
-    console.log("render", this.props);
+    console.log('render', this.props)
     let { waterTrackers, currentUser, terrarium } = this.props;
     if (!terrarium) return <div></div>
-    console.log(terrarium);
     
     let healthMsg;
 
