@@ -7,13 +7,14 @@ import { fetchUserWaterTracker, updateWaterTracker } from '../../actions/water_t
 const mapStateToProps = (state, ownProps) => {
   // console.log(state)
   // const pageId = ownProps.match.params.userId
+  const id = state.session.user.id || state.session.user._id
   return {
     currentUser: state.session.user, 
     waterTracker:  Object.values(state.entities.waterTrackers).filter(
-      (waterTracker) => waterTracker.userId === state.session.user.id
+      (waterTracker) => waterTracker.userId === id
     )[0],
     terrarium: Object.values(state.entities.terrariums).filter(
-      (terrarium) => terrarium.userId === state.session.user.id
+      (terrarium) => terrarium.userId === id
     )[0],
   };
 };
