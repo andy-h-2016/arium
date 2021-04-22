@@ -6,7 +6,9 @@ const db = require('./config/keys').mongoURI;
 const users = require('./routes/api/users');
 const waterTrackers = require('./routes/api/watertrackers');
 const terrariums = require('./routes/api/terrariums');
+const overallConsumptions = require('./routes/api/overallconsumptions');
 const passport = require('passport');
+const OverallConsumption = require('./models/OverallConsumption');
 
 
 // setup connection with the MongoDB
@@ -37,7 +39,8 @@ require('./config/passport')(passport);
 //routers
 app.use("/api/users", users); // give access to methods and APIs from user.js
 app.use("/api/watertrackers", waterTrackers); // give access to methods and APIs from watertrackers.js
-app.use("/api/terrariums", terrariums)
+app.use("/api/terrariums", terrariums);
+app.use("/api/overallconsumptions", overallconsumptions);
 
 // tell app which port to run on, production port or localhost:5000
 const port = process.env.PORT || 5000;
