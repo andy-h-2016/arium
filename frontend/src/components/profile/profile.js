@@ -8,7 +8,6 @@ class Profile extends React.Component {
     this.state.update = false;
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-
   componentDidMount() {
     const id = this.state.id || this.state._id;      
     this.props.fetchUser(id);    
