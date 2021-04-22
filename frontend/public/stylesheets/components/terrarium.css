@@ -17,3 +17,13 @@
   background: url("../../images/forest.gif") center no-repeat;
   background-size: contain;
 }
+
+.oasis {
+  z-index: 2;
+  top: 9px;
+  left: -175px;
+  width: 400px;
+  height: 400px;
+  background: url("../../images/oasis.gif") center no-repeat;
+  background-size: contain;
+}
