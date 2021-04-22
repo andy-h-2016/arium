@@ -11,16 +11,23 @@ class Terrarium extends React.Component {
     }
   }
 
+  componentDidMount(){
+    // this.props.fetchUserTerrarium(this.props.pageId)
+    // this.props.fetchUserWaterTracker(this.props.pageId)
+  }
 
+  renderTerra(){
+    
+  
+  }
 
   render() {
- console.log(this.props.currentUser.username)
+//  console.log(this.props)
       return (
         <div className='terra-page'>
           <h1 className='welcome-mes'>this is {this.props.currentUser.username}'s terrerium</h1>
           <div className='im-the-terra'></div>
           <div className='im-shelf'></div>
-    
         </div>
       );
     }
