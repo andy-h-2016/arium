@@ -1,0 +1,19 @@
+.desert {
+  z-index: 2;
+  top: 9px;
+  left: -175px;
+  width: 400px;
+  height: 400px;
+  background: url("../../images/dessert.gif") center no-repeat;
+  background-size: contain;
+}
+
+.forest {
+  z-index: 2;
+  top: 9px;
+  left: -175px;
+  width: 400px;
+  height: 400px;
+  background: url("../../images/forest.gif") center no-repeat;
+  background-size: contain;
+}
