@@ -170,12 +170,13 @@ button{
   
   .otherForm {
     cursor: pointer;
+    text-align: center;
     top: 0;    
     font-size: 13px;
-    line-height: .1;
-    max-height: 36px;
-    padding-top: 9px;
-    padding-bottom: 9px;
+    height: 18px;
+    min-width: 51px;
+    padding-top: 7px;
+    padding-bottom: 7px;
     padding-left: 15px;
     padding-right: 15px;
     font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
