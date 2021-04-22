@@ -11,7 +11,7 @@ import SideBar from './sidebar/sidebar_container'
 import TerrariumIndexContainer from './terrarium/terrarium_index_container';
 import InfoPage from './info/info_page';
 import DonationInfoPage from './info/donation_info';
-
+import TerrariumShowContainer from './terrarium/terrarium_show_container'
 const App = () => (
   <div className="main-container">
     <SideBar/>
@@ -19,7 +19,9 @@ const App = () => (
     <Modal/>
     <Switch>
       <AuthRoute exact path="/" component={Splash} />
+
       <ProtectedRoute exact path="/terrarium" component={TerrariumContainer} />
+      <ProtectedRoute exact path="/terrarium/:id" component={TerrariumShowContainer} />
       <ProtectedRoute exact path="/terrariums" component={TerrariumIndexContainer} />
       <ProtectedRoute exact path="/watertracker" component={WaterTrackerContainer} />
       <ProtectedRoute exact path="/profile" component={ProfileContainer} />
