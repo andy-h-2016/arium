@@ -1,0 +1,53 @@
+.info-page {
+  font-family: 'Fredericka the Great', cursive;
+  color: rgb(16, 82, 124);
+}
+
+.about-header {
+  text-align: center;
+  font-size: 50px;
+}
+
+.terra-link {
+  text-decoration: none;
+  color: #79a3b1;
+}
+
+.about-info {
+  display: flex;
+  flex-direction: column;
+  margin-right: 170px;
+  font-size: 22px;
+  margin-left: 170px;
+  margin-top: 10px;
+}
+
+.about-body {
+  margin-bottom: 10px;
+  padding: 0 30px;
+}
+
+.about-devs {
+  font-family: 'Fredericka the Great', cursive;
+  text-align: center;
+}
+
+.all-devs {
+  color: #79a3b1;
+  font-size: 2em;
+}
+
+
+.about-devs a {
+  text-decoration: none;
+  color: rgb(16, 82, 124);
+}
+
+.about-devs a:hover {
+  color: #79a3b1;
+}
+
+.fab {
+  margin-right: 10px;
+}
+
