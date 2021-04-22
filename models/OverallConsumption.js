@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const OverallConsumptionSchema = new Schema({
-  OverallConsumption: {
+  overall: {
     type: Number,
     required: true
   },

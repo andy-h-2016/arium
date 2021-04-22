@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 
 const WaterTracker = require('../../models/WaterTracker');
-const OverallConsumption = require('../../models/OverallConsumption');
 const validateWaterTrackerInput = require('../../validation/watertracker');
 
 // Water Tracker show for a specific user
@@ -23,7 +22,7 @@ router.get('/user/:user_id', (req, res) => {
 // add a show route just for a single water tracker @ 4/21/21
 
 router.get('/:id', (req, res) => {
-  WaterTracker.findOne({ id: req.params._id })
+  WaterTracker.findOne({ _id: req.params.id })
     .then(watertracker => res.json(watertracker))
     .catch(err =>
       res.status(404).json({ nowatertrackerfound: "No water tracker found with this ID" }
@@ -63,7 +62,6 @@ router.patch('/:id',
       total: req.body.total,
       today: req.body.today,
       streak: req.body.streak
-      
     }
    
 
