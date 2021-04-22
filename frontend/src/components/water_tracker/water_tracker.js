@@ -98,6 +98,7 @@ class WaterTracker extends React.Component {
       ...this.props.waterTracker,
       total: this.props.waterTracker.total + 1,
       today: this.props.waterTracker.today + 1,
+      delta: 1
     }
 
     this.props.updateWaterTracker(waterTracker)
@@ -111,6 +112,7 @@ class WaterTracker extends React.Component {
       ...this.props.waterTracker,
       total: this.props.waterTracker.total - 1,
       today: this.props.waterTracker.today - 1,
+      delta: -1
     }
 
     this.props.updateWaterTracker(waterTracker)

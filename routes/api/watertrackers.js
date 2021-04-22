@@ -58,12 +58,13 @@ router.patch('/:id',
     if (!isValid) {
       return res.status(400), json(errors);
     }
-
     const update = {
       total: req.body.total,
       today: req.body.today,
       streak: req.body.streak
+      
     }
+   
 
     WaterTracker.findByIdAndUpdate(req.params.id, update, { new: true }, (err, watertracker) => {
       if (err) {
