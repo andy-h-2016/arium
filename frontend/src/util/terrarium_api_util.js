@@ -13,5 +13,5 @@ export const createTerrarium = newTerrarium => {
 }
 
 export const updateTerrarium = terrarium => {
-  return axios.patch(`/api/terrariums/${terrarium.id}`, terrarium)
+  return axios.patch(`/api/terrariums/${terrarium._id}`, terrarium)
 }
