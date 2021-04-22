@@ -9,3 +9,5 @@ const InfoPage = (props) => {
     </div>
   )
 }
+
+export default InfoPage;
