@@ -3,12 +3,23 @@
   color: rgb(16, 82, 124);
 }
 
+/* make sure to delete this */
+.nothing {
+  text-align: center;
+  font-size: 70px;
+  color: #fff;
+}
+
+.nothing:hover {
+  color:rgb(16, 82, 124);
+}
+
 .about-header {
   text-align: center;
   font-size: 50px;
 }
 
-.terra-link {
+.external-link {
   text-decoration: none;
   color: #79a3b1;
 }

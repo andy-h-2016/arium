@@ -5,7 +5,12 @@ const InfoPage = (props) => {
   
   return (
     <div className="info-page">
-      <Link to={'/'} className="terra-link"><h1 className="about-header">Arium</h1></Link> 
+      <a 
+        className="external-link"
+        rel="noreferrer" 
+        href="https://github.com/andy-h-2016/arium" 
+        target="_blank"><h1 className="about-header">Arium</h1>
+      </a>
       <div className="about-info">
         <div className="about-body">Arium is a health promoting app that keeps track of your daily water consumption, furthers universal access to clean water, and provides an engaging user experience.</div>
         <div className="about-body">The benefits of drinking a healthy amount of water on a daily basis are numerous and often underappreciated. Water is vital to the functioning of almost every system in the human body and without water we would simply perish.</div>
