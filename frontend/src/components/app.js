@@ -8,6 +8,9 @@ import TerrariumContainer from './terrarium/terrarium_container';
 import WaterTrackerContainer from './water_tracker/water_tracker_container';
 import Modal from './modal/modal'
 import SideBar from './sidebar/sidebar_container'
+import TerrariumIndexContainer from './terrarium/terrarium_index_container';
+import InfoPage from './info/info_page';
+import DonationInfoPage from './info/donation_info';
 
 const App = () => (
   <div className="main-container">
@@ -17,8 +20,11 @@ const App = () => (
     <Switch>
       <AuthRoute exact path="/" component={Splash} />
       <ProtectedRoute exact path="/terrarium" component={TerrariumContainer} />
+      <ProtectedRoute exact path="/terrariums" component={TerrariumIndexContainer} />
       <ProtectedRoute exact path="/watertracker" component={WaterTrackerContainer} />
       <ProtectedRoute exact path="/profile" component={ProfileContainer} />
+      <ProtectedRoute exact path="/info" component={InfoPage} />
+      <ProtectedRoute exact path="/donation" component={DonationInfoPage} />
     </Switch>
       <div className="foot">
         <div className="push"></div>
