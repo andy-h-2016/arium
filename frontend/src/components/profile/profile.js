@@ -8,9 +8,10 @@ class Profile extends React.Component {
     this.state.update = false;
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-  componentDidMount() {     
-    this.props.fetchUser(this.state.id);
-       
+  
+  componentDidMount() {
+    const id = this.state.id || this.state._id;      
+    this.props.fetchUser(this.state.id);    
   }
 
   componentDidUpdate(prevProps){
@@ -22,9 +23,9 @@ class Profile extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props
-      .updateUser(user.id, user)
-      this.setState({update: true});
+    const id = user.id || user._id;
+    this.props.updateUser(id, user)
+    this.setState({update: true});
   }
 
   update(field) {
