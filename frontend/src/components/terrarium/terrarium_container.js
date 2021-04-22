@@ -10,12 +10,8 @@ const mapStateToProps = (state, ownProps) => {
   const id = state.session.user.id || state.session.user._id
   return {
     currentUser: state.session.user, 
-    waterTracker:  Object.values(state.entities.waterTrackers).filter(
-      (waterTracker) => waterTracker.userId === id
-    )[0],
-    terrarium: Object.values(state.entities.terrariums).filter(
-      (terrarium) => terrarium.userId === id
-    )[0],
+    waterTracker:  Object.values(state.entities.waterTrackers).find(waterTracker => waterTracker.userId === id),
+    terrarium: Object.values(state.entities.terrariums).find(terrarium => terrarium.userId === id)
   };
 };
 
