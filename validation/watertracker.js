@@ -13,7 +13,7 @@ module.exports = function validateWaterTrackerInput(data) {
     errors.total = "Total amount of cups field is required"
   }
 
-  if (!Validator.isInt(data.total)) {
+  if (!Validator.isInt(data.total, { min: 0 })) {
     errors.total = "Total cups of water drank since using our app must be an integer!";
   }
 
@@ -21,7 +21,7 @@ module.exports = function validateWaterTrackerInput(data) {
     errors.today = "Amount of water drank today field is required"
   }
 
-  if (!Validator.isInt(data.today, {max: 10})) {
+  if (!Validator.isInt(data.today, {min: 0, max: 10})) {
     errors.today = "Cups of water drank today cannot be greater than 10, you'll die";
   }
 

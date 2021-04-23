@@ -1,14 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 
 class TerrariumIndexItem extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+
 
   render() {
-    const { terrarium, idx } = this.props;
+    const { terrarium } = this.props;
     let stageOne = terrarium.level >= 0 && terrarium.level < 10;
     let stageTwo = terrarium.level >= 10 && terrarium.level < 20;
     let stageThree = terrarium.level >= 20 && terrarium.level <= 30;
