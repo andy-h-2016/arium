@@ -20,7 +20,7 @@ class Terrarium extends React.Component {
       if (this.props.terrarium.level <= 9) {
         //desert
         switch (true) {
-          case this.props.terrarium.health < Math.floor((0.5 * this.props.currentUser.goal)) && (this.props.terrarium.health !== 0):
+          case this.props.terrarium.health < Math.floor((0.5 * this.props.currentUser.goal)) :
             return (<img className='im-the-terra' src='images/terra-stages/dry-d.gif' alt='dry-d' width="700" height="850"></img>)
           case this.props.terrarium.health >= Math.floor((0.5 * this.props.currentUser.goal)) && (this.props.terrarium.health !== this.props.currentUser.goal) && !(this.props.terrarium.health > this.props.currentUser.goal):
             return (<img className='im-the-terra' src='images/terra-stages/normal-d.gif' alt='normal-d' width="700" height="850"></img>)
@@ -32,7 +32,7 @@ class Terrarium extends React.Component {
       } else if (this.props.terrarium.level < 20 && this.props.terrarium.level >= 10) {
         //oasis
         switch (true) {
-          case this.props.terrarium.health < Math.floor((0.5 * this.props.currentUser.goal)) && (this.props.terrarium.health !== 0):
+          case this.props.terrarium.health < Math.floor((0.5 * this.props.currentUser.goal)) :
             return (<img className='im-the-terra' src='images/terra-stages/dry-o.gif' alt='dry-o' width="700" height="850"></img>)
           case this.props.terrarium.health >= Math.floor((0.5 * this.props.currentUser.goal)) && (this.props.terrarium.health !== this.props.currentUser.goal) && !(this.props.terrarium.health > this.props.currentUser.goal):
             return (<img className='im-the-terra' src='images/terra-stages/normal-o.gif' alt='normal-o' width="700" height="850"></img>)
@@ -44,7 +44,7 @@ class Terrarium extends React.Component {
       } else {
         //forest
         switch (true) {
-          case this.props.terrarium.health < Math.floor((0.5 * this.props.currentUser.goal)) && (this.props.terrarium.health !== 0):
+          case this.props.terrarium.health < Math.floor((0.5 * this.props.currentUser.goal)) :
             return (<img className='im-the-terra' src='images/terra-stages/dry-f.gif' alt='dry-f' width="700" height="850"></img>)
           case this.props.terrarium.health >= Math.floor((0.5 * this.props.currentUser.goal)) && (this.props.terrarium.health !== this.props.currentUser.goal) && !(this.props.terrarium.health > this.props.currentUser.goal):
             return (<img className='im-the-terra' src='images/terra-stages/normal-f.gif' alt='normal-f' width="700" height="850"></img>)
@@ -91,6 +91,7 @@ class Terrarium extends React.Component {
       today: this.props.waterTracker.today - 1,
       delta: -1
     }
+    if(this.props.waterTracker.today <= 0){return}
     this.props.updateWaterTracker(waterTracker)
       .then(() => this.props.updateTerrarium(terrarium))
       .then(() => this.forceUpdate())
@@ -126,7 +127,7 @@ class Terrarium extends React.Component {
   render() {
     return (
       <div className='terra-page'>
-        <h1 className='welcome-mes'>This is {this.props.currentUser.username}'s Terrarium</h1>
+        <h1 className='welcome-mes'>{this.props.currentUser.username}'s Terrarium</h1>
         <div></div>
         <div className='on-shelf'>
           {this.renderTerra()}
