@@ -7,9 +7,6 @@ module.exports = function validateLoginInput(data) {
   data.username = validText(data.username) ? data.username : '';
   data.password = validText(data.password) ? data.password : '';
 
-  // Easier to validate method with isEmail method than username,
-  // think we should choose to use email to login instead of handle
-
   if (Validator.isEmpty(data.username)) {
     errors.username = 'Email field is required';
   }
