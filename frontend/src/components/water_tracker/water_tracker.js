@@ -5,10 +5,7 @@ import OverallConsumptionContainer from '../overall_consumption/overall_consumpt
 class WaterTracker extends React.Component {
   constructor(props) {
     super(props);
-    this.calculateTerrariumLevels = this.calculateTerrariumLevels.bind(this);
-    this.forceUpdate = this.forceUpdate.bind(this);
-    this.addCup = this.addCup.bind(this);
-    this.subtractCup = this.subtractCup.bind(this);
+
   }
 
   componentDidMount() {
@@ -99,9 +96,7 @@ const drinks = currentUser.goal - waterTracker.today
         <div className="water-tracker-goal">      
           <div className="please">Today's Stats</div>
           <div className="drinks">{`${waterTracker.today} / ${currentUser.goal} cups`}</div>
-          <div>{`${drinks} more cups of water today to grow your wonderful Terrarium!`}</div>
-          <button onClick={e => this.addCup(e)} type="click">Drink cup</button>      
-          <button onClick={e => this.subtractCup(e)} type="click">Oops (subtract cup)</button>      
+          <div>{`${drinks} more cups of water today to grow your wonderful Terrarium!`}</div>     
         </div>
 
         <div className="water-tracker-total">
@@ -122,10 +117,6 @@ const drinks = currentUser.goal - waterTracker.today
           {rank}
         </div>
 
-        <div>
-          <div>Terrarium level</div>
-          <div>{terrarium.level}</div>
-        </div>
       </div>
     );
   }
