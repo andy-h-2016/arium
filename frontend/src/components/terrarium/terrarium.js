@@ -13,7 +13,6 @@ class Terrarium extends React.Component {
     this.props.fetchUserTerrarium(id)
     this.props.fetchUserWaterTracker(id)
     this.props.fetchUser(id); 
-    
   }
 
   componentDidUpdate(prevProps){
@@ -21,8 +20,6 @@ class Terrarium extends React.Component {
       this.setState(this.props.currentUser)
     }
   }
-
-
 
   renderTerra() {
     if (this.props.terrarium && this.props.currentUser && this.props.waterTracker) {
@@ -71,39 +68,29 @@ class Terrarium extends React.Component {
   addWater(e) {
     e.preventDefault()
     e.stopPropagation()
-    let terrarium = {
-      ...this.props.terrarium,
-      health: this.props.terrarium.health + 1,
-    }
     let waterTracker = {
       ...this.props.waterTracker,
       total: this.props.waterTracker.total + 1,
       today: this.props.waterTracker.today + 1,
       delta: +1
     }
-    if(this.props.waterTracker.today >= 10){return}
+    if(this.props.waterTracker.today >= 10) {return}
 
     this.props.updateWaterTracker(waterTracker)
-      .then(() => this.props.updateTerrarium(terrarium))
       .then(() => this.forceUpdate())
   }
 
   removeWater(e) {
     e.preventDefault()
     e.stopPropagation()
-    let terrarium = {
-      ...this.props.terrarium,
-      health: this.props.terrarium.health - 1,
-    }
     let waterTracker = {
       ...this.props.waterTracker,
       total: this.props.waterTracker.total - 1,
       today: this.props.waterTracker.today - 1,
       delta: -1
     }
-    if(this.props.waterTracker.today <= 0){return}
+    if(this.props.waterTracker.today <= 0) {return}
     this.props.updateWaterTracker(waterTracker)
-      .then(() => this.props.updateTerrarium(terrarium))
       .then(() => this.forceUpdate())
   }
 
@@ -126,10 +113,6 @@ class Terrarium extends React.Component {
             <p>Cups of water today</p>
             <p>{this.props.waterTracker.today}</p>
           </div>
-          {/* <div className='terra-row'>
-            <p>Terrarium health</p>
-            <p>{this.props.terrarium.health}</p>
-          </div> */}
           <div className='terra-row'>
             <p>Terrarium level</p>
             <p>{this.props.terrarium.level}</p>
@@ -137,7 +120,6 @@ class Terrarium extends React.Component {
         </div>
       )
     }
-
   }
   //level, goal, today, health 
 
@@ -158,15 +140,9 @@ class Terrarium extends React.Component {
         </div>
         <div className='im-shelf'></div>
 
-
-
-
-
       </div>
-
     );
   }
-
 }
 
 export default withRouter(Terrarium);
