@@ -101,19 +101,19 @@ class Terrarium extends React.Component {
       return (
         <div className='stat-innerbox'>
           <div className='terra-row'>
-            <p>goal</p>
+            <p>Goal</p>
             <p>{this.props.currentUser.goal}</p>
           </div>
           <div className='terra-row'>
-            <p>cups of water today</p>
+            <p>Cups of water today</p>
             <p>{this.props.waterTracker.today}</p>
           </div>
           <div className='terra-row'>
-            <p>terrarium health</p>
+            <p>Terrarium health</p>
             <p>{this.props.terrarium.health}</p>
           </div>
           <div className='terra-row'>
-            <p>terraruim level</p>
+            <p>Terrarium level</p>
             <p>{this.props.terrarium.level}</p>
           </div>
         </div>
@@ -126,7 +126,7 @@ class Terrarium extends React.Component {
   render() {
     return (
       <div className='terra-page'>
-        <h1 className='welcome-mes'>this is {this.props.currentUser.username}'s terrerium</h1>
+        <h1 className='welcome-mes'>This is {this.props.currentUser.username}'s Terrarium</h1>
         <div></div>
         <div className='on-shelf'>
           {this.renderTerra()}
