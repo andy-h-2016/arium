@@ -11,7 +11,8 @@ import SideBar from './sidebar/sidebar_container'
 import TerrariumIndexContainer from './terrarium/terrarium_index_container';
 import InfoPage from './info/info_page';
 import DonationInfoPage from './info/donation_info';
-import TerrariumShowContainer from './terrarium/terrarium_show_container'
+import TerrariumShowContainer from './terrarium/terrarium_show_container';
+
 const App = () => (
   <div className="main-container">
     <SideBar/>
