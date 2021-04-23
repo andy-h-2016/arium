@@ -1,0 +1,41 @@
+.overall-page { 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 130px;
+  width: 255px;
+  font-size: 70px;
+  color:black;
+  z-index: 1;
+}
+
+.overall-msg {
+  font-size: 35px;
+  font-weight: 600;
+  z-index: 1;
+}
+
+.overall-count {
+  z-index: 1;
+font-weight: 700;
+}
+
+.bottle{ 
+  position: absolute;
+  background-image: url(../../images/bottle.gif);
+  background-size: cover;
+  height: 690px;
+  width: 690px;  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  z-index: 1;
+
+}
+
+.overall-link {
+  z-index: 1;
+
+}
