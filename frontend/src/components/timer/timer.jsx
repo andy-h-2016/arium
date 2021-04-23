@@ -29,21 +29,25 @@ class Timer extends React.Component {
 
     // while (daysElapsed > 0) {
       switch (true) {
-        case waterTracker.today >= Math.floor(.75 * currentUser.goal):
+        case waterTracker.today >= currentUser.goal:
           terrarium.level += 1;
-          this.props.updateTerrarium(terrarium)
-            .then(() => this.props.updateWaterTracker({...this.props.waterTracker, today: 0}))
-            .then(() => this.forceUpdate());
+          waterTracker.streak += 1;
           break
         case waterTracker.today >= Math.floor(.5 * currentUser.goal):
+          //terrariumlevel += 0; no change.
+          waterTracker.streak = 0;
           break
-        case waterTracker.today < Math.floor(.7 * currentUser.goal):
+        case waterTracker.today < Math.floor(.5 * currentUser.goal):
           terrarium.level -= 1;
-          this.props.updateTerrarium(terrarium)
-            .then(() => this.props.updateWaterTracker({...this.props.waterTracker, today: 0}))
-            .then(() => this.forceUpdate())
+          waterTracker.streak = 0;
           break
       }
+
+      waterTracker.today = 0;
+      this.props.updateTerrarium(terrarium)
+        .then(() => this.props.updateWaterTracker(waterTracker))
+        .then(() => this.forceUpdate());
+
       // daysElapsed -= 1;
     // }
     // terrarium.level += 1;
@@ -72,4 +76,13 @@ class Timer extends React.Component {
 
     return daysElapsed;
   }
+
+  render() {
+    return(
+      <div></div>
+    )
+  }
+
 }
+
+export default Timer;

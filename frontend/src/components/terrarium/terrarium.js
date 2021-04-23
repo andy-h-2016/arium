@@ -5,8 +5,8 @@ class Terrarium extends React.Component {
     super(props);
     this.addWater = this.addWater.bind(this);
     this.removeWater = this.removeWater.bind(this);
-    this.calculateTerrariumLevels = this.calculateTerrariumLevels.bind(this);
-    this.daysCounter = this.daysCounter.bind(this);
+    // this.calculateTerrariumLevels = this.calculateTerrariumLevels.bind(this);
+    // this.daysCounter = this.daysCounter.bind(this);
   }
 
   componentDidMount() {
@@ -14,68 +14,71 @@ class Terrarium extends React.Component {
     this.props.fetchUserTerrarium(id);
     this.props.fetchUserWaterTracker(id);
 
-    const timerId = Math.random();
-    this.intervalID = setInterval( () => {
-      console.log(`tick! timerId: ${timerId}`);
-      this.calculateTerrariumLevels();
-    }, 5000); 
+    // const timerId = Math.random();
+    // this.intervalID = setInterval( () => {
+    //   console.log(`tick! timerId: ${timerId}`);
+    //   this.calculateTerrariumLevels();
+    // }, 5000); 
 
   }
 
-  componentWillUnmount() {
-    clearInterval(this.intervalID);
-  }
+  // componentWillUnmount() {
+  //   clearInterval(this.intervalID);
+  // }
 
-  calculateTerrariumLevels() {
-    let {waterTracker, terrarium, currentUser} = this.props;
-    let daysElapsed = this.daysCounter();
-    console.log('daysElapsed', daysElapsed)
+  // calculateTerrariumLevels() {
+  //   let {waterTracker, terrarium, currentUser} = this.props;
+  //   let daysElapsed = this.daysCounter();
+  //   console.log('daysElapsed', daysElapsed)
 
-    // while (daysElapsed > 0) {
-      switch (true) {
-        case waterTracker.today >= Math.floor(.75 * currentUser.goal):
-          terrarium.level += 1;
-          this.props.updateTerrarium(terrarium)
-            .then(() => this.props.updateWaterTracker({...this.props.waterTracker, today: 0}))
-            .then(() => this.forceUpdate());
-          break
-        case waterTracker.today >= Math.floor(.5 * currentUser.goal):
-          break
-        case waterTracker.today < Math.floor(.7 * currentUser.goal):
-          terrarium.level -= 1;
-          this.props.updateTerrarium(terrarium)
-            .then(() => this.props.updateWaterTracker({...this.props.waterTracker, today: 0}))
-            .then(() => this.forceUpdate())
-          break
-      }
-      // daysElapsed -= 1;
-    // }
-    // terrarium.level += 1;
-    // this.props.updateTerrarium(terrarium)
-    //   .then(() => this.forceUpdate())
-  }
+  //   // while (daysElapsed > 0) {
+  //     switch (true) {
+  //       case waterTracker.today >= Math.floor(.75 * currentUser.goal):
+  //         terrarium.level += 1;
+  //         this.props.updateTerrarium(terrarium)
+  //           .then(() => this.props.updateWaterTracker({...this.props.waterTracker, today: 0}))
+  //           .then(() => this.forceUpdate());
+  //         break
+  //       case waterTracker.today >= Math.floor(.5 * currentUser.goal):
+  //         this.props.updateTerrarium(terrarium)
+  //           .then(() => this.props.updateWaterTracker({...this.props.waterTracker, today: 0}))
+  //           .then(() => this.forceUpdate());
+  //         break
+  //       case waterTracker.today < Math.floor(.7 * currentUser.goal):
+  //         terrarium.level -= 1;
+  //         this.props.updateTerrarium(terrarium)
+  //           .then(() => this.props.updateWaterTracker({...this.props.waterTracker, today: 0}))
+  //           .then(() => this.forceUpdate())
+  //         break
+  //     }
+  //     // daysElapsed -= 1;
+  //   // }
+  //   // terrarium.level += 1;
+  //   // this.props.updateTerrarium(terrarium)
+  //   //   .then(() => this.forceUpdate())
+  // }
 
-  daysCounter() {
-    const currentDate = new Date();
-    const lastActiveDate = new Date(localStorage.getItem('lastActiveDate'));
-    let daysElapsed;
+  // daysCounter() {
+  //   const currentDate = new Date();
+  //   const lastActiveDate = new Date(localStorage.getItem('lastActiveDate'));
+  //   let daysElapsed;
 
-    if (lastActiveDate) {
-      // const lastActiveDateSansTime = new Date(lastActiveDate.getFullYear(), lastActiveDate.getMonth(), lastActiveDate.getDate());
-      // const currentDateSansTime = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
-      // daysElapsed = (currentDateSansTime - lastActiveDateSansTime) / (1000 * 60 * 60 * 24);
+  //   if (lastActiveDate) {
+  //     // const lastActiveDateSansTime = new Date(lastActiveDate.getFullYear(), lastActiveDate.getMonth(), lastActiveDate.getDate());
+  //     // const currentDateSansTime = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
+  //     // daysElapsed = (currentDateSansTime - lastActiveDateSansTime) / (1000 * 60 * 60 * 24);
 
-      const msElapsed = currentDate.getTime() - lastActiveDate.getTime();
-      // daysElapsed = msElapsed / (1000 * 60 * 60 * 24) //convert ms to days
-      daysElapsed = msElapsed / (1000) //convert ms to seconds
-    } else {
-     daysElapsed = 0; 
-    }
+  //     const msElapsed = currentDate.getTime() - lastActiveDate.getTime();
+  //     // daysElapsed = msElapsed / (1000 * 60 * 60 * 24) //convert ms to days
+  //     daysElapsed = msElapsed / (1000) //convert ms to seconds
+  //   } else {
+  //    daysElapsed = 0; 
+  //   }
 
-    localStorage.setItem('lastActiveDate', currentDate);
+  //   localStorage.setItem('lastActiveDate', currentDate);
 
-    return daysElapsed;
-  }
+  //   return daysElapsed;
+  // }
 
 
   renderTerra() {
@@ -173,8 +176,8 @@ class Terrarium extends React.Component {
             <p>{this.props.waterTracker.today}</p>
           </div>
           <div className='terra-row'>
-            <p>Terrarium health</p>
-            <p>{this.props.terrarium.health}</p>
+            <p>Daily goal streak</p>
+            <p>{this.props.waterTracker.streak}</p>
           </div>
           <div className='terra-row'>
             <p>Terrarium level</p>
@@ -190,7 +193,7 @@ class Terrarium extends React.Component {
   render() {
     return (
       <div className='terra-page'>
-        <h1 className='welcome-mes'>This is {this.props.currentUser.username}'s Terrarium</h1>
+        <h1 className='welcome-mes'>this.props</h1>
         <div></div>
         <div className='on-shelf'>
           {this.renderTerra()}
