@@ -95,8 +95,10 @@ color: white
   background: #fff;
   letter-spacing: 1px;
   cursor: pointer;
-  margin-top: 100px;
+  margin-top: 50px;
   width: 260px;
+  font-size: 30px;
+  font-family: 'Fredericka the Great', cursive;
 }
 .logout::before {
   content: "";

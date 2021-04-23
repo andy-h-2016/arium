@@ -18,7 +18,7 @@ const App = () => (
   <div className="main-container">
     <SideBar/>
     <Modal/>
-    <ProtectedRoute path="/" component={TimerContainer}/>
+    {/* <ProtectedRoute path="/" component={TimerContainer}/> */}
     <Switch>
       <AuthRoute exact path="/" component={Splash} />
 
