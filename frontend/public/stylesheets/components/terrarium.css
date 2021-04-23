@@ -112,6 +112,7 @@
 }
 .water-btn {
   font-family: 'Fredericka the Great', cursive;
+  font-family: Palatino, "Palatino LT STD", "Palatino Linotype", "Book Antiqua", Georgia, serif;
   font-size: 30px;
   padding: 5px, 10px, 5px, 10px;
   margin-right:5px ;
@@ -130,7 +131,7 @@ button {
 
 .inc-goal{
 background: none;
-background-image: url('../../images/bottle.gif');
+background-image: url('../../images/uparrow.png');
 background-size: cover;
 height: 60px;
 width: 60px;
@@ -141,7 +142,7 @@ z-index: 2;
 .dec-goal{
   z-index: 2;
   background: none;
-  background-image: url('../../images/bottle.gif');
+  background-image: url('../../images/uparrow.png');
   background-size: cover;
   height: 60px;
   width: 60px;
@@ -149,12 +150,15 @@ z-index: 2;
   transform: rotate(180deg);
 }
 
-.upDown{
- 
+.upDown{ 
   z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 5px;
+  
+}
+
+.terra-row > p{
+  font-weight: 900;
 }
 

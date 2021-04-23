@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import OverallConsumptionContainer from '../overall_consumption/overall_consumption_container';
 
 class SideBar extends React.Component {
   constructor(props) {
@@ -44,6 +45,9 @@ class SideBar extends React.Component {
                 <nav className="login-modal-button">
                 <button className="logout" onClick={this.logoutUser}>Logout</button>
                 </nav>
+                <div className="overall-link">
+                    <OverallConsumptionContainer />
+                 </div>
               </div>
             </div>
         );
