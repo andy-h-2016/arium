@@ -9,6 +9,7 @@ import { logout } from './actions/session_actions';
 //imports for testing actions and reducers
 import {fetchAllTerrariums} from './actions/terrarium_actions';
 import { createWaterTracker, updateWaterTracker, fetchUserWaterTracker, fetchWaterTracker } from './actions/water_tracker_actions';
+import { fetchOverallConsumptions } from './actions/overall_consumption_actions';
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -32,6 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.getState = store.getState;
   window.dispatch = store.dispatch;
+  window.fetchOverallConsumptions = fetchOverallConsumptions;
   window.fetchAllTerrariums = fetchAllTerrariums;
   window.createWaterTracker = createWaterTracker;
   window.updateWaterTracker = updateWaterTracker;

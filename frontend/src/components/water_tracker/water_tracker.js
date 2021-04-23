@@ -1,9 +1,14 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import OverallConsumptionContainer from '../overall_consumption/overall_consumption_container';
 
 class WaterTracker extends React.Component {
   constructor(props) {
     super(props);
+    this.calculateTerrariumLevels = this.calculateTerrariumLevels.bind(this);
+    this.forceUpdate = this.forceUpdate.bind(this);
+    this.addCup = this.addCup.bind(this);
+    this.subtractCup = this.subtractCup.bind(this);
   }
 
   componentDidMount() {
@@ -13,10 +18,16 @@ class WaterTracker extends React.Component {
     this.props.fetchUser(id);
     this.props.fetchUserTerrarium(id);
     this.props.fetchUserWaterTracker(id);
+  
   }
 
   componentDidUpdate(prevProps) {
+    console.log('previosuly', prevProps)
     if (prevProps.currentUser.goal !== this.props.currentUser.goal) {
+      this.setState(this.props.currentUser)
+    }
+
+    if (prevProps.terrarium && (prevProps.terrarium.level !== this.props.terrarium.level)) {
       this.setState(this.props.currentUser)
     }
   }
@@ -73,6 +84,7 @@ const drinks = currentUser.goal - waterTracker.today
     return (
       <div className="water-tracker-container">
         <div className="water-tracker-header">
+          
            <div>
           Water Tracker
           </div>
@@ -80,22 +92,18 @@ const drinks = currentUser.goal - waterTracker.today
          
         </div>
         <div className="wt-terrarium-title">
-          <div className="terr-title-text">
-          {terrarium.title} 
-          </div>
+          <div className="terr-title-text">{terrarium.title}</div>
           <div>Friendly reminder from your Terrarium:{healthMsg}</div>
         </div>
+
         <div className="water-tracker-goal">      
-          <div className="please">
-          Please drink 
-          </div>
-          <div className="drinks">
-          {drinks}
-          </div>
-          <div>
-          more cups of water today to grow your wonderful Terrarium.
-          </div>      
+          <div className="please">Today's Stats</div>
+          <div className="drinks">{`${waterTracker.today} / ${currentUser.goal} cups`}</div>
+          <div>{`${drinks} more cups of water today to grow your wonderful Terrarium!`}</div>
+          <button onClick={e => this.addCup(e)} type="click">Drink cup</button>      
+          <button onClick={e => this.subtractCup(e)} type="click">Oops (subtract cup)</button>      
         </div>
+
         <div className="water-tracker-total">
           <div>
           WOW! You've drank 
@@ -112,6 +120,11 @@ const drinks = currentUser.goal - waterTracker.today
           Current Rank: 
           </div>
           {rank}
+        </div>
+
+        <div>
+          <div>Terrarium level</div>
+          <div>{terrarium.level}</div>
         </div>
       </div>
     );

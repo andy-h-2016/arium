@@ -1,5 +1,4 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
 import TerrariumIndexItem from './terrarium_index_item';
 
 class TerrariumIndex extends React.Component {
