@@ -8,14 +8,14 @@ class SecondsTimer extends React.Component {
     this.state = {countdown: 0}
     this.setCountdown = this.setCountdown.bind(this);
     this.setCountdown();
+    this.levelCalculatedOnLogin = false;
 
   }
 
   componentDidMount() {
     const id = this.props.currentUser.id || this.props.currentUser._id;
-    this.props.fetchUserTerrarium(id)
-      .then(this.props.fetchUserWaterTracker(id))
-      .then(this.calculateTerrariumLevels())
+    this.props.fetchUserTerrarium(id);
+    this.props.fetchUserWaterTracker(id);
     
 
     const timerId = Math.random();
@@ -23,6 +23,16 @@ class SecondsTimer extends React.Component {
       this.calculateTerrariumLevels();
       this.setCountdown();
     }, INTERVAL); 
+  }
+
+  componentDidUpdate() {
+    //only want this to run on the first update after componentDidMount runs
+    //on the first update after 
+    if ((this.levelCalculatedOnLogin === false) && this.props.waterTracker && this.props.terrarium ) {
+      console.log('UPDATING SGDPI9UHASDFPIOHJSFD')
+      this.levelCalculatedOnLogin = true;
+      this.calculateTerrariumLevels()
+    }
   }
 
   componentWillUnmount() {
