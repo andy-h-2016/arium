@@ -19,7 +19,6 @@ class WaterTracker extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    console.log('previosuly', prevProps)
     if (prevProps.currentUser.goal !== this.props.currentUser.goal) {
       this.setState(this.props.currentUser)
     }
@@ -30,7 +29,6 @@ class WaterTracker extends React.Component {
   }
 
   render() {
-    console.log('render', this.props)
     let { waterTracker, currentUser, terrarium } = this.props;
     if (!terrarium) return <div></div>
     if (!waterTracker) return <div></div>

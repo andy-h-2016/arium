@@ -35,7 +35,6 @@ class SecondsTimer extends React.Component {
     clearInterval(this.countdownID)
 
     this.countdownID = setInterval( () => {
-      console.log('TOCK', this.state.countdown)
       if (countdown > 0) {
         this.setState({countdown: this.state.countdown - 1})
       } else {
@@ -47,6 +46,8 @@ class SecondsTimer extends React.Component {
   calculateTerrariumLevels() {
     let {waterTracker, terrarium, currentUser} = this.props;
     let daysElapsed = this.daysCounter();
+    let isTerrariumMaxed;
+    let isTerrariumMin;
     // console.log('daysElapsed', daysElapsed)
 
     // while (daysElapsed > 0) {
@@ -54,21 +55,46 @@ class SecondsTimer extends React.Component {
         case waterTracker.today >= currentUser.goal:
           let increase = (waterTracker.streak > 1) ? 2 : 1;
           waterTracker.streak += 1;
-          terrarium.level += increase;
+          if (terrarium.level === 30) {isTerrariumMaxed = true}
+
+          if (terrarium.level + increase > 30) {
+            terrarium.level = 30;
+          } else {
+            terrarium.level += increase;
+          }
+
           break
+          
         case waterTracker.today >= Math.floor(.5 * currentUser.goal):
           //terrariumlevel += 0; no change.
           waterTracker.streak = 0;
           break
+
         case waterTracker.today < Math.floor(.5 * currentUser.goal):
-          terrarium.level -= 1;
+          if (terrarium.level === 1) {
+            
+            isTerrariumMin = true
+          } else {
+            terrarium.level -= 1;
+          }
+
           waterTracker.streak = 0;
           break
       }
 
       waterTracker.today = 0;
-      this.props.updateTerrarium(terrarium)
-        .then(() => this.props.updateWaterTracker(waterTracker))
+      this.props.updateWaterTracker(waterTracker)
+        .then(() => {
+          console.log('max: ', isTerrariumMaxed)
+          console.log('min: ', isTerrariumMin)
+          if (isTerrariumMaxed || isTerrariumMin) {
+            return
+          } else {
+            this.props.updateTerrarium(terrarium);
+
+          }
+
+        })
         .then(() => this.forceUpdate());
 
       // daysElapsed -= 1;
