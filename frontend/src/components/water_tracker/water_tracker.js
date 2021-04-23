@@ -1,13 +1,11 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import OverallConsumptionContainer from '../overall_consumption/overall_consumption_container';
 
 class WaterTracker extends React.Component {
   constructor(props) {
     super(props);
-    this.calculateTerrariumLevels = this.calculateTerrariumLevels.bind(this);
-    this.forceUpdate = this.forceUpdate.bind(this);
-    this.addCup = this.addCup.bind(this);
-    this.subtractCup = this.subtractCup.bind(this);
+
   }
 
   componentDidMount() {
@@ -17,16 +15,7 @@ class WaterTracker extends React.Component {
     this.props.fetchUser(id);
     this.props.fetchUserTerrarium(id);
     this.props.fetchUserWaterTracker(id);
-
-    const timerId = Math.random();
-    this.intervalID = setInterval( () => {
-      console.log(`tick! timerId: ${timerId}`);
-      this.calculateTerrariumLevels();
-    }, 5000); 
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.intervalID);
+  
   }
 
   componentDidUpdate(prevProps) {
@@ -39,86 +28,6 @@ class WaterTracker extends React.Component {
       this.setState(this.props.currentUser)
     }
   }
-
-  calculateTerrariumLevels() {
-    let {waterTracker, terrarium, currentUser} = this.props;
-    let daysElapsed = this.daysCounter();
-    console.log('daysElapsed', daysElapsed)
-
-    // while (daysElapsed > 0) {
-      switch (true) {
-        case waterTracker.today >= Math.floor(.75 * currentUser.goal):
-          terrarium.level += 1;
-          this.props.updateTerrarium(terrarium)
-            .then(() => this.props.updateWaterTracker({...this.props.waterTracker, today: 0}))
-            .then(() => this.forceUpdate());
-          break
-        case waterTracker.today >= Math.floor(.5 * currentUser.goal):
-          break
-        case waterTracker.today < Math.floor(.7 * currentUser.goal):
-          terrarium.level -= 1;
-          this.props.updateTerrarium(terrarium)
-            .then(() => this.props.updateWaterTracker({...this.props.waterTracker, today: 0}))
-            .then(() => this.forceUpdate())
-          break
-      }
-      // daysElapsed -= 1;
-    // }
-    // terrarium.level += 1;
-    // this.props.updateTerrarium(terrarium)
-    //   .then(() => this.forceUpdate())
-  }
-
-  daysCounter() {
-    const currentDate = new Date();
-    const lastActiveDate = new Date(localStorage.getItem('lastActiveDate'));
-    let daysElapsed;
-
-    if (lastActiveDate) {
-      // const lastActiveDateSansTime = new Date(lastActiveDate.getFullYear(), lastActiveDate.getMonth(), lastActiveDate.getDate());
-      // const currentDateSansTime = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
-      // daysElapsed = (currentDateSansTime - lastActiveDateSansTime) / (1000 * 60 * 60 * 24);
-
-      const msElapsed = currentDate.getTime() - lastActiveDate.getTime();
-      // daysElapsed = msElapsed / (1000 * 60 * 60 * 24) //convert ms to days
-      daysElapsed = msElapsed / (1000) //convert ms to seconds
-    } else {
-     daysElapsed = 0; 
-    }
-
-    localStorage.setItem('lastActiveDate', currentDate);
-
-    return daysElapsed;
-  }
-
-  addCup(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    let waterTracker = {
-      ...this.props.waterTracker,
-      total: this.props.waterTracker.total + 1,
-      today: this.props.waterTracker.today + 1,
-      delta: 1
-    }
-
-    this.props.updateWaterTracker(waterTracker)
-      .then(() => this.forceUpdate())
-  }
-
-  subtractCup(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    let waterTracker = {
-      ...this.props.waterTracker,
-      total: this.props.waterTracker.total - 1,
-      today: this.props.waterTracker.today - 1,
-      delta: -1
-    }
-
-    this.props.updateWaterTracker(waterTracker)
-      .then(() => this.forceUpdate())
-  }
-
 
   render() {
     console.log('render', this.props)
@@ -168,51 +77,58 @@ class WaterTracker extends React.Component {
         rank = <div className="ranks">Maintain your streaks to rank up!</div>;
         break;
     }
-const drinks = currentUser.goal - waterTracker.today
+    const drinks = currentUser.goal - waterTracker.today
     return (
       <div className="water-tracker-container">
         <div className="water-tracker-header">
-           <div>
-          Water Tracker
-          </div>
-          
-         
-        </div>
-        <div className="wt-terrarium-title">
-          <div className="terr-title-text">{terrarium.title}</div>
-          <div>Friendly reminder from your Terrarium:{healthMsg}</div>
-        </div>
-
-        <div className="water-tracker-goal">      
-          <div className="please">Today's Stats</div>
-          <div className="drinks">{`${waterTracker.today} / ${currentUser.goal} cups`}</div>
-          <div>{`${drinks} more cups of water today to grow your wonderful Terrarium!`}</div>
-          <button onClick={e => this.addCup(e)} type="click">Drink cup</button>      
-          <button onClick={e => this.subtractCup(e)} type="click">Oops (subtract cup)</button>      
-        </div>
-
-        <div className="water-tracker-total">
           <div>
-          WOW! You've drank 
+            Water Tracker
           </div>
-          <div>
-          {waterTracker.total}
-            </div>
-            <div>
-          of cups water since you've signed up for Arium.            
-            </div>
-        </div>
-        <div className="water-tracker-streak">
-          <div className="currentrank">
-          Current Rank: 
-          </div>
-          {rank}
         </div>
 
-        <div>
-          <div>Terrarium level</div>
-          <div>{terrarium.level}</div>
+        <div className='two-of-items1'>
+
+          <div className="wt-terrarium-title">
+            <div className='frame-mgn'>
+              <div className="terr-title-text">
+                {terrarium.title}
+              </div>
+              <div className='w-comment'>Friendly reminder from your Terrarium:{healthMsg}</div>
+            </div>
+          </div>
+
+          <div className="water-tracker-goal">
+            <div className='frame-mgn'>
+              <div className="terr-title-text"> Please drink  </div>
+              <div className="terr-title-text"> {drinks} </div>
+              <div className='w-comment'> more cups of water today to grow your wonderful Terrarium. </div>
+            </div>
+          </div>
+
         </div>
+
+
+        <div className='two-of-items2'>
+
+          <div className="water-tracker-total">
+            <div className='frame-mgn'>
+              <div className='comment-l' > WOW!</div>
+              <div className='comment-m'> You've drank </div>
+              <div className='comment-l'> {waterTracker.total} </div>
+              <div className='comment-m'> of cups water </div>
+              <div className='comment-s'>since you've signed up for </div>
+              <div className='comment-l'>Arium</div>
+            </div>
+          </div>
+
+          <div className="water-tracker-streak">
+            <div className='frame-mgn'>
+              <div className="currentrank"> Current Rank: </div>
+              <p className="currentrank">{rank} </p>
+            </div>
+          </div>
+        </div>
+
       </div>
     );
   }

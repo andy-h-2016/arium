@@ -1,4 +1,5 @@
 import React from 'react';
+import OverallConsumptionContainer from '../overall_consumption/overall_consumption_container';
 
 class Splash extends React.Component {
 
@@ -14,6 +15,10 @@ class Splash extends React.Component {
 
   <div className="logo-text">
   <h1 className="arium-title">Arium</h1>  
+  </div>
+
+  <div className="overall-link">
+      <OverallConsumptionContainer />
   </div>
 
   <div className="chain first-chains very-first-chain">

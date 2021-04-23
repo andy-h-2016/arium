@@ -59,7 +59,6 @@ router.patch('/:id',
     const {errors, isValid} = validateTerrariumInput(req.body);
 
     if (!isValid) {
-      console.log('validation errors: ', errors)
       return res.status(400).json(errors);
     }
 

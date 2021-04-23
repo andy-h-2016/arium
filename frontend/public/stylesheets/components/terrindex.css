@@ -1,0 +1,93 @@
+
+.desert {  
+  height:400px;
+  background: url("../../images/dessert.gif") center no-repeat;
+  background-size: contain;
+}
+
+.forest { 
+  height:400px;
+  background: url("../../images/forest.gif") center no-repeat;
+  background-size: contain;
+}
+
+.oasis {
+  height:400px;
+  background: url("../../images/oasis.gif") center no-repeat;
+  background-size: contain;
+}
+.terrarium-container{
+  background: #f9ecd6;
+  margin: 20px;
+  padding: 20px;
+}
+
+.all-terrariums-tag{
+  font-size: 50px;
+  color: #4c4c61;
+  font-family: Palatino, "Palatino LT STD", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+
+  text-align: center;
+  padding: 20px;
+  font-weight: 600;
+}
+
+.terra-ul-index{
+  background: rgb(195, 211, 215);
+  color: white;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+ 
+  text-align: center;
+  padding: 10px;
+  margin: 10px;
+  box-shadow: 5px 5px 5px rgb(63, 65, 75);
+  transition: 0.3s ease-in-out;
+}
+
+.terra-ul-index:hover{
+  background: rgb(220, 237, 241);
+  cursor: pointer;
+}
+
+
+.terra-ul-index:hover{
+  transform: scale(1.04, 1.04);
+  -moz-box-shadow: 5px 5px 5px #ccc;
+  -webkit-box-shadow: 5px 5px 5px #ccc;
+  box-shadow: 5px 5px 5px #ccc;
+  -moz-border-radius:3px;
+  -webkit-border-radius:3px;
+  border-radius:3px;
+}
+
+.terra-ul-index:hover::after {
+  opacity: 100%;
+}
+
+
+.terrarium-index-item{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.terra-title{
+  font-size: 30px;
+  text-align: center;
+  padding: 20px;
+  font-weight: 600;
+}
+.show-link{
+text-decoration: none;
+color: white;
+}
+.show-link:active{
+  color: white;
+}
+
+.show-link:hover{
+  color: rgb(15, 56, 121);
+}
