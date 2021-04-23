@@ -4,16 +4,16 @@ const DonationInfoPage = (props) => {
 
   return (
     <div className="info-page">
-      <a
-        className="external-link about-header"
-        rel="noreferrer"
-        href="https://waterwellsforafrica.org/"
-        target="_blank">Global Thirst
-      </a>
+      <div  className="wavy-animation-title">Global Thirst</div>
       <div className="overall-water">
         <OverallConsumptionContainer />
       </div>
       <div className="about-info">
+      <a  className="about-thirst"
+        rel="noreferrer"
+        href="https://waterwellsforafrica.org/"
+        target="_blank">Global Thirst
+      </a>        
         <div className="about-body">When we talk about extreme poverty or world hunger, we’re also talking about global thirst. 
         The many ways that water affects our lives are also linked to the causes and effects of poverty — and breaking it.</div>
         <div className="about-body">Less than 1% of the world’s water supply is usable for us as humans (the rest is saltwater, in the form of ice, or underground).
