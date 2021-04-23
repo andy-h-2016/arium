@@ -80,3 +80,14 @@
   padding: 20px;
   font-weight: 600;
 }
+.show-link{
+text-decoration: none;
+color: white;
+}
+.show-link:active{
+  color: white;
+}
+
+.show-link:hover{
+  color: rgb(15, 56, 121);
+}
