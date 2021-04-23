@@ -13,7 +13,7 @@ router.get('/test', (req, res) => res.json({ msg: 'The water tracker router is w
 
 router.get('/user/:user_id', (req, res) => {
   WaterTracker.findOne({ userId: req.params.user_id })
-    .then(watertracker => res.json(watertracker))
+    .then(waterTracker => res.json(waterTracker))
     .catch(err =>
       res.status(404).json({ nowatertrackerfound: "No water tracker found for this user" }
       )
@@ -24,7 +24,7 @@ router.get('/user/:user_id', (req, res) => {
 
 router.get('/:id', (req, res) => {
   WaterTracker.findOne({ _id: req.params.id })
-    .then(watertracker => res.json(watertracker))
+    .then(waterTracker => res.json(waterTracker))
     .catch(err =>
       res.status(404).json({ nowatertrackerfound: "No water tracker found with this ID" }
       )
@@ -47,7 +47,7 @@ router.post('/',
       userId: req.user.id
     });
 
-    newWaterTracker.save().then(watertracker => res.json(watertracker));
+    newWaterTracker.save().then(waterTracker => res.json(waterTracker));
   }
 );
 
@@ -57,7 +57,7 @@ router.patch('/:id',
     const { errors, isValid } = validateWaterTrackerInput(req.body);
 
     if (!isValid) {
-      return res.status(400), json(errors);
+      return res.status(400).json(errors);
     }
     const update = {
       total: req.body.total,
@@ -65,27 +65,27 @@ router.patch('/:id',
       streak: req.body.streak
     }
 
-    WaterTracker.findByIdAndUpdate(req.params.id, update, { new: true }, (err, watertracker) => {
+    WaterTracker.findByIdAndUpdate(req.params.id, update, { new: true }, (err, waterTracker) => {
       if (err) {
         res.status(400).json(err);
       } else {
 
         OverallConsumption.find()
-          .then(overallconsumptions => {
-            grabOverall = overallconsumptions[0]
+          .then(overallConsumptions => {
+            grabOverall = overallConsumptions[0]
 
             const updateOverall = {
               overall: parseInt(grabOverall.overall) + parseInt(req.body.delta)
             }
             
             OverallConsumption.findByIdAndUpdate(grabOverall._id, updateOverall,
-              { new: true }, (err, overallconsumption) => {
+              { new: true }, (err, overallConsumption) => {
                 if (err) {
-                  res.status(400).json('error');
+                  res.status(400).json(err);
                 } else {
                   let bundle = {
-                    watertracker,
-                    overallconsumption
+                    waterTracker,
+                    overallConsumption
                   }
                   res.json(bundle);
                 }

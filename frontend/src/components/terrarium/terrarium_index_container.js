@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import TerrariumIndex from './terrarium_index';
-import React from 'react';
 import {
   fetchAllTerrariums
 } from '../../actions/terrarium_actions';
