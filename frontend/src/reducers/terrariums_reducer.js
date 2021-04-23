@@ -1,9 +1,5 @@
 import { RECEIVE_TERRARIUM, RECEIVE_ALL_TERRARIUMS } from '../actions/terrarium_actions';
 
-// const initialState = {
-  
-// };
-
 const TerrariumsReducer = (state = {}, action) => {
   Object.freeze(state);
   let newState;
