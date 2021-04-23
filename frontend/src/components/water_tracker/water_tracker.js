@@ -84,14 +84,14 @@ class WaterTracker extends React.Component {
     return (
       <div className="water-tracker-container">
         <div className="water-tracker-header">
-          <div>
+          <div className="wt-header-title">
             Water Tracker
           </div>
         </div>
 
         <div className='two-of-items1'>
 
-          <div className="wt-terrarium-title">
+          <div className='slide-anim' className="wt-terrarium-title">
             <div className='frame-mgn'>
               <div className="terr-title-text">
                 {terrarium.title}
@@ -100,7 +100,7 @@ class WaterTracker extends React.Component {
             </div>
           </div>
 
-          <div className="water-tracker-goal">
+          <div className='slide-anim' className="water-tracker-goal">
             <div className='frame-mgn'>
               <div className="terr-title-text"> Please drink  </div>
               <div className="terr-title-text"> {drinks} </div>
