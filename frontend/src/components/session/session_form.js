@@ -4,7 +4,13 @@ class SessionForm extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { username: "", password: "", password2: "", email: "", goal: "" };
+    this.state = {
+      username: "",
+      password: "",
+      password2: "",
+      email: "",
+      goal: "",
+    };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDemo = this.handleDemo.bind(this);
   }
@@ -21,18 +27,19 @@ class SessionForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const user = Object.assign({}, this.state);
-    this.props.processForm(user);
-    if (this.props.errors.length <= 0) {
-      this.props.closeModal();
-    }
+    let user = Object.assign({}, this.state);
+    this.props.processForm(user).then( () => { 
+     console.log(this.props.errors);     
+    ( this.props.errors.length <=0 ? this.props.closeModal(): user = null);
+   }
+   )
   }
 
   handleDemo(e) {
     e.preventDefault();
     this.props.processDemo({
       username: "demo",
-      password: "123456"    
+      password: "123456",
     });
     this.props.closeModal();
   }
@@ -61,44 +68,44 @@ class SessionForm extends React.Component {
           placeholder="Email"
           required
         />
-      </label>      
+      </label>
     );
 
-      let password2 =(       
-            <label className="modal-text">
-           Retype Password
-              <br />
-              <input
-                type="password"
-                value={this.state.password2}
-                onChange={this.update("password2")}
-                className="login-input"
-                placeholder="Retype your password"
-                required
-              />
-            </label>
-      )
+    let password2 = (
+      <label className="modal-text">
+        Retype Password
+        <br />
+        <input
+          type="password"
+          value={this.state.password2}
+          onChange={this.update("password2")}
+          className="login-input"
+          placeholder="Retype your password"
+          required
+        />
+      </label>
+    );
 
-      let goal = (
-        <label className="modal-text">
+    let goal = (
+      <label className="modal-text">
         How many cups of water do you drink in a day?
-           <br />
-           <input
-              type="number"
-              min="1"
-              max="10"
-             value={this.state.goal}
-             onChange={this.update("goal")}
-             className="login-input"
-             placeholder="Enter a number from 1-10"
-             required
-           />
-         </label>
-      )
+        <br />
+        <input
+          type="number"
+          min="1"
+          max="10"
+          value={this.state.goal}
+          onChange={this.update("goal")}
+          className="login-input"
+          placeholder="Enter a number from 1-10"
+          required
+        />
+      </label>
+    );
 
     if (this.props.formType === "Sign in") {
       emailField = null;
-      password2= null;
+      password2 = null;
       goal = null;
     }
     return (
@@ -127,7 +134,7 @@ class SessionForm extends React.Component {
             </label>
 
             {emailField}
-            
+
             <br />
 
             <label className="modal-text">
@@ -146,14 +153,14 @@ class SessionForm extends React.Component {
             <br />
 
             {password2}
-            
+
             <br />
 
             {goal}
 
             <br />
 
-            <input 
+            <input
               className="session-submit"
               type="submit"
               value={this.props.formType}
