@@ -12,12 +12,13 @@ import TerrariumIndexContainer from './terrarium/terrarium_index_container';
 import InfoPage from './info/info_page';
 import DonationInfoPage from './info/donation_info';
 import TerrariumShowContainer from './terrarium/terrarium_show_container';
+import TimerContainer from './timer/timer_container';
 
 const App = () => (
   <div className="main-container">
     <SideBar/>
- 
     <Modal/>
+    <ProtectedRoute path="/" component={TimerContainer}/>
     <Switch>
       <AuthRoute exact path="/" component={Splash} />
 
