@@ -1,12 +1,10 @@
-import OverallConsumptionContainer from '../overall_consumption/overall_consumption_container';
 
 const DonationInfoPage = (props) => {
 
   return (
     <div className="info-page">
       <div  className="wavy-animation-title">Global Thirst</div>
-      <div className="overall-water">
-        <OverallConsumptionContainer />
+      <div className="overall-water">     
       </div>
       <div className="about-info">
       <div className='txt-frm'>   

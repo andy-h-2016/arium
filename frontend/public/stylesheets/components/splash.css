@@ -7,6 +7,7 @@ h1.arium-title{
   height: 0px;
   padding: 0 .5em;
   margin-top: -175px;
+
 }
 
 
@@ -105,10 +106,5 @@ h1.arium-title{
   
 }
 
-.overall-link {
-  position: fixed;
-  top: 0;
-  right: 0;
-}
 
 
