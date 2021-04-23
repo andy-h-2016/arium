@@ -24,40 +24,56 @@ const InfoPage = (props) => {
       <div className="about-devs">
         <h3 className="all-devs">Meet Our Developers</h3>
         <div className="dev-info">
+
           <div className="dev-names">
             <a 
               rel="noreferrer"
               href="https://github.com/andy-h-2016" 
               target="_blank">
               <i className="fab fa-github fa-2x andy"></i>
-            Andy Huang Team Lead
+            <div className="name-text">
+              <div>Andy Huang</div>
+              <div>Team Lead</div>
+            </div> 
             </a>
           </div>
+
           <div className="dev-names">
             <a
               rel="noreferrer"
               href="https://github.com/mdean7"
               target="_blank">
               <i className="fab fa-github fa-2x mike"></i>
-            Michael Dean Frontend Lead
+            <div className="name-text">
+              <div>Michael Dean</div>
+              <div>Frontend Lead</div>
+            </div>
             </a>
           </div>
+
           <div className="dev-names">
             <a
               rel="noreferrer"
               href="https://github.com/lijasontse/"
               target="_blank">
               <i className="fab fa-github fa-2x jason"></i>
-              Jason Li Backend Lead
+            <div className="name-text">
+              <div>Jason Li </div>
+              <div>Backend Lead</div>
+            </div>
             </a>
           </div>
+          
           <div className="dev-names">
             <a
               rel="noreferrer"
               href="https://github.com/sdean14"
               target="_blank">
               <i className="fab fa-github fa-2x sato"></i>
-              Satomi Dean Terrarium Lead
+            <div className="name-text">
+              <div>Satomi Dean</div>
+              <div>Terrarium Lead</div>
+            </div> 
             </a>
           </div>
         </div>

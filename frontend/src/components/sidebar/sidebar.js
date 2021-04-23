@@ -41,7 +41,6 @@ class SideBar extends React.Component {
                 <Link to={'/info'}>About Us</Link>
                 <Link to={'/donation'}>Global Thirst</Link>
 
-
                 <nav className="login-modal-button">
                 <button className="logout" onClick={this.logoutUser}>Logout</button>
                 </nav>

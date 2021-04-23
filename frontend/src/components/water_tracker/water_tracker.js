@@ -19,7 +19,6 @@ class WaterTracker extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    console.log('previosuly', prevProps)
     if (prevProps.currentUser.goal !== this.props.currentUser.goal) {
       this.setState(this.props.currentUser)
     }
@@ -30,7 +29,6 @@ class WaterTracker extends React.Component {
   }
 
   render() {
-    console.log('render', this.props)
     let { waterTracker, currentUser, terrarium } = this.props;
     if (!terrarium) return <div></div>
     if (!waterTracker) return <div></div>
@@ -38,16 +36,16 @@ class WaterTracker extends React.Component {
     let healthMsg;
 
     switch (true) {
-      case terrarium.health < Math.floor((0.5 * currentUser.goal)) && (terrarium.health !== 0):
+      case waterTracker.today < Math.floor((0.5 * currentUser.goal)) && (waterTracker.today !== 0):
         healthMsg = <div id="healthmsg">Start drinking now or else...</div>;
         break;
-      case terrarium.health >= Math.floor((0.5 * currentUser.goal)) && (terrarium.health !== currentUser.goal) && !(terrarium.health > currentUser.goal):
+      case waterTracker.today >= Math.floor((0.5 * currentUser.goal)) && (waterTracker.today !== currentUser.goal) && !(waterTracker.today > currentUser.goal):
         healthMsg = <div id="healthmsg">I know you can do better than this!</div>;
         break;
-      case terrarium.health === currentUser.goal:
+      case waterTracker.today === currentUser.goal:
         healthMsg = <div id="healthmsg">Amazing work... You deserve a drink.</div>;
         break;
-      case terrarium.health > currentUser.goal:
+      case waterTracker.today > currentUser.goal:
         healthMsg = <div id="healthmsg">Alright, you don't want to drown now...</div>;
         break;
       default:

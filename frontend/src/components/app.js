@@ -12,12 +12,13 @@ import TerrariumIndexContainer from './terrarium/terrarium_index_container';
 import InfoPage from './info/info_page';
 import DonationInfoPage from './info/donation_info';
 import TerrariumShowContainer from './terrarium/terrarium_show_container';
+import TimerContainer from './timer/timer_container';
 
 const App = () => (
   <div className="main-container">
     <SideBar/>
- 
     <Modal/>
+    <ProtectedRoute path="/" component={TimerContainer}/>
     <Switch>
       <AuthRoute exact path="/" component={Splash} />
 
@@ -30,10 +31,8 @@ const App = () => (
       <ProtectedRoute exact path="/donation" component={DonationInfoPage} />
     </Switch>
       <div className="foot">
-        <div className="push"></div>
-    <footer className="foot">
-          Copyright &copy; 2021 Arium
-    </footer>
+          <div className="push"></div>
+        <footer className="foot"></footer>
       </div>
   </div>
 );

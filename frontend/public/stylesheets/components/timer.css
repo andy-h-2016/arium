@@ -1,0 +1,17 @@
+.timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  position: absolute;
+  top: 350px;
+  right: 175px;
+  z-index: 100;
+
+  font-size: 25px;
+}
+
+.timer-title, .timer-value {
+  margin: 0;
+}
