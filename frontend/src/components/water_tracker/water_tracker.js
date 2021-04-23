@@ -77,7 +77,10 @@ class WaterTracker extends React.Component {
         rank = <div className="ranks">Maintain your streaks to rank up!</div>;
         break;
     }
-    const drinks = currentUser.goal - waterTracker.today
+    let drinks = currentUser.goal - waterTracker.today
+    if (drinks <= 0) {
+      drinks = 0
+    }
     return (
       <div className="water-tracker-container">
         <div className="water-tracker-header">

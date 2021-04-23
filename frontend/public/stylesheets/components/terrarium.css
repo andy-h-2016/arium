@@ -128,5 +128,7 @@ button {
   cursor:pointer;
 }
 
-
+.inc-goal{
+z-index: 2;
+}
 
