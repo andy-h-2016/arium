@@ -33,15 +33,22 @@
   margin-bottom: 70px;
   /* position: relative; */
 }
-.on-shelf {
+/* .on-shelf {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+} */
+
+/* new edit */ 
+.on-shelf {
+  display: flex;
+  align-items: flex-end;
 }
 
+
 /* terra status frame */
+/* deleted margin top and changed height to 60% */
 .status-terra-con{
-  margin-top: 335px;
   margin-left: 80px;
   font-size: 30px;
   font-family: Palatino, "Palatino LT STD", "Palatino Linotype", "Book Antiqua", Georgia, serif;
@@ -55,11 +62,13 @@
   box-shadow:0 0 2px 0 rgba(0,0,0,.25) inset, 0 2px 5px 2px rgba(0,0,0,.25);
   box-sizing:border-box;
   display:inline-block;
-  height:55vh;
+  height: 70%;
   padding:5vmin;
   position:relative;
   text-align:center;
 }
+
+
 .status-terra-con:before {
     border-radius:2px;
     bottom:-2vmin;
@@ -89,6 +98,7 @@
   border-top-color:#ccb;
   max-height:100%;
   max-width:100%;
+  margin-top: 35px;
   margin-bottom: 0px;
   padding-bottom: 0px;
 }
@@ -108,22 +118,24 @@
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  margin-top: 35px;
+  margin-top: 40px;
 }
 .water-btn {
   font-family: 'Fredericka the Great', cursive;
   font-family: Palatino, "Palatino LT STD", "Palatino Linotype", "Book Antiqua", Georgia, serif;
   font-size: 30px;
-  padding: 5px, 10px, 5px, 10px;
+  padding: 5px 12px;
   margin-right:5px ;
   margin-left: 5px;
   z-index: 2;
+  border-radius: 5px;
 }
 
 .water-btn:hover {
   color: rgb(79, 170, 167);
   background-color: #fff;
   border-color: rgb(79, 170, 167);
+  transition: 0.5s;
 }
 button {
   cursor:pointer;
