@@ -2,7 +2,7 @@
   height: 100%;
   width: 0;
   position: fixed;
-  z-index: 1;
+  z-index: 3;
   top: 0;
   right: 0;
   background-color: rgb(16, 82, 124);
@@ -44,7 +44,7 @@
   width: 100px;
   height: 100%;  
   position: fixed;
-  z-index: 1;  
+  z-index: 3;  
 }
 
 .openbtn:hover {
@@ -96,6 +96,7 @@ color: white
   letter-spacing: 1px;
   cursor: pointer;
   margin-top: 100px;
+  width: 260px;
 }
 .logout::before {
   content: "";

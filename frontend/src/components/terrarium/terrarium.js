@@ -185,9 +185,13 @@ class Terrarium extends React.Component {
         <div className='stat-innerbox'>
           <div className='terra-row'>
             <p>Goal</p>
+            <button className="inc-goal" onClick={() => this.props.updateUser(this.state.id, {goal: (this.state.goal + 1)})}>
+            </button>
             <p>{this.props.currentUser.goal}</p>
-            <button className="inc-goal" onClick={() => this.props.updateUser(this.state.id, {goal: (this.state.goal + 1)})}>+</button>
-            <button className="inc-goal" onClick={() => this.props.updateUser(this.state.id, {goal: (this.state.goal - 1)})}>-</button>
+            <div className="upDown">
+            <button className="dec-goal" onClick={() => this.props.updateUser(this.state.id, {goal: (this.state.goal - 1)})}>
+            </button>           
+            </div>
 
           </div>
           <div className='terra-row'>
