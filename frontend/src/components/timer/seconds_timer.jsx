@@ -1,5 +1,5 @@
 import React from 'react';
-const INTERVAL = 1000 * 5 //TIME IN MILLISECONDS
+const INTERVAL = 1000 * 1 //TIME IN MILLISECONDS
 
 
 class SecondsTimer extends React.Component {
