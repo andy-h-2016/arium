@@ -7,7 +7,6 @@ class OverallConsumption extends React.Component {
     this.state = {
       overall: this.props.overallConsumptions ? this.props.overallConsumptions.overall : ''
     }
-    console.log(`label`, this.props.overallConsumptions);
   }
 
   componentDidMount() {
@@ -19,19 +18,17 @@ class OverallConsumption extends React.Component {
       this.setState({
         overall: this.props.overallConsumptions.overall
       });
-      console.log(this.props.overallConsumptions);
     }
   }
 
   render() {
     let { overallConsumptions } = this.props;
-    console.log(overallConsumptions);
 
     if (!overallConsumptions) return <div></div>;
     return (
       
       <div className="overall-page">
-        <div className="overall-msg">Overall Water Consumption</div>
+        <div className="overall-msg">Total Cups of Water Donated by You</div>
         <div className="overall-count">{overallConsumptions.overall}</div>
       </div>
     )

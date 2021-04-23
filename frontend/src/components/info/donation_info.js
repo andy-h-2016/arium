@@ -1,3 +1,5 @@
+import OverallConsumptionContainer from '../overall_consumption/overall_consumption_container';
+
 const DonationInfoPage = (props) => {
 
   return (
@@ -8,6 +10,9 @@ const DonationInfoPage = (props) => {
         href="https://waterwellsforafrica.org/"
         target="_blank">Global Thirst
       </a>
+      <div className="overall-water">
+        <OverallConsumptionContainer />
+      </div>
       <div className="about-info">
         <div className="about-body">When we talk about extreme poverty or world hunger, we’re also talking about global thirst. 
         The many ways that water affects our lives are also linked to the causes and effects of poverty — and breaking it.</div>
