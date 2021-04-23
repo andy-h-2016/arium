@@ -132,8 +132,10 @@ class SecondsTimer extends React.Component {
   render() {
     return(
       <div className='timer'>
-        <p className='timer-title'>Time to Next Terrarium Update</p>
-        <p className='timer-value'>{this.state.countdown}</p>
+        <div className='hourglass-container'>
+          <div className='hourglass'></div>
+        </div>
+        <div className='timer-value'>{this.state.countdown}</div>
       </div>
     )
   }
