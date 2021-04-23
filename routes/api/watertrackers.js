@@ -74,13 +74,15 @@ router.patch('/:id',
           .then(overallConsumptions => {
             grabOverall = overallConsumptions[0]
 
+            const delta = parseInt(req.body.delta) || 0;
             const updateOverall = {
-              overall: parseInt(grabOverall.overall) + parseInt(req.body.delta)
+              overall: parseInt(grabOverall.overall) + delta
             }
             
             OverallConsumption.findByIdAndUpdate(grabOverall._id, updateOverall,
               { new: true }, (err, overallConsumption) => {
                 if (err) {
+                  console.log(err)
                   res.status(400).json(err);
                 } else {
                   let bundle = {

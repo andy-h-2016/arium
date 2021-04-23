@@ -40,7 +40,6 @@ export const createWaterTracker = waterTracker => dispatch => (
 export const updateWaterTracker = data => dispatch => (
   WaterTrackerAPIUtil.updateWaterTracker(data)
   .then(res => {
-      console.log(res)
       dispatch(receiveWaterTracker(res.data.waterTracker))
     })
     .catch(err => console.log(err))
