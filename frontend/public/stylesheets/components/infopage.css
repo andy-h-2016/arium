@@ -18,18 +18,6 @@ color: rgb(28, 97, 177);
   margin-top: 20px;
 }
 
-
-/* make sure to delete this */
-/* .nothing {
-  text-align: center;
-  font-size: 70px;
-  color: #fff;
-}
-
-.nothing:hover {
-  color:rgb(16, 82, 124);
-} */
-
 .about-header {
   display: block;
   text-align: center;
@@ -70,27 +58,27 @@ color: rgb(28, 97, 177);
     background-image: url("https://www.tutorialscan.com/wp-content/uploads/2019/10/water-flowbg.png");
     background-repeat: repeat-x;
     -webkit-background-clip: text;
-    animation: animate 15s linear infinite
+    animation: animate1 15s linear infinite
 }
 
-@keyframes animate
+@keyframes animate1
 {
     0%
     {
-        background-position: left 0px top 188px;
+        background-position: left 0px top 50px;
     }
     40%
     {
-        background-position: left 799px top -20px;
+        background-position: left 799px top -70px;
     }
     80%
     {
-        background-position: left 1799px top -20px;
+        background-position: left 1799px top -70px;
     }
     100%
     {
-        background-position: left 2399px top 189px;
-    }
+        background-position: left 2399px top 50px;
+    } 
  
 }
 
