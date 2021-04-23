@@ -22,8 +22,8 @@ const DonationInfoPage = (props) => {
         <div className="about-body">This is why we made it our mission at Arium to donate clean water to countries in need. For every cup of water a user on this site
          records into their water tracker an equivalent amount of water is donated to a person living in poverty.  
         </div>
-        <div className="about-body">Currently our primary receipient of all water donations is <a href="https://waterwellsforafrica.org/"> "https://waterwellsforafrica.org/"  
-          </a> Please visit their website and contribute to them directly if you would like to donate money in addition to using our site.
+        <div className="about-body">Currently our primary receipient of all water donations is <a href="https://waterwellsforafrica.org/"> Water Wells For Africa
+          </a>. Please visit their website and contribute to them directly if you would like to donate money in addition to using our site.
         </div>
       </div>
       </div>

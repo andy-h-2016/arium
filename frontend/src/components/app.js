@@ -31,10 +31,8 @@ const App = () => (
       <ProtectedRoute exact path="/donation" component={DonationInfoPage} />
     </Switch>
       <div className="foot">
-        <div className="push"></div>
-    <footer className="foot">
-          Copyright &copy; 2021 Arium
-    </footer>
+          <div className="push"></div>
+        <footer className="foot"></footer>
       </div>
   </div>
 );
