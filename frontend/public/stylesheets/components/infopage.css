@@ -37,6 +37,7 @@ color: rgb(28, 97, 177);
   color: #79a3b1;
   font-size: 40px;
   margin-bottom: 20px;
+  text-decoration: none;
 }
 .overall-water {
   font-size: 40px;
@@ -106,7 +107,7 @@ color: rgb(28, 97, 177);
 }
 
 .about-body {
-  margin-bottom: 10px;
+  margin-top: 10px;
   padding: 0 30px;
 }
 
@@ -155,4 +156,18 @@ display: flex;
 height: 100px;
 align-items: center;
 margin-bottom: 100px;
+}
+
+.dev-names {
+  margin-right: 15px;
+  font-size: 18px;
+}
+
+.name-text {
+  float: right;
+}
+
+.water-wells {
+  text-decoration: none;
+  color:rgb(0, 174, 255)
 }
