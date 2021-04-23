@@ -2,7 +2,7 @@
   background: rgb(151, 159, 169);
   font-family: Palatino, "Palatino LT STD", "Palatino Linotype", "Book Antiqua", Georgia, serif;
   width: 100%;
-  min-height: 1200px;
+  min-height: 1400px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,7 +10,8 @@
 
 
 .water-tracker-header{
-  margin: 100px; 
+  margin: 90px;
+  margin-top: 30px; 
 }
 .wt-header-title{
   font-size: 60px;
@@ -43,6 +44,8 @@
   padding: 20px;
   border: solid 10px rgb(76, 76, 97);
   box-shadow: 0 10px 7px -5px rgba(0, 0, 0, 0.3);
+  transition: 0.3s ease-in-out;
+
 }
 .frame-mgn {
   border: rgb(136, 133, 127) solid 1px;
@@ -52,9 +55,14 @@
 .terr-title-text {
   font-weight: 400;
   font-size: 40px;
-  /* background: lightgreen; */
   margin-bottom: 20px;
 }
+
+.terr-title-text2 {
+  font-weight: 400;
+  font-size: 40px;
+}
+
 .w-comment {
   font-size: 23px;
 }
@@ -67,6 +75,7 @@ max-width: 500px;
 padding: 20px;
 border: solid 10px rgb(181, 196, 193);
 box-shadow: 0 10px 7px -5px rgba(0, 0, 0, 0.3);
+transition: 0.3s ease-in-out;
 }
 
 
@@ -78,6 +87,7 @@ max-width: 500px;
 padding: 20px;
 border: solid 10px rgb(150, 127, 39);
 box-shadow: 0 10px 7px -5px rgba(0, 0, 0, 0.3);
+transition: 0.3s ease-in-out;
 }
 .comment-l {
   font-size: 40px;
@@ -97,6 +107,7 @@ box-shadow: 0 10px 7px -5px rgba(0, 0, 0, 0.3);
   border: solid 10px rgb(196, 180, 151);
   box-shadow: 0 10px 7px -5px rgba(0, 0, 0, 0.3);
   max-width: 500px;
+  transition: 0.3s ease-in-out;
 }
 .currentrank{
   font-weight: 600;
@@ -105,15 +116,24 @@ box-shadow: 0 10px 7px -5px rgba(0, 0, 0, 0.3);
 }
 
 
-/* .wt-terrarium-title {
+.wt-terrarium-title:hover, .water-tracker-goal:hover, .water-tracker-total:hover, .water-tracker-streak:hover {
+  transform: scale(1.04, 1.04);
+  -moz-box-shadow: 5px 5px 5px rgb(74, 74, 100);
+  -webkit-box-shadow: 5px 5px 5px rgb(78, 78, 104);
+  box-shadow: 5px 5px 5px rgb(75, 75, 95);
+  -moz-border-radius:3px;
+  -webkit-border-radius:3px;
+  border-radius:3px;
+  cursor: pointer;
+}
+.num-ani {
+  transform: rotate(360deg);
+  font-weight: 600;
+  font-size: 45px;
+  margin: 6x;
+  transition: 0.3s ease-in-out;
+}
 
- transition:all 1s ease;
-  -o-transition:all 1s ease;
-  -moz-transition:all 1s ease;
-  -webkit-transition:all 1s ease;
-  top:50px;
-} */
-/* .wt-terrarium-title:hover {
-  transition-duration: .2s;
-  margin-top: 0px;
-} */
+.num-ani:hover {
+  color: rgb(6, 177, 111); 
+}

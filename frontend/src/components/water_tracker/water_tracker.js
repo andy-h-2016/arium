@@ -89,7 +89,7 @@ class WaterTracker extends React.Component {
 
         <div className='two-of-items1'>
 
-          <div className='slide-anim' className="wt-terrarium-title">
+          <div className="wt-terrarium-title">
             <div className='frame-mgn'>
               <div className="terr-title-text">
                 {terrarium.title}
@@ -98,10 +98,10 @@ class WaterTracker extends React.Component {
             </div>
           </div>
 
-          <div className='slide-anim' className="water-tracker-goal">
+          <div className="water-tracker-goal">
             <div className='frame-mgn'>
-              <div className="terr-title-text"> Please drink  </div>
-              <div className="terr-title-text"> {drinks} </div>
+              <div className="terr-title-text2"> Please drink  </div>
+              <div className="terr-title-text" className='num-ani'> {drinks} </div>
               <div className='w-comment'> more cups of water today to grow your wonderful Terrarium. </div>
             </div>
           </div>
@@ -115,7 +115,7 @@ class WaterTracker extends React.Component {
             <div className='frame-mgn'>
               <div className='comment-l' > WOW!</div>
               <div className='comment-m'> You've drank </div>
-              <div className='comment-l'> {waterTracker.total} </div>
+              <div className='comment-l' className='num-ani'> {waterTracker.total} </div>
               <div className='comment-m'> of cups water </div>
               <div className='comment-s'>since you've signed up for </div>
               <div className='comment-l'>Arium</div>
