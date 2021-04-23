@@ -1,25 +1,26 @@
 .info-page {
-color: rgb(16, 82, 124);
-font-size: 20px;
-margin-top: auto;
+font-family: Palatino, "Palatino LT STD", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+display: flex;
+flex-direction: column;
 text-align: center;
-padding: 20px;
+font-size: 20px;
+background: linear-gradient(rgb(249, 236, 214), rgb(181, 196, 193));
+width: 100%;
+color: rgb(28, 97, 177);
 }
 
 .info-page > *{
-  border: 1px black solid;
   margin: 20px;
-  width: 1100px;
-  background: white;
+  width: 100;
   padding: 20px;
   margin: auto;
   padding: 20px;
   margin-top: 20px;
-  box-shadow: 5px 5px 5px rgb(63, 65, 75);
 }
 
+
 /* make sure to delete this */
-.nothing {
+/* .nothing {
   text-align: center;
   font-size: 70px;
   color: #fff;
@@ -27,20 +28,72 @@ padding: 20px;
 
 .nothing:hover {
   color:rgb(16, 82, 124);
-}
+} */
 
 .about-header {
   display: block;
   text-align: center;
   font-size: 50px;
+  font-weight: 600;
   text-align: center;
   margin-top: 50px;
+  width:500px;
 }
 
-.external-link {
-  text-decoration: none;
+/* title arium */
+.about-arium {
   color: #79a3b1;
+  font-size: 40px;
 }
+.about-thirst {
+  color: #79a3b1;
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+.overall-water {
+  font-size: 40px;
+  color: #fff;
+  font-weight: 800;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+.wavy-animation-title {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 150px;
+    text-transform: uppercase;
+    font-size: 8em;
+    color: rgba(255, 255, 255, 0);
+    margin: 0;
+    padding: 0;
+    background-image: url("https://www.tutorialscan.com/wp-content/uploads/2019/10/water-flowbg.png");
+    background-repeat: repeat-x;
+    -webkit-background-clip: text;
+    animation: animate 15s linear infinite
+}
+
+@keyframes animate
+{
+    0%
+    {
+        background-position: left 0px top 188px;
+    }
+    40%
+    {
+        background-position: left 799px top -20px;
+    }
+    80%
+    {
+        background-position: left 1799px top -20px;
+    }
+    100%
+    {
+        background-position: left 2399px top 189px;
+    }
+ 
+}
+
 
 .about-info {
   display: flex;
@@ -50,6 +103,18 @@ padding: 20px;
   font-size: 25px;
   margin-left: 170px;
   margin-top: 10px;
+  background: #fff;
+  padding: 20px;
+  border: solid 10px rgb(76, 76, 97);
+  box-shadow: 0 10px 7px -5px rgba(0, 0, 0, 0.3);
+}
+.txt-frm {
+  border: solid 10px rgb(30, 169, 172);
+  margin: 10px;
+  padding: 20px;
+  border: rgb(136, 133, 127) solid 1px;
+  padding: 30px;
+  box-shadow: inset 2px 2px 7px -2px rgba(85, 85, 39, 0.7);
 }
 
 .about-body {
@@ -58,30 +123,31 @@ padding: 20px;
 }
 
 .about-devs {
+  margin-top: 20px;
   font-weight: 600;
   text-align: center;
 }
 
 .all-devs {
-  color: #79a3b1;
+  color: #fff;
   font-size: 2em;
 }
 
 .andy{
-  color: #f9ecd6
+  color: rgb(103, 216, 154);
 }
 
 .mike{
-  color: #b5c4c1;
+  color: rgb(52, 190, 165);
 }
 
 .jason{
-  color: #979fa9;
+  color: rgb(30, 169, 172);
   
 }
 
 .sato{
-  color:  #4c4c61;
+  color: rgb(29, 128, 175);
 }
 
 .about-devs  a {
@@ -100,5 +166,5 @@ padding: 20px;
 display: flex;
 height: 100px;
 align-items: center;
-
+margin-bottom: 100px;
 }
