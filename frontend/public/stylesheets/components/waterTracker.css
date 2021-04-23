@@ -137,3 +137,8 @@ transition: 0.3s ease-in-out;
 .num-ani:hover {
   color: rgb(6, 177, 111); 
 }
+
+.ranks {
+  min-width: 400px;
+  min-height: 78px;
+}
