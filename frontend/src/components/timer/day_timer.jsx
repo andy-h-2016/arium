@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Timer extends React.Component {
+class SecondsTimer extends React.Component {
   constructor(props) {
     super(props)
   }
@@ -25,13 +25,14 @@ class Timer extends React.Component {
   calculateTerrariumLevels() {
     let {waterTracker, terrarium, currentUser} = this.props;
     let daysElapsed = this.daysCounter();
-    console.log('daysElapsed', daysElapsed)
+    // console.log('daysElapsed', daysElapsed)
 
     // while (daysElapsed > 0) {
       switch (true) {
         case waterTracker.today >= currentUser.goal:
-          terrarium.level += 1;
+          let increase = (waterTracker.streak > 1) ? 2 : 1;
           waterTracker.streak += 1;
+          terrarium.level += increase;
           break
         case waterTracker.today >= Math.floor(.5 * currentUser.goal):
           //terrariumlevel += 0; no change.
@@ -61,13 +62,11 @@ class Timer extends React.Component {
     let daysElapsed;
 
     if (lastActiveDate) {
-      // const lastActiveDateSansTime = new Date(lastActiveDate.getFullYear(), lastActiveDate.getMonth(), lastActiveDate.getDate());
-      // const currentDateSansTime = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
-      // daysElapsed = (currentDateSansTime - lastActiveDateSansTime) / (1000 * 60 * 60 * 24);
+      const lastActiveDateSansTime = new Date(lastActiveDate.getFullYear(), lastActiveDate.getMonth(), lastActiveDate.getDate());
+      const currentDateSansTime = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
+      daysElapsed = (currentDateSansTime - lastActiveDateSansTime) / (1000 * 60 * 60 * 24);
 
-      const msElapsed = currentDate.getTime() - lastActiveDate.getTime();
-      // daysElapsed = msElapsed / (1000 * 60 * 60 * 24) //convert ms to days
-      daysElapsed = msElapsed / (1000) //convert ms to seconds
+      daysElapsed = msElapsed / (1000 * 60 * 60 * 24) //convert ms to days
     } else {
      daysElapsed = 0; 
     }
@@ -85,4 +84,4 @@ class Timer extends React.Component {
 
 }
 
-export default Timer;
+export default SecondsTimer;

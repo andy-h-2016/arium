@@ -17,8 +17,8 @@ import TimerContainer from './timer/timer_container';
 const App = () => (
   <div className="main-container">
     <SideBar/>
-    <TimerContainer />
     <Modal/>
+    <ProtectedRoute path="/" component={TimerContainer}/>
     <Switch>
       <AuthRoute exact path="/" component={Splash} />
 
