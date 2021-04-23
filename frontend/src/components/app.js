@@ -26,7 +26,6 @@ const App = () => (
       <ProtectedRoute exact path="/terrarium/:id" component={TerrariumShowContainer} />
       <ProtectedRoute exact path="/terrariums" component={TerrariumIndexContainer} />
       <ProtectedRoute exact path="/watertracker" component={WaterTrackerContainer} />
-      {/* <ProtectedRoute exact path="/profile" component={ProfileContainer} /> */}
       <ProtectedRoute exact path="/info" component={InfoPage} />
       <ProtectedRoute exact path="/donation" component={DonationInfoPage} />
     </Switch>

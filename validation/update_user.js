@@ -1,6 +1,3 @@
-// not sure if we need this file - gotta test in Postman to see 
-// if user actually updates
-
 const Validator = require('validator');
 const validText = require('./valid-text');
 

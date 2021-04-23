@@ -6,12 +6,6 @@ import jwt_decode from 'jwt-decode';
 import { setAuthToken } from './util/session_api_util';
 import { logout } from './actions/session_actions';
 
-//imports for testing actions and reducers
-import {fetchAllTerrariums} from './actions/terrarium_actions';
-import { createWaterTracker, updateWaterTracker, fetchUserWaterTracker, fetchWaterTracker } from './actions/water_tracker_actions';
-import { fetchOverallConsumptions } from './actions/overall_consumption_actions';
-
-
 document.addEventListener('DOMContentLoaded', () => {
   let store;
   if (localStorage.jwtToken) {
@@ -30,16 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
     store = configureStore({});
   }
   // Render our root component and pass in the store as a prop
-
-  window.getState = store.getState;
-  window.dispatch = store.dispatch;
-  window.fetchOverallConsumptions = fetchOverallConsumptions;
-  window.fetchAllTerrariums = fetchAllTerrariums;
-  window.createWaterTracker = createWaterTracker;
-  window.updateWaterTracker = updateWaterTracker;
-  window.fetchUserWaterTracker = fetchUserWaterTracker;
-  window.fetchWaterTracker = fetchWaterTracker;
-
 
 
   const root = document.getElementById('root');

@@ -7,7 +7,7 @@ const WaterTracker = require('../../models/WaterTracker');
 const OverallConsumption = require('../../models/OverallConsumption');
 const validateWaterTrackerInput = require('../../validation/watertracker');
 
-// Water Tracker show for a specific user
+
 
 router.get('/test', (req, res) => res.json({ msg: 'The water tracker router is working' }));
 
@@ -20,7 +20,7 @@ router.get('/user/:user_id', (req, res) => {
     );
 });
 
-// add a show route just for a single water tracker @ 4/21/21
+// add a show route just for a single water tracker
 
 router.get('/:id', (req, res) => {
   WaterTracker.findOne({ _id: req.params.id })

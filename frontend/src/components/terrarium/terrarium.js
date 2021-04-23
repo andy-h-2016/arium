@@ -25,9 +25,8 @@ class Terrarium extends React.Component {
     if (this.props.terrarium && this.props.currentUser && this.props.waterTracker) {
 
       if (this.props.terrarium.level <= 9) {
-        //desert
         switch (true) {
-          case this.props.waterTracker.today < Math.floor((0.5 * this.props.currentUser.goal)): //&& (this.props.waterTracker.today !== 0):
+          case this.props.waterTracker.today < Math.floor((0.5 * this.props.currentUser.goal)):
             return (<img className='im-the-terra' src='images/terra-stages/dry-d.gif' alt='dry-d' width="700" height="850"></img>)
           case this.props.waterTracker.today < this.props.currentUser.goal:
             return (<img className='im-the-terra' src='images/terra-stages/normal-d.gif' alt='normal-d' width="700" height="850"></img>)
@@ -37,9 +36,8 @@ class Terrarium extends React.Component {
             return (<img className='im-the-terra' src='images/terra-stages/normal-d.gif' alt='normal-d' width="700" height="850" ></img>)
         }
       } else if (this.props.terrarium.level < 20 && this.props.terrarium.level >= 10) {
-        //oasis
         switch (true) {
-          case this.props.waterTracker.today < Math.floor((0.5 * this.props.currentUser.goal)): //&& (this.props.waterTracker.today !== 0):
+          case this.props.waterTracker.today < Math.floor((0.5 * this.props.currentUser.goal)):
             return (<img className='im-the-terra' src='images/terra-stages/dry-o.gif' alt='dry-o' width="700" height="850"></img>)
           case this.props.waterTracker.today < this.props.currentUser.goal:
             return (<img className='im-the-terra' src='images/terra-stages/normal-o.gif' alt='normal-o' width="700" height="850"></img>)
@@ -49,9 +47,8 @@ class Terrarium extends React.Component {
             return (<img className='im-the-terra' src='images/terra-stages/normal-o.gif' alt='normal-o' width="700" height="850"></img>)
         }
       } else {
-        //forest
         switch (true) {
-          case this.props.waterTracker.today < Math.floor((0.5 * this.props.currentUser.goal)): // && (this.props.waterTracker.today !== 0):
+          case this.props.waterTracker.today < Math.floor((0.5 * this.props.currentUser.goal)):
             return (<img className='im-the-terra' src='images/terra-stages/dry-f.gif' alt='dry-f' width="700" height="850"></img>)
           case this.props.waterTracker.today < this.props.currentUser.goal:
             return (<img className='im-the-terra' src='images/terra-stages/normal-f.gif' alt='normal-f' width="700" height="850"></img>)

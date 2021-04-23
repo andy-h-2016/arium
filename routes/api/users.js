@@ -19,7 +19,6 @@ router.get('/current',
       id: req.user.id,
       username: req.user.username,
       email: req.user.email,
-      // add lines below @4/19/21 - TS 11:52 PM
       goal: req.user.goal,
       bio: req.user.bio
     })
@@ -114,10 +113,6 @@ router.get('/:id', (req, res) => {
     );
 });
 
-// adding route for user to update goals and bio 
-
-// Update User method with the update_user.js portion
-
 router.patch('/updateUser/:id', passport.authenticate('jwt', {session: false}), (req, res) => {
   const { errors, isValid } = validateUpdateUserInput(req.body);
   
@@ -125,8 +120,6 @@ router.patch('/updateUser/:id', passport.authenticate('jwt', {session: false}), 
       return res.json.status(400).json(errors);
     }
 
-    // added lines 123 - 127 from 2nd method and changed
-    // $set: from req.body to updatedInfo
     let { goal, bio } = req.body;
 
     let updateInfo = {};
@@ -137,7 +130,6 @@ router.patch('/updateUser/:id', passport.authenticate('jwt', {session: false}), 
 
     User.findOne(query)
       .then(user => {
-        //user._id is an object, not a string. need to convert to string.
         if (user._id.toString() !== req.user.id) {
           res.status(400)
             .json({ edituser: 'This is not your information to edit!' })
@@ -154,8 +146,6 @@ router.patch('/updateUser/:id', passport.authenticate('jwt', {session: false}), 
       .catch(() => res.status(404).json({ nouserfound: "No user found with this ID"}))
   }
 );
-
-
 
 module.exports = router;
 

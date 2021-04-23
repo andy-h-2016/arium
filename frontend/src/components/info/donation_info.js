@@ -1,4 +1,3 @@
-
 const DonationInfoPage = (props) => {
 
   return (

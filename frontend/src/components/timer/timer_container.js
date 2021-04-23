@@ -5,7 +5,6 @@ import { fetchUserWaterTracker, updateWaterTracker } from '../../actions/water_t
 
 
 const mapStateToProps = (state, ownProps) => {
-  // console.log(state)
   // const pageId = ownProps.match.params.userId
   const id = state.session.user.id || state.session.user._id
   return {
