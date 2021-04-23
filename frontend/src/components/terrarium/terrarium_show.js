@@ -48,7 +48,7 @@ class TerrariumShow extends React.Component {
     }
     return (
       <div className="terra-page">
-        <h1 className="welcome-mes">This is {this.props.terrarium.title}</h1>
+        <h1 className="welcome-mes">{this.props.terrarium.title}</h1>
         <div></div>
         <div className="on-shelf">{this.renderTerra()}</div>
         <div className="im-shelf"></div>
