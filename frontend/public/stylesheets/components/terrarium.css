@@ -129,6 +129,32 @@ button {
 }
 
 .inc-goal{
+background: none;
+background-image: url('../../images/bottle.gif');
+background-size: cover;
+height: 60px;
+width: 60px;
+border: none;
 z-index: 2;
+}
+
+.dec-goal{
+  z-index: 2;
+  background: none;
+  background-image: url('../../images/bottle.gif');
+  background-size: cover;
+  height: 60px;
+  width: 60px;
+  border: none;
+  transform: rotate(180deg);
+}
+
+.upDown{
+ 
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px;
 }
 
