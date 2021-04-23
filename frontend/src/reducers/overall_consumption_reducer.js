@@ -6,9 +6,7 @@ const OverallConsumptionsReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_OVERALL_CONSUMPTIONS:
       newState = {};
-      action.overallConsumptions.forEach(overallConsumptions => {
-        newState[overallConsumptions._id] = overallConsumptions;
-      });
+        newState[action.overallConsumption._id] = action.overallConsumption;
       return newState;
     default:
       return state;

@@ -2,9 +2,9 @@ import * as OverallAPIUtil from '../util/overall_consumption_api_util';
 
 export const RECEIVE_OVERALL_CONSUMPTIONS = "RECEIVE_OVERALL_CONSUMPTIONS";
 
-export const receiveOverallConsumptions = overallConsumptions => ({
+export const receiveOverallConsumptions = overallConsumption => ({
   type: RECEIVE_OVERALL_CONSUMPTIONS,
-  overallConsumptions
+  overallConsumption
 });
 
 export const fetchOverallConsumptions = () => dispatch => (
