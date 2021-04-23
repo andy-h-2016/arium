@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import OverallConsumptionContainer from '../overall_consumption/overall_consumption_container';
+
 
 class WaterTracker extends React.Component {
   constructor(props) {
@@ -9,9 +9,7 @@ class WaterTracker extends React.Component {
   }
 
   componentDidMount() {
-    console.log("Mount", this.props);
     const id = this.props.currentUser.id || this.props.currentUser._id;
-    console.log('id: ', id)
     this.props.fetchUser(id);
     this.props.fetchUserTerrarium(id);
     this.props.fetchUserWaterTracker(id);

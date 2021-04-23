@@ -1,5 +1,4 @@
 import React from "react";
-// import { receiveCurrentUser } from '../../actions/session_actions';
 
 class Profile extends React.Component {
   constructor(props) {
@@ -28,13 +27,11 @@ class Profile extends React.Component {
   }
 
   update(field) {
-    console.log(this.state.goal);
     return (e) => this.setState({ [field]: e.currentTarget.value });
   }
 
   
   render() {
-    // console.log(this.state)
     const updated = 
       this.state.update ? (
         <div className="edit-message">Profile updated</div>

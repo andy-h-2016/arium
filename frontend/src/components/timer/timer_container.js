@@ -5,7 +5,6 @@ import { fetchUserWaterTracker, updateWaterTracker } from '../../actions/water_t
 
 
 const mapStateToProps = (state, ownProps) => {
-  // console.log(state)
   // const pageId = ownProps.match.params.userId
   const id = state.session.user.id || state.session.user._id
   return {
@@ -20,7 +19,7 @@ const mapDispatchToProps = dispatch => {
     fetchUserTerrarium: (userId) => dispatch(fetchUserTerrarium(userId)),
     fetchUserWaterTracker: (id) => dispatch(fetchUserWaterTracker(id)),
     updateWaterTracker: (data) => dispatch(updateWaterTracker(data)),
-    updateTerrarium: (data) => dispatch(updateTerrarium(data)),   
+    updateTerrarium: (data) => dispatch(updateTerrarium(data))  
   };
 };
 

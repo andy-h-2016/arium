@@ -16,8 +16,6 @@ class SecondsTimer extends React.Component {
     const id = this.props.currentUser.id || this.props.currentUser._id;
     this.props.fetchUserTerrarium(id);
     this.props.fetchUserWaterTracker(id);
-    
-
     const timerId = Math.random();
     this.intervalID = setInterval( () => {
       this.calculateTerrariumLevels();
@@ -27,9 +25,7 @@ class SecondsTimer extends React.Component {
 
   componentDidUpdate() {
     //only want this to run on the first update after componentDidMount runs
-    //on the first update after 
     if ((this.levelCalculatedOnLogin === false) && this.props.waterTracker && this.props.terrarium ) {
-      console.log('UPDATING SGDPI9UHASDFPIOHJSFD')
       this.levelCalculatedOnLogin = true;
       this.calculateTerrariumLevels()
     }
@@ -118,7 +114,6 @@ class SecondsTimer extends React.Component {
     
     if (lastActiveDate) {
     const msElapsed = currentDate.getTime() - lastActiveDate.getTime();
-    // daysElapsed = msElapsed / (1000 * 60 * 60 * 24) //convert ms to days
     secondsElapsed = msElapsed / (1000) //convert ms to seconds
   } else {
     secondsElapsed = 0; 
@@ -132,8 +127,10 @@ class SecondsTimer extends React.Component {
   render() {
     return(
       <div className='timer'>
-        <p className='timer-title'>Time to Next Terrarium Update</p>
-        <p className='timer-value'>{this.state.countdown}</p>
+        <div className='hourglass-container'>
+          <div className='hourglass'></div>
+        </div>
+        <div className='timer-value'>{this.state.countdown}</div>
       </div>
     )
   }

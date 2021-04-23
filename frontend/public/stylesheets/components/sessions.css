@@ -197,7 +197,7 @@ button{
     font: 16px;
   }
     
-  .login-signup, .logout {
+  .login-signup {
     display: flex;
     float: right;
     cursor:pointer;

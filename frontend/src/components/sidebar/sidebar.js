@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import OverallConsumptionContainer from '../overall_consumption/overall_consumption_container';
+import TimerContainer from '../timer/timer_container';
+
 
 class SideBar extends React.Component {
   constructor(props) {
@@ -34,19 +36,22 @@ class SideBar extends React.Component {
 
                 <button className="closebtn" onClick={() => this.closeNav()}>×</button>
                 <Link to={'/terrarium'}>My Terrarium</Link>
-                {/* <Link to={'/profile'}>My Profile</Link> */}
+                
                 <Link to={`/watertracker/`}>Water Tracker</Link> 
-                {/* ${this.props.waterTracker.id}` */}
+                
                 <Link to={'/terrariums'}>All Terrariums</Link>
                 <Link to={'/info'}>About Us</Link>
                 <Link to={'/donation'}>Global Thirst</Link>
 
+                <div className="overall-link">
+                  <OverallConsumptionContainer />
+                </div>
+
+                 <TimerContainer />
+
                 <nav className="login-modal-button">
                 <button className="logout" onClick={this.logoutUser}>Logout</button>
                 </nav>
-                <div className="overall-link">
-                    <OverallConsumptionContainer />
-                 </div>
               </div>
             </div>
         );
