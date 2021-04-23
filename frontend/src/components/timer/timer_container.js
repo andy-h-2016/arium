@@ -20,7 +20,7 @@ const mapDispatchToProps = dispatch => {
     fetchUserTerrarium: (userId) => dispatch(fetchUserTerrarium(userId)),
     fetchUserWaterTracker: (id) => dispatch(fetchUserWaterTracker(id)),
     updateWaterTracker: (data) => dispatch(updateWaterTracker(data)),
-    updateTerrarium: (data) => dispatch(updateTerrarium(data)),   
+    updateTerrarium: (data) => dispatch(updateTerrarium(data))  
   };
 };
 

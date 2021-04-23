@@ -7,9 +7,11 @@ export const receiveOverallConsumptions = overallConsumption => ({
   overallConsumption
 });
 
-export const fetchOverallConsumptions = () => dispatch => (
-  OverallAPIUtil.fetchOverallConsumptions()
-    .then(response => dispatch(receiveOverallConsumptions(response.data)))
+export const fetchOverallConsumptions = () => dispatch => {
+  return OverallAPIUtil.fetchOverallConsumptions()
+    .then(response => {
+      dispatch(receiveOverallConsumptions(response.data[0]))
+    })
     .catch(err => console.log(err))
-);
+};
 
