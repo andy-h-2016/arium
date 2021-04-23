@@ -3,7 +3,7 @@ import React from 'react';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import { Switch } from 'react-router-dom';
 import Splash from './splash/splash';
-import ProfileContainer from './profile/profile_container';
+// import ProfileContainer from './profile/profile_container';
 import TerrariumContainer from './terrarium/terrarium_container';
 import WaterTrackerContainer from './water_tracker/water_tracker_container';
 import Modal from './modal/modal'
@@ -26,7 +26,7 @@ const App = () => (
       <ProtectedRoute exact path="/terrarium/:id" component={TerrariumShowContainer} />
       <ProtectedRoute exact path="/terrariums" component={TerrariumIndexContainer} />
       <ProtectedRoute exact path="/watertracker" component={WaterTrackerContainer} />
-      <ProtectedRoute exact path="/profile" component={ProfileContainer} />
+      {/* <ProtectedRoute exact path="/profile" component={ProfileContainer} /> */}
       <ProtectedRoute exact path="/info" component={InfoPage} />
       <ProtectedRoute exact path="/donation" component={DonationInfoPage} />
     </Switch>

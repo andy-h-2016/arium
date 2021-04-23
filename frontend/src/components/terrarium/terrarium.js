@@ -4,7 +4,9 @@ class Terrarium extends React.Component {
   constructor(props) {
     super(props);
     this.addWater = this.addWater.bind(this);
-    this.removeWater = this.removeWater.bind(this);
+    this.removeWater = this.removeWater.bind(this);  
+    this.state = this.props.currentUser;
+    
     // this.calculateTerrariumLevels = this.calculateTerrariumLevels.bind(this);
     // this.daysCounter = this.daysCounter.bind(this);
   }
@@ -13,6 +15,7 @@ class Terrarium extends React.Component {
     const id = this.props.currentUser.id || this.props.currentUser._id;
     this.props.fetchUserTerrarium(id);
     this.props.fetchUserWaterTracker(id);
+    this.props.fetchUser(id); 
 
     // const timerId = Math.random();
     // this.intervalID = setInterval( () => {
@@ -79,6 +82,16 @@ class Terrarium extends React.Component {
 
   //   return daysElapsed;
   // }
+    
+    
+  
+
+  componentDidUpdate(prevProps){
+    if(prevProps.currentUser.goal !== this.props.currentUser.goal || prevProps.currentUser.bio !== this.props.currentUser.bio){
+      this.setState(this.props.currentUser)
+    }
+  }
+
 
 
   renderTerra() {
@@ -140,6 +153,8 @@ class Terrarium extends React.Component {
       today: this.props.waterTracker.today + 1,
       delta: 1
     }
+    if(this.props.waterTracker.today >= 10){return}
+
     this.props.updateWaterTracker(waterTracker)
       // .then(() => this.props.updateTerrarium(terrarium))
       .then(() => this.forceUpdate())
@@ -158,18 +173,22 @@ class Terrarium extends React.Component {
       today: this.props.waterTracker.today - 1,
       delta: -1
     }
+    if(this.props.waterTracker.today <= 0){return}
     this.props.updateWaterTracker(waterTracker)
       // .then(() => this.props.updateTerrarium(terrarium))
       .then(() => this.forceUpdate())
   }
 
   renderStatus() {
-    if (this.props.terrarium && this.props.waterTracker) {
+    if (this.props.terrarium && this.props.waterTracker && this.state) {
       return (
         <div className='stat-innerbox'>
           <div className='terra-row'>
             <p>Goal</p>
             <p>{this.props.currentUser.goal}</p>
+            <button className="inc-goal" onClick={() => this.props.updateUser(this.state.id, {goal: (this.state.goal + 1)})}>+</button>
+            <button className="inc-goal" onClick={() => this.props.updateUser(this.state.id, {goal: (this.state.goal - 1)})}>-</button>
+
           </div>
           <div className='terra-row'>
             <p>Cups of water today</p>
@@ -191,9 +210,14 @@ class Terrarium extends React.Component {
   //level, goal, today, health 
 
   render() {
+    let {terrarium, waterTracker, currentUser} = this.props;
+    if (!terrarium || !waterTracker || !currentUser) {
+      return <div></div>
+    }
+
     return (
       <div className='terra-page'>
-        <h1 className='welcome-mes'>this.props</h1>
+        <h1 className='welcome-mes'>{terrarium.title}</h1>
         <div></div>
         <div className='on-shelf'>
           {this.renderTerra()}
