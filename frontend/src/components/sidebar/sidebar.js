@@ -37,9 +37,7 @@ class SideBar extends React.Component {
                 <Link to={`/watertracker/`}>Water Tracker</Link> 
                 {/* ${this.props.waterTracker.id}` */}
                 <Link to={'/terrariums'}>All Terrariums</Link>
-                <Link to={'/info'}>About Us</Link>
-                <Link to={'/donation'}>Global Thirst</Link>
-
+                <Link to={'/info'}>Global Thirst</Link>
 
                 <nav className="login-modal-button">
                 <button className="logout" onClick={this.logoutUser}>Logout</button>

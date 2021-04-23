@@ -11,14 +11,19 @@ class Terrarium extends React.Component {
 
   componentDidMount() {
     const id = this.props.currentUser.id || this.props.currentUser._id;
-    this.props.fetchUserTerrarium(id)
-    this.props.fetchUserWaterTracker(id)
+    this.props.fetchUserTerrarium(id);
+    this.props.fetchUserWaterTracker(id);
 
     const timerId = Math.random();
     this.intervalID = setInterval( () => {
       console.log(`tick! timerId: ${timerId}`);
       this.calculateTerrariumLevels();
     }, 5000); 
+
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.intervalID);
   }
 
   calculateTerrariumLevels() {
@@ -74,16 +79,16 @@ class Terrarium extends React.Component {
 
 
   renderTerra() {
-    if (this.props.terrarium && this.props.currentUser) {
+    if (this.props.terrarium && this.props.currentUser && this.props.waterTracker) {
 
       if (this.props.terrarium.level <= 9) {
         //desert
         switch (true) {
-          case this.props.terrarium.health < Math.floor((0.5 * this.props.currentUser.goal)) && (this.props.terrarium.health !== 0):
+          case this.props.waterTracker.today < Math.floor((0.5 * this.props.currentUser.goal)): //&& (this.props.waterTracker.today !== 0):
             return (<img className='im-the-terra' src='images/terra-stages/dry-d.gif' alt='dry-d' width="700" height="850"></img>)
-          case this.props.terrarium.health >= Math.floor((0.5 * this.props.currentUser.goal)) && (this.props.terrarium.health !== this.props.currentUser.goal) && !(this.props.terrarium.health > this.props.currentUser.goal):
+          case this.props.waterTracker.today < this.props.currentUser.goal:
             return (<img className='im-the-terra' src='images/terra-stages/normal-d.gif' alt='normal-d' width="700" height="850"></img>)
-          case this.props.terrarium.health >= this.props.currentUser.goal:
+          case this.props.waterTracker.today >= this.props.currentUser.goal:
             return (<img className='im-the-terra' src='images/terra-stages/wet-d.gif' alt='wet-d' width="700" height="850"></img>)
           default:
             return (<img className='im-the-terra' src='images/terra-stages/normal-d.gif' alt='normal-d' width="700" height="850" ></img>)
@@ -91,11 +96,11 @@ class Terrarium extends React.Component {
       } else if (this.props.terrarium.level < 20 && this.props.terrarium.level >= 10) {
         //oasis
         switch (true) {
-          case this.props.terrarium.health < Math.floor((0.5 * this.props.currentUser.goal)) && (this.props.terrarium.health !== 0):
+          case this.props.waterTracker.today < Math.floor((0.5 * this.props.currentUser.goal)): //&& (this.props.waterTracker.today !== 0):
             return (<img className='im-the-terra' src='images/terra-stages/dry-o.gif' alt='dry-o' width="700" height="850"></img>)
-          case this.props.terrarium.health >= Math.floor((0.5 * this.props.currentUser.goal)) && (this.props.terrarium.health !== this.props.currentUser.goal) && !(this.props.terrarium.health > this.props.currentUser.goal):
+          case this.props.waterTracker.today < this.props.currentUser.goal:
             return (<img className='im-the-terra' src='images/terra-stages/normal-o.gif' alt='normal-o' width="700" height="850"></img>)
-          case this.props.terrarium.health >= this.props.currentUser.goal:
+          case this.props.waterTracker.today >= this.props.currentUser.goal:
             return (<img className='im-the-terra' src='images/terra-stages/wet-o.gif' alt='wet-o' width="700" height="850"></img>)
           default:
             return (<img className='im-the-terra' src='images/terra-stages/normal-o.gif' alt='normal-o' width="700" height="850"></img>)
@@ -103,11 +108,11 @@ class Terrarium extends React.Component {
       } else {
         //forest
         switch (true) {
-          case this.props.terrarium.health < Math.floor((0.5 * this.props.currentUser.goal)) && (this.props.terrarium.health !== 0):
+          case this.props.waterTracker.today < Math.floor((0.5 * this.props.currentUser.goal)): // && (this.props.waterTracker.today !== 0):
             return (<img className='im-the-terra' src='images/terra-stages/dry-f.gif' alt='dry-f' width="700" height="850"></img>)
-          case this.props.terrarium.health >= Math.floor((0.5 * this.props.currentUser.goal)) && (this.props.terrarium.health !== this.props.currentUser.goal) && !(this.props.terrarium.health > this.props.currentUser.goal):
+          case this.props.waterTracker.today < this.props.currentUser.goal:
             return (<img className='im-the-terra' src='images/terra-stages/normal-f.gif' alt='normal-f' width="700" height="850"></img>)
-          case this.props.terrarium.health >= this.props.currentUser.goal:
+          case this.props.waterTracker.today >= this.props.currentUser.goal:
             return (<img className='im-the-terra' src='images/terra-stages/wet-f.gif' alt='wet-f' width="700" height="850"></img>)
           default:
             return (<img className='im-the-terra' src='images/terra-stages/normal-f.gif' alt='normal-f' width="700" height="850"></img>)
@@ -120,28 +125,30 @@ class Terrarium extends React.Component {
   addWater(e) {
     e.preventDefault()
     e.stopPropagation()
-    let terrarium = {
-      ...this.props.terrarium,
-      health: this.props.terrarium.health + 1,
-    }
+    // let terrarium = {
+    //   ...this.props.terrarium,
+    //   health: this.props.terrarium.health + 1,
+    //   health: this.props.terrarium.health + 1,
+    //   health: this.props.terrarium.health + 1,
+    // }
     let waterTracker = {
       ...this.props.waterTracker,
       total: this.props.waterTracker.total + 1,
       today: this.props.waterTracker.today + 1,
-      delta: +1
+      delta: 1
     }
     this.props.updateWaterTracker(waterTracker)
-      .then(() => this.props.updateTerrarium(terrarium))
+      // .then(() => this.props.updateTerrarium(terrarium))
       .then(() => this.forceUpdate())
   }
 
   removeWater(e) {
     e.preventDefault()
     e.stopPropagation()
-    let terrarium = {
-      ...this.props.terrarium,
-      health: this.props.terrarium.health - 1,
-    }
+    // let terrarium = {
+    //   ...this.props.terrarium,
+    //   health: this.props.terrarium.health - 1,
+    // }
     let waterTracker = {
       ...this.props.waterTracker,
       total: this.props.waterTracker.total - 1,
@@ -149,7 +156,7 @@ class Terrarium extends React.Component {
       delta: -1
     }
     this.props.updateWaterTracker(waterTracker)
-      .then(() => this.props.updateTerrarium(terrarium))
+      // .then(() => this.props.updateTerrarium(terrarium))
       .then(() => this.forceUpdate())
   }
 
@@ -165,10 +172,10 @@ class Terrarium extends React.Component {
             <p>cups of water today</p>
             <p>{this.props.waterTracker.today}</p>
           </div>
-          <div className='terra-row'>
+          {/* <div className='terra-row'>
             <p>terrarium health</p>
             <p>{this.props.terrarium.health}</p>
-          </div>
+          </div> */}
           <div className='terra-row'>
             <p>terraruim level</p>
             <p>{this.props.terrarium.level}</p>
@@ -183,7 +190,7 @@ class Terrarium extends React.Component {
   render() {
     return (
       <div className='terra-page'>
-        <h1 className='welcome-mes'>this is {this.props.currentUser.username}'s terrerium</h1>
+        <h1 className='welcome-mes'>this is {this.props.currentUser.username}'s terrarium</h1>
         <div></div>
         <div className='on-shelf'>
           {this.renderTerra()}
