@@ -77,44 +77,56 @@ class WaterTracker extends React.Component {
         rank = <div className="ranks">Maintain your streaks to rank up!</div>;
         break;
     }
-const drinks = currentUser.goal - waterTracker.today
+    const drinks = currentUser.goal - waterTracker.today
     return (
       <div className="water-tracker-container">
         <div className="water-tracker-header">
-          
-           <div>
-          Water Tracker
+          <div>
+            Water Tracker
           </div>
-          
-         
-        </div>
-        <div className="wt-terrarium-title">
-          <div className="terr-title-text">{terrarium.title}</div>
-          <div>Friendly reminder from your Terrarium:{healthMsg}</div>
         </div>
 
-        <div className="water-tracker-goal">      
-          <div className="please">Today's Stats</div>
-          <div className="drinks">{`${waterTracker.today} / ${currentUser.goal} cups`}</div>
-          <div>{`${drinks} more cups of water today to grow your wonderful Terrarium!`}</div>     
+        <div className='two-of-items1'>
+
+          <div className="wt-terrarium-title">
+            <div className='frame-mgn'>
+              <div className="terr-title-text">
+                {terrarium.title}
+              </div>
+              <div className='w-comment'>Friendly reminder from your Terrarium:{healthMsg}</div>
+            </div>
+          </div>
+
+          <div className="water-tracker-goal">
+            <div className='frame-mgn'>
+              <div className="terr-title-text"> Please drink  </div>
+              <div className="terr-title-text"> {drinks} </div>
+              <div className='w-comment'> more cups of water today to grow your wonderful Terrarium. </div>
+            </div>
+          </div>
+
         </div>
 
-        <div className="water-tracker-total">
-          <div>
-          WOW! You've drank 
-          </div>
-          <div>
-          {waterTracker.total}
+
+        <div className='two-of-items2'>
+
+          <div className="water-tracker-total">
+            <div className='frame-mgn'>
+              <div className='comment-l' > WOW!</div>
+              <div className='comment-m'> You've drank </div>
+              <div className='comment-l'> {waterTracker.total} </div>
+              <div className='comment-m'> of cups water </div>
+              <div className='comment-s'>since you've signed up for </div>
+              <div className='comment-l'>Arium</div>
             </div>
-            <div>
-          of cups water since you've signed up for Arium.            
-            </div>
-        </div>
-        <div className="water-tracker-streak">
-          <div className="currentrank">
-          Current Rank: 
           </div>
-          {rank}
+
+          <div className="water-tracker-streak">
+            <div className='frame-mgn'>
+              <div className="currentrank"> Current Rank: </div>
+              <p className="currentrank">{rank} </p>
+            </div>
+          </div>
         </div>
 
       </div>
