@@ -18,7 +18,6 @@ class SecondsTimer extends React.Component {
 
     const timerId = Math.random();
     this.intervalID = setInterval( () => {
-      console.log(`tick! timerId: ${timerId}`);
       this.calculateTerrariumLevels();
       this.setCountdown();
     }, INTERVAL); 
@@ -85,15 +84,11 @@ class SecondsTimer extends React.Component {
       waterTracker.today = 0;
       this.props.updateWaterTracker(waterTracker)
         .then(() => {
-          console.log('max: ', isTerrariumMaxed)
-          console.log('min: ', isTerrariumMin)
           if (isTerrariumMaxed || isTerrariumMin) {
             return
           } else {
             this.props.updateTerrarium(terrarium);
-
           }
-
         })
         .then(() => this.forceUpdate());
 
