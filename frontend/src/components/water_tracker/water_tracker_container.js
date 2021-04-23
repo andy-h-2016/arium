@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
-import { fetchUserWaterTracker } from '../../actions/water_tracker_actions';
+import { fetchUserWaterTracker, updateWaterTracker } from '../../actions/water_tracker_actions';
 import WaterTracker from './water_tracker';
-import { fetchUserTerrarium } from '../../actions/terrarium_actions';
+import { fetchUserTerrarium, updateTerrarium } from '../../actions/terrarium_actions';
 import { fetchUser } from '../../actions/session_actions';
 
 const mapStateToProps = (state, ownProps) => {
@@ -19,7 +19,10 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => ({
   fetchUserWaterTracker: userId => dispatch(fetchUserWaterTracker(userId)),
   fetchUserTerrarium: userId => dispatch(fetchUserTerrarium(userId)),
-  fetchUser: (userId) => dispatch(fetchUser(userId))
+  fetchUser: (userId) => dispatch(fetchUser(userId)),
+  updateTerrarium: terrarium => dispatch(updateTerrarium(terrarium)),
+  updateWaterTracker: waterTracker => dispatch(updateWaterTracker(waterTracker))
+
 });
 
 export default connect(

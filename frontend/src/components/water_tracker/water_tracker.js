@@ -1,9 +1,11 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import OverallConsumptionContainer from '../overall_consumption/overall_consumption_container';
 
 class WaterTracker extends React.Component {
   constructor(props) {
     super(props);
+
   }
 
   componentDidMount() {
@@ -13,10 +15,16 @@ class WaterTracker extends React.Component {
     this.props.fetchUser(id);
     this.props.fetchUserTerrarium(id);
     this.props.fetchUserWaterTracker(id);
+  
   }
 
   componentDidUpdate(prevProps) {
+    console.log('previosuly', prevProps)
     if (prevProps.currentUser.goal !== this.props.currentUser.goal) {
+      this.setState(this.props.currentUser)
+    }
+
+    if (prevProps.terrarium && (prevProps.terrarium.level !== this.props.terrarium.level)) {
       this.setState(this.props.currentUser)
     }
   }
