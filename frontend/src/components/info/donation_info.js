@@ -9,6 +9,7 @@ const DonationInfoPage = (props) => {
         <OverallConsumptionContainer />
       </div>
       <div className="about-info">
+      <div className='txt-frm'>   
       <a  className="about-thirst"
         rel="noreferrer"
         href="https://waterwellsforafrica.org/"
@@ -26,7 +27,7 @@ const DonationInfoPage = (props) => {
         <div className="about-body">Currently our primary receipient of all water donations is <a href="https://waterwellsforafrica.org/"> "https://waterwellsforafrica.org/"  
           </a> Please visit their website and contribute to them directly if you would like to donate money in addition to using our site.
         </div>
-      
+      </div>
       </div>
     </div>
   )
