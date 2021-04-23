@@ -71,6 +71,8 @@ class Terrarium extends React.Component {
       today: this.props.waterTracker.today + 1,
       delta: +1
     }
+    if(this.props.waterTracker.today >= 10){return}
+
     this.props.updateWaterTracker(waterTracker)
       .then(() => this.props.updateTerrarium(terrarium))
       .then(() => this.forceUpdate())
