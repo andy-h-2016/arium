@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import SecondTimer from './second_timer';
+import SecondsTimer from './seconds_timer';
 import { fetchUserTerrarium, updateTerrarium } from '../../actions/terrarium_actions';
 import { fetchUserWaterTracker, updateWaterTracker } from '../../actions/water_tracker_actions'
 
@@ -24,4 +24,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SecondTimer);
+export default connect(mapStateToProps, mapDispatchToProps)(SecondsTimer);
