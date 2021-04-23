@@ -10,14 +10,14 @@
 
 
 .water-tracker-header{
-  /* background: lightslategray; */
   margin: 100px; 
 }
-.water-tracker-header :first-child{
+.wt-header-title{
   font-size: 60px;
   font-weight: 700;
   color: rgb(249, 236, 214);
 }
+
 
 .two-of-items1 {
   display: flex;
@@ -103,3 +103,17 @@ box-shadow: 0 10px 7px -5px rgba(0, 0, 0, 0.3);
   font-size: 35px;
   margin-top: 20px;
 }
+
+
+/* .wt-terrarium-title {
+
+ transition:all 1s ease;
+  -o-transition:all 1s ease;
+  -moz-transition:all 1s ease;
+  -webkit-transition:all 1s ease;
+  top:50px;
+} */
+/* .wt-terrarium-title:hover {
+  transition-duration: .2s;
+  margin-top: 0px;
+} */
