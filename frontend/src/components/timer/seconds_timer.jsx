@@ -1,5 +1,5 @@
 import React from 'react';
-const INTERVAL = 1000 * 30 //TIME IN MILLISECONDS
+const INTERVAL = 1000 * 15 //TIME IN MILLISECONDS
 
 
 class SecondsTimer extends React.Component {
@@ -51,7 +51,7 @@ class SecondsTimer extends React.Component {
     let isTerrariumMin;
     let timePeriods = 1;
 
-    //if (true) { //THIS LINE IS USED IF WE ARE NOT KEEPING TRACK OF TIME ONCE THE USER CLOSES THE APP
+    // if (true) { //THIS LINE IS USED IF WE ARE NOT KEEPING TRACK OF TIME ONCE THE USER CLOSES THE APP
     if (secondsElapsed > (INTERVAL / 1000)) {              // THIS LINE KEEPS TRACK OF TIME WHILE USER IS AWAY
       timePeriods = Math.floor(secondsElapsed / (INTERVAL / 1000)); //THIS LINKE KEEPS TRACK OF TIME WHILE USER IS AWAY
       switch (true) {

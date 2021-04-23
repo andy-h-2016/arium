@@ -1,4 +1,5 @@
 import * as WaterTrackerAPIUtil from '../util/water_tracker_api_util';
+import { receiveOverallConsumptions } from './overall_consumption_actions';
 
 export const RECEIVE_WATER_TRACKER = "RECEIVE_WATER_TRACKER";
 
@@ -40,7 +41,9 @@ export const createWaterTracker = waterTracker => dispatch => (
 export const updateWaterTracker = data => dispatch => (
   WaterTrackerAPIUtil.updateWaterTracker(data)
   .then(res => {
-      dispatch(receiveWaterTracker(res.data.waterTracker))
+    console.log('water patch response', res)
+      dispatch(receiveWaterTracker(res.data.waterTracker));
+      dispatch(receiveOverallConsumptions(res.data.overallConsumption))
     })
     .catch(err => console.log(err))
 );
