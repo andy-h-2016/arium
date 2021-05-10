@@ -7,7 +7,7 @@ const WaterTracker = require('../../models/WaterTracker');
 const OverallConsumption = require('../../models/OverallConsumption');
 const validateWaterTrackerInput = require('../../validation/watertracker');
 
-
+const alertThreshold = 2;
 
 router.get('/test', (req, res) => res.json({ msg: 'The water tracker router is working' }));
 
