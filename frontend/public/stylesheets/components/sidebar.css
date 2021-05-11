@@ -86,13 +86,12 @@ color: white
 }
 
 .donated {
-  border: 4px solid rgb(233, 233, 233);
-  line-height: 60px;
+  border: 2px solid rgba(215, 215, 255, 0.911);
+  line-height: 20px;
   display: inline-block;
-  margin-left: 50px;
-  margin-bottom: 40px;
-  padding: 40px 10px;
-  padding-bottom: 20px;
+  margin-left: 85px;
+  padding: 40px 2px;
+  padding-bottom: 50px;
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
   border-bottom-left-radius: 28px;
@@ -101,12 +100,15 @@ color: white
   position: relative;
   overflow: hidden;
   z-index: 9;
-  background: rgb(220, 248, 255);
+  background: rgba(255, 255, 255, 0.822);
   letter-spacing: 1px;
   cursor: default;
-  margin-top: 50px;
-  font-size: 42px;
-  font-family: 'Fredericka the Great', cursive;
+  margin-top: 90px;
+  font-size: 32px;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 700;
+  box-shadow: inset 0 1px 0px #3c3b46, inset 0 1px 0 white,
+  inset 0 -4px 3px #8990a7;
 }
 .donated::before {
   content: "";
@@ -117,6 +119,7 @@ color: white
   width: 15px;
   border-radius: 50%;
   background: #3088ad;
+  
   z-index: -1;
 }
 
@@ -161,7 +164,9 @@ color: white
   height: 0%;
   width: 100%;
   border-radius: 0%;
-  background: #189af1;
+  background: #d0f0ff;
+  box-shadow: inset 0 1px 0px #110c4b, inset 0 1px 0 white,
+  inset 0 -6px 3px #3b57b3;
   z-index: -1;
 }
 .donated:hover::after {
@@ -170,9 +175,10 @@ color: white
   transition-delay: 1s;
 }
 .donated:hover {
-  color: #fff;
+  color: rgb(8, 22, 143);
   transition: all 0.4s linear;
   transition-delay: 1s;
+
 }
 
 .line{

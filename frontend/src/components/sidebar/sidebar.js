@@ -50,7 +50,9 @@ class SideBar extends React.Component {
                 <div className="donated">
                   <OverallConsumptionContainer />            
                 </div>
-
+                <div className="overall-msg">Cups </div>
+                <div className="overall-msg msg2">Donated</div>
+                <br></br>
                  <TimerContainer />
               </div>
              

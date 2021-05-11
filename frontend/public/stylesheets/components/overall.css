@@ -10,10 +10,15 @@
 } */
 
 .overall-msg {
-  font-size: 30px;
-  font-weight: 500;
+  font-size: 25px;
   z-index: 1;
   text-align: center;
+  color: rgb(246, 236, 218);
+
+}
+
+.msg2{
+  margin-bottom: 20px;
 }
 
 /* .overall-count {
