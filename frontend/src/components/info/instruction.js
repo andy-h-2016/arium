@@ -53,8 +53,8 @@ const instructionPage = () => {
         <div className='instruction02'>
           <div className='each-instruction'>
             <h2>Countdown</h2>
-            <p>On the side bar you will find a hourglass and 24 hour counddown below it.</p>
-            <p>Terrarium updates and Daily water consumption resets every 24 hour.</p>
+            <p>On the sidebar you will find a countdown until the next time period. At the end of each time period, the terrarium updates and the daily water count resets. </p>
+            <p>For demo purposes, the time periods are 15 seconds, but the official version will be set at 24 hours</p>
           </div>
 
           <div className='each-instruction'>
