@@ -1,0 +1,64 @@
+.instruction-page {
+  min-width: 1200px;
+
+}
+
+.table-con {
+  background: lightgreen;
+}
+
+.table-con p {
+  font-size: 20px;
+}
+
+/* mid section */
+.mid-section {
+  background-color: lightsteelblue;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.instruction01 {
+  background: lightpink;
+  display: flex;
+  flex-direction: column;
+}
+.terra-inst-img {
+  background-image: url('../../images/instruction/terraframe.png');
+  position: absolute;
+  background-repeat: no-repeat;
+  height: 50%;
+  width: 30%;
+  background-size: 75%;
+  right: 15%;
+  bottom: 15%;
+
+}
+
+
+
+/* bottom section */
+.bottom-section {
+  background-color: lightsteelblue;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+}
+.instruction02 {
+  position: absolute;
+  right: 15%;
+  background: lightpink;
+  display: flex;
+  flex-direction: column;
+}
+.tracker-inst-img {
+  background-image: url('../../images/instruction/tracker01.png');
+  position: absolute;
+  background-repeat: no-repeat;
+  height: 50%;
+  width: 50%;
+  background-size: 80%;
+
+}
