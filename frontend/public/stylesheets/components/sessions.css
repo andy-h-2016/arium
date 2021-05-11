@@ -413,4 +413,15 @@ button{
  
 }
 
+.register-btn{
+  background: none;
+  border: none;
+  outline: none;
+  color: #79a3b1;
+  width: 504px;
+  text-align: center;
+}
 
+.register-btn:hover{
+  color: #d0e8f2;
+}

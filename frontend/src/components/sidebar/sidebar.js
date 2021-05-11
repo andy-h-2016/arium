@@ -65,7 +65,11 @@ class SideBar extends React.Component {
             <div className="sign-in-text">
             sign in
             </div>
-            </button>     
+            </button>  
+            <br></br>  
+            <button className="register-btn" onClick={() => this.props.openModal('signup')}>
+            Not a member yet? Register here!
+            </button> 
         </nav>
         );
       }
