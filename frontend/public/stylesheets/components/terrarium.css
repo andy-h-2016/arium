@@ -6,7 +6,7 @@
   flex-direction: column;
   align-items: center;
   padding-bottom: 100px;
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 .welcome-mes {
@@ -21,13 +21,17 @@
   background-size:cover;
   padding-bottom: 0px;
   /* box-shadow:0 0 5px 0 rgba(0,0,0,.25) inset, 0 5px 10px 5px rgba(0,0,0,.25); */
+}
 
+.im-the-terra {
+  width: 600px;
+  height: auto;
 }
 
 .im-shelf {
   background: url("../../images/shelf03.png") center no-repeat;;
-  width: 1600px;
-  height: 100px;
+  width: 1340px;
+  height: 65px;
   margin-top: 0px;
   padding-top: 0px;
   /* margin-bottom: 70px; */
@@ -98,7 +102,7 @@
   border-top-color:#ccb;
   max-height:100%;
   max-width:100%;
-  margin-top: 35px;
+  margin-top: 25px;
   margin-bottom: 0px;
   padding-bottom: 0px;
 }
