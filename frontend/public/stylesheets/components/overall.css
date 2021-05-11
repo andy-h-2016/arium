@@ -1,44 +1,49 @@
-.overall-page { 
+/* .overall-page { 
+ 
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%;
-  width: 100%;
+  height: 200px;
+  width: 23%;
   color:black;
   z-index: 1;
-}
+} */
 
 .overall-msg {
   font-size: 30px;
-  font-weight: 600;
+  font-weight: 500;
   z-index: 1;
+  text-align: center;
 }
 
-.overall-count {
+/* .overall-count {
   z-index: 1;
 font-size: 50px;
 
-font-weight: 700;
-}
+font-weight: 500;
+} */
 
 .bottle{ 
-  background-image: url(../../images/bottle.gif);
-  background-position-x: 375px;
+  /* background-image: url(../../images/bottle.gif);
+  background-position-x: 370px;
+  background-position-y: -50px;
   background-size: cover;
-  height: 690px;
-  width: 250px;  
+  height: 490px;
+  width: 250px;   */
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: white;
+  /* color: white; */
   z-index: 1;
+  /* padding-bottom: -200px; */
 }
 
 .overall-link {
   z-index: 1;
   display: block;
-  height: 500px;
-  width: 100%;  
-
+  /* height: 300px; */
+  /* width: 100%;   */
 }
+

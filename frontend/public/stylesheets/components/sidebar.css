@@ -11,13 +11,14 @@
   padding-top: 60px;
 }
 
-.sidebar a {
+.sidebar a, .logout{
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 25px;
   color: rgb(246, 236, 218);
   display: block;
   transition: 0.3s;
+  background-color: rgb(16, 82, 124);
 }
 
 .sidebar a:hover {
@@ -58,7 +59,7 @@
   right: 0;
   top: 0;
 }
-/* .logout{
+/* .donated{
   position: fixed;
   left: 50%;
   transform: translate(-50%, 0);
@@ -84,23 +85,30 @@
 color: white
 }
 
-.logout {
-  border: 1px solid #000;
-  line-height: 40px;
+.donated {
+  border: 4px solid rgb(233, 233, 233);
+  line-height: 60px;
   display: inline-block;
-  padding: 20px 90px;
+  margin-left: 50px;
+  margin-bottom: 40px;
+  padding: 40px 10px;
+  padding-bottom: 20px;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  border-bottom-left-radius: 28px;
+  border-bottom-right-radius: 28px;
+  border-top: none;
   position: relative;
   overflow: hidden;
   z-index: 9;
-  background: #fff;
+  background: rgb(220, 248, 255);
   letter-spacing: 1px;
-  cursor: pointer;
+  cursor: default;
   margin-top: 50px;
-  width: 260px;
-  font-size: 30px;
+  font-size: 42px;
   font-family: 'Fredericka the Great', cursive;
 }
-.logout::before {
+.donated::before {
   content: "";
   position: absolute;
   left: 50%;
@@ -108,9 +116,10 @@ color: white
   height: 15px;
   width: 15px;
   border-radius: 50%;
-  background: #d0e8f2;
+  background: #3088ad;
   z-index: -1;
 }
+
 @keyframes drop {
   0% {
     top: -15px;
@@ -140,10 +149,11 @@ color: white
     opacity: 0;
   }
 }
-.logout:hover::before {
-  animation: drop 0.5s linear;
+.donated:hover::before {
+  animation: drop 1s linear;
 }
-.logout::after {
+
+.donated::after {
   content: "";
   position: absolute;
   left: 0%;
@@ -151,16 +161,33 @@ color: white
   height: 0%;
   width: 100%;
   border-radius: 0%;
-  background: #d0e8f2;
+  background: #189af1;
   z-index: -1;
 }
-.logout:hover::after {
+.donated:hover::after {
   height: 100%;
   transition: all 0.4s linear;
-  transition-delay: 0.5s;
+  transition-delay: 1s;
 }
-.logout:hover {
+.donated:hover {
   color: #fff;
   transition: all 0.4s linear;
-  transition-delay: 0.5s;
+  transition-delay: 1s;
 }
+
+.line{
+  width: 100%;
+  border-top: solid white 1px;
+}
+
+.logout {
+margin: 5px;
+border: none;
+outline: none;
+font-family: 'Times New Roman', Times, serif;
+}
+
+.logout:hover{
+  color: white;
+}
+
