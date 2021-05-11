@@ -31,7 +31,7 @@ router.post('/',
       water: 0,
       fundsGenerated: 0,
       fundsDonated: 0,
-      fundsCushion: 0 
+      fundsBalance: 0 
     });
 
     newOverallConsumption.save().then(overallconsumption => res.json(overallconsumption));

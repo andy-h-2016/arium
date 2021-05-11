@@ -8,7 +8,7 @@ module.exports = function validateOverallConsumptionInput(data) {
   data.water = (data.water) ? data.water.toString() : '0';
   data.fundsGenerated = (data.fundsGenerated) ? data.fundsGenerated.toString() : '0';
   data.fundsDonated = (data.fundsDonated) ? data.fundsDonated.toString() : '0';
-  data.fundsCushion = (data.fundsCushion) ? data.fundsCushion.toString() : '0';
+  data.fundsBalance = (data.fundsBalance) ? data.fundsBalance.toString() : '0';
 
   if (data.water && !Validator.isInt(data.water, { min: 0 })) {
     errors.water = 'Overall consumption cannot be lower than 0';

@@ -1,4 +1,5 @@
 import React from 'react';
+import {daysCounter} from '../../../../helper/time_operations';
 
 class SecondsTimer extends React.Component {
   constructor(props) {
@@ -24,7 +25,7 @@ class SecondsTimer extends React.Component {
 
   calculateTerrariumLevels() {
     let {waterTracker, terrarium, currentUser} = this.props;
-    let daysElapsed = this.daysCounter();
+    let daysElapsed = this.days();
     // console.log('daysElapsed', daysElapsed)
 
     // while (daysElapsed > 0) {
@@ -56,17 +57,15 @@ class SecondsTimer extends React.Component {
     //   .then(() => this.forceUpdate())
   }
 
-  daysCounter() {
+  days() {
     const currentDate = new Date();
     const lastActiveDate = new Date(localStorage.getItem('lastActiveDate'));
     let daysElapsed;
 
     if (lastActiveDate) {
-      const lastActiveDateSansTime = new Date(lastActiveDate.getFullYear(), lastActiveDate.getMonth(), lastActiveDate.getDate());
-      const currentDateSansTime = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
-      daysElapsed = (currentDateSansTime - lastActiveDateSansTime) / (1000 * 60 * 60 * 24);
+      daysElapsed = daysCounter(lastActiveDate, currentDate)
 
-      daysElapsed = msElapsed / (1000 * 60 * 60 * 24) //convert ms to days
+      // daysElapsed = msElapsed / (1000 * 60 * 60 * 24) //convert ms to days
     } else {
      daysElapsed = 0; 
     }

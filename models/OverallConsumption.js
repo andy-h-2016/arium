@@ -12,8 +12,11 @@ const OverallConsumptionSchema = new Schema({
   fundsDonated: {
     type: Number
   },
-  fundsCushion: {
+  fundsBalance: {
     type: Number
+  },
+  lastAlertedAt: {
+    type: Date
   }
 }, {
   timestamps: true
