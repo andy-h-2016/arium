@@ -61,7 +61,11 @@ class SideBar extends React.Component {
       } else {
         return (
           <nav className="login-modal-button">
-          <button className="login-signup" onClick={() => this.props.openModal('login')}>sign in</button>     
+          <button className="login-signup" onClick={() => this.props.openModal('login')}>
+            <div className="sign-in-text">
+            sign in
+            </div>
+            </button>     
         </nav>
         );
       }

@@ -199,12 +199,17 @@ button{
     font: 16px;
   }
     
+.sign-in-text{
+  min-width: 102px;
+}
+
   .login-signup {
     display: flex;
     float: right;
     cursor:pointer;
     font-size: 30px;
      font-family: 'Fredericka the Great', cursive;
+     
   }
 
   .modal-background {
@@ -305,6 +310,7 @@ button{
   letter-spacing: 1px;
   cursor: pointer;
 }
+
 .login-signup::before {
   content: "";
   position: absolute;
