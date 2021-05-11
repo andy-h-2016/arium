@@ -90,12 +90,12 @@ color: white
   line-height: 20px;
   display: inline-block;
   margin-left: 85px;
-  padding: 40px 2px;
+  padding: 10px 2px;
   padding-bottom: 50px;
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
-  border-bottom-left-radius: 28px;
-  border-bottom-right-radius: 28px;
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;
   border-top: none;
   position: relative;
   overflow: hidden;
@@ -170,7 +170,7 @@ color: white
   z-index: -1;
 }
 .donated:hover::after {
-  height: 100%;
+  height: 90%;
   transition: all 0.4s linear;
   transition-delay: 1s;
 }
