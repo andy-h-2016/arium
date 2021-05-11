@@ -33,6 +33,7 @@ class OverallConsumption extends React.Component {
         <div className="overall-msg">Cups </div>
         <div className="overall-msg">Donated</div>
         </div>
+        
       </div>
     )
   }

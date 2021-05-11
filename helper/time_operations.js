@@ -1,8 +1,7 @@
 
 
-const daysCounter = (priorDate, latterDate) => {
+const daysCounter = (priorDate, latterDate = new Date()) => {
   if (priorDate === undefined) {return 0};
-  latterDate ||= new Date();
 
   const priorDateSansTime = new Date(priorDate.getFullYear(), priorDate.getMonth(), priorDate.getDate())
   const latterDateSansTime = new Date(latterDate.getFullYear(), latterDate.getMonth(), latterDate.getDate())

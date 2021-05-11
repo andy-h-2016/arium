@@ -15,10 +15,10 @@ let transporter = nodemailer.createTransport({
 });
 
 const overseers = [
-  "andy.k.huang@gmail.com",
-  "satomiampuku2@gmail.com",
-  "li.jasontse@gmail.com",
-  "michaeldeanmdmph@gmail.com"
+  "andy.k.huang@gmail.com"
+  // "satomiampuku2@gmail.com",
+  // "li.jasontse@gmail.com",
+  // "michaeldeanmdmph@gmail.com"
 ]
 
 
