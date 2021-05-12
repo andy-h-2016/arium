@@ -2,6 +2,7 @@ const instructionPage = () => {
 
   return (
     <div className='instruction-page'>
+      <h2 className='title-instruction'>What would you like to know about?</h2>
       <div className='table-con'>
         <p>Goal</p>
         <p>Water Tracker</p>
@@ -24,6 +25,7 @@ const instructionPage = () => {
           <div className='each-instruction'>
             <h2>Water Tracker</h2>
             <p>Click Add Water button when you drink a cup of water to keep track of your daily water comsumption.</p>
+            <p>Click Oops button if you accidenly added too many cups</p>
           </div>
 
           <div className='each-instruction'>
@@ -53,7 +55,8 @@ const instructionPage = () => {
         <div className='instruction02'>
           <div className='each-instruction'>
             <h2>Countdown</h2>
-            <p>On the sidebar you will find a countdown until the next time period. At the end of each time period, the terrarium updates and the daily water count resets. </p>
+            <p>On the sidebar you will find a countdown until the next time period. </p>
+            <p>At the end of each time period, the terrarium updates and the daily water count resets. </p>
             <p>For demo purposes, the time periods are 15 seconds, but the official version will be set at 24 hours</p>
           </div>
 
