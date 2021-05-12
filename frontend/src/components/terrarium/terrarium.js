@@ -256,9 +256,10 @@ class Terrarium extends React.Component {
         <h1 className="welcome-mes">
           {terrarium.title}
           <div className="info-container">
+
             <div className="tooltip">
               <div className="info-Link">
-                <Link to={"/instruction"}>
+                <Link to={'/instruction'}>
                   <div className="info-link">
                     <i className="fas fa-info-circle"></i>
                   </div>

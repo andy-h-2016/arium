@@ -39,15 +39,15 @@ class InstructionPage extends React.Component {
             <div className='each-instruction goal'>
               <span className='arrow'></span>
               <h2 ref={this.goalRef}>Goal</h2>
-              <p> You can update your daily water comsumption goal on your Terrarium page by clicking the Up or Down arrows.</p>
+              <p> You can update your daily water consumption goal on your Terrarium page by clicking the Up or Down arrows.</p>
             </div>
 
             <div className='each-instruction tracker'>
               <span className='arrow'></span>
               <h2 ref={this.trackerRef}>Water Tracker</h2>
 
-              <p>Click the Add Water button when you drink a cup of water to keep track of your daily water comsumption.</p>
-              <p>Click the Oops button if you accidenly added too many cups of water</p>
+              <p>Click the Add Water button when you drink a cup of water to keep track of your daily water consumption.</p>
+              <p>Click the Oops button if you accidentally added too many cups of water.</p>
             </div>
 
             <div className='each-instruction streak'>
@@ -55,7 +55,7 @@ class InstructionPage extends React.Component {
               <h2 ref={this.streakRef}>Daily Goal Streak</h2>
 
               <p>Try to meet your goal everyday!</p>
-              <p>Your Terrarium will evolve faster if you keep your streak up and you will earn new titles as it increases!</p>
+              <p>Your Terrarium will evolve faster if you keep your streak up!</p>
             </div>
 
             <div className='each-instruction stage'>
@@ -91,14 +91,13 @@ class InstructionPage extends React.Component {
               <h2 ref={this.countdownRef}>Countdown</h2>
               <p>In the sidebar you will find a 15 second timer.</p>
               <p>At the end of each time period, the Terrarium updates and the daily water count resets. </p>
-              <p>For demo purposes, the time periods are only 15 seconds, but the actual live version of this site will be on a 24 hour cycle</p>
+              <p>For demo purposes, the time periods are only 15 seconds, but the official version of this site will be on a 24-hour cycle.</p>
             </div>
 
             <div className='each-instruction donation'>
               <span className='arrow'></span>
               <h2 ref={this.donationRef}>Cups Donated</h2>
-              <p>On the side bar you will see a number and Cups Donated,</p>
-              <p>The number is the total cups of water all of our users have logged into our system.</p>
+              <p>This number is the total cups of water all of our users have logged into our system.</p>
               <p>This number is very imporant because it is also the number of cups of water that have been donated.</p>
             </div>
           </div>
