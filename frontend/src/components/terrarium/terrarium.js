@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link} from 'react-router-dom';
 class Terrarium extends React.Component {
   constructor(props) {
     super(props);
@@ -138,12 +138,26 @@ class Terrarium extends React.Component {
         <div></div>
         <div className='on-shelf'>
           {this.renderTerra()}
+          
+          <div className="info-container">
+
+              <div className="tooltip">
+          <div className="info-Link">
+              <Link to={'/instruction'}>
+                <div className="info-link">
+                <i className="fas fa-info-circle"></i>
+                </div>
+              </Link>
+                  <span className="tooltiptext">Information</span>
+              </div>
+            </div>
           <div className='status-terra-con'>
             {this.renderStatus()}
             <div className='terra-btn-con'>
               <button type='click' className='water-btn' onClick={this.addWater}>Add Water</button>
               <button type='click' className='water-btn' onClick={this.removeWater}>Oops</button>
             </div>
+          </div>
           </div>
         </div>
         <div className='im-shelf'></div>
