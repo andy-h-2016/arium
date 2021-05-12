@@ -6,7 +6,7 @@
   flex-direction: column;
   align-items: center;
   padding-bottom: 100px;
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 .welcome-mes {
@@ -14,20 +14,24 @@
   font-size: 50px;
   /* color: rgb(237, 242, 244); */
   color: #fff;
-
+display: flex;
 }
 
 .im-the-terra img {
   background-size:cover;
   padding-bottom: 0px;
   /* box-shadow:0 0 5px 0 rgba(0,0,0,.25) inset, 0 5px 10px 5px rgba(0,0,0,.25); */
+}
 
+.im-the-terra {
+  width: 600px;
+  height: auto;
 }
 
 .im-shelf {
   background: url("../../images/shelf03.png") center no-repeat;;
-  width: 1600px;
-  height: 100px;
+  width: 1340px;
+  height: 65px;
   margin-top: 0px;
   padding-top: 0px;
   /* margin-bottom: 70px; */
@@ -98,7 +102,7 @@
   border-top-color:#ccb;
   max-height:100%;
   max-width:100%;
-  margin-top: 35px;
+  margin-top: 25px;
   margin-bottom: 0px;
   padding-bottom: 0px;
 }
@@ -176,4 +180,60 @@ z-index: 2;
 
 .bonus {
   color: green;
+}
+
+.info-link{
+  display: flex;
+}
+
+.info-container{
+  display: flex;
+}
+
+
+.fa-info-circle{
+  font-size: 30px;
+  color: #ffffff;
+  top: 0;
+
+}
+
+a:link{
+  text-decoration: none;
+}
+
+
+
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 31.5px;
+ }
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 50px;
+  color: rgba(255, 255, 255, 0.801);
+  text-align: center;
+  font-size: 20px;
+
+  /* Position the tooltip text */
+  position: absolute;
+  z-index: 0;
+  bottom: 10%;
+  left: 50%;
+  margin-left: 20px;
+
+  /* Fade in tooltip */
+  opacity: 0;
+  transition: opacity 0.1s;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
 }

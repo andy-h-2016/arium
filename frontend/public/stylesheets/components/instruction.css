@@ -1,0 +1,210 @@
+.instruction-page {
+  background: rgb(115, 147, 168);
+  padding: 80px;
+  padding-bottom: 300px;
+  padding-top: 20px;
+  font-family: Palatino, "Palatino LT STD", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  color:  rgb(47, 55, 79);
+}
+.title-instruction {
+  text-align: center;
+  font-size: 50px;
+  color: #fff;
+margin-bottom: 70px;
+  
+}
+.table-con {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+.table-flex {
+  width: 500px;  
+  background: #fff;
+  max-width: 500px;
+  padding: 20px;
+  border: solid 15px rgb(150, 127, 39);
+  box-shadow: 0 10px 7px -5px rgba(0, 0, 0, 0.3);
+}
+.table-frame {
+  border: rgb(136, 133, 127) solid 1px;
+  padding: 30px;
+  box-shadow: inset 2px 2px 7px -2px rgba(119, 119, 63, 0.7);
+}
+
+.table-con p {
+  font-size: 30px;
+  margin: 5px;
+}
+.table-frame p{   
+  color: rgb(6, 79, 54);
+}
+.table-frame p:hover{   
+  color: rgb(13, 150, 102);
+}
+.each-instruction h2{
+  font-size: 30px;
+  margin: 15px 5px 5px 5px;
+  color: #fff;
+  /* text-decoration: none; */
+}
+.each-instruction p{
+  font-size: 25px;
+  margin: 5px
+
+}
+
+/* mid section */
+.mid-section {
+  position: relative;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.instruction01 {
+  display: flex;
+  flex-direction: column;
+}
+.placeholder01 {
+  width: 60%;
+}
+.terra-inst-img {
+  background-image: url('../../images/instruction/terraframe.png');
+  position: absolute;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+  background-size: 40%;
+  left: 60%;
+  top: 15%;
+}
+
+
+
+/* bottom section */
+.bottom-section {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+  margin-bottom: 40px;
+  
+}
+.instruction02 {
+  display: flex;
+  flex-direction: column;
+  margin-left: 70px;
+}
+.placeholder02 {
+  width: 90%;
+}
+.tracker-inst-img {
+  background-image: url('../../images/instruction/tracker01.png');
+  position: absolute;
+  /* background-repeat: no-repeat; */
+  background-size: contain;
+  height: 95%;
+  width: 50%;
+  background-size: 100%;
+  top: 13%;
+}
+
+.arrow {
+  background-image: url('../../images/instruction/r-arrow.png');
+  position: absolute;
+  background-repeat: no-repeat;  
+  height: 100%;
+  width: 100%;
+  background-size: 5%;
+  z-index: 2;
+  top: 27%;
+  left: 65%;
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* goal */
+.each-instruction.goal:hover .arrow{
+  opacity: 1;
+  visibility: visible;
+}
+.each-instruction.goal:hover {
+  color:  rgb(1, 114, 184);
+}
+/* tracker */
+.each-instruction.tracker:hover .arrow{
+  opacity: 1;
+  visibility: visible;
+  top: 35%;
+}
+.each-instruction.tracker:hover {
+  color:  rgb(1, 114, 184);
+}
+/* streak */
+.each-instruction.streak:hover .arrow{
+  opacity: 1;
+  visibility: visible;
+  top: 42%;
+}
+.each-instruction.streak:hover {
+  color:  rgb(1, 114, 184);
+}
+/* stage */
+.each-instruction.stage:hover .arrow{
+  opacity: 1;
+  visibility: visible;
+  top: 49%;
+}
+.each-instruction.stage:hover {
+  color:  rgb(1, 114, 184);
+}
+/* rank */
+.each-instruction.rank:hover .arrow{
+  opacity: 1;
+  visibility: visible;
+  top: 42%;
+}
+.each-instruction.rank:hover .arrow2{
+  opacity: 1;
+  visibility: visible;
+}
+.each-instruction.rank:hover {
+  color:  rgb(1, 114, 184);
+}
+
+.arrow2 {
+  background-image: url('../../images/instruction/r-arrow.png');
+  position: absolute;
+  background-repeat: no-repeat;  
+  height: 100%;
+  width: 100%;
+  background-size: 5%;
+  z-index: 2;
+  top: 135%;
+  left: 15%;
+  opacity: 0;
+  visibility: hidden;
+}
+/* countdown */
+.each-instruction.countdown:hover .arrow{
+  opacity: 1;
+  visibility: visible;
+  left: 41%;
+  top: 59%;
+}
+.each-instruction.countdown:hover {
+  color:  rgb(1, 114, 184);
+}
+/* donation */
+.each-instruction.donation:hover .arrow{
+  opacity: 1;
+  visibility: visible;
+  left: 41%;
+  top: 39%;
+}
+.each-instruction.donation:hover {
+  color:  rgb(1, 114, 184);
+}

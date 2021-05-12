@@ -35,6 +35,7 @@ class SideBar extends React.Component {
             <div id="mySidebar" className="sidebar" >
 
                 <button className="closebtn" onClick={() => this.closeNav()}>×</button>
+                <Link to={'/instruction'}>Instructions</Link>
                 <Link to={'/terrarium'}>My Terrarium</Link>
                 
                 <Link to={`/watertracker/`}>Water Tracker</Link> 
@@ -61,7 +62,15 @@ class SideBar extends React.Component {
       } else {
         return (
           <nav className="login-modal-button">
-          <button className="login-signup" onClick={() => this.props.openModal('login')}>sign in</button>     
+          <button className="login-signup" onClick={() => this.props.openModal('login')}>
+            <div className="sign-in-text">
+            sign in
+            </div>
+            </button>  
+            <br></br>  
+            <button className="register-btn" onClick={() => this.props.openModal('signup')}>
+            Not a member yet? Register here!
+            </button> 
         </nav>
         );
       }

@@ -12,6 +12,7 @@ import TerrariumIndexContainer from './terrarium/terrarium_index_container';
 import InfoPage from './info/info_page';
 import DonationInfoPage from './info/donation_info';
 import TerrariumShowContainer from './terrarium/terrarium_show_container';
+import InstructionPage from './info/instruction';
 
 const App = () => (
   <div className="main-container">
@@ -27,6 +28,8 @@ const App = () => (
       <ProtectedRoute exact path="/watertracker" component={WaterTrackerContainer} />
       <ProtectedRoute exact path="/info" component={InfoPage} />
       <ProtectedRoute exact path="/donation" component={DonationInfoPage} />
+      <ProtectedRoute exact path="/instruction" component={InstructionPage} />
+
     </Switch>
       <div className="foot">
           <div className="push"></div>
