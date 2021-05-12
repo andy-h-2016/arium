@@ -83,6 +83,7 @@ transition: 0.3s ease-in-out;
 .water-tracker-total{
 background: #fff;
 max-width: 500px;
+height: fit-content;
 /* min-height: 400px; */
 padding: 20px;
 border: solid 10px rgb(150, 127, 39);
@@ -106,13 +107,12 @@ transition: 0.3s ease-in-out;
   margin-top: 40px;
   border: solid 10px rgb(196, 180, 151);
   box-shadow: 0 10px 7px -5px rgba(0, 0, 0, 0.3);
-  max-width: 500px;
   transition: 0.3s ease-in-out;
 }
 .currentrank{
   font-weight: 600;
-  font-size: 35px;
-  margin-top: 20px;
+  font-size: 25px;
+  margin-top: 15px;
 }
 
 
@@ -141,4 +141,42 @@ transition: 0.3s ease-in-out;
 .ranks {
   min-width: 400px;
   min-height: 78px;
+}
+
+.rankone {
+  color: green;
+}
+
+.ranktwo {
+  color: green;
+}
+
+.rankthree {
+  color: green;
+}
+
+.rankfour {
+  color: green;
+}
+
+.rankfive {
+  color: green;
+}
+
+.rank-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.streak-levels {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-evenly; */
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.rank-level {
+  margin-top: 15px;
 }
