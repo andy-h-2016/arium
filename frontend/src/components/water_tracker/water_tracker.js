@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import {Link, withRouter } from 'react-router-dom';
 
 
 class WaterTracker extends React.Component {
@@ -86,10 +86,23 @@ class WaterTracker extends React.Component {
     }
     return (
       <div className="water-tracker-container">
+          
+          <div className="water-info-container">
         <div className="water-tracker-header">
           <div className="wt-header-title">
             Water Tracker
           </div>
+<div className="water-tooltip">
+<div className="water-info-Link">
+<Link to={'/instruction'}>
+  <div className="water-info-link">
+  <i class="fas fa-info-circle water-fa-info-circle"></i>
+  </div>
+</Link>
+    <span className="water-tooltiptext">Information</span>
+</div>
+</div>
+</div>
         </div>
 
         <div className='two-of-items1'>
