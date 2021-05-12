@@ -71,12 +71,10 @@
   color: rgb(249, 236, 214);
 }
 
-
 .two-of-items1 {
   display: flex;
   justify-content: space-between;
   min-width: 1000px;
-  /* margin-bottom: 80px; */
   text-align: center;
 }
 .two-of-items2 {
@@ -86,7 +84,6 @@
   text-align: center;
 }
 /* terr-title-text */
-
 .wt-terrarium-title{
   margin: 20px;
   display: flex;
@@ -97,7 +94,6 @@
   border: solid 10px rgb(76, 76, 97);
   box-shadow: 0 10px 7px -5px rgba(0, 0, 0, 0.3);
   transition: 0.3s ease-in-out;
-
 }
 .frame-mgn {
   border: rgb(136, 133, 127) solid 1px;
