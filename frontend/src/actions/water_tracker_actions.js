@@ -30,7 +30,6 @@ export const createWaterTracker = waterTracker => dispatch => (
 export const updateWaterTracker = data => dispatch => (
   WaterTrackerAPIUtil.updateWaterTracker(data)
   .then(res => {
-    console.log('water patch response', res)
       dispatch(receiveWaterTracker(res.data.waterTracker));
       dispatch(receiveOverallConsumptions(res.data.overallConsumption))
     })

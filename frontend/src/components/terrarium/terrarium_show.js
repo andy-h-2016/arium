@@ -24,8 +24,8 @@ class TerrariumShow extends React.Component {
             className="im-the-terra"
             src="images/terra-stages/normal-o.gif"
             alt="normal-o"
-            width="700"
-            height="850"
+            // width="700"
+            // height="850"
           ></img>
         );
       } else {
@@ -34,8 +34,8 @@ class TerrariumShow extends React.Component {
             className="im-the-terra"
             src="images/terra-stages/normal-f.gif"
             alt="normal-f"
-            width="700"
-            height="850"
+            // width="700"
+            // height="850"
           ></img>
         );
       }

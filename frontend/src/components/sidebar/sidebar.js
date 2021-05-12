@@ -42,23 +42,34 @@ class SideBar extends React.Component {
                 <Link to={'/terrariums'}>All Terrariums</Link>
                 <Link to={'/info'}>About Us</Link>
                 <Link to={'/donation'}>Global Thirst</Link>
-
-                <div className="overall-link">
-                  <OverallConsumptionContainer />
-                </div>
-
-                 <TimerContainer />
-
-                <nav className="login-modal-button">
+                <div className="line"></div>
+                <nav className="logout-btn ">
                 <button className="logout" onClick={this.logoutUser}>Logout</button>
                 </nav>
+
+                <div className="donated">
+                  <OverallConsumptionContainer />            
+                </div>
+                <div className="overall-msg">Cups </div>
+                <div className="overall-msg msg2">Donated</div>
+                <br></br>
+                 <TimerContainer />
               </div>
+             
             </div>
         );
       } else {
         return (
           <nav className="login-modal-button">
-          <button className="login-signup" onClick={() => this.props.openModal('login')}>sign in</button>     
+          <button className="login-signup" onClick={() => this.props.openModal('login')}>
+            <div className="sign-in-text">
+            sign in
+            </div>
+            </button>  
+            <br></br>  
+            <button className="register-btn" onClick={() => this.props.openModal('signup')}>
+            Not a member yet? Register here!
+            </button> 
         </nav>
         );
       }

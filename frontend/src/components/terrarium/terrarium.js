@@ -93,6 +93,8 @@ class Terrarium extends React.Component {
   }
 
   renderStatus() {
+    const bonus = (this.props.waterTracker.streak > 1) ? 'bonus' : '';
+
     if (this.props.terrarium && this.props.waterTracker && this.state) {
       return (
         <div className='stat-innerbox'>
@@ -111,7 +113,7 @@ class Terrarium extends React.Component {
             <p>Cups of water today</p>
             <p>{this.props.waterTracker.today}</p>
           </div>
-          <div className='terra-row'>
+          <div className={`terra-row ${bonus}`}>
             <p>Daily goal streak</p>
             <p>{this.props.waterTracker.streak}</p>
           </div>

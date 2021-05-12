@@ -163,6 +163,7 @@ button{
     background: #79a3b1;
    margin-right: 20px;
   }
+  
   .topOfForm{
     display: flex;
     justify-content: space-between;
@@ -171,7 +172,8 @@ button{
   .otherForm {
     cursor: pointer;
     text-align: center;
-    top: 0;    
+    top: 0; 
+    /* left: -20px;    */
     font-size: 13px;
     height: 18px;
     min-width: 51px;
@@ -197,12 +199,17 @@ button{
     font: 16px;
   }
     
+.sign-in-text{
+  min-width: 102px;
+}
+
   .login-signup {
     display: flex;
     float: right;
     cursor:pointer;
     font-size: 30px;
      font-family: 'Fredericka the Great', cursive;
+     
   }
 
   .modal-background {
@@ -286,7 +293,7 @@ button{
 }
   
   #currentForm{
-    font-size: 20px;
+    font-size: 40px;
     color: #456268;
   }
 
@@ -303,6 +310,7 @@ button{
   letter-spacing: 1px;
   cursor: pointer;
 }
+
 .login-signup::before {
   content: "";
   position: absolute;
@@ -405,4 +413,15 @@ button{
  
 }
 
+.register-btn{
+  background: none;
+  border: none;
+  outline: none;
+  color: #79a3b1;
+  width: 504px;
+  text-align: center;
+}
 
+.register-btn:hover{
+  color: #d0e8f2;
+}

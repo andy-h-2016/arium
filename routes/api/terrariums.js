@@ -67,12 +67,8 @@ router.patch('/:id',
       health: req.body.health
     }
 
-    console.log('UPDATES: ', update )
-    console.log('params: ', req.params.id )
-
     Terrarium.findByIdAndUpdate(req.params.id, update, {new: true}, (err, terrarium) => {
       if (err) {
-        console.log('mongoDB: ', err)
         res.status(400).json(err)
       } else {
         res.json(terrarium)
