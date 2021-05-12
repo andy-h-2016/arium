@@ -1,5 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
+
 class TerrariumShow extends React.Component {
   componentDidMount() {
     this.props.fetchUserTerrarium(this.props.match.params.id);

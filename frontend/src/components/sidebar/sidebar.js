@@ -35,6 +35,7 @@ class SideBar extends React.Component {
             <div id="mySidebar" className="sidebar" >
 
                 <button className="closebtn" onClick={() => this.closeNav()}>×</button>
+                <Link to={'/instruction'}>Instructions</Link>
                 <Link to={'/terrarium'}>My Terrarium</Link>
                 
                 <Link to={`/watertracker/`}>Water Tracker</Link> 
