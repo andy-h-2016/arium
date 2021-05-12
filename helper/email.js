@@ -5,7 +5,7 @@ const OverallConsumption = require('../models/OverallConsumption');
 
 const {daysCounter} = require('../helper/time_operations');
 
-const alertThreshold = 20;
+const alertThreshold = 2;
 
 let transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
@@ -15,18 +15,16 @@ let transporter = nodemailer.createTransport({
 });
 
 const overseers = [
-  "andy.k.huang@gmail.com"
-  // "satomiampuku2@gmail.com",
-  // "li.jasontse@gmail.com",
-  // "michaeldeanmdmph@gmail.com"
+  "andy.k.huang@gmail.com",
+  "satomiampuku2@gmail.com",
+  "li.jasontse@gmail.com",
+  "michaeldeanmdmph@gmail.com"
 ]
 
 
 
 function alertIfBalanceLow(fundsBalance, lastAlertedAt, overallId) {
   const daysElapsed = daysCounter(lastAlertedAt, new Date());
-  console.log(fundsBalance)
-  console.log(overallId)
   if (fundsBalance < alertThreshold && daysElapsed >= 2) {
     const balance = fundsBalance.toString().slice(0,5); //convert to string, truncate to two decimal places
 

@@ -1,9 +1,14 @@
 import React from 'react';
 import {daysCounter} from '../../../../helper/time_operations';
+const INTERVAL = 1000 * 60;
 
-class SecondsTimer extends React.Component {
+class DayTimer extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
+    // this.state = {countdown: 0};
+    // this.setCountdown = this.setCountdown.bind(this);
+    // this.setCountdown();
+    this.levelCalculatedOnLogin = false;
   }
 
   componentDidMount() {
@@ -15,7 +20,7 @@ class SecondsTimer extends React.Component {
     this.intervalID = setInterval( () => {
       console.log(`tick! timerId: ${timerId}`);
       this.calculateTerrariumLevels();
-    }, 5000); 
+    }, INTERVAL); 
 
   }
 
@@ -23,38 +28,80 @@ class SecondsTimer extends React.Component {
     clearInterval(this.intervalID);
   }
 
+  //visual clock
+  // setCountdown() {
+  //   this.setState()
+  //   let countdown = this.state.countdown;
+  //   clearInterval(this.countdownID)
+
+  //   this.countdownID = setInterval( () => {
+  //     if (countdown > 0) {
+  //       this.setState({countdown: this.state.countdown - 1})
+  //     } else {
+  //       this.setCountdown()
+  //     }
+  //   }, 1000)
+  // }
+
+
   calculateTerrariumLevels() {
     let {waterTracker, terrarium, currentUser} = this.props;
     let daysElapsed = this.days();
+    let isTerrariumMaxed;
+    let isTerrariumMin;
     // console.log('daysElapsed', daysElapsed)
 
-    // while (daysElapsed > 0) {
+    if (daysElapsed > 0) {
       switch (true) {
         case waterTracker.today >= currentUser.goal:
           let increase = (waterTracker.streak > 1) ? 2 : 1;
           waterTracker.streak += 1;
-          terrarium.level += increase;
+          if (terrarium.level === 30) {
+            isTerrariumMaxed = true
+          } else if (terrarium.level + increase > 30) {
+            terrarium.level = 30;
+          } else {
+            terrarium.level += increase;
+          }
           break
         case waterTracker.today >= Math.floor(.5 * currentUser.goal):
           //terrariumlevel += 0; no change.
           waterTracker.streak = 0;
           break
         case waterTracker.today < Math.floor(.5 * currentUser.goal):
-          terrarium.level -= 1;
+          if (terrarium.level === 1) {
+            isTerrariumMin = true;
+          } else {
+            terrarium.level -= 1;
+          }
           waterTracker.streak = 0;
           break
       }
+      
+      //if user has not been active for over 2 days
+      if (daysElapsed > 1) {
+        //Lose a level for each day not active. 
+        //Subtract a day since the first day's results are calculated in the switch statement above
+        const levelsDecrease = daysElapsed - 1;
+        if (terrarium.level - levelsDecrease < 1) {
+          terrarium.level = 1; 
+        } else {
+          terrarium.level -= levelsDecrease;
+        }
+        waterTracker.streak = 0;
+      }
 
       waterTracker.today = 0;
-      this.props.updateTerrarium(terrarium)
-        .then(() => this.props.updateWaterTracker(waterTracker))
-        .then(() => this.forceUpdate());
-
-      // daysElapsed -= 1;
-    // }
-    // terrarium.level += 1;
-    // this.props.updateTerrarium(terrarium)
-    //   .then(() => this.forceUpdate())
+      this.props.updateWaterTracker(waterTracker)
+        .then(() => {
+          if (isTerrariumMaxed || isTerrariumMin) {
+            return
+          } else {
+            this.props.updateTerrarium(terrarium);
+          }
+        })
+        .then(() => this.forceUpdate());   
+    }
   }
 
   days() {

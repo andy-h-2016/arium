@@ -16,7 +16,6 @@ class SecondsTimer extends React.Component {
     const id = this.props.currentUser.id || this.props.currentUser._id;
     this.props.fetchUserTerrarium(id);
     this.props.fetchUserWaterTracker(id);
-    const timerId = Math.random();
     this.intervalID = setInterval( () => {
       this.calculateTerrariumLevels();
       this.setCountdown();
@@ -71,39 +70,45 @@ class SecondsTimer extends React.Component {
           } else {
             terrarium.level += increase;
           }
-
-          if (timePeriods > 1) {
-            terrarium.level = (terrarium.level - (timePeriods -1)) < 1 ? 1 : (terrarium.level - (timePeriods -1))
-            waterTracker.streak = 0;
-          }
           break
-          
         case waterTracker.today >= Math.floor(.5 * currentUser.goal):
           //terrariumlevel += 0; no change.
           waterTracker.streak = 0;
           break
-            
         case waterTracker.today < Math.floor(.5 * currentUser.goal):
           if (terrarium.level === 1) {
             isTerrariumMin = true
-          } else if (terrarium.level - timePeriods < 1) {
-            terrarium.level = 1
           } else {
-            terrarium.level -= timePeriods;
+            terrarium.level -= 1;
           }
           waterTracker.streak = 0;
           break
-      }       
+      }
+
+      //if user has not been active for more than 1 time period
+      if (timePeriods > 1) {
+        //Lose a level for each day not active. 
+        //Subtract a day since the first day's results are calculated in the switch statement above
+        const levelsDecrease = timePeriods - 1;
+        if (terrarium.level - levelsDecrease < 1) {
+          terrarium.level = 1 
+        } else {
+          terrarium.level -= levelsDecrease;
+        }
+        waterTracker.streak = 0;
+      }
+
+      //reset water count, update WaterTracker and Terrarium
       waterTracker.today = 0;
       this.props.updateWaterTracker(waterTracker)
-      .then(() => {
-        if (isTerrariumMaxed || isTerrariumMin) {
-          return
-        } else {
-          this.props.updateTerrarium(terrarium);
-        }
-      })
-      .then(() => this.forceUpdate());   
+        .then(() => {
+          if (isTerrariumMaxed || isTerrariumMin) {
+            return
+          } else {
+            this.props.updateTerrarium(terrarium);
+          }
+        })
+        .then(() => this.forceUpdate());   
     }
   }
           
