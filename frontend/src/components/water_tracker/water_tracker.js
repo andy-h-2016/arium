@@ -96,7 +96,7 @@ class WaterTracker extends React.Component {
 <div className="water-info-Link">
 <Link to={'/instruction'}>
   <div className="water-info-link">
-  <i class="fas fa-info-circle water-fa-info-circle"></i>
+  <i className="fas fa-info-circle water-fa-info-circle"></i>
   </div>
 </Link>
     <span className="water-tooltiptext">Information</span>

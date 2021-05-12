@@ -145,7 +145,7 @@ class Terrarium extends React.Component {
           <div className="info-Link">
               <Link to={'/instruction'}>
                 <div className="info-link">
-                <i class="fas fa-info-circle"></i>
+                <i className="fas fa-info-circle"></i>
                 </div>
               </Link>
                   <span className="tooltiptext">Information</span>
