@@ -1,7 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const jwt = require('jsonwebtoken');
-const keys = require('../../config/keys');
 const passport = require('passport');
 const Terrarium = require('../../models/Terrarium');
 const validateTerrariumInput = require('../../validation/terrarium');
@@ -42,7 +40,7 @@ router.post('/',
     const newTerrarium = new Terrarium({
       title: `${req.user.username}'s Terrarium`,
       level: 1,
-      health: 0,
+      lastActiveDate: new Date(),
       userId: req.user.id,
       waterTrackerId: req.body.waterTrackerId
     });
@@ -64,8 +62,9 @@ router.patch('/:id',
     const update = {
       title: req.body.title,
       level: req.body.level,
-      health: req.body.health
+      lastActiveDate: req.body.lastActiveDate
     }
+    console.log('update', update)
 
     Terrarium.findByIdAndUpdate(req.params.id, update, {new: true}, (err, terrarium) => {
       if (err) {

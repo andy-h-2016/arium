@@ -7,7 +7,7 @@ import { fetchUser } from '../../actions/session_actions';
 const mapStateToProps = (state, ownProps) => {
   const id = state.session.user.id || state.session.user._id;
   let terrarium = Object.values(state.entities.terrariums).find(terrarium => terrarium.userId === id);
-  let waterTracker = Object.values(state.entities.waterTrackers).find(watertracker => watertracker.userId === id);
+  let waterTracker = Object.values(state.entities.waterTrackers).find(waterTracker => waterTracker.userId === id);
 
   return {
     currentUser: state.session.user,

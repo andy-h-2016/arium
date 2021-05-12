@@ -1,6 +1,6 @@
 import React from 'react';
-import {daysCounter} from '../../../../helper/time_operations';
-const INTERVAL = 1000 * 60;
+import {daysCounter} from '../../util/time_operations';
+const INTERVAL = 1000 * 60; //60 seconds converted to milliseconds
 
 class DayTimer extends React.Component {
   constructor(props) {
@@ -8,14 +8,15 @@ class DayTimer extends React.Component {
     // this.state = {countdown: 0};
     // this.setCountdown = this.setCountdown.bind(this);
     // this.setCountdown();
+    this.days = this.days.bind(this);
     this.levelCalculatedOnLogin = false;
   }
 
   componentDidMount() {
-    const id = this.props.currentUser.id || this.props.currentUser._id;
-    this.props.fetchUserTerrarium(id);
-    this.props.fetchUserWaterTracker(id);
-
+    // const id = this.props.currentUser.id || this.props.currentUser._id;
+    // this.props.fetchUserTerrarium(id)
+    //   .then(result => console.log('result',result))
+    // this.props.fetchUserWaterTracker(id);
     const timerId = Math.random();
     this.intervalID = setInterval( () => {
       console.log(`tick! timerId: ${timerId}`);
@@ -45,20 +46,16 @@ class DayTimer extends React.Component {
 
 
   calculateTerrariumLevels() {
+    
     let {waterTracker, terrarium, currentUser} = this.props;
     let daysElapsed = this.days();
-    let isTerrariumMaxed;
-    let isTerrariumMin;
-    // console.log('daysElapsed', daysElapsed)
 
     if (daysElapsed > 0) {
       switch (true) {
         case waterTracker.today >= currentUser.goal:
           let increase = (waterTracker.streak > 1) ? 2 : 1;
           waterTracker.streak += 1;
-          if (terrarium.level === 30) {
-            isTerrariumMaxed = true
-          } else if (terrarium.level + increase > 30) {
+          if (terrarium.level + increase > 30) {
             terrarium.level = 30;
           } else {
             terrarium.level += increase;
@@ -70,7 +67,7 @@ class DayTimer extends React.Component {
           break
         case waterTracker.today < Math.floor(.5 * currentUser.goal):
           if (terrarium.level === 1) {
-            isTerrariumMin = true;
+            terrarium.level = 1;
           } else {
             terrarium.level -= 1;
           }
@@ -93,20 +90,17 @@ class DayTimer extends React.Component {
 
       waterTracker.today = 0;
       this.props.updateWaterTracker(waterTracker)
-        .then(() => {
-          if (isTerrariumMaxed || isTerrariumMin) {
-            return
-          } else {
-            this.props.updateTerrarium(terrarium);
-          }
-        })
+        .then(() => this.props.updateTerrarium(terrarium))
         .then(() => this.forceUpdate());   
     }
   }
 
   days() {
+    let terrarium = this.props.terrarium;
     const currentDate = new Date();
-    const lastActiveDate = new Date(localStorage.getItem('lastActiveDate'));
+    const lastActiveDate = new Date(terrarium.lastActiveDate);
+    console.log('terrarium.lastActiveDate', terrarium.lastActiveDate)
+    // const lastActiveDate = new Date(localStorage.getItem('lastActiveDate'));
     let daysElapsed;
 
     if (lastActiveDate) {
@@ -116,8 +110,14 @@ class DayTimer extends React.Component {
     } else {
      daysElapsed = 0; 
     }
+    
+    terrarium.lastActiveDate = currentDate;
+    this.props.updateTerrarium(terrarium);
+    console.log('days Elapsed: ', daysElapsed)
+    console.log('time: ', currentDate)
 
-    localStorage.setItem('lastActiveDate', currentDate);
+    // localStorage.setItem('lastActiveDate', currentDate);
+    
 
     return daysElapsed;
   }
@@ -130,4 +130,4 @@ class DayTimer extends React.Component {
 
 }
 
-export default SecondsTimer;
+export default DayTimer;

@@ -3,7 +3,7 @@ const credentials = require('../config/email_cred')
 const OverallConsumption = require('../models/OverallConsumption');
 
 
-const {daysCounter} = require('../helper/time_operations');
+const {daysCounter} = require('../frontend/src/util/time_operations');
 
 const alertThreshold = 2;
 
