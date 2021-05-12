@@ -34,45 +34,52 @@ class WaterTracker extends React.Component {
     let healthMsg;
 
     switch (true) {
-      case waterTracker.today < Math.floor((0.5 * currentUser.goal)) && (waterTracker.today !== 0):
-        healthMsg = <div id="healthmsg">Start drinking now or else...</div>;
-        break;
-      case waterTracker.today >= Math.floor((0.5 * currentUser.goal)) && (waterTracker.today !== currentUser.goal) && !(waterTracker.today > currentUser.goal):
-        healthMsg = <div id="healthmsg">I know you can do better than this!</div>;
-        break;
-      case waterTracker.today === currentUser.goal:
-        healthMsg = <div id="healthmsg">Amazing work... You deserve a drink.</div>;
-        break;
-      case waterTracker.today > currentUser.goal:
-        healthMsg = <div id="healthmsg">Alright, you don't want to drown now...</div>;
-        break;
-      default:
+      case waterTracker.today === 0:
         healthMsg = <div id="healthmsg">Just keep drinking, just keep drinking...</div>;
         break;
+      case waterTracker.today < Math.floor((0.5 * currentUser.goal)):
+        healthMsg = <div id="healthmsg">Good job, keep this momentum going!</div>;
+        break;
+      case waterTracker.today >= Math.floor((0.5 * currentUser.goal)) && (waterTracker.today < currentUser.goal):
+        healthMsg = <div id="healthmsg">You're almost there, you can do this!</div>;
+        break;
+      case waterTracker.today >= currentUser.goal:
+        healthMsg = <div id="healthmsg">Amazing work... You deserve a drink.</div>;
+        break;
+      // case waterTracker.today > currentUser.goal:
+      //   healthMsg = <div id="healthmsg">Alright, you don't want to drown now...</div>;
+      //   break;
+      default:
+        break;
     }
 
-    let rank;
+    let rankOne;
+    let rankTwo;
+    let rankThree;
+    let rankFour;
+    let rankFive;
 
     switch (true) {
-      case waterTracker.streak > 0 && waterTracker.streak <= 7:
-        rank = <div className="ranks">Wet Willie</div>;
+      case waterTracker.streak >= 0 && waterTracker.streak <= 7:
+        rankOne = 'rankone';
         break;
       case waterTracker.streak > 7 && waterTracker.streak <= 15:
-        rank = <div className="ranks">Saturated Sally</div>;
+        rankTwo = 'ranktwo';
         break;
       case waterTracker.streak > 15 && waterTracker.streak <= 23:
-        rank = <div className="ranks">Thirsty Thug</div>;
+        rankThree = 'rankthree';
         break;
       case waterTracker.streak > 23 && waterTracker.streak <= 31:
-        rank = <div className="ranks">Hydro Homie</div>;
+        rankFour = 'rankfour';
         break;
       case waterTracker.streak > 31:
-        rank = <div className="ranks">Moisture Master</div>;
+        rankFive = 'rankfive';
         break;
       default:
-        rank = <div className="ranks">Maintain your streaks to rank up!</div>;
         break;
     }
+
+
     let drinks = currentUser.goal - waterTracker.today
     if (drinks <= 0) {
       drinks = 0
@@ -92,7 +99,7 @@ class WaterTracker extends React.Component {
               <div className="terr-title-text">
                 {terrarium.title}
               </div>
-              <div className='w-comment'>Friendly reminder from your Terrarium:{healthMsg}</div>
+              <div className='w-comment'>A message from your Terrarium:{healthMsg}</div>
             </div>
           </div>
 
@@ -114,7 +121,7 @@ class WaterTracker extends React.Component {
               <div className='comment-l' > WOW!</div>
               <div className='comment-m'> You've drank </div>
               <div className='comment-l' className='num-ani'> {waterTracker.total} </div>
-              <div className='comment-m'> of cups water </div>
+              <div className='comment-m'> cups of water </div>
               <div className='comment-s'>since you've signed up for </div>
               <div className='comment-l'>Arium</div>
             </div>
@@ -122,12 +129,26 @@ class WaterTracker extends React.Component {
 
           <div className="water-tracker-streak">
             <div className='frame-mgn'>
-              <div className="currentrank"> Current Rank: </div>
-              <p className="currentrank">{rank} </p>
+              <div className="currentrank">Maintain your streaks to rank up!</div>
+              <div className="rank-container">
+                <div className="streak-levels">
+                  <div className={`rank-level ${rankOne}`}>0</div>
+                  <div className={`rank-level ${rankTwo}`}>8</div>
+                  <div className={`rank-level ${rankThree}`}>16</div>
+                  <div className={`rank-level ${rankFour}`}>24</div>
+                  <div className={`rank-level ${rankFive}`}>32</div>
+                </div>
+                <div className="rank-titles">
+                  <div className={`currentrank ${rankOne}`}>Wet Willie</div>
+                  <div className={`currentrank ${rankTwo}`}>Saturated Sally</div>
+                  <div className={`currentrank ${rankThree}`}>Thirsty Thug</div>
+                  <div className={`currentrank ${rankFour}`}>Hydro Homie</div>
+                  <div className={`currentrank ${rankFive}`}>Moisture Master</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-
       </div>
     );
   }
