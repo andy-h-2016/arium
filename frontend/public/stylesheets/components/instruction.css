@@ -4,14 +4,16 @@
   font-family: Palatino, "Palatino LT STD", "Palatino Linotype", "Book Antiqua", Georgia, serif;
   color:  rgb(16, 82, 124);
 }
+/* html {
+  scroll-behavior: smooth;
+} */
 .title-instruction {
   text-align: center;
   font-size: 50px;
   color: #fff;
-
+  
 }
 .table-con {
-  /* background: lightgreen; */
   text-align: center;
 }
 
@@ -22,6 +24,7 @@
 .each-instruction h2{
   font-size: 30px;
   margin: 15px 5px 5px 5px;
+  /* text-decoration: none; */
 }
 .each-instruction p{
   font-size: 25px;
@@ -30,16 +33,13 @@
 
 /* mid section */
 .mid-section {
-  /* background-color: lightsteelblue; */
   position: relative;
   margin-bottom: 40px;
   display: flex;
   flex-direction: row;
   width: 100%;
-  /* padding-left: 40px; */
 }
 .instruction01 {
-  /* background: lightpink; */
   display: flex;
   flex-direction: column;
 }
@@ -61,7 +61,6 @@
 
 /* bottom section */
 .bottom-section {
-  /* background-color: lightsteelblue; */
   position: relative;
   display: flex;
   flex-direction: row;
@@ -71,7 +70,6 @@
   
 }
 .instruction02 {
-  /* background: lightpink; */
   display: flex;
   flex-direction: column;
   margin-left: 70px;
@@ -87,4 +85,31 @@
   width: 100%;
   background-size: 48%;
   top: 13%;
+}
+
+.arrow {
+  background-image: url('../../images/instruction/r-arrow.png');
+  position: absolute;
+  background-repeat: no-repeat;  
+  height: 100%;
+  width: 100%;
+  background-size: 5%;
+  z-index: 2;
+  top: 27%;
+  left: 66%;
+  opacity: 0;
+  visibility: hidden;
+}
+.arrow.up {
+  opacity: 1;
+  visibility: visible;
+}
+
+.each-instruction.goal:hover .arrow{
+  opacity: 1;
+  visibility: visible;
+}
+.each-instruction.goal:hover {
+  color:  rgb(1, 114, 184);
+
 }
