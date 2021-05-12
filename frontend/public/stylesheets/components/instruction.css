@@ -1,0 +1,90 @@
+.instruction-page {
+  background: rgb(195, 210, 215);
+  padding: 40px;
+  font-family: Palatino, "Palatino LT STD", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  color:  rgb(16, 82, 124);
+}
+.title-instruction {
+  text-align: center;
+  font-size: 50px;
+  color: #fff;
+
+}
+.table-con {
+  /* background: lightgreen; */
+  text-align: center;
+}
+
+.table-con p {
+  font-size: 30px;
+  margin: 5px;
+}
+.each-instruction h2{
+  font-size: 30px;
+  margin: 15px 5px 5px 5px;
+}
+.each-instruction p{
+  font-size: 25px;
+  margin: 5px
+}
+
+/* mid section */
+.mid-section {
+  /* background-color: lightsteelblue; */
+  position: relative;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  /* padding-left: 40px; */
+}
+.instruction01 {
+  /* background: lightpink; */
+  display: flex;
+  flex-direction: column;
+}
+.placeholder01 {
+  width: 60%;
+}
+.terra-inst-img {
+  background-image: url('../../images/instruction/terraframe.png');
+  position: absolute;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+  background-size: 40%;
+  left: 60%;
+  top: 15%;
+}
+
+
+
+/* bottom section */
+.bottom-section {
+  /* background-color: lightsteelblue; */
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+  margin-bottom: 40px;
+  
+}
+.instruction02 {
+  /* background: lightpink; */
+  display: flex;
+  flex-direction: column;
+  margin-left: 70px;
+}
+.placeholder02 {
+  width: 90%;
+}
+.tracker-inst-img {
+  background-image: url('../../images/instruction/tracker01.png');
+  position: absolute;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+  background-size: 48%;
+  top: 13%;
+}
