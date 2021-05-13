@@ -10,19 +10,12 @@
   margin-left: 40%; */
 }
 
-
-.hourglass-container{
-  height: 150px;
-  width: 100px;
-  /* padding: auto; */
-}
-
 .hourglass {
   background: url('../../images/hourglass.gif');
   background-size: contain;
   background-repeat: no-repeat; 
-  height: 100%;
-  width: 100%;
+  height: 130px;
+  width: 100px;
 }
 
 .date, .time {
