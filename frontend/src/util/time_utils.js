@@ -24,7 +24,7 @@ const getLocalDateTimeStrings = () => {
   const currentUtcTime = new Date();
   const localDateTimeString = new Intl.DateTimeFormat('en-US', dateTimeFormat).format(currentUtcTime);
   // const [_, localDateString, localTimeString] = localDateTimeString.match(/(.+)\sat\s(.+)/);
-  const [_, localDateString, localTimeString] = localDateTimeString.match(/(.+)\s(\d\d\:.+)/);
+  const [_, localDateString, localTimeString] = localDateTimeString.match(/(.+),\s(\d\d\:.+)/);
   return {date: localDateString, time: localTimeString};
 }
 
