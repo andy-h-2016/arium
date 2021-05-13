@@ -17,8 +17,8 @@ const getLocalDateTimeStrings = () => {
     hour: '2-digit',
     minute: '2-digit',
     second: '2-digit',
-    weekday: 'long',
-    month: 'long',
+    weekday: 'short',
+    month: 'short',
     day: 'numeric'
   };
   const currentUtcTime = new Date();

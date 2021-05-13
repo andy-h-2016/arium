@@ -85,11 +85,17 @@
 color: white
 }
 
+.donated-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .donated {
   border: 2px solid rgba(215, 215, 255, 0.911);
   line-height: 20px;
   display: inline-block;
-  margin-left: 85px;
+  /* margin-left: 85px; */
   padding: 20px 2px;
   padding-bottom: 30px;
   border-top-left-radius: 2px;

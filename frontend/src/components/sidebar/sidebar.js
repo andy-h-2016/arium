@@ -48,11 +48,13 @@ class SideBar extends React.Component {
                 <button className="logout" onClick={this.logoutUser}>Logout</button>
                 </nav>
 
-                <div className="donated">
-                  <OverallConsumptionContainer />            
+                <div className="donated-container">
+                  <div className="donated">
+                    <OverallConsumptionContainer />            
+                  </div>
+                  <div className="overall-msg">Cups </div>
+                  <div className="overall-msg msg2">Donated</div>
                 </div>
-                <div className="overall-msg">Cups </div>
-                <div className="overall-msg msg2">Donated</div>
                 <br></br>
                  <TimerContainer />
               </div>

@@ -28,10 +28,8 @@ class OverallConsumption extends React.Component {
     return (
       
       <div className="overall-page">
-        <div className="bottle">
+        <div className="cup">
         <div className="overall-count">{overallConsumptions.water}</div>
-        <div className="overall-msg">Cups </div>
-        <div className="overall-msg">Donated</div>
         </div>
         
       </div>

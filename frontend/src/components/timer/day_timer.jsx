@@ -7,24 +7,28 @@ class DayTimer extends React.Component {
     super(props);
     const dateTime = getLocalDateTimeStrings();
     this.state = dateTime;
+
     this.setClock = this.setClock.bind(this);
-    this.setClock();
     this.days = this.days.bind(this);
+
+    this.setClock();
     this.levelCalculatedOnLogin = false;
   }
 
   componentDidMount() {
     const id = this.props.currentUser.id || this.props.currentUser._id;
-    this.props.fetchUserTerrarium(id)
-      .then(result => console.log('result',result))
-    this.props.fetchUserWaterTracker(id);
-
-    const timerId = Math.random();
-    this.intervalID = setInterval( () => {
-      console.log(`tick! timerId: ${timerId}`);
+    
+    Promise.all([
+      this.props.fetchUserTerrarium(id),
+      this.props.fetchUserWaterTracker(id)
+    ]).then( () => {
+      //upon load, calculateTerrariumLevels based on last user activity timestamp
+      //then, save new user activity timestamp
       this.calculateTerrariumLevels();
-    }, INTERVAL); 
 
+      //set up interval to calculate terrarium levels
+      // this.intervalID = setInterval(() => this.calculateTerrariumLevels(), INTERVAL); 
+    })
   }
 
   componentWillUnmount() {
@@ -37,7 +41,10 @@ class DayTimer extends React.Component {
     clearInterval(this.countdownID)
 
     this.countdownID = setInterval( () => {
-      this.setState(getLocalDateTimeStrings)
+      const {date, time} = getLocalDateTimeStrings();
+      if (time === '12:00:00 AM') {this.calculateTerrariumLevels()}
+
+      this.setState({date, time})
     }, 1000)
   }
 
@@ -46,7 +53,8 @@ class DayTimer extends React.Component {
     
     let {waterTracker, terrarium, currentUser} = this.props;
     let daysElapsed = this.days();
-
+    console.log('time', new Date())
+    console.log('days Elapsed', daysElapsed)
     if (daysElapsed > 0) {
       switch (true) {
         case waterTracker.today >= currentUser.goal:
