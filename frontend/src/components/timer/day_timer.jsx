@@ -1,13 +1,14 @@
 import React from 'react';
-import {daysCounter} from '../../util/time_operations';
+import {daysCounter, getLocalDateTimeStrings} from '../../util/time_utils';
 const INTERVAL = 1000 * 60; //60 seconds converted to milliseconds
 
 class DayTimer extends React.Component {
   constructor(props) {
     super(props);
-    // this.state = {countdown: 0};
-    // this.setCountdown = this.setCountdown.bind(this);
-    // this.setCountdown();
+    const dateTime = getLocalDateTimeStrings();
+    this.state = dateTime;
+    this.setClock = this.setClock.bind(this);
+    this.setClock();
     this.days = this.days.bind(this);
     this.levelCalculatedOnLogin = false;
   }
@@ -17,6 +18,7 @@ class DayTimer extends React.Component {
     this.props.fetchUserTerrarium(id)
       .then(result => console.log('result',result))
     this.props.fetchUserWaterTracker(id);
+
     const timerId = Math.random();
     this.intervalID = setInterval( () => {
       console.log(`tick! timerId: ${timerId}`);
@@ -27,22 +29,17 @@ class DayTimer extends React.Component {
 
   componentWillUnmount() {
     clearInterval(this.intervalID);
+    clearInterval(this.countdownID);
   }
 
-  //visual clock
-  // setCountdown() {
-  //   this.setState()
-  //   let countdown = this.state.countdown;
-  //   clearInterval(this.countdownID)
+  // visual clock
+  setClock() {
+    clearInterval(this.countdownID)
 
-  //   this.countdownID = setInterval( () => {
-  //     if (countdown > 0) {
-  //       this.setState({countdown: this.state.countdown - 1})
-  //     } else {
-  //       this.setCountdown()
-  //     }
-  //   }, 1000)
-  // }
+    this.countdownID = setInterval( () => {
+      this.setState(getLocalDateTimeStrings)
+    }, 1000)
+  }
 
 
   calculateTerrariumLevels() {
@@ -124,7 +121,13 @@ class DayTimer extends React.Component {
 
   render() {
     return(
-      <div></div>
+      <div className='timer'>
+        <div className='hourglass-container'>
+          <div className='hourglass'></div>
+        </div>
+        <div className='date'>{this.state.date}</div>
+        <div className='time'>{this.state.time}</div>
+      </div>
     )
   }
 

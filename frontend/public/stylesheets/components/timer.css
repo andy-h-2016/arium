@@ -25,7 +25,7 @@
   width: 100%;
 }
 
-.timer-value {
-  font-size: 25px;
+.date, .time {
+  font-size: 18px;
   color: rgb(246, 236, 218);
 }

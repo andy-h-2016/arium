@@ -1,0 +1,31 @@
+
+
+const daysCounter = (priorDate, latterDate = new Date()) => {
+  if (priorDate === undefined) {return 0};
+  const priorDateLocal = new Date(priorDate.getFullYear(), priorDate.getMonth(), priorDate.getDate())
+  const latterDateLocal = new Date(latterDate.getFullYear(), latterDate.getMonth(), latterDate.getDate())
+  console.log('priorDate', priorDate)
+  console.log('latterDate', latterDate)
+  const msElapsed = latterDateLocal - priorDateLocal;
+  const daysElapsed = msElapsed / (1000 * 60 * 60 * 24);
+
+  return daysElapsed;
+}
+
+const getLocalDateTimeStrings = () => {
+  const dateTimeFormat = {
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    weekday: 'long',
+    month: 'long',
+    day: 'numeric'
+  };
+  const currentUtcTime = new Date();
+  const localDateTimeString = new Intl.DateTimeFormat('en-US', dateTimeFormat).format(currentUtcTime);
+  // const [_, localDateString, localTimeString] = localDateTimeString.match(/(.+)\sat\s(.+)/);
+  const [_, localDateString, localTimeString] = localDateTimeString.match(/(.+)\s(\d\d\:.+)/);
+  return {date: localDateString, time: localTimeString};
+}
+
+module.exports = {daysCounter, getLocalDateTimeStrings}

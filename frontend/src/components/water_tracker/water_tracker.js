@@ -34,9 +34,6 @@ class WaterTracker extends React.Component {
       case waterTracker.today >= currentUser.goal:
         healthMsg = <div id="healthmsg">Amazing work... You deserve a drink.</div>;
         break;
-      // case waterTracker.today > currentUser.goal:
-      //   healthMsg = <div id="healthmsg">Alright, you don't want to drown now...</div>;
-      //   break;
       default:
         break;
     }
