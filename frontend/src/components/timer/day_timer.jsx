@@ -18,6 +18,7 @@ class DayTimer extends React.Component {
   componentDidMount() {
     const id = this.props.currentUser.id || this.props.currentUser._id;
     
+    //execute both fetches in parallel, run calculateTerrariumLevels after both fetches have completed
     Promise.all([
       this.props.fetchUserTerrarium(id),
       this.props.fetchUserWaterTracker(id)
@@ -25,9 +26,6 @@ class DayTimer extends React.Component {
       //upon load, calculateTerrariumLevels based on last user activity timestamp
       //then, save new user activity timestamp
       this.calculateTerrariumLevels();
-
-      //set up interval to calculate terrarium levels
-      // this.intervalID = setInterval(() => this.calculateTerrariumLevels(), INTERVAL); 
     })
   }
 
@@ -53,8 +51,6 @@ class DayTimer extends React.Component {
     
     let {waterTracker, terrarium, currentUser} = this.props;
     let daysElapsed = this.days();
-    console.log('time', new Date())
-    console.log('days Elapsed', daysElapsed)
     if (daysElapsed > 0) {
       switch (true) {
         case waterTracker.today >= currentUser.goal:
