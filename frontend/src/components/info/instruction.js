@@ -94,14 +94,8 @@ class InstructionPage extends React.Component {
 
             <div className='each-instruction donation'>
               <span className='arrow'></span>
-<<<<<<< HEAD
-              <h2>Cups Donated</h2>
-              <p>On the side bar you will see a number and Cups Donated,</p>
-              <p>The number is the total cups of water all of our users have logged into our system.</p>
-=======
               <h2 ref={this.donationRef}>Cups Donated</h2>
               <p>This number is the total cups of water all of our users have logged into our system.</p>
->>>>>>> main
               <p>This number is very imporant because it is also the number of cups of water that have been donated.</p>
             </div>
           </div>

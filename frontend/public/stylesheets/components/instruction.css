@@ -136,10 +136,10 @@
 }
 
 /* goal */
-.each-instruction.goal:hover .arrow22{
+/* .each-instruction.goal:hover .arrow22{
   opacity: 1;
   visibility: visible;
-}
+} */
 .each-instruction.goal:hover {
   color:  rgb(1, 114, 184);
 }
@@ -176,10 +176,10 @@
   visibility: visible;
   top: 42%;
 }
-.each-instruction.rank:hover .arrow2{
+/* .each-instruction.rank:hover .arrow2{
   opacity: 1;
   visibility: visible;
-}
+} */
 .each-instruction.rank:hover {
   color:  rgb(1, 114, 184);
 }
