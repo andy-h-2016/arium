@@ -208,7 +208,7 @@ class Terrarium extends React.Component {
                 })
               }
             ></button>
-            <p>{this.props.currentUser.goal}</p>
+            <p className="row-number">{this.props.currentUser.goal}</p>
             <div className="upDown">
               <button
                 className="dec-goal"
@@ -222,15 +222,15 @@ class Terrarium extends React.Component {
           </div>
           <div className="terra-row">
             <p>Cups of water today</p>
-            <p>{this.props.waterTracker.today}</p>
+            <p className='row-number'>{this.props.waterTracker.today}</p>
           </div>
           <div className={`terra-row ${bonus}`}>
             <p>Daily goal streak</p>
-            <p>{this.props.waterTracker.streak}</p>
+            <p className="row-number">{this.props.waterTracker.streak}</p>
           </div>
           <div className="terra-row">
             <p>Terrarium level</p>
-            <p>{this.props.terrarium.level}</p>
+            <p className="row-number">{this.props.terrarium.level}</p>
           </div>
         </div>
       );

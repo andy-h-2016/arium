@@ -1,5 +1,35 @@
+/******** STYLING FOR SIDEBAR & OPEN BUTTON **********/
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.openbtn {  
+  font-size: 20px;
+  cursor: pointer;
+  background-color: rgb(16, 82, 124);
+  color: rgb(246, 236, 218);
+  padding: 10px 15px;
+  border: none;
+  right: 0;
+  top: 0;
+  width: 100px;
+  height: 100%;  
+  position: fixed;
+  z-index: 3;  
+}
+
+.openbtn:hover {
+  background-color: rgb(28, 100, 145);
+}
+
+/************ STYLING FOR SIDEBAR WHEN IT IS OPEN  ***************/
 .sidebar {
-  height: 100%;
+  box-sizing: border-box;
+  height: 100vh;
   width: 0;
   position: fixed;
   z-index: 3;
@@ -9,6 +39,9 @@
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
+
+  display: flex;
+  flex-direction: column;
 }
 
 .sidebar a, .logout{
@@ -33,32 +66,9 @@
   margin-left: 50px;
 }
 
-.openbtn {  
-  font-size: 20px;
-  cursor: pointer;
-  background-color: rgb(16, 82, 124);
-  color: rgb(246, 236, 218);
-  padding: 10px 15px;
-  border: none;
-  right: 0;
-  top: 0;
-  width: 100px;
-  height: 100%;  
-  position: fixed;
-  z-index: 3;  
-}
 
-.openbtn:hover {
-  background-color: rgb(28, 100, 145);
-}
 
-#main {
-  transition: margin-left .5s;
-  padding: 16px;
-  position: absolute;
-  right: 0;
-  top: 0;
-}
+
 /* .donated{
   position: fixed;
   left: 50%;
@@ -72,6 +82,7 @@
   .sidebar a {font-size: 18px;}
 }
 
+/**************** CLOSE SIDEBAR BUTTON **************/
 .closebtn{
   height: 40px;
   width: 40px;
@@ -85,36 +96,71 @@
 color: white
 }
 
-.donated-container {
+/************** LOGOUT BUTTON *********************/
+.line{
+  width: 100%;
+  border-top: solid white 1px;
+}
+
+.logout {
+margin: 5px;
+border: none;
+outline: none;
+font-family: 'Times New Roman', Times, serif;
+}
+
+.logout:hover{
+  color: white;
+}
+
+
+/****** GRAPHICS SECTION: DONATIONS AND TIMER ********/
+.graphics-container {
+  flex: 1;
+
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+/************** donations graphic *********************/
+.donated-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-top: auto;
+  margin-bottom: auto; 
+}
+
 .donated {
-  border: 2px solid rgba(215, 215, 255, 0.911);
-  line-height: 20px;
+
   display: inline-block;
-  /* margin-left: 85px; */
+  position: relative;
+  z-index: 9;
+
+  border: 2px solid rgba(215, 215, 255, 0.911);
+  box-shadow: inset 0 1px 0px #3c3b46, inset 0 1px 0 white,
+  inset 0 -4px 3px #8990a7;
+  
+  line-height: 20px;
   padding: 20px 2px;
   padding-bottom: 30px;
+
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
   border-bottom-left-radius: 18px;
   border-bottom-right-radius: 18px;
   border-top: none;
-  position: relative;
-  overflow: hidden;
-  z-index: 9;
+
   background: rgba(255, 255, 255, 0.822);
-  letter-spacing: 1px;
   cursor: default;
-  margin-top: 90px;
+  
   font-size: 32px;
   font-family: 'Times New Roman', Times, serif;
   font-weight: 700;
-  box-shadow: inset 0 1px 0px #3c3b46, inset 0 1px 0 white,
-  inset 0 -4px 3px #8990a7;
+  letter-spacing: 1px;
+  overflow: hidden;
 }
 .donated::before {
   content: "";
@@ -129,6 +175,7 @@ color: white
   z-index: -1;
 }
 
+/* animation frames for droplet */
 @keyframes drop {
   0% {
     top: -15px;
@@ -180,26 +227,53 @@ color: white
   transition: all 0.4s linear;
   transition-delay: 1s;
 }
+
 .donated:hover {
   color: rgb(8, 22, 143);
   transition: all 0.4s linear;
   transition-delay: 1s;
+}
+
+.overall-msg {
+  font-size: 25px;
+  z-index: 1;
+  text-align: center;
+  color: rgb(246, 236, 218);
 
 }
 
-.line{
-  width: 100%;
-  border-top: solid white 1px;
+.cup { 
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
 }
 
-.logout {
-margin: 5px;
-border: none;
-outline: none;
-font-family: 'Times New Roman', Times, serif;
+
+/******************* TIMER **********************/
+.timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  
+  margin-bottom: auto;
 }
 
-.logout:hover{
-  color: white;
+.hourglass {
+  background: url('../../images/hourglass.gif');
+  background-size: contain;
+  background-repeat: no-repeat; 
+  height: 130px;
+  width: 100px;
 }
+
+.date, .time {
+  font-size: 18px;
+  color: rgb(246, 236, 218);
+}
+
+
 

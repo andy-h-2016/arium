@@ -126,9 +126,7 @@ class DayTimer extends React.Component {
   render() {
     return(
       <div className='timer'>
-        <div className='hourglass-container'>
-          <div className='hourglass'></div>
-        </div>
+        <div className='hourglass'></div>
         <div className='date'>{this.state.date}</div>
         <div className='time'>{this.state.time}</div>
       </div>

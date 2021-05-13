@@ -33,8 +33,8 @@ class SideBar extends React.Component {
           <div id="main">
             <button className="openbtn" onClick={() => this.openNav()}>☰ Open Sidebar</button>  
             <div id="mySidebar" className="sidebar" >
-
                 <button className="closebtn" onClick={() => this.closeNav()}>×</button>
+              <nav className="links">
                 <Link to={'/instruction'}>Instructions</Link>
                 <Link to={'/terrarium'}>My Terrarium</Link>
                 
@@ -44,10 +44,10 @@ class SideBar extends React.Component {
                 <Link to={'/info'}>About Us</Link>
                 <Link to={'/donation'}>Global Thirst</Link>
                 <div className="line"></div>
-                <nav className="logout-btn ">
                 <button className="logout" onClick={this.logoutUser}>Logout</button>
-                </nav>
+              </nav>
 
+              <div className="graphics-container">
                 <div className="donated-container">
                   <div className="donated">
                     <OverallConsumptionContainer />            
@@ -55,11 +55,12 @@ class SideBar extends React.Component {
                   <div className="overall-msg">Cups </div>
                   <div className="overall-msg msg2">Donated</div>
                 </div>
-                <br></br>
-                 <TimerContainer />
+                
+                <TimerContainer />
               </div>
-             
             </div>
+             
+          </div>
         );
       } else {
         return (

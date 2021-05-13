@@ -26,13 +26,12 @@ class OverallConsumption extends React.Component {
 
     if (!overallConsumptions) return <div></div>;
     return (
-      
-      <div className="overall-page">
+      <React.Fragment>
         <div className="cup">
-        <div className="overall-count">{overallConsumptions.water}</div>
+          <div className="overall-count">{overallConsumptions.water}</div>
         </div>
+      </React.Fragment>
         
-      </div>
     )
   }
 }
