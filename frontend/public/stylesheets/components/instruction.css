@@ -1,30 +1,32 @@
 .instruction-page {
   background: rgb(115, 147, 168);
-  padding: 80px;
-  padding-bottom: 300px;
-  padding-top: 20px;
+  width: 100vw;
+  height: 2000px;
+  padding: 20px 130px 300px 130px;
   font-family: Palatino, "Palatino LT STD", "Palatino Linotype", "Book Antiqua", Georgia, serif;
-  color:  rgb(47, 55, 79);
+  color:  rgb(57, 75, 129);
+  display: flex;
+  flex-direction: column;
 }
 .title-instruction {
   text-align: center;
   font-size: 50px;
-  color: #fff;
-margin-bottom: 70px;
-  
+  color: rgb(247, 245, 235);
+  margin-bottom: 70px;
 }
 .table-con {
   text-align: center;
   display: flex;
   justify-content: center;
-  margin-bottom: 30px;
+  margin-bottom: 80px;
 }
 .table-flex {
   width: 500px;  
   background: #fff;
   max-width: 500px;
   padding: 20px;
-  border: solid 15px rgb(150, 127, 39);
+  border: solid 15px rgb(180, 186, 202);
+  /* rgb(150, 127, 39); */
   box-shadow: 0 10px 7px -5px rgba(0, 0, 0, 0.3);
 }
 .table-frame {
@@ -36,23 +38,24 @@ margin-bottom: 70px;
 .table-con p {
   font-size: 30px;
   margin: 5px;
+  font-weight:bold;
 }
 .table-frame p{   
   color: rgb(6, 79, 54);
 }
 .table-frame p:hover{   
   color: rgb(13, 150, 102);
+  cursor: pointer;
 }
 .each-instruction h2{
   font-size: 30px;
   margin: 15px 5px 5px 5px;
-  color: #fff;
-  /* text-decoration: none; */
+  color: rgb(221, 231, 238);
 }
 .each-instruction p{
-  font-size: 25px;
-  margin: 5px
-
+  font-size: 22px;
+  margin: 5px;
+  font-weight:bold;
 }
 
 /* mid section */
@@ -61,73 +64,79 @@ margin-bottom: 70px;
   margin-bottom: 40px;
   display: flex;
   flex-direction: row;
-  width: 100%;
+  justify-content: center;
+  /* background: lightgreen; */
 }
 .instruction01 {
   display: flex;
   flex-direction: column;
+  /* background: lightskyblue; */
 }
 .placeholder01 {
-  width: 60%;
+  width: 40%;
+  /* background: lightpink; */
+  padding: 40px;
+  padding-top: 80px;
 }
 .terra-inst-img {
   background-image: url('../../images/instruction/terraframe.png');
-  position: absolute;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat;  
+  background-size: contain;
   height: 100%;
   width: 100%;
-  background-size: 40%;
-  left: 60%;
-  top: 15%;
 }
-
-
 
 /* bottom section */
 .bottom-section {
   position: relative;
   display: flex;
   flex-direction: row;
-  width: 100%;
-  height: auto;
-  margin-bottom: 40px;
+  justify-content: center;
+  /* background: lightgreen; */
   
 }
 .instruction02 {
+  /* background: lightskyblue; */
   display: flex;
   flex-direction: column;
-  margin-left: 70px;
+  padding-left: 40px;
+  padding-right: 40px;
+  margin-left: 20px;
+
 }
 .placeholder02 {
-  width: 90%;
+  /* background: lightpink; */
+  width: 45%;
 }
 .tracker-inst-img {
   background-image: url('../../images/instruction/tracker01.png');
-  position: absolute;
-  /* background-repeat: no-repeat; */
-  background-size: contain;
-  height: 95%;
-  width: 50%;
-  background-size: 100%;
-  top: 13%;
-}
-
-.arrow {
-  background-image: url('../../images/instruction/r-arrow.png');
-  position: absolute;
   background-repeat: no-repeat;  
+  background-size: contain;
   height: 100%;
   width: 100%;
-  background-size: 5%;
+  margin-left: 30px;
+}
+
+.arrow22 {
+  background-image: url('../../images/instruction/r-arrow.png');
+  background-repeat: no-repeat;  
+  background-size: contain;
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  /* height: 8%;
+  width: 4%;
+  background-size: 100%; */
   z-index: 2;
-  top: 27%;
-  left: 65%;
+  top: 10%;
+  left: 10%;
+
   opacity: 0;
   visibility: hidden;
 }
 
 /* goal */
-.each-instruction.goal:hover .arrow{
+.each-instruction.goal:hover .arrow22{
   opacity: 1;
   visibility: visible;
 }
@@ -179,21 +188,23 @@ margin-bottom: 70px;
   background-image: url('../../images/instruction/r-arrow.png');
   position: absolute;
   background-repeat: no-repeat;  
-  height: 100%;
-  width: 100%;
-  background-size: 5%;
+  height: 10%;
+  width: 5%;
+  background-size: 100%;
   z-index: 2;
   top: 135%;
-  left: 15%;
+  left: 13%;
   opacity: 0;
   visibility: hidden;
+  /* left: 32%;
+  top: 136%; */
 }
 /* countdown */
-.each-instruction.countdown:hover .arrow{
+.each-instruction.countdown:hover .arrow2{
   opacity: 1;
   visibility: visible;
-  left: 41%;
-  top: 59%;
+  left: 32%;
+  top: 136%;
 }
 .each-instruction.countdown:hover {
   color:  rgb(1, 114, 184);
