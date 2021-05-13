@@ -8,9 +8,6 @@ class InstructionPage extends React.Component {
     this.streakRef = React.createRef()
     this.stageRef = React.createRef()
     this.rankRef = React.createRef()
-    this.countdownRef = React.createRef()
-    this.donationRef = React.createRef()
-
   }
   executeScroll = (location) => location.current.scrollIntoView()
   render() {
@@ -24,10 +21,10 @@ class InstructionPage extends React.Component {
               <p onClick={() => this.executeScroll(this.goalRef)} >Goal</p>
               <p onClick={() => this.executeScroll(this.trackerRef)} >Water Tracker</p>
               <p onClick={() => this.executeScroll(this.streakRef)} >Daily Goal Streak</p>
-              <p onClick={() => this.executeScroll(this.stageRef)} >Terrarium Stages and Levels</p>
+              <p onClick={() => this.executeScroll(this.streakRef)} >Terrarium Stages and Levels</p>
               <p onClick={() => this.executeScroll(this.rankRef)} >Ranking System</p>
-              <p onClick={() => this.executeScroll(this.countdownRef)} >Countdown</p>
-              <p onClick={() => this.executeScroll(this.donationRef)} >Cups Donated</p>
+              <p onClick={() => this.executeScroll(this.rankRef)} >Countdown</p>
+              <p onClick={() => this.executeScroll(this.rankRef)} >Cups Donated</p>
             </div>
           </div>
 
@@ -37,7 +34,7 @@ class InstructionPage extends React.Component {
 
           <div className='instruction01'>
             <div className='each-instruction goal'>
-              <span className='arrow'></span>
+              <span className='arrow22'></span>
               <h2 ref={this.goalRef}>Goal</h2>
               <p> You can update your daily water consumption goal on your Terrarium page by clicking the Up or Down arrows.</p>
             </div>
@@ -60,7 +57,7 @@ class InstructionPage extends React.Component {
 
             <div className='each-instruction stage'>
               <span className='arrow'></span>
-              <h2 ref={this.stageRef}>Terrarium Stages and Levels</h2>
+              <h2>Terrarium Stages and Levels</h2>
 
               <p>The way your Terrarium looks evolves every 10 levels!</p>
               <p>Your Terrarium level goes up by 1 every day that you meet your daily goal.</p>
@@ -76,19 +73,20 @@ class InstructionPage extends React.Component {
               <p>Your Rank will change on the Water Tracker page based on your streak.</p>
             </div>
           </div>
-          <div className='placeholder01'></div>
-          <div className='terra-inst-img'></div>
+          <div className='placeholder01'>
+          {/* <span className='arrow22'></span> */}
+          <div className='terra-inst-img'></div></div>
 
         </div>
 
         <div className='bottom-section'>
-          <div className='placeholder02'></div>
-          <div className='tracker-inst-img'></div>
+          <div className='placeholder02'>
+            <div className='tracker-inst-img'></div></div>
           <div className='instruction02'>
 
             <div className='each-instruction countdown'>
               <span className='arrow'></span>
-              <h2 ref={this.countdownRef}>Countdown</h2>
+              <h2>Countdown</h2>
               <p>In the sidebar you will find a 15 second timer.</p>
               <p>At the end of each time period, the Terrarium updates and the daily water count resets. </p>
               <p>For demo purposes, the time periods are only 15 seconds, but the official version of this site will be on a 24-hour cycle.</p>

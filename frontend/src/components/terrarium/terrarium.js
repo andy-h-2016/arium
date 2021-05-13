@@ -8,13 +8,6 @@ class Terrarium extends React.Component {
     this.state = this.props.currentUser;
   }
 
-  // componentDidMount() {
-  //   const id = this.props.currentUser.id || this.props.currentUser._id;
-  //   this.props.fetchUserTerrarium(id);
-  //   this.props.fetchUserWaterTracker(id);
-  //   this.props.fetchUser(id);
-  // }
-
   componentDidUpdate(prevProps) {
     if (
       prevProps.currentUser.goal !== this.props.currentUser.goal
