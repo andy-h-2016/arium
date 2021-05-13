@@ -8,14 +8,6 @@ class WaterTracker extends React.Component {
 
   }
 
-  componentDidMount() {
-    const id = this.props.currentUser.id || this.props.currentUser._id;
-    this.props.fetchUser(id);
-    this.props.fetchUserTerrarium(id);
-    this.props.fetchUserWaterTracker(id);
-  
-  }
-
   componentDidUpdate(prevProps) {
     if (prevProps.currentUser.goal !== this.props.currentUser.goal) {
       this.setState(this.props.currentUser)
