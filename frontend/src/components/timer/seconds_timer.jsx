@@ -13,9 +13,9 @@ class SecondsTimer extends React.Component {
   }
 
   componentDidMount() {
-    // const id = this.props.currentUser.id || this.props.currentUser._id;
-    // this.props.fetchUserTerrarium(id);
-    // this.props.fetchUserWaterTracker(id);
+    const id = this.props.currentUser.id || this.props.currentUser._id;
+    this.props.fetchUserTerrarium(id);
+    this.props.fetchUserWaterTracker(id);
     this.intervalID = setInterval( () => {
       this.calculateTerrariumLevels();
       this.setCountdown();
