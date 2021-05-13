@@ -13,10 +13,10 @@ class DayTimer extends React.Component {
   }
 
   componentDidMount() {
-    // const id = this.props.currentUser.id || this.props.currentUser._id;
-    // this.props.fetchUserTerrarium(id)
-    //   .then(result => console.log('result',result))
-    // this.props.fetchUserWaterTracker(id);
+    const id = this.props.currentUser.id || this.props.currentUser._id;
+    this.props.fetchUserTerrarium(id)
+      .then(result => console.log('result',result))
+    this.props.fetchUserWaterTracker(id);
     const timerId = Math.random();
     this.intervalID = setInterval( () => {
       console.log(`tick! timerId: ${timerId}`);
