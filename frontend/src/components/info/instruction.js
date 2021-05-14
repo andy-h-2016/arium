@@ -34,7 +34,7 @@ class InstructionPage extends React.Component {
 
           <div className='instruction01'>
             <div className='each-instruction goal'>
-              <span className='arrow22'></span>
+              {/* <div className='arrow22'></div> */}
               <h2 ref={this.goalRef}>Goal</h2>
               <p> You can update your daily water consumption goal on your Terrarium page by clicking the Up or Down arrows.</p>
             </div>
@@ -74,6 +74,7 @@ class InstructionPage extends React.Component {
             </div>
           </div>
           <div className='placeholder01'>
+          {/* <div className='arrow22'></div> */}
           {/* <span className='arrow22'></span> */}
           <div className='terra-inst-img'></div></div>
 
