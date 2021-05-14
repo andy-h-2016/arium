@@ -174,7 +174,7 @@ class Terrarium extends React.Component {
       return;
     }
 
-    this.props.updateWaterTracker(waterTracker).then(() => this.forceUpdate());
+    this.props.updateWaterTracker(waterTracker)
   }
 
   removeWater(e) {
@@ -189,7 +189,7 @@ class Terrarium extends React.Component {
     if (this.props.waterTracker.today <= 0) {
       return;
     }
-    this.props.updateWaterTracker(waterTracker).then(() => this.forceUpdate());
+    this.props.updateWaterTracker(waterTracker)
   }
 
   renderStatus() {
