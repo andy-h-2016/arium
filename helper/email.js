@@ -1,9 +1,11 @@
 const nodemailer = require('nodemailer');
-const credentials = require('../config/email_cred')
 const OverallConsumption = require('../models/OverallConsumption');
 const {daysCounter} = require('../frontend/src/util/time_utils');
+const credentials = (process.env.NODE_ENV === 'production')
+  ? require('../config/email_cred_prod')
+  : require('../config/email_cred_dev');
 
-const alertThreshold = 18;
+const alertThreshold = 2;
 
 let transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
@@ -17,7 +19,7 @@ const overseers = [
   "satomiampuku2@gmail.com",
   "li.jasontse@gmail.com",
   "michaeldeanmdmph@gmail.com"
-]
+];
 
 function alertIfBalanceLow(fundsBalance, lastAlertedAt, overallId) {
   const daysElapsed = daysCounter(lastAlertedAt, new Date());

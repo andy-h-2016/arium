@@ -141,7 +141,6 @@ router.patch('/updateUser/:id', passport.authenticate('jwt', {session: false}), 
             } else {  
               const payload = { id: user.id, username: user.username, email: user.email, goal: user.goal}
               jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
-                console.log('TOKEN', token)
                 res.json({
                   success: true,
                   token: "Bearer " + token
