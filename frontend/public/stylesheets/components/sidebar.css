@@ -243,7 +243,7 @@ font-family: 'Times New Roman', Times, serif;
 }
 
 .overall-msg {
-  font-size: 25px;
+  font-size: min(18px + .25vmax, 25px);
   z-index: 1;
   text-align: center;
   color: rgb(246, 236, 218);
@@ -280,12 +280,12 @@ font-family: 'Times New Roman', Times, serif;
 }
 
 .date, .time {
-  font-size: 18px;
+  font-size: min(18px + .25vmax, 25px);
   color: rgb(246, 236, 218);
 }
 
 .timer-value {
-  font-size: 25px;
+  font-size: min(18px + .25vmax, 25px);
   color: rgb(246, 236, 218);
 }
 
