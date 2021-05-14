@@ -1,6 +1,5 @@
 const nodemailer = require('nodemailer');
 const OverallConsumption = require('../models/OverallConsumption');
-// const {daysCounter} = require('../frontend/src/util/time_utils');
 const credentials = (process.env.NODE_ENV === 'production')
   ? require('../config/email_cred_prod')
   : require('../config/email_cred_dev');

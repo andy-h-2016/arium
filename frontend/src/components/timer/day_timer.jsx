@@ -1,5 +1,4 @@
 import React from 'react';
-// const {daysCounter, getLocalDateTimeStrings} = require('../../util/time_utils');
 import {daysCounter, getLocalDateTimeStrings} from '../../util/time_utils';
 class DayTimer extends React.Component {
   constructor(props) {

@@ -25,4 +25,3 @@ export const getLocalDateTimeStrings = () => {
   return {date: localDateString, time: localTimeString};
 }
 
-// module.exports = {daysCounter, getLocalDateTimeStrings}
