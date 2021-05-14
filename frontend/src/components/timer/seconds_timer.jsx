@@ -101,6 +101,7 @@ class SecondsTimer extends React.Component {
 
       //reset water count, update WaterTracker and Terrarium
       waterTracker.today = 0;
+      waterTracker.type = 'calculateStreak'
       this.props.updateWaterTracker(waterTracker)
         .then(() => {
           if (isTerrariumMaxed || isTerrariumMin) {

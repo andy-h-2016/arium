@@ -58,11 +58,27 @@ router.patch('/:id',
     if (!isValid) {
       return res.status(400).json(errors);
     }
-    const update = {
-      total: req.body.total,
-      today: req.body.today,
-      streak: req.body.streak
+    let update;
+    switch (req.body.type) {
+      case 'increment':
+        update = {
+          $inc: {
+            total: req.body.delta,
+            today: req.body.delta
+          },
+          streak: req.body.streak
+        };
+        break
+      case 'calculateStreak':
+        update = {
+          total: req.body.total,
+          today: req.body.today,
+          streak: req.body.streak
+        }
+      break
     }
+
+
 
     WaterTracker.findByIdAndUpdate(req.params.id, update, { new: true }, (err, waterTracker) => {
       if (err) {

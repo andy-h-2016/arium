@@ -166,10 +166,10 @@ class Terrarium extends React.Component {
     e.stopPropagation();
     let waterTracker = {
       ...this.props.waterTracker,
-      total: this.props.waterTracker.total + 1,
-      today: this.props.waterTracker.today + 1,
-      delta: 1,
+      type: 'increment',
+      delta: 1
     };
+
     if (this.props.waterTracker.today >= 10) {
       return;
     }
@@ -180,11 +180,10 @@ class Terrarium extends React.Component {
   removeWater(e) {
     e.preventDefault();
     e.stopPropagation();
-    let waterTracker = {
+      let waterTracker = {
       ...this.props.waterTracker,
-      total: this.props.waterTracker.total - 1,
-      today: this.props.waterTracker.today - 1,
-      delta: -1,
+      type: 'increment',
+      delta: -1
     };
     if (this.props.waterTracker.today <= 0) {
       return;

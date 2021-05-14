@@ -87,6 +87,7 @@ class DayTimer extends React.Component {
       }
 
       waterTracker.today = 0;
+      waterTracker.type = 'calculateStreak';
       this.props.updateWaterTracker(waterTracker)
         .then(() => this.props.updateTerrarium(terrarium))
         .then(() => this.forceUpdate());   
