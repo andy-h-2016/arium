@@ -24,4 +24,5 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SecondsTimer);
+export default connect(mapStateToProps, mapDispatchToProps)(DayTimer);
+// export default connect(mapStateToProps, mapDispatchToProps)(SecondsTimer);

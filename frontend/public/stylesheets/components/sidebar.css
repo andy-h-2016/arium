@@ -266,6 +266,7 @@ font-family: 'Times New Roman', Times, serif;
   align-items: center;
   justify-content: flex-start;
   
+  position: relative;
   margin-bottom: auto;
 }
 
@@ -280,8 +281,12 @@ font-family: 'Times New Roman', Times, serif;
 }
 
 .date, .time {
-  font-size: min(18px + .25vmax, 25px);
+  font-size: min(16px + .25vmax, 25px);
   color: rgb(246, 236, 218);
+  padding-bottom: 2px;
+
+  position: relative;
+  top: -10px;
 }
 
 .timer-value {

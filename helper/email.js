@@ -1,11 +1,9 @@
 const nodemailer = require('nodemailer');
 const credentials = require('../config/email_cred')
 const OverallConsumption = require('../models/OverallConsumption');
-
-
 const {daysCounter} = require('../frontend/src/util/time_utils');
 
-const alertThreshold = 2;
+const alertThreshold = 18;
 
 let transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
@@ -21,20 +19,18 @@ const overseers = [
   "michaeldeanmdmph@gmail.com"
 ]
 
-
-
 function alertIfBalanceLow(fundsBalance, lastAlertedAt, overallId) {
   const daysElapsed = daysCounter(lastAlertedAt, new Date());
-  if (fundsBalance < alertThreshold && daysElapsed >= 2) {
+  if (fundsBalance < alertThreshold && daysElapsed > 0) {
     const balance = fundsBalance.toString().slice(0,5); //convert to string, truncate to two decimal places
-
     const message = {
       from: credentials.user,
       to: overseers,
       subject: "URGENT - Donation Funds Running Low.",
       text: `Donation funds are below the alert threshold of $${alertThreshold}. There is $${balance} left. Please donate to waterwellsforafrica.org and update amount on MongoDB.`,
-      html: `<p>Donation funds are below the alert threshold of $${alertThreshold}. There is $${balance} left. Please donate to <a href="waterwellsforafrica.org">Water Wells For Africa</a> and update amount on <a href="https://cloud.mongodb.com/v2/607d0c796207aa6192c18afa#metrics/replicaSet/607d106b9d1f1c0fd009db4d/explorer/Arium/overallconsumptions/find">MongoDB</a>.</p>`
+      html: `<p>TEST. Donation funds are below the alert threshold of $${alertThreshold}. There is $${balance} left. Please donate to <a href="waterwellsforafrica.org">Water Wells For Africa</a> and update amount on <a href="https://cloud.mongodb.com/v2/607d0c796207aa6192c18afa#metrics/replicaSet/607d106b9d1f1c0fd009db4d/explorer/Arium/overallconsumptions/find">MongoDB</a>.</p>`
     };
+
     transporter.sendMail(message, (error, response) => {
       if (error) {
         console.log(error)
