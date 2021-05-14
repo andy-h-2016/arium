@@ -64,7 +64,6 @@ router.patch('/:id',
       level: req.body.level,
       lastActiveDate: req.body.lastActiveDate
     }
-    console.log('update', update)
 
     Terrarium.findByIdAndUpdate(req.params.id, update, {new: true}, (err, terrarium) => {
       if (err) {

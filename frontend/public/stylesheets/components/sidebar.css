@@ -30,24 +30,31 @@
 .sidebar {
   box-sizing: border-box;
   height: 100vh;
-  width: 0;
+  padding-top: 6vh;
+  width: 13vw;
+  min-width: 150px;
+  max-width: 250px;
+  overflow-x: hidden;
+  
   position: fixed;
-  z-index: 3;
   top: 0;
   right: 0;
+  z-index: 3;
+  
   background-color: rgb(16, 82, 124);
-  overflow-x: hidden;
+
   transition: 0.5s;
-  padding-top: 60px;
+  transform: translate3d(100%, 0, 0);
+  -webkit-transform: translate3d(100%, 0, 0);
 
   display: flex;
   flex-direction: column;
 }
 
 .sidebar a, .logout{
-  padding: 8px 8px 8px 32px;
+  padding: 4% 3% 4% 11%;
   text-decoration: none;
-  font-size: 25px;
+  font-size: min(20px + .2vmax, 25px);
   color: rgb(246, 236, 218);
   display: block;
   transition: 0.3s;
@@ -275,5 +282,9 @@ font-family: 'Times New Roman', Times, serif;
   color: rgb(246, 236, 218);
 }
 
+.timer-value {
+  font-size: 25px;
+  color: rgb(246, 236, 218);
+}
 
 

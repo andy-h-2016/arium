@@ -17,13 +17,13 @@ class SideBar extends React.Component {
   }
 
   openNav() {
-    document.getElementById("mySidebar").style.width = "250px";
-    document.getElementById("main").style.marginLeft = "250px";
+    document.getElementById("mySidebar").style.transform = "translate3d(0,0,0)";
+    document.getElementById("mySidebar").style['-webkit-transform'] = "translate3d(0,0,0)";
   }
   
   closeNav() {
-    document.getElementById("mySidebar").style.width = "0";
-    document.getElementById("main").style.marginLeft= "0";
+    document.getElementById("mySidebar").style.transform = "translate3d(100%,0,0";
+    document.getElementById("mySidebar").style['-webkit-transform'] = "translate3d(100%,0,0";
   }
 
   // Selectively render links dependent on whether the user is logged in

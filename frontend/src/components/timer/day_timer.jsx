@@ -36,19 +36,18 @@ class DayTimer extends React.Component {
 
   // visual clock
   setClock() {
-    clearInterval(this.countdownID)
+    clearInterval(this.countdownID);
 
     this.countdownID = setInterval( () => {
       const {date, time} = getLocalDateTimeStrings();
       if (time === '12:00:00 AM') {this.calculateTerrariumLevels()}
 
       this.setState({date, time})
-    }, 1000)
+    }, 1000);
   }
 
 
   calculateTerrariumLevels() {
-    
     let {waterTracker, terrarium, currentUser} = this.props;
     let daysElapsed = this.days();
     if (daysElapsed > 0) {
@@ -100,26 +99,16 @@ class DayTimer extends React.Component {
     let terrarium = this.props.terrarium;
     const currentDate = new Date();
     const lastActiveDate = new Date(terrarium.lastActiveDate);
-    console.log('terrarium.lastActiveDate', terrarium.lastActiveDate)
-    // const lastActiveDate = new Date(localStorage.getItem('lastActiveDate'));
     let daysElapsed;
 
     if (lastActiveDate) {
       daysElapsed = daysCounter(lastActiveDate, currentDate)
-
-      // daysElapsed = msElapsed / (1000 * 60 * 60 * 24) //convert ms to days
     } else {
      daysElapsed = 0; 
     }
     
     terrarium.lastActiveDate = currentDate;
     this.props.updateTerrarium(terrarium);
-    console.log('days Elapsed: ', daysElapsed)
-    console.log('time: ', currentDate)
-
-    // localStorage.setItem('lastActiveDate', currentDate);
-    
-
     return daysElapsed;
   }
 
