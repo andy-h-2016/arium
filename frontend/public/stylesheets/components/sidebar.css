@@ -1,6 +1,5 @@
 /******** STYLING FOR SIDEBAR & OPEN BUTTON **********/
 #main {
-  transition: margin-left .5s;
   padding: 16px;
   position: absolute;
   right: 0;
@@ -24,6 +23,20 @@
 
 .openbtn:hover {
   background-color: rgb(28, 100, 145);
+}
+
+/**************** CLOSE SIDEBAR BUTTON **************/
+.closebtn{
+  height: 40px;
+  width: 40px;
+  border: none;
+  background-color: rgb(16, 82, 124);
+  color: rgb(246, 236, 218);
+  cursor: pointer;
+}
+
+.closebtn:hover{
+color: white
 }
 
 /************ STYLING FOR SIDEBAR WHEN IT IS OPEN  ***************/
@@ -52,9 +65,9 @@
 }
 
 .sidebar a, .logout{
-  padding: 4% 3% 4% 11%;
+  padding: 4% 3% 4% 9%;
   text-decoration: none;
-  font-size: min(20px + .2vmax, 25px);
+  font-size: min(18px + .25vmax, 25px);
   color: rgb(246, 236, 218);
   display: block;
   transition: 0.3s;
@@ -89,19 +102,7 @@
   .sidebar a {font-size: 18px;}
 }
 
-/**************** CLOSE SIDEBAR BUTTON **************/
-.closebtn{
-  height: 40px;
-  width: 40px;
-  border: none;
-  background-color: rgb(16, 82, 124);
-  color: rgb(246, 236, 218);
-  cursor: pointer;
-}
 
-.closebtn:hover{
-color: white
-}
 
 /************** LOGOUT BUTTON *********************/
 .line{
@@ -141,7 +142,6 @@ font-family: 'Times New Roman', Times, serif;
 }
 
 .donated {
-
   display: inline-block;
   position: relative;
   z-index: 9;
@@ -169,6 +169,7 @@ font-family: 'Times New Roman', Times, serif;
   letter-spacing: 1px;
   overflow: hidden;
 }
+
 .donated::before {
   content: "";
   position: absolute;
@@ -246,7 +247,6 @@ font-family: 'Times New Roman', Times, serif;
   z-index: 1;
   text-align: center;
   color: rgb(246, 236, 218);
-
 }
 
 .cup { 
@@ -275,6 +275,8 @@ font-family: 'Times New Roman', Times, serif;
   background-repeat: no-repeat; 
   height: 130px;
   width: 100px;
+  /* height: 14vh;
+  width: 8vw; */
 }
 
 .date, .time {
