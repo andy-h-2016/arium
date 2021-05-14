@@ -1,6 +1,6 @@
 const nodemailer = require('nodemailer');
 const OverallConsumption = require('../models/OverallConsumption');
-const {daysCounter} = require('../frontend/src/util/time_utils');
+// const {daysCounter} = require('../frontend/src/util/time_utils');
 const credentials = (process.env.NODE_ENV === 'production')
   ? require('../config/email_cred_prod')
   : require('../config/email_cred_dev');
@@ -21,6 +21,17 @@ const overseers = [
   "michaeldeanmdmph@gmail.com"
 ];
 
+const daysCounter = (priorDate, latterDate = new Date()) => {
+  if (priorDate === undefined) {return 0};
+  const priorDateLocal = new Date(priorDate.getFullYear(), priorDate.getMonth(), priorDate.getDate())
+  const latterDateLocal = new Date(latterDate.getFullYear(), latterDate.getMonth(), latterDate.getDate())
+  const msElapsed = latterDateLocal - priorDateLocal;
+  const daysElapsed = msElapsed / (1000 * 60 * 60 * 24);
+
+  return daysElapsed;
+}
+
+
 function alertIfBalanceLow(fundsBalance, lastAlertedAt, overallId) {
   const daysElapsed = daysCounter(lastAlertedAt, new Date());
   if (fundsBalance < alertThreshold && daysElapsed > 0) {
@@ -30,7 +41,7 @@ function alertIfBalanceLow(fundsBalance, lastAlertedAt, overallId) {
       to: overseers,
       subject: "URGENT - Donation Funds Running Low.",
       text: `Donation funds are below the alert threshold of $${alertThreshold}. There is $${balance} left. Please donate to waterwellsforafrica.org and update amount on MongoDB.`,
-      html: `<p>TEST. Donation funds are below the alert threshold of $${alertThreshold}. There is $${balance} left. Please donate to <a href="waterwellsforafrica.org">Water Wells For Africa</a> and update amount on <a href="https://cloud.mongodb.com/v2/607d0c796207aa6192c18afa#metrics/replicaSet/607d106b9d1f1c0fd009db4d/explorer/Arium/overallconsumptions/find">MongoDB</a>.</p>`
+      html: `<p>Donation funds are below the alert threshold of $${alertThreshold}. There is $${balance} left. Please donate to <a href="waterwellsforafrica.org">Water Wells For Africa</a> and update amount on <a href="https://cloud.mongodb.com/v2/607d0c796207aa6192c18afa#metrics/replicaSet/607d106b9d1f1c0fd009db4d/explorer/Arium/overallconsumptions/find">MongoDB</a>.</p>`
     };
 
     transporter.sendMail(message, (error, response) => {

@@ -1,6 +1,6 @@
 
 
-const daysCounter = (priorDate, latterDate = new Date()) => {
+export const daysCounter = (priorDate, latterDate = new Date()) => {
   if (priorDate === undefined) {return 0};
   const priorDateLocal = new Date(priorDate.getFullYear(), priorDate.getMonth(), priorDate.getDate())
   const latterDateLocal = new Date(latterDate.getFullYear(), latterDate.getMonth(), latterDate.getDate())
@@ -10,7 +10,7 @@ const daysCounter = (priorDate, latterDate = new Date()) => {
   return daysElapsed;
 }
 
-const getLocalDateTimeStrings = () => {
+export const getLocalDateTimeStrings = () => {
   const dateTimeFormat = {
     hour: '2-digit',
     minute: '2-digit',
@@ -25,4 +25,4 @@ const getLocalDateTimeStrings = () => {
   return {date: localDateString, time: localTimeString};
 }
 
-module.exports = {daysCounter, getLocalDateTimeStrings}
+// module.exports = {daysCounter, getLocalDateTimeStrings}
