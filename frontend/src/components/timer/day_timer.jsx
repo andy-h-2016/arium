@@ -1,6 +1,5 @@
 import React from 'react';
-import {daysCounter, getLocalDateTimeStrings} from '../../util/time_utils';
-const INTERVAL = 1000 * 60; //60 seconds converted to milliseconds
+const {daysCounter, getLocalDateTimeStrings} = require('../../util/time_utils');
 
 class DayTimer extends React.Component {
   constructor(props) {
@@ -18,7 +17,7 @@ class DayTimer extends React.Component {
   componentDidMount() {
     const id = this.props.currentUser.id || this.props.currentUser._id;
     
-    //execute both fetches in parallel, run calculateTerrariumLevels after both fetches have completed
+    //execute both fetches in parallel, run calculateTerrariumLevels after both fetches have completed.
     Promise.all([
       this.props.fetchUserTerrarium(id),
       this.props.fetchUserWaterTracker(id)
