@@ -2,10 +2,22 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const OverallConsumptionSchema = new Schema({
-  overall: {
+  water: {
     type: Number,
     required: true
   },
+  fundsGenerated: {
+    type: Number
+  },
+  fundsDonated: {
+    type: Number
+  },
+  fundsBalance: {
+    type: Number
+  },
+  lastAlertedAt: {
+    type: Date
+  }
 }, {
   timestamps: true
 });

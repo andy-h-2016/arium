@@ -1,87 +1,127 @@
 import React from 'react';
+import {daysCounter, getLocalDateTimeStrings} from '../../util/time_utils';
+const INTERVAL = 1000 * 60; //60 seconds converted to milliseconds
 
-class SecondsTimer extends React.Component {
+class DayTimer extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
+    const dateTime = getLocalDateTimeStrings();
+    this.state = dateTime;
+
+    this.setClock = this.setClock.bind(this);
+    this.days = this.days.bind(this);
+
+    this.setClock();
+    this.levelCalculatedOnLogin = false;
   }
 
   componentDidMount() {
     const id = this.props.currentUser.id || this.props.currentUser._id;
-    this.props.fetchUserTerrarium(id);
-    this.props.fetchUserWaterTracker(id);
-
-    const timerId = Math.random();
-    this.intervalID = setInterval( () => {
-      console.log(`tick! timerId: ${timerId}`);
+    
+    //execute both fetches in parallel, run calculateTerrariumLevels after both fetches have completed
+    Promise.all([
+      this.props.fetchUserTerrarium(id),
+      this.props.fetchUserWaterTracker(id)
+    ]).then( () => {
+      //upon load, calculateTerrariumLevels based on last user activity timestamp
+      //then, save new user activity timestamp
       this.calculateTerrariumLevels();
-    }, 5000); 
-
+    })
   }
 
   componentWillUnmount() {
     clearInterval(this.intervalID);
+    clearInterval(this.countdownID);
   }
+
+  // visual clock
+  setClock() {
+    clearInterval(this.countdownID);
+
+    this.countdownID = setInterval( () => {
+      const {date, time} = getLocalDateTimeStrings();
+      if (time === '12:00:00 AM') {this.calculateTerrariumLevels()}
+
+      this.setState({date, time})
+    }, 1000);
+  }
+
 
   calculateTerrariumLevels() {
     let {waterTracker, terrarium, currentUser} = this.props;
-    let daysElapsed = this.daysCounter();
-    // console.log('daysElapsed', daysElapsed)
-
-    // while (daysElapsed > 0) {
+    let daysElapsed = this.days();
+    if (daysElapsed > 0) {
       switch (true) {
         case waterTracker.today >= currentUser.goal:
           let increase = (waterTracker.streak > 1) ? 2 : 1;
           waterTracker.streak += 1;
-          terrarium.level += increase;
+          if (terrarium.level + increase > 30) {
+            terrarium.level = 30;
+          } else {
+            terrarium.level += increase;
+          }
           break
         case waterTracker.today >= Math.floor(.5 * currentUser.goal):
           //terrariumlevel += 0; no change.
           waterTracker.streak = 0;
           break
         case waterTracker.today < Math.floor(.5 * currentUser.goal):
-          terrarium.level -= 1;
+          if (terrarium.level === 1) {
+            terrarium.level = 1;
+          } else {
+            terrarium.level -= 1;
+          }
           waterTracker.streak = 0;
           break
       }
+      
+      //if user has not been active for over 2 days
+      if (daysElapsed > 1) {
+        //Lose a level for each day not active. 
+        //Subtract a day since the first day's results are calculated in the switch statement above
+        const levelsDecrease = daysElapsed - 1;
+        if (terrarium.level - levelsDecrease < 1) {
+          terrarium.level = 1; 
+        } else {
+          terrarium.level -= levelsDecrease;
+        }
+        waterTracker.streak = 0;
+      }
 
       waterTracker.today = 0;
-      this.props.updateTerrarium(terrarium)
-        .then(() => this.props.updateWaterTracker(waterTracker))
-        .then(() => this.forceUpdate());
-
-      // daysElapsed -= 1;
-    // }
-    // terrarium.level += 1;
-    // this.props.updateTerrarium(terrarium)
-    //   .then(() => this.forceUpdate())
+      this.props.updateWaterTracker(waterTracker)
+        .then(() => this.props.updateTerrarium(terrarium))
+        .then(() => this.forceUpdate());   
+    }
   }
 
-  daysCounter() {
+  days() {
+    let terrarium = this.props.terrarium;
     const currentDate = new Date();
-    const lastActiveDate = new Date(localStorage.getItem('lastActiveDate'));
+    const lastActiveDate = new Date(terrarium.lastActiveDate);
     let daysElapsed;
 
     if (lastActiveDate) {
-      const lastActiveDateSansTime = new Date(lastActiveDate.getFullYear(), lastActiveDate.getMonth(), lastActiveDate.getDate());
-      const currentDateSansTime = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
-      daysElapsed = (currentDateSansTime - lastActiveDateSansTime) / (1000 * 60 * 60 * 24);
-
-      daysElapsed = msElapsed / (1000 * 60 * 60 * 24) //convert ms to days
+      daysElapsed = daysCounter(lastActiveDate, currentDate)
     } else {
      daysElapsed = 0; 
     }
-
-    localStorage.setItem('lastActiveDate', currentDate);
-
+    
+    terrarium.lastActiveDate = currentDate;
+    this.props.updateTerrarium(terrarium);
     return daysElapsed;
   }
 
   render() {
     return(
-      <div></div>
+      <div className='timer'>
+        <div className='hourglass'></div>
+        <div className='date'>{this.state.date}</div>
+        <div className='time'>{this.state.time}</div>
+      </div>
     )
   }
 
 }
 
-export default SecondsTimer;
+export default DayTimer;

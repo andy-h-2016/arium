@@ -5,7 +5,7 @@ class OverallConsumption extends React.Component {
     super(props);
 
     this.state = {
-      overall: this.props.overallConsumptions ? this.props.overallConsumptions.overall : ''
+      overall: this.props.overallConsumptions ? this.props.overallConsumptions.water : ''
     }
   }
 
@@ -14,9 +14,9 @@ class OverallConsumption extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.overallConsumptions && (prevProps.overallConsumptions.overall !== this.props.overallConsumptions.overall)) {
+    if (prevProps.overallConsumptions && (prevProps.overallConsumptions.water !== this.props.overallConsumptions.water)) {
       this.setState({
-        overall: this.props.overallConsumptions.overall
+        overall: this.props.overallConsumptions.water
       });
     }
   }
@@ -26,13 +26,12 @@ class OverallConsumption extends React.Component {
 
     if (!overallConsumptions) return <div></div>;
     return (
-      
-      <div className="overall-page">
-        <div className="bottle">
-        <div className="overall-count">{overallConsumptions.overall}</div>
+      <React.Fragment>
+        <div className="cup">
+          <div className="overall-count">{overallConsumptions.water}</div>
         </div>
+      </React.Fragment>
         
-      </div>
     )
   }
 }

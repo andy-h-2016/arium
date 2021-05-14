@@ -6,8 +6,7 @@ const passport = require('passport');
 const WaterTracker = require('../../models/WaterTracker');
 const OverallConsumption = require('../../models/OverallConsumption');
 const validateWaterTrackerInput = require('../../validation/watertracker');
-
-
+const alertIfBalanceLow = require('../../helper/email')
 
 router.get('/test', (req, res) => res.json({ msg: 'The water tracker router is working' }));
 
@@ -75,12 +74,18 @@ router.patch('/:id',
             grabOverall = overallConsumptions[0]
 
             const delta = parseInt(req.body.delta) || 0;
+            const water = parseInt(grabOverall.water) + delta;
+            const fundsGenerated = water / 730;
+            const fundsBalance = grabOverall.fundsDonated - fundsGenerated;
             const updateOverall = {
-              overall: parseInt(grabOverall.overall) + delta
+              water,
+              fundsGenerated,
+              fundsBalance
             }
+
+            alertIfBalanceLow(fundsBalance, grabOverall.lastAlertedAt, grabOverall._id);
             
-            OverallConsumption.findByIdAndUpdate(grabOverall._id, updateOverall,
-              { new: true }, (err, overallConsumption) => {
+            OverallConsumption.findByIdAndUpdate(grabOverall._id, updateOverall, { new: true }, (err, overallConsumption) => {
                 if (err) {
                   console.log(err)
                   res.status(400).json(err);

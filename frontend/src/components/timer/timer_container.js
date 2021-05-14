@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import SecondsTimer from './seconds_timer';
 import { fetchUserTerrarium, updateTerrarium } from '../../actions/terrarium_actions';
 import { fetchUserWaterTracker, updateWaterTracker } from '../../actions/water_tracker_actions'
+import DayTimer from './day_timer';
 
 
 const mapStateToProps = (state, ownProps) => {
@@ -23,4 +24,5 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SecondsTimer);
+export default connect(mapStateToProps, mapDispatchToProps)(DayTimer);
+// export default connect(mapStateToProps, mapDispatchToProps)(SecondsTimer);

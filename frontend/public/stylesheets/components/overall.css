@@ -17,9 +17,6 @@
 
 }
 
-.msg2{
-  margin-bottom: 20px;
-}
 
 /* .overall-count {
   z-index: 1;
@@ -28,7 +25,7 @@ font-size: 50px;
 font-weight: 500;
 } */
 
-.bottle{ 
+.cup{ 
   /* background-image: url(../../images/bottle.gif);
   background-position-x: 370px;
   background-position-y: -50px;

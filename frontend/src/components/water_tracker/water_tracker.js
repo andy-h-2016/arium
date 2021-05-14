@@ -3,10 +3,6 @@ import {Link, withRouter } from 'react-router-dom';
 
 
 class WaterTracker extends React.Component {
-  constructor(props) {
-    super(props);
-
-  }
 
   componentDidUpdate(prevProps) {
     if (prevProps.currentUser.goal !== this.props.currentUser.goal) {
@@ -38,9 +34,6 @@ class WaterTracker extends React.Component {
       case waterTracker.today >= currentUser.goal:
         healthMsg = <div id="healthmsg">Amazing work... You deserve a drink.</div>;
         break;
-      // case waterTracker.today > currentUser.goal:
-      //   healthMsg = <div id="healthmsg">Alright, you don't want to drown now...</div>;
-      //   break;
       default:
         break;
     }
@@ -111,7 +104,7 @@ class WaterTracker extends React.Component {
           <div className="water-tracker-goal">
             <div className='frame-mgn'>
               <div className="terr-title-text2"> Please drink  </div>
-              <div className="terr-title-text" className='num-ani'> {drinks} </div>
+              <div className="terr-title-text num-ani" > {drinks} </div>
               <div className='w-comment'> more cups of water today to grow your wonderful Terrarium. </div>
             </div>
           </div>
@@ -125,7 +118,7 @@ class WaterTracker extends React.Component {
             <div className='frame-mgn'>
               <div className='comment-l' > WOW!</div>
               <div className='comment-m'> You've drank </div>
-              <div className='comment-l' className='num-ani'> {waterTracker.total} </div>
+              <div className='comment-l num-ani'> {waterTracker.total} </div>
               <div className='comment-m'> cups of water </div>
               <div className='comment-s'>since you've signed up for </div>
               <div className='comment-l'>Arium</div>

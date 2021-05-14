@@ -10,9 +10,8 @@ const TerrariumSchema = new Schema({
     type: Number,
     required: true 
   },
-  health: {
-    type: Number,
-    required: true 
+  lastActiveDate: {
+    type: Date
   },
   userId: {
     type: Schema.Types.ObjectId,

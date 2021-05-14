@@ -28,7 +28,10 @@ router.post('/',
     }
 
     const newOverallConsumption = new OverallConsumption({
-      overall: 0
+      water: 0,
+      fundsGenerated: 0,
+      fundsDonated: 0,
+      fundsBalance: 0 
     });
 
     newOverallConsumption.save().then(overallconsumption => res.json(overallconsumption));

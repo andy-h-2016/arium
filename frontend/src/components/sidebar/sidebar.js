@@ -17,13 +17,13 @@ class SideBar extends React.Component {
   }
 
   openNav() {
-    document.getElementById("mySidebar").style.width = "250px";
-    document.getElementById("main").style.marginLeft = "250px";
+    document.getElementById("mySidebar").style.transform = "translate3d(0,0,0)";
+    document.getElementById("mySidebar").style['-webkit-transform'] = "translate3d(0,0,0)";
   }
   
   closeNav() {
-    document.getElementById("mySidebar").style.width = "0";
-    document.getElementById("main").style.marginLeft= "0";
+    document.getElementById("mySidebar").style.transform = "translate3d(100%,0,0";
+    document.getElementById("mySidebar").style['-webkit-transform'] = "translate3d(100%,0,0";
   }
 
   // Selectively render links dependent on whether the user is logged in
@@ -33,8 +33,8 @@ class SideBar extends React.Component {
           <div id="main">
             <button className="openbtn" onClick={() => this.openNav()}>☰ Open Sidebar</button>  
             <div id="mySidebar" className="sidebar" >
-
                 <button className="closebtn" onClick={() => this.closeNav()}>×</button>
+              <nav className="links">
                 <Link to={'/instruction'}>Instructions</Link>
                 <Link to={'/terrarium'}>My Terrarium</Link>
                 
@@ -44,20 +44,23 @@ class SideBar extends React.Component {
                 <Link to={'/info'}>About Us</Link>
                 <Link to={'/donation'}>Global Thirst</Link>
                 <div className="line"></div>
-                <nav className="logout-btn ">
                 <button className="logout" onClick={this.logoutUser}>Logout</button>
-                </nav>
+              </nav>
 
-                <div className="donated">
-                  <OverallConsumptionContainer />            
+              <div className="graphics-container">
+                <div className="donated-container">
+                  <div className="donated">
+                    <OverallConsumptionContainer />            
+                  </div>
+                  <div className="overall-msg">Cups </div>
+                  <div className="overall-msg msg2">Donated</div>
                 </div>
-                <div className="overall-msg">Cups </div>
-                <div className="overall-msg msg2">Donated</div>
-                <br></br>
-                 <TimerContainer />
+                
+                <TimerContainer />
               </div>
-             
             </div>
+             
+          </div>
         );
       } else {
         return (

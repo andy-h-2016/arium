@@ -1,36 +1,9 @@
-.sidebar {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 3;
-  top: 0;
-  right: 0;
-  background-color: rgb(16, 82, 124);
-  overflow-x: hidden;
-  transition: 0.5s;
-  padding-top: 60px;
-}
-
-.sidebar a, .logout{
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: rgb(246, 236, 218);
-  display: block;
-  transition: 0.3s;
-  background-color: rgb(16, 82, 124);
-}
-
-.sidebar a:hover {
-  color: #f1f1f1;
-}
-
-.sidebar .closebtn {
+/******** STYLING FOR SIDEBAR & OPEN BUTTON **********/
+#main {
+  padding: 16px;
   position: absolute;
+  right: 0;
   top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
 }
 
 .openbtn {  
@@ -52,26 +25,7 @@
   background-color: rgb(28, 100, 145);
 }
 
-#main {
-  transition: margin-left .5s;
-  padding: 16px;
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-/* .donated{
-  position: fixed;
-  left: 50%;
-  transform: translate(-50%, 0);
-  bottom: 10%;
-  
-} */
-/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-@media screen and (max-height: 450px) {
-  .sidebar {padding-top: 15px;}
-  .sidebar a {font-size: 18px;}
-}
-
+/**************** CLOSE SIDEBAR BUTTON **************/
 .closebtn{
   height: 40px;
   width: 40px;
@@ -85,31 +39,137 @@
 color: white
 }
 
+/************ STYLING FOR SIDEBAR WHEN IT IS OPEN  ***************/
+.sidebar {
+  box-sizing: border-box;
+  height: 100vh;
+  padding-top: 6vh;
+  width: 13vw;
+  min-width: 150px;
+  max-width: 250px;
+  overflow-x: hidden;
+  
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 3;
+  
+  background-color: rgb(16, 82, 124);
+
+  transition: 0.5s;
+  transform: translate3d(100%, 0, 0);
+  -webkit-transform: translate3d(100%, 0, 0);
+
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar a, .logout{
+  padding: 4% 3% 4% 9%;
+  text-decoration: none;
+  font-size: min(18px + .25vmax, 25px);
+  color: rgb(246, 236, 218);
+  display: block;
+  transition: 0.3s;
+  background-color: rgb(16, 82, 124);
+}
+
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+
+
+
+/* .donated{
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, 0);
+  bottom: 10%;
+  
+} */
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+
+
+
+/************** LOGOUT BUTTON *********************/
+.line{
+  width: 100%;
+  border-top: solid white 1px;
+}
+
+.logout {
+margin: 5px;
+border: none;
+outline: none;
+font-family: 'Times New Roman', Times, serif;
+}
+
+.logout:hover{
+  color: white;
+}
+
+
+/****** GRAPHICS SECTION: DONATIONS AND TIMER ********/
+.graphics-container {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/************** donations graphic *********************/
+.donated-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-top: auto;
+  margin-bottom: auto; 
+}
+
 .donated {
-  border: 2px solid rgba(215, 215, 255, 0.911);
-  line-height: 20px;
   display: inline-block;
-  margin-left: 85px;
+  position: relative;
+  z-index: 9;
+
+  border: 2px solid rgba(215, 215, 255, 0.911);
+  box-shadow: inset 0 1px 0px #3c3b46, inset 0 1px 0 white,
+  inset 0 -4px 3px #8990a7;
+  
+  line-height: 20px;
   padding: 20px 2px;
   padding-bottom: 30px;
+
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
   border-bottom-left-radius: 18px;
   border-bottom-right-radius: 18px;
   border-top: none;
-  position: relative;
-  overflow: hidden;
-  z-index: 9;
+
   background: rgba(255, 255, 255, 0.822);
-  letter-spacing: 1px;
   cursor: default;
-  margin-top: 90px;
+  
   font-size: 32px;
   font-family: 'Times New Roman', Times, serif;
   font-weight: 700;
-  box-shadow: inset 0 1px 0px #3c3b46, inset 0 1px 0 white,
-  inset 0 -4px 3px #8990a7;
+  letter-spacing: 1px;
+  overflow: hidden;
 }
+
 .donated::before {
   content: "";
   position: absolute;
@@ -123,6 +183,7 @@ color: white
   z-index: -1;
 }
 
+/* animation frames for droplet */
 @keyframes drop {
   0% {
     top: -15px;
@@ -174,26 +235,63 @@ color: white
   transition: all 0.4s linear;
   transition-delay: 1s;
 }
+
 .donated:hover {
   color: rgb(8, 22, 143);
   transition: all 0.4s linear;
   transition-delay: 1s;
-
 }
 
-.line{
-  width: 100%;
-  border-top: solid white 1px;
+.overall-msg {
+  font-size: min(18px + .25vmax, 25px);
+  z-index: 1;
+  text-align: center;
+  color: rgb(246, 236, 218);
 }
 
-.logout {
-margin: 5px;
-border: none;
-outline: none;
-font-family: 'Times New Roman', Times, serif;
+.cup { 
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
 }
 
-.logout:hover{
-  color: white;
+
+/******************* TIMER **********************/
+.timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  
+  position: relative;
+  margin-bottom: auto;
 }
+
+.hourglass {
+  background: url('../../images/hourglass.gif');
+  background-size: contain;
+  background-repeat: no-repeat; 
+  height: 130px;
+  width: 100px;
+  /* height: 14vh;
+  width: 8vw; */
+}
+
+.date, .time {
+  font-size: min(16px + .25vmax, 25px);
+  color: rgb(246, 236, 218);
+  padding-bottom: 2px;
+
+  position: relative;
+  top: -10px;
+}
+
+.timer-value {
+  font-size: min(18px + .25vmax, 25px);
+  color: rgb(246, 236, 218);
+}
+
 

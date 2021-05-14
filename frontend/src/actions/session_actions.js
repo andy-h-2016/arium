@@ -80,8 +80,13 @@ export const clearSessionErrors = () => ({
   });
 
 export const updateUser = (userId, user) => (dispatch)=> (
-  APIUtil.updateUser(userId, user)
-  .then((user) => dispatch(receiveUser(user)))
+  APIUtil.updateUser(userId, user).then(res => {
+    const { token } = res.data;
+    localStorage.setItem('jwtToken', token);
+    APIUtil.setAuthToken(token);
+    const decoded = jwt_decode(token);
+    dispatch(receiveUser(decoded));
+  })
   .catch(err => console.log(err))
 );
 
