@@ -22,7 +22,8 @@ switch (action.type) {
     case RECEIVE_USER:      
     return {     
       ...state,
-      user: action.user.data
+      isAuthenticated: !!action.user,
+      user: action.user
     };
 
   default:

@@ -88,7 +88,7 @@ router.post("/login", (req, res) => {
     bcrypt.compare(password, user.password)
       .then(isMatch => {
         if (isMatch) {
-          const payload = { id: user.id, username: user.username, email: user.email, goal: user.goal, bio: user.bio };
+          const payload = { id: user.id, username: user.username, email: user.email, goal: user.goal};
 
           jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
             res.json({
@@ -120,13 +120,14 @@ router.patch('/updateUser/:id', passport.authenticate('jwt', {session: false}), 
       return res.json.status(400).json(errors);
     }
 
-    let { goal, bio } = req.body;
+    let goal = req.body.goal;
 
     let updateInfo = {};
     if (goal) updateInfo.goal = goal;
-    if (bio) updateInfo.bio = bio;
 
-    var query = { _id: req.params.id}, update = { $set: updateInfo }, options = { new: true }
+    let query = { _id: req.params.id};
+    let update = { $set: updateInfo };
+    let options = { new: true };
 
     User.findOne(query)
       .then(user => {
@@ -138,9 +139,16 @@ router.patch('/updateUser/:id', passport.authenticate('jwt', {session: false}), 
             if (err) {
               res.status(400).json(err);
             } else {  
-              res.json(user);
+              const payload = { id: user.id, username: user.username, email: user.email, goal: user.goal}
+              jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
+                console.log('TOKEN', token)
+                res.json({
+                  success: true,
+                  token: "Bearer " + token
+                });
+              });
             }
-          })
+          });
         }
       })
       .catch(() => res.status(404).json({ nouserfound: "No user found with this ID"}))
