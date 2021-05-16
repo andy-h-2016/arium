@@ -21,8 +21,8 @@ In addition to health promotion and fighting global thirst we also endevour to p
 ## Bonus Features
 
 * Animation based on user interactions (e.g. mouse hover)
-* Daily animation based on your current progress towards your daily goal #(done!)
-* Browsing other users' terrariums #(done!)
+* Daily animation based on your current progress towards your daily goal **(done!)**
+* Browsing other users' terrariums **(done!)**
 * Custom terrarium decorations available via direct donations
 
 
