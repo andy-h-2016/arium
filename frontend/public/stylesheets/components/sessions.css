@@ -114,8 +114,8 @@ button{
     margin: auto;
     max-width: 580px;
     width: 300px;
-    z-index: 10;
-    
+    z-index: 10;    
+    margin-bottom: 20px;
   }
   
   .header-link {
@@ -228,7 +228,7 @@ button{
   }
   
   .modal-child {
-    border-top: 30px solid transparent;
+    border-top: 10px solid transparent;
     position: absolute;
      z-index: 11;
     top: 0;
@@ -390,7 +390,7 @@ button{
     background-image: url("https://www.tutorialscan.com/wp-content/uploads/2019/10/water-flowbg.png");
     background-repeat: repeat-x;
     -webkit-background-clip: text;
-    animation: animate 20s linear infinite
+    animation: animate 20s linear infinite;
 }
 @keyframes animate
 {
