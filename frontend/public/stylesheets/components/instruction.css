@@ -2,7 +2,7 @@
   background: rgb(115, 147, 168);
   width: 100vw;
   height: 2000px;
-  padding: 20px 130px 80px 130px;
+  padding: 20px 130px 50px 130px;
   font-family: Palatino, "Palatino LT STD", "Palatino Linotype", "Book Antiqua", Georgia, serif;
   color:  rgb(57, 75, 129);
   display: flex;
@@ -90,7 +90,6 @@
   flex-direction: row;
   justify-content: center;
   margin: 20px;
-  
 }
 .instruction02 {
   display: flex;
