@@ -2,7 +2,7 @@
   background: rgb(115, 147, 168);
   width: 100vw;
   height: 2000px;
-  padding: 20px 130px 300px 130px;
+  padding: 20px 130px 50px 130px;
   font-family: Palatino, "Palatino LT STD", "Palatino Linotype", "Book Antiqua", Georgia, serif;
   color:  rgb(57, 75, 129);
   display: flex;
@@ -26,7 +26,6 @@
   max-width: 500px;
   padding: 20px;
   border: solid 15px rgb(180, 186, 202);
-  /* rgb(150, 127, 39); */
   box-shadow: 0 10px 7px -5px rgba(0, 0, 0, 0.3);
 }
 .table-frame {
@@ -65,16 +64,13 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  /* background: lightgreen; */
 }
 .instruction01 {
   display: flex;
   flex-direction: column;
-  /* background: lightskyblue; */
 }
 .placeholder01 {
   width: 40%;
-  /* background: lightpink; */
   padding: 40px;
   padding-top: 80px;
 }
@@ -94,11 +90,8 @@
   flex-direction: row;
   justify-content: center;
   margin: 20px;
-  /* background: lightgreen; */
-  
 }
 .instruction02 {
-  /* background: lightskyblue; */
   display: flex;
   flex-direction: column;
   padding-left: 40px;
@@ -106,10 +99,10 @@
   margin-left: 20px;
 
 }
-.placeholder02 {
+/* .placeholder02 { */
   /* background: lightpink; */
   /* width: 45%; */
-}
+/* } */
 .tracker-inst-img {
   background-image: url('../../images/instruction/tracker01.png');
   background-repeat: no-repeat;  
