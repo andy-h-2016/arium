@@ -14,8 +14,13 @@ class SecondsTimer extends React.Component {
 
   componentDidMount() {
     const id = this.props.currentUser.id || this.props.currentUser._id;
-    this.props.fetchUserTerrarium(id);
-    this.props.fetchUserWaterTracker(id);
+    
+    //execute both fetches in parallel, run calculateTerrariumLevels after both fetches have completed.
+    Promise.all([
+      this.props.fetchUserTerrarium(id),
+      this.props.fetchUserWaterTracker(id),
+    ]).then( () => this.calculateTerrariumLevels());
+
     const timerId = Math.random();
     this.intervalID = setInterval( () => {
       this.calculateTerrariumLevels();
